@@ -1080,9 +1080,18 @@ section {
     animation: swipeAnim 1.5s infinite;
   }
 
+  .swipe-arrow-left {
+    animation: swipeAnimLeft 1.5s infinite;
+  }
+
   @keyframes swipeAnim {
     0%, 100% { transform: translateX(0); }
     50% { transform: translateX(5px); }
+  }
+
+  @keyframes swipeAnimLeft {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-5px); }
   }
 
   .hero-text-container {

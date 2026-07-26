@@ -8,6 +8,18 @@ function ProjectGroup({ project, animClass }: { project: any, animClass: string 
   const [isVisible, setIsVisible] = useState(false);
   const [cachedHeight, setCachedHeight] = useState<string>('auto');
   const containerRef = useRef<HTMLDivElement>(null);
+  const [scrollState, setScrollState] = useState<'start' | 'middle' | 'end'>('start');
+
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const { scrollLeft, scrollWidth, clientWidth } = e.currentTarget;
+    if (scrollLeft <= 10) {
+      setScrollState('start');
+    } else if (Math.ceil(scrollLeft + clientWidth) >= scrollWidth - 10) {
+      setScrollState('end');
+    } else {
+      setScrollState('middle');
+    }
+  };
 
   useEffect(() => {
     const mountObserver = new IntersectionObserver((entries) => {
@@ -149,11 +161,13 @@ function ProjectGroup({ project, animClass }: { project: any, animClass: string 
     <div className="project-group" ref={containerRef} style={{ minHeight: cachedHeight, contentVisibility: 'auto' }}>
       <h2 className="project-group-title">{t(`projects.titles.${project.title}`)} - <span className="highlight-text">{project.brand}</span></h2>
       <div className="mobile-swipe-indicator">
-        {t('projects.swipeToExplore')} <span className="swipe-arrow">→</span>
+        {scrollState !== 'start' && <span className="swipe-arrow-left">←</span>}
+        <span>{t('projects.swipeToExplore')}</span>
+        {scrollState !== 'end' && <span className="swipe-arrow">→</span>}
       </div>
       
       {isVisible && (
-        <div className={`projects-grid ${gridClass} ${animClass}`}>
+        <div className={`projects-grid ${gridClass} ${animClass}`} onScroll={handleScroll}>
           {/* Render Before/After Pairs */}
           {project.pairs && project.pairs.map((pair: any, index: number) => (
             <div key={`pair-${index}`} className="project-card">
