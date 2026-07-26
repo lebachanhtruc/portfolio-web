@@ -1057,6 +1057,10 @@ section {
     display: none !important;
   }
 
+  .project-card {
+    transform: translateY(0) !important;
+  }
+
   .hero-left-label, .hero-right-label {
     text-align: center;
   }
