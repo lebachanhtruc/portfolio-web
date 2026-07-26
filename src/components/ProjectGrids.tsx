@@ -200,13 +200,13 @@ function ProjectGroup({ project, animClass }: { project: any, animClass: string 
 
           {/* Render Standalone Media */}
           {project.standalone && project.standalone.map((src: string, index: number) => {
-            let easterEggVideo = null;
+            let easterEggVideo: string | undefined = undefined;
             if (src.includes('Singapore9252.jpg')) {
-              easterEggVideo = "/Media/Proof of work/IMG_4950.MOV";
+              easterEggVideo = encodePath("/Media/Proof of work/IMG_4950.MOV");
             } else if (src.includes('set-1.png') && !src.includes('edited')) {
-              easterEggVideo = "/Media/Proof of work/IMG_4955.MOV";
+              easterEggVideo = encodePath("/Media/Proof of work/IMG_4955.MOV");
             }
-            const isEasterEggTarget = easterEggVideo !== null;
+            const isEasterEggTarget = easterEggVideo !== undefined;
             
             return (
               <Fragment key={`standalone-wrapper-${index}`}>
@@ -215,10 +215,12 @@ function ProjectGroup({ project, animClass }: { project: any, animClass: string 
                     <div className="media-wrapper">
                       {renderMedia(src)}
                       {isEasterEggTarget && (
-                        <div className="easter-egg-video-container">
-                          <video src={easterEggVideo} autoPlay loop muted playsInline className="hover-video" />
+                        <>
                           <div className="play-icon-overlay">▶️</div>
-                        </div>
+                          <div className="easter-egg-video-container">
+                            <video src={easterEggVideo} autoPlay loop muted playsInline className="hover-video" />
+                          </div>
+                        </>
                       )}
                     </div>
                     <div className="card-info">
