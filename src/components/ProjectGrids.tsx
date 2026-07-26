@@ -53,7 +53,7 @@ function ProjectGroup({ project, animClass }: { project: any, animClass: string 
   }, [isVisible]);
 
   const encodePath = (path: string) => {
-    return path.split('/').map(segment => encodeURIComponent(segment)).join('/');
+    return path.normalize('NFC').split('/').map(segment => encodeURIComponent(segment)).join('/');
   };
 
   const renderMedia = (src: string) => {

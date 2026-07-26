@@ -493,15 +493,20 @@ section {
 }
 
 .pill-menu {
-  display: inline-flex;
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 50px;
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
   padding: 0.5rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  gap: 1.5rem; /* Increased gap to make bar wider */
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.pill-menu::-webkit-scrollbar {
+  display: none;
 }
 
 .pill-btn {
@@ -1020,8 +1025,8 @@ section {
 
 /* Responsive */
 @media (max-width: 480px) {
-  .grid-3-cols, .vertical-grid, .masonry-grid {
-    grid-template-columns: 1fr;
+  .grid-3-cols, .vertical-grid, .masonry-grid, .grid-5x2, .grid-5-cols, .grid-3-cols-center-high, .grid-2-cols, .grid-1-col {
+    grid-template-columns: 1fr !important;
   }
   
   .massive-about-title {
@@ -1030,6 +1035,14 @@ section {
 
   .hero-text-container {
     flex-direction: column;
+  }
+
+  .project-group-title {
+    font-size: 1.5rem !important;
+  }
+
+  .hero-left-label, .hero-right-label {
+    text-align: center;
   }
 
   .massive-portfolio-text {
