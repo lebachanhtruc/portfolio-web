@@ -209,7 +209,7 @@ function ProjectGroup({ project, animClass }: { project: any, animClass: string 
             const isEasterEggTarget = easterEggVideo !== undefined;
             
             return (
-              <div key={`standalone-${index}`} className={`project-card ${isEasterEggTarget ? 'easter-egg-desktop' : ''}`} style={{ order: (index + 1) * 10 }}>
+              <div key={`standalone-${index}`} className={`project-card ${isEasterEggTarget ? 'easter-egg-desktop' : ''}`} style={{ '--mobile-order': (index + 1) * 10 } as React.CSSProperties}>
                 <div className="card-inner">
                   <div className="media-wrapper">
                     {renderMedia(src)}
@@ -244,7 +244,7 @@ function ProjectGroup({ project, animClass }: { project: any, animClass: string 
             if (!easterEggVideo) return null;
             
             return (
-              <div key={`mobile-inject-${index}`} className="project-card easter-egg-mobile-only" style={{ order: (index + 1) * 10 + 5 }}>
+              <div key={`mobile-inject-${index}`} className="project-card easter-egg-mobile-only" style={{ '--mobile-order': (index + 1) * 10 + 5 } as React.CSSProperties}>
                 <div className="card-inner">
                   <div className="media-wrapper">
                     <video src={easterEggVideo} autoPlay loop muted playsInline className="project-media" />

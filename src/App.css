@@ -1416,4 +1416,7 @@ section {
   .easter-egg-mobile-only {
     display: flex !important;
   }
+  .project-group > div .project-card {
+    order: var(--mobile-order, 0);
+  }
 }
