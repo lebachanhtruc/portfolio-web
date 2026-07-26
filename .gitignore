@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+bot_ssh_key
+bot_ssh_key.pub
