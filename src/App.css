@@ -1053,6 +1053,10 @@ section {
     font-size: 0.9rem;
   }
 
+  .project-card::after {
+    display: none !important;
+  }
+
   .hero-left-label, .hero-right-label {
     text-align: center;
   }
