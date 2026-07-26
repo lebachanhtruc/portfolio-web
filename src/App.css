@@ -1161,7 +1161,7 @@ section {
     display: none;
   }
   .about-col-1, .about-col-2, .about-col-3 {
-    flex: 0 0 85% !important;
+    flex: 0 0 100% !important;
     scroll-snap-align: center;
   }
 }
