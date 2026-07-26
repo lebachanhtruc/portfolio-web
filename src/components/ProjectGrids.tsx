@@ -70,8 +70,8 @@ function ProjectGroup({ project, animClass }: { project: any, animClass: string 
 
   const getObjectPosition = (src: string) => {
     const lowerSrc = src.toLowerCase();
-    if (lowerSrc.includes('cafe backyard3153') || lowerSrc.includes('2021_jul_04_-_cafe')) {
-      return 'left center';
+    if (lowerSrc.includes('103846843_687281425460136_2423623817171570336_n')) {
+      return 'left center'; // Show the poster on the glass
     }
     if (lowerSrc.includes('general tao chicken')) {
       return 'left bottom';
