@@ -1056,7 +1056,10 @@ section {
     display: flex !important;
     flex-wrap: nowrap !important;
     overflow-x: auto !important;
-    scroll-snap-type: x mandatory;
+    overflow-y: hidden !important;
+    scroll-snap-type: x proximity;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x pan-y;
     gap: 1.5rem !important;
     padding-bottom: 2rem !important;
     justify-content: flex-start !important;
@@ -1174,7 +1177,10 @@ section {
   .about-grid-3 {
     display: flex !important;
     overflow-x: auto !important;
-    scroll-snap-type: x mandatory;
+    overflow-y: hidden !important;
+    scroll-snap-type: x proximity;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x pan-y;
     gap: 1rem;
     padding-bottom: 2rem;
     -ms-overflow-style: none;
