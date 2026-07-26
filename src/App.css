@@ -1080,6 +1080,22 @@ section {
     font-size: 1.5rem !important;
   }
 
+  .filter-menu-wrapper {
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 0 1rem;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .filter-menu-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pill-menu {
+    max-width: max-content;
+    overflow: visible;
+  }
+
   .footer-contact {
     flex-direction: column;
     gap: 1rem;
