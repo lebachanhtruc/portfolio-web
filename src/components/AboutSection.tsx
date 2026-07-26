@@ -80,7 +80,7 @@ export default function AboutSection() {
             <div className="creative-portrait-container">
               <div className="film-strip-decoration"></div>
               <img 
-                src="/Media/AI GRaphic design + photo shoot/Project 10 - food photography and ai poster create/June_17_2023_-_SHUSHU_202607251246.jpeg" 
+                src={"/Media/AI GRaphic design + photo shoot/Project 10 - food photography and ai poster create/June_17_2023_-_SHUSHU_202607251246.jpeg".split('/').map(segment => encodeURIComponent(segment)).join('/')} 
                 alt="Portrait" 
                 className="film-portrait-new"
                 loading="lazy"

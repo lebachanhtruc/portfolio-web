@@ -1033,13 +1033,22 @@ section {
   }
 
   .massive-portfolio-text {
-    font-size: clamp(2rem, 12vw, 4rem);
+    font-size: clamp(1rem, 10vw, 3rem);
+    white-space: nowrap;
   }
 
   .tv-mask {
-    width: clamp(50px, 12vw, 80px);
-    height: clamp(70px, 15vw, 100px);
-    margin: 0 0.5rem;
+    width: clamp(30px, 10vw, 60px);
+    height: clamp(40px, 12vw, 80px);
+    margin: 0 0.3rem;
+  }
+
+  .hero-labels {
+    flex-direction: column !important;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem !important;
+    padding: 0 1rem !important;
   }
 }
 
