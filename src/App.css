@@ -1360,3 +1360,60 @@ section {
   background: #c084fc;
   color: #1a0b2e;
 }
+
+/* Easter Egg Video Logic */
+.easter-egg-video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 2;
+  background: black;
+}
+
+.easter-egg-video-container .hover-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play-icon-overlay {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.5rem;
+  z-index: 3;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+  animation: pulse-icon 2s infinite;
+}
+
+@keyframes pulse-icon {
+  0% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.7; }
+}
+
+/* Desktop */
+@media (min-width: 481px) {
+  .easter-egg-desktop:hover .easter-egg-video-container {
+    opacity: 1;
+  }
+  .easter-egg-mobile-only {
+    display: none !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .easter-egg-desktop .easter-egg-video-container {
+    display: none !important;
+  }
+  .easter-egg-mobile-only {
+    display: flex !important;
+  }
+}
