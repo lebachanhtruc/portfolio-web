@@ -108,6 +108,17 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center center;
+}
+
+@media (max-width: 768px) {
+  .massive-portfolio-text {
+    transform: scale(1);
+  }
+  .massive-portfolio-text.in-view {
+    transform: scale(1.6);
+  }
 }
 
 .tv-mask {

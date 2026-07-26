@@ -1,13 +1,34 @@
 import { useLanguage } from '../contexts/LanguageContext';
+import { useEffect, useRef, useState } from 'react';
 
 export default function HeroSection() {
   const { t } = useLanguage();
+  const [isInView, setIsInView] = useState(false);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.5 }
+    );
+
+    if (titleRef.current) {
+      observer.observe(titleRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section className="hero-masterpiece">
       <div className="hero-text-container" style={{flexDirection: 'column'}}>
         <div className="hero-title-wrapper">
-          <h1 className="massive-portfolio-text">
+          <h1 
+            ref={titleRef}
+            className={`massive-portfolio-text ${isInView ? 'in-view' : ''}`}
+          >
             PORTF
             <span className="tv-mask">
               <video 
