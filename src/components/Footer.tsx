@@ -5,10 +5,12 @@ export default function Footer() {
       <div className="footer-content">
         <h1 className="massive-thank-you text-outline">THANK YOU</h1>
         <div className="footer-contact">
-          <p>lebachanhtruc@gmail.com</p>
+          <p><a href="mailto:lebachanhtruc@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>lebachanhtruc@gmail.com</a></p>
           <div className="social-links">
-            <span>in</span>
-            <span>/lebachanhtruc</span>
+            <a href="https://www.linkedin.com/in/lebachanhtruc" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span>in</span>
+              <span>/lebachanhtruc</span>
+            </a>
           </div>
         </div>
       </div>

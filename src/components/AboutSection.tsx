@@ -111,9 +111,9 @@ export default function AboutSection() {
           <div className="about-col-2" id="contact-section">
             <h3 className="section-title">{t('about.contact')}</h3>
             <ul className="contact-list">
-              <li><PhoneIcon /> <span>438-985-7846</span></li>
+              <li><PhoneIcon /> <a href="sms:+14389857846" style={{ color: 'inherit', textDecoration: 'none' }}><span>438-985-7846</span></a></li>
               <li><LocationIcon /> <span>Longueuil, Quebec, Canada</span></li>
-              <li><MailIcon /> <span className="highlight-box">lebachanhtruc@gmail.com</span></li>
+              <li><MailIcon /> <a href="mailto:lebachanhtruc@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}><span className="highlight-box">lebachanhtruc@gmail.com</span></a></li>
             </ul>
 
             <h3 className="section-title">{t('about.education')}</h3>
