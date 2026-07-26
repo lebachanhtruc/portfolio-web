@@ -209,46 +209,54 @@ function ProjectGroup({ project, animClass }: { project: any, animClass: string 
             const isEasterEggTarget = easterEggVideo !== undefined;
             
             return (
-              <Fragment key={`standalone-wrapper-${index}`}>
-                <div className={`project-card ${isEasterEggTarget ? 'easter-egg-desktop' : ''}`}>
-                  <div className="card-inner">
-                    <div className="media-wrapper">
-                      {renderMedia(src)}
-                      {isEasterEggTarget && (
-                        <>
-                          <div className="play-icon-overlay">▶️</div>
-                          <div className="easter-egg-video-container">
-                            <video src={easterEggVideo} autoPlay loop muted playsInline className="hover-video" />
-                          </div>
-                        </>
-                      )}
-                    </div>
-                    <div className="card-info">
-                      <div className="card-info-left">
-                        <h3 className="card-title">{generateCreativeTitle(src, project)}</h3>
-                        <p className="card-subtitle">{project.category}</p>
-                      </div>
+              <div key={`standalone-${index}`} className={`project-card ${isEasterEggTarget ? 'easter-egg-desktop' : ''}`} style={{ order: (index + 1) * 10 }}>
+                <div className="card-inner">
+                  <div className="media-wrapper">
+                    {renderMedia(src)}
+                    {isEasterEggTarget && (
+                      <>
+                        <div className="play-icon-overlay">▶️</div>
+                        <div className="easter-egg-video-container">
+                          <video src={easterEggVideo} autoPlay loop muted playsInline className="hover-video" />
+                        </div>
+                      </>
+                    )}
+                  </div>
+                  <div className="card-info">
+                    <div className="card-info-left">
+                      <h3 className="card-title">{generateCreativeTitle(src, project)}</h3>
+                      <p className="card-subtitle">{project.category}</p>
                     </div>
                   </div>
                 </div>
+              </div>
+            );
+          })}
 
-                {/* Mobile Injected Video Card */}
-                {isEasterEggTarget && (
-                  <div className="project-card easter-egg-mobile-only">
-                    <div className="card-inner">
-                      <div className="media-wrapper">
-                        <video src={easterEggVideo} autoPlay loop muted playsInline className="project-media" />
-                      </div>
-                      <div className="card-info">
-                        <div className="card-info-left">
-                          <h3 className="card-title">Behind the Scenes</h3>
-                          <p className="card-subtitle">Creative Process</p>
-                        </div>
-                      </div>
+          {/* Render Mobile Injected Videos AT THE END of DOM to preserve nth-child, ordered visually via CSS */}
+          {project.standalone && project.standalone.map((src: string, index: number) => {
+            let easterEggVideo: string | undefined = undefined;
+            if (src.includes('Set0229.jpg')) {
+              easterEggVideo = encodePath("/Media/Proof of work/IMG_4950.MOV");
+            } else if (src.includes('Set0280.jpg')) {
+              easterEggVideo = encodePath("/Media/Proof of work/IMG_4955.MOV");
+            }
+            if (!easterEggVideo) return null;
+            
+            return (
+              <div key={`mobile-inject-${index}`} className="project-card easter-egg-mobile-only" style={{ order: (index + 1) * 10 + 5 }}>
+                <div className="card-inner">
+                  <div className="media-wrapper">
+                    <video src={easterEggVideo} autoPlay loop muted playsInline className="project-media" />
+                  </div>
+                  <div className="card-info">
+                    <div className="card-info-left">
+                      <h3 className="card-title">Behind the Scenes</h3>
+                      <p className="card-subtitle">Creative Process</p>
                     </div>
                   </div>
-                )}
-              </Fragment>
+                </div>
+              </div>
             );
           })}
         </div>
