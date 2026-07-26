@@ -68,12 +68,24 @@ function ProjectGroup({ project, animClass }: { project: any, animClass: string 
     return path.normalize('NFC').split('/').map(segment => encodeURIComponent(segment)).join('/');
   };
 
+  const getObjectPosition = (src: string) => {
+    const lowerSrc = src.toLowerCase();
+    if (lowerSrc.includes('cafe backyard3153') || lowerSrc.includes('2021_jul_04_-_cafe')) {
+      return 'left center';
+    }
+    if (lowerSrc.includes('general tao chicken')) {
+      return 'left bottom';
+    }
+    return undefined;
+  };
+
   const renderMedia = (src: string) => {
     const safeSrc = encodePath(src);
     if (src.toLowerCase().endsWith('.mp4') || src.toLowerCase().endsWith('.mov')) {
       return <video src={safeSrc} autoPlay loop muted playsInline className="project-media" />;
     }
-    return <img src={safeSrc} alt="Media" loading="lazy" className="project-media" />;
+    const position = getObjectPosition(src);
+    return <img src={safeSrc} alt="Media" loading="lazy" className="project-media" style={position ? { objectPosition: position } : undefined} />;
   };
 
   const itemCount = (project.pairs?.length || 0) + (project.standalone?.length || 0);
