@@ -1066,12 +1066,14 @@ section {
     justify-content: center;
     gap: 0.5rem;
     font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--accent-color);
+    font-weight: 600;
     margin-bottom: 1.5rem;
     font-style: italic;
     font-family: var(--font-primary);
     text-transform: uppercase;
     letter-spacing: 1px;
+    opacity: 0.9;
   }
 
   .swipe-arrow {
