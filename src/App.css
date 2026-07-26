@@ -1123,15 +1123,15 @@ section {
   }
 
   .pill-menu {
-    max-width: 90vw;
+    max-width: 95vw;
     overflow-x: auto;
-    padding: 0.3rem;
-    gap: 0.25rem;
+    padding: 0.25rem;
+    gap: 0;
   }
 
   .pill-btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.8rem;
+    padding: 0.4rem 0.55rem;
+    font-size: 0.75rem;
   }
 
   .footer-contact {
