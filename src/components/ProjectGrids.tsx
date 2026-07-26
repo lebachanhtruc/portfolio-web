@@ -201,9 +201,9 @@ function ProjectGroup({ project, animClass }: { project: any, animClass: string 
           {/* Render Standalone Media */}
           {project.standalone && project.standalone.map((src: string, index: number) => {
             let easterEggVideo: string | undefined = undefined;
-            if (src.includes('Singapore9252.jpg')) {
+            if (src.includes('Set0229.jpg')) {
               easterEggVideo = encodePath("/Media/Proof of work/IMG_4950.MOV");
-            } else if (src.includes('set-1.png') && !src.includes('edited')) {
+            } else if (src.includes('Set0280.jpg')) {
               easterEggVideo = encodePath("/Media/Proof of work/IMG_4955.MOV");
             }
             const isEasterEggTarget = easterEggVideo !== undefined;
