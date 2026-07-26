@@ -1028,6 +1028,17 @@ section {
   display: none;
 }
 
+@media (pointer: coarse) {
+  .custom-cursor {
+    display: none !important;
+  }
+  
+  /* Re-enable default cursor for touch devices if we disabled it */
+  * {
+    cursor: auto !important;
+  }
+}
+
 /* Responsive */
 @media (max-width: 480px) {
   .grid-3-cols, .vertical-grid, .masonry-grid, .grid-5x2, .grid-5-cols, .grid-3-cols-center-high, .grid-2-cols, .grid-1-col {
