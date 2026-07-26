@@ -1059,6 +1059,7 @@ section {
     scroll-snap-type: x mandatory;
     gap: 1.5rem !important;
     padding-bottom: 2rem !important;
+    justify-content: flex-start !important;
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
