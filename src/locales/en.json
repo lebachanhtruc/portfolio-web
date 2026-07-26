@@ -1,0 +1,64 @@
+{
+  "hero": {
+    "role": "PRODUCT OWNER & CREATIVE PRODUCER"
+  },
+  "about": {
+    "bioTitle": "About Me",
+    "bio": {
+      "p1": "I bridge the gap between creative vision and technical execution. As a PSPO I certified Product Owner, I specialize in translating complex business requirements into scalable, user-centric solutions.",
+      "p2": "My background in creative media production allows me to approach problems with a unique dual perspective: analytical and aesthetic.",
+      "p3": "I am deeply passionate about automating workflows, migrating systems for operational efficiency, and leveraging Generative AI to push the boundaries of rapid prototyping."
+    },
+    "techStack": "Tech Stack & Tools",
+    "coreCompetencies": "Core Competencies",
+    "experience": "Experience",
+    "contact": "CONTACT",
+    "education": "EDUCATION & CERTS",
+    "tools": "TOOLS",
+    "present": "Present",
+    "languages": "Languages",
+    "proficiencies": {
+      "vi": "Vietnamese (Native)",
+      "en": "English (Professional)",
+      "fr": "French (Intermediate)"
+    },
+    "timeline": {
+      "t1": {
+        "role": "Product Owner / Solo Builder",
+        "desc": "AI-Driven Automation, React/Supabase SaaS, Zero Tech Debt Architecture"
+      },
+      "t2": {
+        "role": "Operations Manager & POS Lead",
+        "desc": "Scale & API Integration, K-Series Migration, Workflow Optimization"
+      },
+      "t3": {
+        "role": "Creative Media Producer",
+        "desc": "E-commerce Conversion, AI Integration (Midjourney, VEO), Media Workflows"
+      },
+      "t4": {
+        "role": "Sales Rep Supervisor",
+        "desc": "Data-driven marketing techniques, B2B client relationships"
+      }
+    }
+  },
+  "projects": {
+    "tabs": {
+      "AI x Photography": "AI x Photography",
+      "Videography": "Videography",
+      "Photography": "Photography"
+    },
+    "slider": {
+      "before": "Original",
+      "after": "Edited (AI)",
+      "retouch": "Before & After Retouch"
+    },
+    "titles": {
+      "Sensory Experience": "Sensory Experience",
+      "Broadcast Vision": "Broadcast Vision",
+      "The Culinary Art": "The Culinary Art",
+      "Product Elegance": "Product Elegance",
+      "Still Life Essence": "Still Life Essence",
+      "Cinematic Motion": "Cinematic Motion"
+    }
+  }
+}

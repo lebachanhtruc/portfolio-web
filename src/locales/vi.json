@@ -1,0 +1,64 @@
+{
+  "hero": {
+    "role": "GIÁM ĐỐC SẢN PHẨM & NHÀ SẢN XUẤT SÁNG TẠO"
+  },
+  "about": {
+    "bioTitle": "Giới Thiệu",
+    "bio": {
+      "p1": "Tôi là cầu nối giữa tầm nhìn sáng tạo và thực thi kỹ thuật. Là một Product Owner có chứng chỉ PSPO I, tôi chuyên chuyển đổi các yêu cầu kinh doanh phức tạp thành các giải pháp mở rộng, lấy người dùng làm trung tâm.",
+      "p2": "Nền tảng về sản xuất truyền thông sáng tạo cho phép tôi tiếp cận vấn đề với một góc nhìn kép độc đáo: cả về phân tích logic lẫn thẩm mỹ nghệ thuật.",
+      "p3": "Tôi đặc biệt đam mê tự động hóa quy trình làm việc, chuyển đổi hệ thống để tăng hiệu quả vận hành và tận dụng AI Tạo sinh (GenAI) để bứt phá giới hạn trong việc tạo mẫu nhanh."
+    },
+    "techStack": "Công Nghệ & Công Cụ",
+    "coreCompetencies": "Năng Lực Cốt Lõi",
+    "experience": "Kinh Nghiệm",
+    "contact": "LIÊN HỆ",
+    "education": "HỌC VẤN & CHỨNG CHỈ",
+    "tools": "CÔNG CỤ",
+    "present": "Hiện tại",
+    "languages": "Ngôn Ngữ",
+    "proficiencies": {
+      "vi": "Tiếng Việt (Bản ngữ)",
+      "en": "Tiếng Anh (Chuyên nghiệp)",
+      "fr": "Tiếng Pháp (Trung cấp)"
+    },
+    "timeline": {
+      "t1": {
+        "role": "Giám Đốc Sản Phẩm / Nhà Phát Triển Độc Lập",
+        "desc": "Tự động hóa AI, Nền tảng SaaS React/Supabase, Kiến trúc tối ưu không nợ kỹ thuật"
+      },
+      "t2": {
+        "role": "Quản Lý Vận Hành & Trưởng Bộ Phận POS",
+        "desc": "Mở rộng & Tích hợp API, Chuyển đổi hệ thống K-Series, Tối ưu quy trình làm việc"
+      },
+      "t3": {
+        "role": "Nhà Sản Xuất Truyền Thông Sáng Tạo",
+        "desc": "Tối ưu chuyển đổi E-commerce, Tích hợp AI (Midjourney, VEO), Quy trình Media"
+      },
+      "t4": {
+        "role": "Trưởng Nhóm Đại Diện Bán Hàng",
+        "desc": "Kỹ thuật marketing dựa trên dữ liệu, Xây dựng quan hệ khách hàng B2B"
+      }
+    }
+  },
+  "projects": {
+    "tabs": {
+      "AI x Photography": "Nhiếp Ảnh AI",
+      "Videography": "Quay Phim",
+      "Photography": "Nhiếp Ảnh"
+    },
+    "slider": {
+      "before": "Ảnh Gốc",
+      "after": "Xử Lý (AI)",
+      "retouch": "Trước & Sau Chỉnh Sửa"
+    },
+    "titles": {
+      "Sensory Experience": "Trải Nghiệm Đa Giác Quan",
+      "Broadcast Vision": "Tầm Nhìn Truyền Hình",
+      "The Culinary Art": "Nghệ Thuật Ẩm Thực",
+      "Product Elegance": "Sự Tinh Tế Của Sản Phẩm",
+      "Still Life Essence": "Tinh Hoa Tĩnh Vật",
+      "Cinematic Motion": "Chuyển Động Điện Ảnh"
+    }
+  }
+}

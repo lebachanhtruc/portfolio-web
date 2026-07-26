@@ -1,0 +1,60 @@
+{
+  "hero": {
+    "role": "PRODUCT OWNER & PRODUCTEUR CRÉATIF"
+  },
+  "about": {
+    "bioTitle": "À Propos",
+    "bio": {
+      "p1": "Je fais le pont entre la vision créative et l'exécution technique. En tant que Product Owner certifié PSPO I, je me spécialise dans la traduction des exigences commerciales complexes en solutions évolutives et centrées sur l'utilisateur.",
+      "p2": "Mon expérience dans la production de médias créatifs me permet d'aborder les problèmes avec une double perspective unique : analytique et esthétique.",
+      "p3": "Je suis profondément passionné par l'automatisation des flux de travail, la migration des systèmes pour l'efficacité opérationnelle et l'utilisation de l'IA Générative pour repousser les limites du prototypage rapide."
+    },
+    "techStack": "Pile Technologique",
+    "coreCompetencies": "Compétences Clés",
+    "experience": "Expérience",
+    "languages": "Langues",
+    "proficiencies": {
+      "vi": "Vietnamien (Langue maternelle)",
+      "en": "Anglais (Professionnel)",
+      "fr": "Français (Intermédiaire)"
+    },
+    "timeline": {
+      "t1": {
+        "role": "Product Owner / Développeur Solo",
+        "desc": "Automatisation basée sur l'IA, SaaS React/Supabase, Architecture sans dette technique"
+      },
+      "t2": {
+        "role": "Responsable des Opérations & Chef POS",
+        "desc": "Mise à l'échelle & Intégration API, Migration K-Series, Optimisation des flux de travail"
+      },
+      "t3": {
+        "role": "Producteur de Médias Créatifs",
+        "desc": "Conversion E-commerce, Intégration IA (Midjourney, VEO), Flux de médias"
+      },
+      "t4": {
+        "role": "Superviseur des Représentants",
+        "desc": "Techniques de marketing basées sur les données, Relations clients B2B"
+      }
+    }
+  },
+  "projects": {
+    "tabs": {
+      "AI x Photography": "Photographie IA",
+      "Videography": "Vidéographie",
+      "Photography": "Photographie"
+    },
+    "slider": {
+      "before": "Original",
+      "after": "Édité (IA)",
+      "retouch": "Avant & Après"
+    },
+    "titles": {
+      "Sensory Experience": "Expérience Sensorielle",
+      "Broadcast Vision": "Vision Télévisuelle",
+      "The Culinary Art": "L'Art Culinaire",
+      "Product Elegance": "L'Élégance du Produit",
+      "Still Life Essence": "L'Essence de la Nature Morte",
+      "Cinematic Motion": "Mouvement Cinématographique"
+    }
+  }
+}
