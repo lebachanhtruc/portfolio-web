@@ -13,6 +13,13 @@ export default function LanguageSwitcher() {
 
   return (
     <div className="bottom-floating-controls">
+      <a 
+        href="sms:+14389857846"
+        className="floating-contact-btn"
+        style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}
+      >
+        {t('about.textMe')}
+      </a>
       <button 
         className="floating-contact-btn"
         onClick={() => document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' })}
