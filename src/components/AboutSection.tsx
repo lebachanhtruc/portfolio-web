@@ -35,7 +35,20 @@ import { useLanguage } from '../contexts/LanguageContext';
 export default function AboutSection() {
   const { t } = useLanguage();
   const [scrollState, setScrollState] = useState<'start' | 'middle' | 'end'>('start');
+  const [copiedPhone, setCopiedPhone] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
 
+  const handleCopyPhone = () => {
+    navigator.clipboard.writeText('438-985-7846');
+    setCopiedPhone(true);
+    setTimeout(() => setCopiedPhone(false), 2000);
+  };
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText('lebachanhtruc@gmail.com');
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2000);
+  };
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
     const { scrollLeft, scrollWidth, clientWidth } = e.currentTarget;
     if (scrollLeft <= 10) {
@@ -111,9 +124,19 @@ export default function AboutSection() {
           <div className="about-col-2" id="contact-section">
             <h3 className="section-title">{t('about.contact')}</h3>
             <ul className="contact-list">
-              <li><PhoneIcon /> <a href="sms:+14389857846" style={{ color: 'inherit', textDecoration: 'none' }}><span>438-985-7846</span></a></li>
+              <li>
+                <PhoneIcon /> 
+                <a href="sms:+14389857846" onClick={handleCopyPhone} style={{ color: 'inherit', textDecoration: 'none' }}>
+                  <span>{copiedPhone ? t('about.copiedPhone') : t('about.sendSms')}</span>
+                </a>
+              </li>
               <li><LocationIcon /> <span>Longueuil, Quebec, Canada</span></li>
-              <li><MailIcon /> <a href="mailto:lebachanhtruc@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}><span className="highlight-box">lebachanhtruc@gmail.com</span></a></li>
+              <li>
+                <MailIcon /> 
+                <a href="mailto:lebachanhtruc@gmail.com" onClick={handleCopyEmail} style={{ color: 'inherit', textDecoration: 'none' }}>
+                  <span className="highlight-box">{copiedEmail ? t('about.copiedEmail') : t('about.sendEmail')}</span>
+                </a>
+              </li>
             </ul>
 
             <h3 className="section-title">{t('about.education')}</h3>
