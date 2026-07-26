@@ -148,6 +148,9 @@ function ProjectGroup({ project, animClass }: { project: any, animClass: string 
   return (
     <div className="project-group" ref={containerRef} style={{ minHeight: cachedHeight, contentVisibility: 'auto' }}>
       <h2 className="project-group-title">{t(`projects.titles.${project.title}`)} - <span className="highlight-text">{project.brand}</span></h2>
+      <div className="mobile-swipe-indicator">
+        Swipe to explore <span className="swipe-arrow">→</span>
+      </div>
       
       {isVisible && (
         <div className={`projects-grid ${gridClass} ${animClass}`}>
