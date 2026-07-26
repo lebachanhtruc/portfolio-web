@@ -1048,6 +1048,11 @@ section {
     font-size: 1rem;
   }
 
+  .pill-btn {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
   .hero-left-label, .hero-right-label {
     text-align: center;
   }
