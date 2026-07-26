@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function LanguageSwitcher() {
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
 
   const languages = [
