@@ -1147,6 +1147,23 @@ section {
     margin-top: 1.5rem !important;
     padding: 0 1rem !important;
   }
+
+  .about-grid-3 {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    padding-bottom: 2rem;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .about-grid-3::-webkit-scrollbar {
+    display: none;
+  }
+  .about-col-1, .about-col-2, .about-col-3 {
+    flex: 0 0 85% !important;
+    scroll-snap-align: center;
+  }
 }
 
 @media (max-width: 1024px) {

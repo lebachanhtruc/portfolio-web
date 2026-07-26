@@ -64,6 +64,9 @@ export default function AboutSection() {
       </div>
 
       <div className="container relative z-10">
+        <div className="mobile-swipe-indicator" style={{ marginBottom: '1rem', justifyContent: 'flex-start' }}>
+          {t('projects.swipeToExplore')} <span className="swipe-arrow">→</span>
+        </div>
         <div className="about-grid-3">
           
           {/* Column 1: Bio */}
