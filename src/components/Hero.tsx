@@ -9,7 +9,7 @@ export default function Hero() {
           muted 
           playsInline
         >
-          <source src="/Media/videography and editing/Project 9 - Ai generated Video for public Screen TV/House Grill Vermicelli Chicken 4k.mp4" type="video/mp4" />
+          <source src={"/Media/videography and editing/Project 9 - Ai generated Video for public Screen TV/House Grill Vermicelli Chicken 4k.mp4".split('/').map(segment => encodeURIComponent(segment)).join('/')} type="video/mp4" />
         </video>
       </div>
       <div className="hero-content animate-fade-in">

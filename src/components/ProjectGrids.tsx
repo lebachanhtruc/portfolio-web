@@ -52,11 +52,16 @@ function ProjectGroup({ project, animClass }: { project: any, animClass: string 
     return () => animObserver.disconnect();
   }, [isVisible]);
 
+  const encodePath = (path: string) => {
+    return path.split('/').map(segment => encodeURIComponent(segment)).join('/');
+  };
+
   const renderMedia = (src: string) => {
+    const safeSrc = encodePath(src);
     if (src.toLowerCase().endsWith('.mp4') || src.toLowerCase().endsWith('.mov')) {
-      return <video src={src} autoPlay loop muted playsInline className="project-media" />;
+      return <video src={safeSrc} autoPlay loop muted playsInline className="project-media" />;
     }
-    return <img src={src} alt="Media" loading="lazy" className="project-media" />;
+    return <img src={safeSrc} alt="Media" loading="lazy" className="project-media" />;
   };
 
   const itemCount = (project.pairs?.length || 0) + (project.standalone?.length || 0);

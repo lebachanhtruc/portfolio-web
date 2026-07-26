@@ -1020,7 +1020,7 @@ section {
 
 /* Responsive */
 @media (max-width: 480px) {
-  .grid-3-cols, .vertical-grid {
+  .grid-3-cols, .vertical-grid, .masonry-grid {
     grid-template-columns: 1fr;
   }
   
@@ -1030,6 +1030,16 @@ section {
 
   .hero-text-container {
     flex-direction: column;
+  }
+
+  .massive-portfolio-text {
+    font-size: clamp(2rem, 12vw, 4rem);
+  }
+
+  .tv-mask {
+    width: clamp(50px, 12vw, 80px);
+    height: clamp(70px, 15vw, 100px);
+    margin: 0 0.5rem;
   }
 }
 

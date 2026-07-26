@@ -11,7 +11,7 @@ export default function HeroSection() {
             PORTF
             <span className="tv-mask">
               <video 
-                src="/Media/videography and editing/Project 9 - Ai generated Video for public Screen TV/House Grill Vermicelli Chicken 4k.mp4" 
+                src={"/Media/videography and editing/Project 9 - Ai generated Video for public Screen TV/House Grill Vermicelli Chicken 4k.mp4".split('/').map(segment => encodeURIComponent(segment)).join('/')}
                 autoPlay loop muted playsInline 
                 className="tv-video"
                 onTimeUpdate={(e) => {
