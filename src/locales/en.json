@@ -3,6 +3,37 @@
     "role": "PRODUCT OWNER & CREATIVE PRODUCER"
   },
   "about": {
+    "modes": {
+      "agency": "Studio & Services (TYM Production)",
+      "cv": "Product Owner Resume (CV)",
+      "badgeAgency": "FOR RESTAURANTS & F&B BRANDS",
+      "badgeCv": "PRODUCT OWNER & TECH PROFILE",
+      "ctaViewQuote": "View Interactive Quotation ↓",
+      "ctaSwitchCv": "View Product Owner CV (PSPO I) →",
+      "ctaSwitchAgency": "← Back to TYM Production Studio",
+      "agencyHeadline": "Turn dishes into high-converting visual stories",
+      "agencyLead": "TYM Production partners with restaurants, bakeries, and hospitality brands in Montréal & Rive-Sud—delivering AI photography, 4K animated menus, Reels ads, decals, and storefront TV signage.",
+      "pillars": [
+        {
+          "title": "Culinary Shoot & Generative AI",
+          "desc": "On-site food photography enhanced with AI lighting, plating refinement, and luxury campaign posters at smart budgets."
+        },
+        {
+          "title": "Print & 4K Animated Digital Menus",
+          "desc": "Print-ready tri-fold/Letter menus synchronized with 4K digital menu boards featuring custom per-dish motion."
+        },
+        {
+          "title": "Storefront TV Signage & Loop",
+          "desc": "Turnkey 55\"/65\" window TV installation paired with a 1-minute auto-loop promo sequence that captures street traffic."
+        },
+        {
+          "title": "Social Promo & Influencer Reels",
+          "desc": "20s dish spotlights and 30–35s UGC/influencer tasting ads in 9:16 Reels format with bilingual captions and ASMR sound."
+        }
+      ],
+      "agencyAreasLabel": "SERVICE COVERAGE",
+      "agencyAreasValue": "Montréal, Longueuil, Brossard & South Shore, QC"
+    },
     "bioTitle": "About Me",
     "bio": {
       "p1": "I bridge the gap between creative vision and technical execution. As a PSPO I certified Product Owner, I specialize in translating complex business requirements into scalable, user-centric solutions.",
@@ -56,15 +87,83 @@
     "slider": {
       "before": "Original",
       "after": "Edited (AI)",
-      "retouch": "Before & After Retouch"
+      "retouch": "Before & After Retouch",
+      "expand": "Expand",
+      "ariaLabel": "Before and after comparison slider"
     },
     "titles": {
       "Sensory Experience": "Sensory Experience",
       "Broadcast Vision": "Broadcast Vision",
+      "Digital Menu 4K & Ad Reels": "4K Animated Menus & Ad Reels",
+      "Menu Design & Signage": "Menu Design & Window Decals",
       "The Culinary Art": "The Culinary Art",
       "Product Elegance": "Product Elegance",
       "Still Life Essence": "Still Life Essence",
       "Cinematic Motion": "Cinematic Motion"
+    },
+    "cardTitles": {
+      "food": [
+        "Gastronomic Excellence",
+        "Culinary Perspective",
+        "The Art of Plating",
+        "Taste in Motion",
+        "Epicurean Delights",
+        "Savor the Moment",
+        "Visual Feast",
+        "Signature Dish",
+        "Modern Cuisine",
+        "Heritage Recipe",
+        "Chef's Masterpiece",
+        "Sensory Experience"
+      ],
+      "luxury": [
+        "Timeless Elegance",
+        "Luxury Redefined",
+        "Classic Heritage",
+        "Modern Chic",
+        "Boutique Collection",
+        "Signature Style",
+        "Exclusive Accessory",
+        "Sartorial Excellence"
+      ],
+      "videography": [
+        "Cinematic Moments",
+        "Visual Narrative",
+        "Motion Sequence",
+        "Dynamic Storytelling",
+        "The Director's Cut",
+        "Fluid Transitions",
+        "Digital Signage Display"
+      ],
+      "photography": [
+        "Urban Exploration",
+        "Portrait of Time",
+        "Light and Shadow",
+        "Captured Emotion",
+        "Minimalist Vision",
+        "Symmetry in Focus",
+        "Timeless Capture"
+      ],
+      "bts": "Behind the Scenes",
+      "btsSub": "Creative Process",
+      "behindScenesTag": "BTS Video",
+      "showcaseMap": {
+        "menu-dong-demo": "4K Animated Digital Menu Board",
+        "clip-influencer-demo": "Influencer / UGC Tasting Ad",
+        "clip-co-ban-demo": "20s Dish Spotlight Reel",
+        "sample-loop-clip": "Storefront TV Loop Clip",
+        "somii-menu-matngoai": "Tri-Fold 6-Panel Menu (Somii Sushi)",
+        "menu-tinh-demo": "Printed & TV Menu Front Layout",
+        "menu-tinh-trong": "Printed & TV Menu Inside Layout",
+        "decal-kinh-demo": "Storefront Window Decal Install"
+      }
+    },
+    "lightbox": {
+      "prev": "← Prev",
+      "next": "Next →",
+      "close": "Close",
+      "viewBts": "▶ Watch BTS Footage",
+      "viewPhoto": "🖼 View Final Photo"
     },
     "swipeToExplore": "Swipe to explore"
   }

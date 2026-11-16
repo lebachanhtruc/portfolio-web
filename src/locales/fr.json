@@ -3,6 +3,37 @@
     "role": "PRODUCT OWNER & PRODUCTEUR CRÉATIF"
   },
   "about": {
+    "modes": {
+      "agency": "Studio & Services (TYM Production)",
+      "cv": "Profil Product Owner (CV)",
+      "badgeAgency": "POUR RESTAURANTS & MARQUES CULINAIRES",
+      "badgeCv": "PROFIL PRODUCT OWNER & TECHNIQUE",
+      "ctaViewQuote": "Voir le Devis Interactif ↓",
+      "ctaSwitchCv": "Voir le CV Product Owner (PSPO I) →",
+      "ctaSwitchAgency": "← Voir le Studio TYM Production",
+      "agencyHeadline": "Transformez vos plats en histoires visuelles rentables",
+      "agencyLead": "TYM Production accompagne les restaurants et marques alimentaires à Montréal et sur la Rive-Sud : photographie IA, menus numériques 4K, publicités Reels, décalques et affichage TV.",
+      "pillars": [
+        {
+          "title": "Photographie Culinaire & IA Générative",
+          "desc": "Séances photo sur place rehaussées par l'IA et création d'affiches gastronomiques haut de gamme à budget maîtrisé."
+        },
+        {
+          "title": "Conception de Menus & Menus Animés 4K",
+          "desc": "Mise en page prête pour impression (Lettre/A4, dépliant) et tableaux TV 4K avec animation par plat."
+        },
+        {
+          "title": "Affichage TV en Vitrine & Boucle Vidéo",
+          "desc": "Installation clé en main de téléviseurs 55\"/65\" en vitrine avec boucle vidéo promotionnelle d'une minute."
+        },
+        {
+          "title": "Clips Promo & Vidéos Influenceur",
+          "desc": "Clips courts de 20s ou dégustations style UGC / influenceur de 30–35s au format vertical 9:16 avec sous-titres bilingues."
+        }
+      ],
+      "agencyAreasLabel": "TERRITOIRE DESSERVI",
+      "agencyAreasValue": "Montréal, Longueuil, Brossard & Rive-Sud, QC"
+    },
     "bioTitle": "À Propos",
     "bio": {
       "p1": "Je fais le pont entre la vision créative et l'exécution technique. En tant que Product Owner certifié PSPO I, je me spécialise dans la traduction des exigences commerciales complexes en solutions évolutives et centrées sur l'utilisateur.",
@@ -56,15 +87,83 @@
     "slider": {
       "before": "Original",
       "after": "Édité (IA)",
-      "retouch": "Avant & Après"
+      "retouch": "Comparaison Avant / Après",
+      "expand": "Agrandir",
+      "ariaLabel": "Curseur de comparaison avant et après"
     },
     "titles": {
       "Sensory Experience": "Expérience Sensorielle",
       "Broadcast Vision": "Vision Télévisuelle",
+      "Digital Menu 4K & Ad Reels": "Menus Animés 4K & Reels",
+      "Menu Design & Signage": "Menus Imprimés & Décalques",
       "The Culinary Art": "L'Art Culinaire",
       "Product Elegance": "L'Élégance du Produit",
       "Still Life Essence": "L'Essence de la Nature Morte",
       "Cinematic Motion": "Mouvement Cinématographique"
+    },
+    "cardTitles": {
+      "food": [
+        "Excellence Gastronomique",
+        "Perspective Culinaire",
+        "L'Art du Dressage",
+        "Saveurs en Mouvement",
+        "Délices Épicuriens",
+        "L'Instant Savoureux",
+        "Festin Visuel",
+        "Plat Signature",
+        "Cuisine Moderne",
+        "Recette Traditionnelle",
+        "Chef-d'Œuvre du Chef",
+        "Expérience Sensorielle"
+      ],
+      "luxury": [
+        "Élégance Intemporelle",
+        "Le Luxe Réinventé",
+        "Héritage Classique",
+        "Chic Moderne",
+        "Collection Boutique",
+        "Style Signature",
+        "Accessoire Exclusif",
+        "Savoir-Faire d'Exception"
+      ],
+      "videography": [
+        "Moments Cinématographiques",
+        "Récit Visuel",
+        "Séquence Animée",
+        "Narration Dynamique",
+        "Vision du Réalisateur",
+        "Transitions Fluides",
+        "Affichage Numérique TV"
+      ],
+      "photography": [
+        "Exploration Urbaine",
+        "Portrait du Temps",
+        "Ombre et Lumière",
+        "Émotion Capturée",
+        "Vision Minimaliste",
+        "Symétrie Parfaite",
+        "Instant Éternel"
+      ],
+      "bts": "Coulisses du Tournage",
+      "btsSub": "Processus Créatif",
+      "behindScenesTag": "Coulisses",
+      "showcaseMap": {
+        "menu-dong-demo": "Menu Numérique TV 4K Animé",
+        "clip-influencer-demo": "Vidéo Influenceur / Dégustation",
+        "clip-co-ban-demo": "Clip Promotionnel 20s",
+        "sample-loop-clip": "Boucle Vidéo TV Vitrine",
+        "somii-menu-matngoai": "Menu Dépliant 6 Faces (Somii Sushi)",
+        "menu-tinh-demo": "Maquette Menu Extérieur",
+        "menu-tinh-trong": "Maquette Menu Intérieur",
+        "decal-kinh-demo": "Pose de Décalque sur Vitrine"
+      }
+    },
+    "lightbox": {
+      "prev": "← Préc.",
+      "next": "Suiv. →",
+      "close": "Fermer",
+      "viewBts": "▶ Voir les Coulisses",
+      "viewPhoto": "🖼 Voir la Photo Finale"
     },
     "swipeToExplore": "Balayez pour explorer"
   }

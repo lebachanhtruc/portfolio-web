@@ -19,14 +19,16 @@ section {
    ============================ */
 .custom-cursor {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 20px;
   height: 20px;
   background-color: #fff;
   border-radius: 50%;
   pointer-events: none;
-  transform: translate(-50%, -50%);
+  will-change: transform;
   z-index: 9999;
-  transition: width 0.3s, height 0.3s, background-color 0.3s;
+  transition: width 0.22s ease, height 0.22s ease, background-color 0.22s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,11 +36,10 @@ section {
 }
 
 .custom-cursor.hovered {
-  width: 80px;
-  height: 80px;
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255,255,255,0.5);
+  width: 72px;
+  height: 72px;
+  background-color: rgba(192, 132, 252, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.55);
   mix-blend-mode: normal;
 }
 
@@ -226,7 +227,7 @@ section {
 .focus-bracket {
   width: 20px;
   height: 40px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.08);
 }
 .focus-bracket.left { border-right: none; }
 .focus-bracket.right { border-left: none; }
@@ -552,6 +553,8 @@ section {
 .project-group {
   min-height: 200px;
   margin-bottom: 5rem; /* Consistent base gap between project groups */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 720px;
 }
 
 .project-group-title {
@@ -808,95 +811,95 @@ section {
   gap: 1rem;
   width: 100%;
   height: 100%;
-  /* Glassmorphism Panel */
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(16, 12, 28, 0.72);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   padding: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  contain: layout style;
 }
 
 /* 1. Fly from Sides */
-.scroll-anim-1 .card-inner { transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 1s ease; }
-.scroll-anim-1 .project-card.out-view:nth-child(odd) .card-inner { transform: translateX(-150px); opacity: 0; }
-.scroll-anim-1 .project-card.out-view:nth-child(even) .card-inner { transform: translateX(150px); opacity: 0; }
+.scroll-anim-1 .card-inner { transition: transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.75s ease; }
+.scroll-anim-1 .project-card.out-view:nth-child(odd) .card-inner { transform: translateX(-80px); opacity: 0; }
+.scroll-anim-1 .project-card.out-view:nth-child(even) .card-inner { transform: translateX(80px); opacity: 0; }
 .scroll-anim-1 .project-card.in-view .card-inner { transform: translateX(0); opacity: 1; }
 
-/* 2. Cinematic Rise & Blur */
-.scroll-anim-2 .card-inner { transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), filter 1.2s ease, opacity 1s ease; }
-.scroll-anim-2 .project-card.out-view .card-inner { transform: translateY(200px); filter: blur(10px); opacity: 0; }
-.scroll-anim-2 .project-card.in-view .card-inner { transform: translateY(0); filter: blur(0px); opacity: 1; }
+/* 2. Smooth Vertical Rise (GPU transform + opacity, zero costly filter blur) */
+.scroll-anim-2 .card-inner { transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.75s ease; }
+.scroll-anim-2 .project-card.out-view .card-inner { transform: translateY(70px) scale(0.96); opacity: 0; }
+.scroll-anim-2 .project-card.in-view .card-inner { transform: translateY(0) scale(1); opacity: 1; }
 
 /* 3. Lens Focus (Scale Up) */
-.scroll-anim-3 .card-inner { transition: transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 1.2s ease; }
-.scroll-anim-3 .project-card.out-view .card-inner { transform: scale(0.85); opacity: 0; }
+.scroll-anim-3 .card-inner { transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.75s ease; }
+.scroll-anim-3 .project-card.out-view .card-inner { transform: scale(0.88); opacity: 0; }
 .scroll-anim-3 .project-card.in-view .card-inner { transform: scale(1); opacity: 1; }
 
 /* 4. 3D Flip X */
-.scroll-anim-4 .card-inner { transition: transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 1s ease; transform-style: preserve-3d; }
-.scroll-anim-4 .project-card.out-view .card-inner { transform: perspective(1000px) rotateX(45deg) translateY(100px); opacity: 0; }
+.scroll-anim-4 .card-inner { transition: transform 0.85s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.75s ease; }
+.scroll-anim-4 .project-card.out-view .card-inner { transform: perspective(1000px) rotateX(22deg) translateY(50px); opacity: 0; }
 .scroll-anim-4 .project-card.in-view .card-inner { transform: perspective(1000px) rotateX(0deg) translateY(0); opacity: 1; }
 
 /* 5. 3D Flip Y */
-.scroll-anim-5 .card-inner { transition: transform 1s ease, opacity 1s ease; transform-style: preserve-3d; }
-.scroll-anim-5 .project-card.out-view:nth-child(odd) .card-inner { transform: perspective(1000px) rotateY(-60deg) translateX(-50px); opacity: 0; }
-.scroll-anim-5 .project-card.out-view:nth-child(even) .card-inner { transform: perspective(1000px) rotateY(60deg) translateX(50px); opacity: 0; }
+.scroll-anim-5 .card-inner { transition: transform 0.8s ease, opacity 0.75s ease; }
+.scroll-anim-5 .project-card.out-view:nth-child(odd) .card-inner { transform: perspective(1000px) rotateY(-25deg) translateX(-30px); opacity: 0; }
+.scroll-anim-5 .project-card.out-view:nth-child(even) .card-inner { transform: perspective(1000px) rotateY(25deg) translateX(30px); opacity: 0; }
 .scroll-anim-5 .project-card.in-view .card-inner { transform: perspective(1000px) rotateY(0deg) translateX(0); opacity: 1; }
 
 /* 6. Pendulum Swing */
-.scroll-anim-6 .card-inner { transition: transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 1s ease; transform-origin: top center; }
-.scroll-anim-6 .project-card.out-view:nth-child(odd) .card-inner { transform: rotateZ(-15deg) translateY(100px); opacity: 0; }
-.scroll-anim-6 .project-card.out-view:nth-child(even) .card-inner { transform: rotateZ(15deg) translateY(100px); opacity: 0; }
+.scroll-anim-6 .card-inner { transition: transform 0.85s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.75s ease; transform-origin: top center; }
+.scroll-anim-6 .project-card.out-view:nth-child(odd) .card-inner { transform: rotateZ(-8deg) translateY(55px); opacity: 0; }
+.scroll-anim-6 .project-card.out-view:nth-child(even) .card-inner { transform: rotateZ(8deg) translateY(55px); opacity: 0; }
 .scroll-anim-6 .project-card.in-view .card-inner { transform: rotateZ(0deg) translateY(0); opacity: 1; }
 
 /* 7. Sky Drop */
-.scroll-anim-7 .card-inner { transition: transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 1s ease; }
-.scroll-anim-7 .project-card.out-view .card-inner { transform: translateY(-150px) scale(0.9); opacity: 0; }
+.scroll-anim-7 .card-inner { transition: transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.75s ease; }
+.scroll-anim-7 .project-card.out-view .card-inner { transform: translateY(-60px) scale(0.94); opacity: 0; }
 .scroll-anim-7 .project-card.in-view .card-inner { transform: translateY(0) scale(1); opacity: 1; }
 
 /* 8. Skew Slide */
-.scroll-anim-8 .card-inner { transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 1s ease; }
-.scroll-anim-8 .project-card.out-view:nth-child(odd) .card-inner { transform: translateX(-100px) skewX(-10deg); opacity: 0; }
-.scroll-anim-8 .project-card.out-view:nth-child(even) .card-inner { transform: translateX(100px) skewX(10deg); opacity: 0; }
+.scroll-anim-8 .card-inner { transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.75s ease; }
+.scroll-anim-8 .project-card.out-view:nth-child(odd) .card-inner { transform: translateX(-60px) skewX(-5deg); opacity: 0; }
+.scroll-anim-8 .project-card.out-view:nth-child(even) .card-inner { transform: translateX(60px) skewX(5deg); opacity: 0; }
 .scroll-anim-8 .project-card.in-view .card-inner { transform: translateX(0) skewX(0deg); opacity: 1; }
 
 /* 9. Zoom Out Reveal */
-.scroll-anim-9 .card-inner { transition: transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1), filter 1.5s ease, opacity 1s ease; }
-.scroll-anim-9 .project-card.out-view .card-inner { transform: scale(1.3); filter: brightness(2) blur(5px); opacity: 0; }
-.scroll-anim-9 .project-card.in-view .card-inner { transform: scale(1); filter: brightness(1) blur(0px); opacity: 1; }
+.scroll-anim-9 .card-inner { transition: transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.75s ease; }
+.scroll-anim-9 .project-card.out-view .card-inner { transform: scale(1.1); opacity: 0; }
+.scroll-anim-9 .project-card.in-view .card-inner { transform: scale(1); opacity: 1; }
 
-/* 10. Ghost Fade (Heavy Blur) */
-.scroll-anim-10 .card-inner { transition: filter 2s ease, opacity 1.5s ease; }
-.scroll-anim-10 .project-card.out-view .card-inner { filter: blur(30px) grayscale(100%); opacity: 0; }
-.scroll-anim-10 .project-card.in-view .card-inner { filter: blur(0px) grayscale(0%); opacity: 1; }
+/* 10. Gentle Drift Reveal */
+.scroll-anim-10 .card-inner { transition: transform 0.85s ease, opacity 0.85s ease; }
+.scroll-anim-10 .project-card.out-view .card-inner { transform: translateY(40px); opacity: 0; }
+.scroll-anim-10 .project-card.in-view .card-inner { transform: translateY(0); opacity: 1; }
 
 /* 11. Diagonal Sweep */
-.scroll-anim-11 .card-inner { transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 1s ease; }
-.scroll-anim-11 .project-card.out-view:nth-child(odd) .card-inner { transform: translate(-100px, 100px); opacity: 0; }
-.scroll-anim-11 .project-card.out-view:nth-child(even) .card-inner { transform: translate(100px, -100px); opacity: 0; }
+.scroll-anim-11 .card-inner { transition: transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.75s ease; }
+.scroll-anim-11 .project-card.out-view:nth-child(odd) .card-inner { transform: translate(-55px, 55px); opacity: 0; }
+.scroll-anim-11 .project-card.out-view:nth-child(even) .card-inner { transform: translate(55px, -55px); opacity: 0; }
 .scroll-anim-11 .project-card.in-view .card-inner { transform: translate(0, 0); opacity: 1; }
 
 /* 12. Spin In */
-.scroll-anim-12 .card-inner { transition: transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 1s ease; }
-.scroll-anim-12 .project-card.out-view:nth-child(odd) .card-inner { transform: rotate(-10deg) scale(0.8); opacity: 0; }
-.scroll-anim-12 .project-card.out-view:nth-child(even) .card-inner { transform: rotate(10deg) scale(0.8); opacity: 0; }
+.scroll-anim-12 .card-inner { transition: transform 0.85s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.75s ease; }
+.scroll-anim-12 .project-card.out-view:nth-child(odd) .card-inner { transform: rotate(-6deg) scale(0.9); opacity: 0; }
+.scroll-anim-12 .project-card.out-view:nth-child(even) .card-inner { transform: rotate(6deg) scale(0.9); opacity: 0; }
 .scroll-anim-12 .project-card.in-view .card-inner { transform: rotate(0deg) scale(1); opacity: 1; }
 
 /* 13. Squeeze Drop */
-.scroll-anim-13 .card-inner { transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 1s ease; }
-.scroll-anim-13 .project-card.out-view .card-inner { transform: scaleY(1.3) scaleX(0.8) translateY(-100px); opacity: 0; }
-.scroll-anim-13 .project-card.in-view .card-inner { transform: scaleY(1) scaleX(1) translateY(0); opacity: 1; }
+.scroll-anim-13 .card-inner { transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.75s ease; }
+.scroll-anim-13 .project-card.out-view .card-inner { transform: scale(0.92) translateY(-45px); opacity: 0; }
+.scroll-anim-13 .project-card.in-view .card-inner { transform: scale(1) translateY(0); opacity: 1; }
 
-/* Before / After Slider */
+/* Before / After Slider (GPU clip-path + zero layout reflow during slide) */
 .before-after-container {
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
   cursor: ew-resize;
-  border-radius: 16px;
+  touch-action: pan-y;
+  user-select: none;
+  border-radius: 12px;
 }
 
 .slider-img {
@@ -904,25 +907,26 @@ section {
   height: 100%;
   object-fit: cover;
   position: absolute;
-  top: 0; left: 0;
+  inset: 0;
   pointer-events: none;
 }
 
-.slider-edited-wrapper {
-  position: absolute;
-  top: 0; left: 0;
-  height: 100%;
-  overflow: hidden;
+.slider-img.edited-img {
+  clip-path: inset(0 calc(100% - var(--slider-pos, 50%)) 0 0);
+  will-change: clip-path;
 }
 
 .slider-line {
   position: absolute;
   top: 0;
   bottom: 0;
+  left: var(--slider-pos, 50%);
   width: 2px;
-  background: #fff;
+  background: #ffffff;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.65);
   transform: translateX(-50%);
   pointer-events: none;
+  z-index: 4;
 }
 
 .slider-handle {
@@ -930,29 +934,70 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 40px; height: 40px;
+  width: 36px;
+  height: 36px;
   background: #c4d08b;
+  border: 2px solid #ffffff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #000;
-  font-weight: bold;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  color: #09090f;
+  font-size: 0.9rem;
+  font-weight: 800;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.55);
+}
+
+.slider-a11y-range {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  margin: 0;
+  cursor: ew-resize;
+  z-index: 3;
 }
 
 .slider-label {
   position: absolute;
-  bottom: 1rem;
-  background: rgba(0,0,0,0.6);
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  font-weight: 600;
+  bottom: 0.85rem;
+  background: rgba(9, 9, 15, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #f8fafc;
+  padding: 0.22rem 0.55rem;
+  border-radius: 6px;
+  font-size: 0.74rem;
+  font-weight: 700;
   pointer-events: none;
+  z-index: 5;
 }
-.original-label { right: 1rem; }
-.edited-label { left: 1rem; }
+.original-label { right: 0.75rem; }
+.edited-label { left: 0.75rem; color: #e9d5ff; border-color: rgba(192, 132, 252, 0.45); }
+
+.slider-expand-pill {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 6;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(9, 9, 15, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.slider-expand-pill:hover {
+  background: #c084fc;
+  color: #09090f;
+  transform: scale(1.06);
+}
 
 /* ============================
    FOOTER
@@ -963,6 +1008,8 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 640px;
   /* background image simulation */
   background: url('/Media/still life photography/project 13 - still life photography/637688407_18565730620015789_8102977794793220654_n..jpg') center/cover;
 }
@@ -1383,13 +1430,17 @@ section {
 
 .play-icon-overlay {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 1.5rem;
+  top: 10px;
+  right: 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.28rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(9, 9, 15, 0.78);
+  border: 1px solid rgba(192, 132, 252, 0.45);
+  color: #e9d5ff;
   z-index: 3;
-  opacity: 0.9;
-  filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
-  animation: pulse-icon 2s infinite;
+  pointer-events: none;
 }
 
 @keyframes pulse-icon {
@@ -2214,6 +2265,319 @@ dialog.quote-native-dialog::backdrop {
   }
   .quote-document-card {
     padding: 1.5rem;
+  }
+}
+
+/* ========================================================
+   ABOUT SECTION: AGENCY VS CV MODE & PORTFOLIO LIGHTBOX
+   ======================================================== */
+.profile-mode-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.profile-mode-pills {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.35rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.profile-mode-btn {
+  background: transparent;
+  border: none;
+  color: #cbd5e1;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.6rem 1.25rem;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.profile-mode-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.profile-mode-btn.active {
+  background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+  color: #ffffff;
+}
+
+.agency-overview-grid {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.agency-kicker {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  color: #e9d5ff;
+  background: rgba(192, 132, 252, 0.14);
+  border: 1px solid rgba(192, 132, 252, 0.35);
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+
+.agency-headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.2vw, 2.7rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  text-transform: none;
+  margin-bottom: 1rem;
+}
+
+.agency-lead {
+  font-size: 1.02rem;
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+  max-width: 68ch;
+}
+
+.agency-pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.agency-pillar-card {
+  background: rgba(18, 14, 30, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.15rem 1.25rem;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.agency-pillar-card:hover {
+  border-color: rgba(192, 132, 252, 0.5);
+  transform: translateY(-2px);
+}
+
+.pillar-num {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #c084fc;
+  margin-bottom: 0.35rem;
+}
+
+.agency-pillar-card h3 {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: none;
+  margin-bottom: 0.4rem;
+}
+
+.agency-pillar-card p {
+  font-size: 0.86rem;
+  color: #94a3b8;
+  line-height: 1.55;
+}
+
+.agency-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.agency-btn-primary {
+  background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.8rem 1.45rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.agency-btn-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+.agency-btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  padding: 0.78rem 1.35rem;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.agency-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+.agency-contact-column {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.agency-portrait-box {
+  margin: 0 auto;
+  max-width: 340px;
+}
+
+.cv-switch-banner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Interactive Media Trigger Button inside ProjectGrids */
+button.project-media-trigger {
+  position: relative;
+  display: block;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  background: #06060b;
+}
+
+.media-wrapper.contain-media {
+  background: radial-gradient(circle at center, #1b152a 0%, #090910 100%);
+}
+
+.project-media.contain-fit {
+  object-fit: contain;
+}
+
+.card-zoom-hint {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 3;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: rgba(9, 9, 15, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #f8fafc;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.65;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.project-media-trigger:hover .card-zoom-hint,
+.project-media-trigger:focus-visible .card-zoom-hint {
+  opacity: 1;
+}
+
+.project-media-trigger:hover .project-media {
+  transform: scale(1.03);
+}
+
+/* Portfolio Lightbox Dialog */
+.portfolio-lightbox-dialog {
+  width: min(980px, 95vw);
+}
+
+.lightbox-meta-sub {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.82rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.lightbox-header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lightbox-nav-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #f8fafc;
+  border-radius: 8px;
+  padding: 0.42rem 0.78rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.lightbox-nav-btn:hover {
+  background: rgba(192, 132, 252, 0.25);
+}
+
+.lightbox-nav-btn.bts-toggle {
+  border-color: rgba(192, 132, 252, 0.55);
+  color: #e9d5ff;
+}
+
+.portfolio-lightbox-stage {
+  min-height: 55vh;
+  max-height: 76vh;
+}
+
+.lightbox-slider-box {
+  width: min(440px, 85vw);
+  aspect-ratio: 9 / 16;
+  max-height: 70vh;
+}
+
+.lightbox-slider-box .slider-img {
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .agency-overview-grid {
+    grid-template-columns: 1fr;
+  }
+  .agency-pillars-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .project-card.out-view .card-inner {
+    transform: none !important;
+    opacity: 1 !important;
   }
 }
 

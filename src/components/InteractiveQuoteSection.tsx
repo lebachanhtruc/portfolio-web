@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useId } from 'react';
 import quotesData from '../data/quotes.json';
 import { useLanguage } from '../contexts/LanguageContext';
+import ViewportVideo from './ViewportVideo';
 
 interface ClientProfile {
   id: string;
@@ -796,18 +797,22 @@ export default function InteractiveQuoteSection({
 
               <div className="service-media-frame">
                 {item1MediaTab === 'animated' ? (
-                  <video
+                  <ViewportVideo
                     src={mediaMenuAnimated}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
+                    poster="/Media/posters/menu-dong-demo.jpg"
+                    width={640}
+                    height={400}
+                    eager={isDedicatedClientMode}
                     className="service-preview-video"
                   />
                 ) : (
                   <img
                     src={mediaMenuStatic}
                     alt="Static Menu Sample"
+                    width={640}
+                    height={400}
+                    loading={isDedicatedClientMode ? undefined : 'lazy'}
+                    decoding="async"
                     className="service-preview-img"
                   />
                 )}
@@ -935,13 +940,16 @@ export default function InteractiveQuoteSection({
               </div>
 
               <div className="service-media-frame">
-                <video
+                <ViewportVideo
                   key={tvMediaTab}
                   src={tvMediaTab === 'realtv' ? mediaRealTV : mediaSampleLoopClip}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
+                  poster={
+                    tvMediaTab === 'realtv'
+                      ? '/Media/posters/real-tv-demo.jpg'
+                      : '/Media/posters/sample-loop-clip.jpg'
+                  }
+                  width={640}
+                  height={400}
                   className="service-preview-video"
                 />
                 <button
@@ -1075,12 +1083,11 @@ export default function InteractiveQuoteSection({
           <article className="quote-service-card">
             <div className="service-media-column">
               <div className="service-media-frame">
-                <video
+                <ViewportVideo
                   src={mediaBasicClip}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
+                  poster="/Media/posters/clip-co-ban-demo.jpg"
+                  width={640}
+                  height={400}
                   className="service-preview-video"
                 />
                 <button
@@ -1149,12 +1156,11 @@ export default function InteractiveQuoteSection({
           <article className="quote-service-card">
             <div className="service-media-column">
               <div className="service-media-frame portrait-showcase">
-                <video
+                <ViewportVideo
                   src={mediaInfluencerClip}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
+                  poster="/Media/posters/clip-influencer-demo.jpg"
+                  width={540}
+                  height={960}
                   className="service-preview-video"
                 />
                 <button
@@ -1229,6 +1235,10 @@ export default function InteractiveQuoteSection({
                 <img
                   src={mediaDecalStorefront}
                   alt="Storefront Window Decal"
+                  width={640}
+                  height={400}
+                  loading="lazy"
+                  decoding="async"
                   className="service-preview-img"
                   style={{ objectPosition: 'left center' }}
                 />

@@ -3,6 +3,37 @@
     "role": "GIÁM ĐỐC SẢN PHẨM & NHÀ SẢN XUẤT SÁNG TẠO"
   },
   "about": {
+    "modes": {
+      "agency": "Studio & Dịch Vụ (TYM Production)",
+      "cv": "Hồ Sơ Product Owner (CV)",
+      "badgeAgency": "DÀNH CHO CHỦ NHÀ HÀNG & THƯƠNG HIỆU F&B",
+      "badgeCv": "HỒ SƠ PRODUCT OWNER & KỸ THUẬT",
+      "ctaViewQuote": "Xem Bảng Báo Giá Tương Tác ↓",
+      "ctaSwitchCv": "Xem CV Product Owner (PSPO I) →",
+      "ctaSwitchAgency": "← Xem Dịch Vụ Studio TYM Production",
+      "agencyHeadline": "Biến món ăn thành câu chuyện hút khách & tăng đơn",
+      "agencyLead": "TYM Production đồng hành cùng nhà hàng, tiệm bánh và thương hiệu F&B tại Montréal & Rive-Sud với giải pháp hình ảnh trọn gói từ chụp ảnh, xử lý AI, thiết kế Menu đến lắp đặt TV Digital Signage.",
+      "pillars": [
+        {
+          "title": "Nhiếp Ảnh Ẩm Thực & AI Tạo Sinh",
+          "desc": "Chụp ảnh thực tế tại quán kết hợp AI nâng cấp ánh sáng, bố cục & thiết kế poster quảng cáo cao cấp với chi phí tối ưu."
+        },
+        {
+          "title": "Thiết Kế Menu Tĩnh & Menu Động 4K",
+          "desc": "Sắp xếp bố cục menu in ấn sắc nét (Letter/A4, gấp 3) và bảng Menu TV Động 4K có hiệu ứng chuyển động từng món."
+        },
+        {
+          "title": "Lắp Đặt TV Mặt Tiền & Video Loop",
+          "desc": "Khảo sát, lắp đặt trọn gói TV mặt tiền phát lặp tự động cùng chuỗi video món đặc trưng thu hút khách vãng lai."
+        },
+        {
+          "title": "Clip Quảng Cáo & Influencer Reels",
+          "desc": "Sản xuất video 20s món lẻ hoặc video Influencer/UGC ăn thử 30–35s chuẩn TikTok / Instagram Reels kèm phụ đề song ngữ."
+        }
+      ],
+      "agencyAreasLabel": "KHU VỰC PHỤC VỤ",
+      "agencyAreasValue": "Montréal, Longueuil, Brossard & Rive-Sud, QC"
+    },
     "bioTitle": "Giới Thiệu",
     "bio": {
       "p1": "Tôi là cầu nối giữa tầm nhìn sáng tạo và thực thi kỹ thuật. Là một Product Owner có chứng chỉ PSPO I, tôi chuyên chuyển đổi các yêu cầu kinh doanh phức tạp thành các giải pháp mở rộng, lấy người dùng làm trung tâm.",
@@ -56,15 +87,83 @@
     "slider": {
       "before": "Ảnh Gốc",
       "after": "Xử Lý (AI)",
-      "retouch": "Trước & Sau Chỉnh Sửa"
+      "retouch": "Kéo So Sánh Trước / Sau",
+      "expand": "Phóng to",
+      "ariaLabel": "Thanh kéo so sánh ảnh gốc và ảnh AI"
     },
     "titles": {
       "Sensory Experience": "Trải Nghiệm Đa Giác Quan",
       "Broadcast Vision": "Tầm Nhìn Truyền Hình",
+      "Digital Menu 4K & Ad Reels": "Menu Động 4K & Quảng Cáo Reels",
+      "Menu Design & Signage": "Thiết Kế Menu & Decal Mặt Tiền",
       "The Culinary Art": "Nghệ Thuật Ẩm Thực",
       "Product Elegance": "Sự Tinh Tế Của Sản Phẩm",
       "Still Life Essence": "Tinh Hoa Tĩnh Vật",
       "Cinematic Motion": "Chuyển Động Điện Ảnh"
+    },
+    "cardTitles": {
+      "food": [
+        "Tinh Hoa Ẩm Thực",
+        "Góc Nhìn Vị Giác",
+        "Nghệ Thuật Bày Trí",
+        "Hương Vị Sống Động",
+        "Bữa Tiệc Thị Giác",
+        "Khoảnh Khắc Thưởng Thức",
+        "Món Ngon Đặc Trưng",
+        "Ẩm Thực Đương Đại",
+        "Công Thức Gia Truyền",
+        "Tuyệt Tác Bếp Trưởng",
+        "Không Gian Thưởng Vị",
+        "Trải Nghiệm Đa Giác Quan"
+      ],
+      "luxury": [
+        "Vẻ Đẹp Vượt Thời Gian",
+        "Định Nghĩa Sang Trọng",
+        "Di Sản Cổ Điển",
+        "Phong Cách Hiện Đại",
+        "Bộ Sưu Tập Boutique",
+        "Dấu Ấn Độc Bản",
+        "Phụ Kiện Cao Cấp",
+        "Nghệ Thuật Trình Bày"
+      ],
+      "videography": [
+        "Thước Phim Điện Ảnh",
+        "Câu Chuyện Hình Ảnh",
+        "Nhịp Điệu Chuyển Động",
+        "Quảng Cáo Sáng Tạo",
+        "Góc Máy Đạo Diễn",
+        "Chuyển Cảnh Mượt Mà",
+        "Hiển Thị Màn Hình TV"
+      ],
+      "photography": [
+        "Khám Phá Đô Thị",
+        "Chân Dung Thời Gian",
+        "Ánh Sáng & Bóng Đổ",
+        "Khoảnh Khắc Tự Nhiên",
+        "Góc Nhìn Tối Giản",
+        "Bố Cục Đối Xứng",
+        "Vẻ Đẹp Tinh Tế"
+      ],
+      "bts": "Hậu Trường Thực Tế",
+      "btsSub": "Quy trình quay chụp tại quán",
+      "behindScenesTag": "Hậu trường",
+      "showcaseMap": {
+        "menu-dong-demo": "Menu TV Động 4K (Animation)",
+        "clip-influencer-demo": "Clip Influencer / Review Món",
+        "clip-co-ban-demo": "Clip Quảng Cáo Món 20s",
+        "sample-loop-clip": "Clip Món Lẻ Phát Loop TV",
+        "somii-menu-matngoai": "Menu Gấp 3 / 6 Mặt (Somii Sushi)",
+        "menu-tinh-demo": "Menu Mặt Ngoài & Bảng Giá",
+        "menu-tinh-trong": "Menu Mặt Trong Chi Tiết",
+        "decal-kinh-demo": "Thi Công Decal Kính Mặt Tiền"
+      }
+    },
+    "lightbox": {
+      "prev": "← Trước",
+      "next": "Tiếp →",
+      "close": "Đóng",
+      "viewBts": "▶ Xem Clip Hậu Trường",
+      "viewPhoto": "🖼 Xem Ảnh Thành Phẩm"
     },
     "swipeToExplore": "Vuốt ngang để xem thêm"
   }

@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import './App.css'
 import CustomCursor from './components/CustomCursor'
 import HeroSection from './components/HeroSection'
@@ -13,6 +14,16 @@ function App() {
     typeof window !== 'undefined' &&
     (new URLSearchParams(window.location.search).has('quote') ||
       new URLSearchParams(window.location.search).has('client'));
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (!hash || hash.length < 2) return;
+    const targetId = decodeURIComponent(hash.slice(1));
+    const timer = window.setTimeout(() => {
+      document.getElementById(targetId)?.scrollIntoView({ behavior: 'auto' });
+    }, 60);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   const scrollToPortfolio = () => {
     const el = document.getElementById('section-AI x Photography');

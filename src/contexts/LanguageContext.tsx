@@ -9,6 +9,7 @@ interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
   t: (key: string) => string;
+  translations: typeof en;
 }
 
 const translations = { en, vi, fr };
@@ -67,8 +68,16 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     return keys[keys.length - 1];
   };
 
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = language;
+    }
+  }, [language]);
+
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider
+      value={{ language, setLanguage, t, translations: translations[language] as typeof en }}
+    >
       {children}
     </LanguageContext.Provider>
   );

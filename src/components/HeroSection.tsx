@@ -5,6 +5,7 @@ export default function HeroSection() {
   const { t } = useLanguage();
   const [isInView, setIsInView] = useState(false);
   const titleRef = useRef<HTMLHeadingElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -21,37 +22,65 @@ export default function HeroSection() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const syncMotion = (prefersReduced: boolean) => {
+      const video = videoRef.current;
+      if (!video) return;
+      if (prefersReduced) {
+        video.removeAttribute('autoplay');
+        video.pause();
+      }
+    };
+
+    syncMotion(reducedMotionQuery.matches);
+    const handler = (e: MediaQueryListEvent) => syncMotion(e.matches);
+    reducedMotionQuery.addEventListener('change', handler);
+    return () => reducedMotionQuery.removeEventListener('change', handler);
+  }, []);
+
   return (
     <section className="hero-masterpiece">
-      <div className="hero-text-container" style={{flexDirection: 'column'}}>
+      <div className="hero-text-container" style={{ flexDirection: 'column' }}>
         <div className="hero-title-wrapper">
-          <h1 
+          <h1
             ref={titleRef}
             className={`massive-portfolio-text ${isInView ? 'in-view' : ''}`}
           >
             PORTF
             <span className="tv-mask">
-              <video 
-                src={"/Media/videography and editing/Project 9 - Ai generated Video for public Screen TV/House Grill Vermicelli Chicken 4k.mp4".split('/').map(segment => encodeURIComponent(segment)).join('/')}
-                autoPlay loop muted playsInline 
+              <video
+                ref={videoRef}
+                src="/Media/hero-tv-loop.mp4"
+                poster="/Media/hero-tv-poster.jpg"
+                width={360}
+                height={640}
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
                 className="tv-video"
-                onTimeUpdate={(e) => {
-                  const video = e.target as HTMLVideoElement;
-                  if (video.currentTime >= 6) {
-                    video.currentTime = 0;
-                    video.play();
-                  }
-                }}
               />
             </span>
             LIO
           </h1>
         </div>
-        <div className="hero-labels" style={{ width: '100%', display: 'flex', justifyContent: 'space-between', padding: '0 5vw', marginTop: '-1vw', zIndex: 10 }}>
+        <div
+          className="hero-labels"
+          style={{
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'space-between',
+            padding: '0 5vw',
+            marginTop: '-1vw',
+            zIndex: 10
+          }}
+        >
           <div className="hero-left-label">TRUC LE</div>
           <div className="hero-right-label">{t('hero.role')}</div>
         </div>
       </div>
     </section>
-  )
+  );
 }

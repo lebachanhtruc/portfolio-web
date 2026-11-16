@@ -1,17 +1,43 @@
 [
   {
+    "id": "MenuDesignAndStorefrontBranding",
+    "title": "Menu Design & Signage",
+    "category": "AI x Photography",
+    "brand": "TYM Production",
+    "containMedia": true,
+    "pairs": [],
+    "standalone": [
+      "/Media/quote-showcase/somii-menu-matngoai.webp",
+      "/Media/quote-showcase/menu-tinh-demo.png",
+      "/Media/quote-showcase/menu-tinh-trong.png",
+      "/Media/quote-showcase/decal-kinh-demo.jpg"
+    ]
+  },
+  {
+    "id": "DigitalMenu4KAndCommercialAds",
+    "title": "Digital Menu 4K & Ad Reels",
+    "category": "Videography",
+    "brand": "TYM Production",
+    "pairs": [],
+    "standalone": [
+      "/Media/quote-showcase/menu-dong-demo.mp4",
+      "/Media/quote-showcase/clip-influencer-demo.mp4",
+      "/Media/quote-showcase/clip-co-ban-demo.mp4",
+      "/Media/quote-showcase/sample-loop-clip.mp4"
+    ]
+  },
+  {
     "id": "Project9AigeneratedVideoforpublicScreenTV",
     "title": "Broadcast Vision",
     "category": "Videography",
     "brand": "Creative Studio",
     "pairs": [],
     "standalone": [
-      "/Media/videography and editing/Project 9 - Ai generated Video for public Screen TV/Real TV at the restaurant.MOV",
-      "/Media/videography and editing/Project 9 - Ai generated Video for public Screen TV/Animated_Curry_Maison_Special_Dish_Precise_Proteus.mp4",
+      "/Media/quote-showcase/real-tv-demo.mp4",
+      "/Media/videography and editing/Project 9 - Ai generated Video for public Screen TV/Animated_Curry_Maison_720p.mp4",
       "/Media/videography and editing/Project 9 - Ai generated Video for public Screen TV/House Grill Rice Pork 720p.mp4",
-      "/Media/videography and editing/Project 9 - Ai generated Video for public Screen TV/House Grill Vermicelli Chicken 4k.mp4",
       "/Media/videography and editing/Project 9 - Ai generated Video for public Screen TV/House Grill Vermicelli Chicken 720p.mp4",
-      "/Media/videography and editing/Project 9 - Ai generated Video for public Screen TV/Pho Soupe 1080p.mp4"
+      "/Media/videography and editing/Project 9 - Ai generated Video for public Screen TV/Pho_Soupe_720p.mp4"
     ]
   },
   {
@@ -19,14 +45,17 @@
     "title": "The Culinary Art",
     "category": "AI x Photography",
     "brand": "Creative Studio",
-    "pairs": [],
+    "pairs": [
+      {
+        "original": "/Media/AI Graphic Design and Photo Shoot/Project 10 - food photography and ai poster create/June 17 2023 - SHUSHU TO8262.jpg",
+        "edited": "/Media/AI Graphic Design and Photo Shoot/Project 10 - food photography and ai poster create/June_17_2023_-_SHUSHU_202607251242 (1).jpeg"
+      }
+    ],
     "standalone": [
-      "/Media/AI GRaphic design + photo shoot/Project 10 - food photography and ai poster create/June 17 2023 - SHUSHU TO8262.jpg",
-      "/Media/AI GRaphic design + photo shoot/Project 10 - food photography and ai poster create/June_17_2023_-_SHUSHU_202607251242 (1).jpeg",
-      "/Media/AI GRaphic design + photo shoot/Project 10 - food photography and ai poster create/June_17_2023_-_SHUSHU_202607251242.jpeg",
-      "/Media/AI GRaphic design + photo shoot/Project 10 - food photography and ai poster create/June_17_2023_-_SHUSHU_202607251244.jpeg",
-      "/Media/AI GRaphic design + photo shoot/Project 10 - food photography and ai poster create/June_17_2023_-_SHUSHU_202607251245.jpeg",
-      "/Media/AI GRaphic design + photo shoot/Project 10 - food photography and ai poster create/June_17_2023_-_SHUSHU_202607251246.jpeg"
+      "/Media/AI Graphic Design and Photo Shoot/Project 10 - food photography and ai poster create/June_17_2023_-_SHUSHU_202607251242.jpeg",
+      "/Media/AI Graphic Design and Photo Shoot/Project 10 - food photography and ai poster create/June_17_2023_-_SHUSHU_202607251244.jpeg",
+      "/Media/AI Graphic Design and Photo Shoot/Project 10 - food photography and ai poster create/June_17_2023_-_SHUSHU_202607251245.jpeg",
+      "/Media/AI Graphic Design and Photo Shoot/Project 10 - food photography and ai poster create/June_17_2023_-_SHUSHU_202607251246.jpeg"
     ]
   },
   {
@@ -34,16 +63,23 @@
     "title": "The Culinary Art",
     "category": "AI x Photography",
     "brand": "Creative Studio",
-    "pairs": [],
+    "pairs": [
+      {
+        "original": "/Media/AI Graphic Design and Photo Shoot/Project 1 - food photography and ai poster create/set-1.webp",
+        "edited": "/Media/AI Graphic Design and Photo Shoot/Project 1 - food photography and ai poster create/set-1- edited.webp"
+      },
+      {
+        "original": "/Media/AI Graphic Design and Photo Shoot/Project 1 - food photography and ai poster create/2024 Jun 05 - SHUSHUTO x Singapore9185.jpg",
+        "edited": "/Media/AI Graphic Design and Photo Shoot/Project 1 - food photography and ai poster create/2024 Jun 05 - SHUSHUTO x Singapore9185- edited.webp"
+      },
+      {
+        "original": "/Media/AI Graphic Design and Photo Shoot/Project 1 - food photography and ai poster create/2024 Jun 05 - SHUSHUTO x Singapore9252.jpg",
+        "edited": "/Media/AI Graphic Design and Photo Shoot/Project 1 - food photography and ai poster create/2024_Jun_05_-_SHUSHUTO_202607251135.jpeg"
+      }
+    ],
     "standalone": [
-      "/Media/AI GRaphic design + photo shoot/Project 1 - food photography and ai poster create/2024 Jun 05 - SHUSHUTO x Singapore9252.jpg",
-      "/Media/AI GRaphic design + photo shoot/Project 1 - food photography and ai poster create/2024 Jun 05 - SHUSHUTO x Singapore9324.jpg",
-      "/Media/AI GRaphic design + photo shoot/Project 1 - food photography and ai poster create/set-1.png",
-      "/Media/AI GRaphic design + photo shoot/Project 1 - food photography and ai poster create/2024 Jun 05 - SHUSHUTO x Singapore9185.jpg",
-      "/Media/AI GRaphic design + photo shoot/Project 1 - food photography and ai poster create/2024_Jun_05_-_SHUSHUTO_202607251135.jpeg",
-      "/Media/AI GRaphic design + photo shoot/Project 1 - food photography and ai poster create/2024_Jun_05_-_SHUSHUTO_202607251136.jpeg",
-      "/Media/AI GRaphic design + photo shoot/Project 1 - food photography and ai poster create/set-1- edited.png",
-      "/Media/AI GRaphic design + photo shoot/Project 1 - food photography and ai poster create/2024 Jun 05 - SHUSHUTO x Singapore9185- edited.png"
+      "/Media/AI Graphic Design and Photo Shoot/Project 1 - food photography and ai poster create/2024 Jun 05 - SHUSHUTO x Singapore9324.jpg",
+      "/Media/AI Graphic Design and Photo Shoot/Project 1 - food photography and ai poster create/2024_Jun_05_-_SHUSHUTO_202607251136.jpeg"
     ],
     "disableAnimation": true
   },
@@ -52,14 +88,85 @@
     "title": "Product Elegance",
     "category": "AI x Photography",
     "brand": "LXR",
-    "pairs": [],
+    "pairs": [
+      {
+        "original": "/Media/AI Graphic Design and Photo Shoot/Project 12 - product photography at LXR and ai poster create/1_goc_anh_cho_cong_ty_lxrco.jpg",
+        "edited": "/Media/AI Graphic Design and Photo Shoot/Project 12 - product photography at LXR and ai poster create/lxr_bag_editorial_4.jpeg"
+      }
+    ],
     "standalone": [
-      "/Media/AI GRaphic design + photo shoot/Project 12 - product photography at LXR and ai poster create/1_góc_ảnh_cho_công_202607251302 (1).jpeg",
-      "/Media/AI GRaphic design + photo shoot/Project 12 - product photography at LXR and ai poster create/1_góc_ảnh_cho_công_202607251302.jpeg",
-      "/Media/AI GRaphic design + photo shoot/Project 12 - product photography at LXR and ai poster create/1_góc_ảnh_cho_công_202607251303.jpeg",
-      "/Media/AI GRaphic design + photo shoot/Project 12 - product photography at LXR and ai poster create/1_góc_ảnh_cho_công_202607251305.jpeg",
-      "/Media/AI GRaphic design + photo shoot/Project 12 - product photography at LXR and ai poster create/1_goc_anh_cho_cong_ty_lxrco.jpg"
+      "/Media/AI Graphic Design and Photo Shoot/Project 12 - product photography at LXR and ai poster create/lxr_bag_editorial_1.jpeg",
+      "/Media/AI Graphic Design and Photo Shoot/Project 12 - product photography at LXR and ai poster create/lxr_bag_editorial_2.jpeg",
+      "/Media/AI Graphic Design and Photo Shoot/Project 12 - product photography at LXR and ai poster create/lxr_bag_editorial_3.jpeg"
     ]
+  },
+  {
+    "id": "Project4foodphotographyandaipostercreate",
+    "title": "The Culinary Art",
+    "category": "AI x Photography",
+    "brand": "Creative Studio",
+    "pairs": [
+      {
+        "original": "/Media/AI Graphic Design and Photo Shoot/Project 4 - food photography and ai poster create/2025 Nov 06 - SHUSHUTO Spring Menu Set0246.jpg",
+        "edited": "/Media/AI Graphic Design and Photo Shoot/Project 4 - food photography and ai poster create/2025_Nov_06_-_SHUSHUTO_202607251127.jpeg"
+      },
+      {
+        "original": "/Media/AI Graphic Design and Photo Shoot/Project 4 - food photography and ai poster create/2025 Nov 06 - SHUSHUTO Spring Menu Set0403.jpg",
+        "edited": "/Media/AI Graphic Design and Photo Shoot/Project 4 - food photography and ai poster create/2025_Nov_06_-_SHUSHUTO_202607251123.jpeg"
+      }
+    ],
+    "standalone": [
+      "/Media/AI Graphic Design and Photo Shoot/Project 4 - food photography and ai poster create/2025 Nov 06 - SHUSHUTO Spring Menu Set0229.jpg",
+      "/Media/AI Graphic Design and Photo Shoot/Project 4 - food photography and ai poster create/2025_Nov_06_-_SHUSHUTO_202607251117.jpeg",
+      "/Media/AI Graphic Design and Photo Shoot/Project 4 - food photography and ai poster create/2025 Nov 06 - SHUSHUTO Spring Menu Set0280.jpg",
+      "/Media/AI Graphic Design and Photo Shoot/Project 4 - food photography and ai poster create/2025_Nov_06_-_SHUSHUTO_202607251122.jpeg"
+    ],
+    "disableAnimation": true
+  },
+  {
+    "id": "Project5foodphotographyandaipostercreate",
+    "title": "The Culinary Art",
+    "category": "AI x Photography",
+    "brand": "Creative Studio",
+    "pairs": [
+      {
+        "original": "/Media/AI Graphic Design and Photo Shoot/Project 5 - food photography and ai poster create/VALENTINE 01.webp",
+        "edited": "/Media/AI Graphic Design and Photo Shoot/Project 5 - food photography and ai poster create/VALENTINE_01.png_4K_202607251157 (1).jpeg"
+      },
+      {
+        "original": "/Media/AI Graphic Design and Photo Shoot/Project 5 - food photography and ai poster create/VALENTINE 02.webp",
+        "edited": "/Media/AI Graphic Design and Photo Shoot/Project 5 - food photography and ai poster create/VALENTINE_02.png_4K_202607251205 (1).jpeg"
+      }
+    ],
+    "standalone": [
+      "/Media/AI Graphic Design and Photo Shoot/Project 5 - food photography and ai poster create/VALENTINE_01.png_4K_202607251157.jpeg",
+      "/Media/AI Graphic Design and Photo Shoot/Project 5 - food photography and ai poster create/VALENTINE_02.png_4K_202607251205.jpeg"
+    ]
+  },
+  {
+    "id": "Project6foodphotographyandaipostercreate",
+    "title": "The Culinary Art",
+    "category": "AI x Photography",
+    "brand": "Creative Studio",
+    "pairs": [
+      {
+        "original": "/Media/AI Graphic Design and Photo Shoot/Project 6 - food photography and ai poster create/2023 Dec 14 - Chup hinh do an Lime8675.jpg",
+        "edited": "/Media/AI Graphic Design and Photo Shoot/Project 6 - food photography and ai poster create/2023_Dec_14_-_Chup_202607251210.jpeg"
+      },
+      {
+        "original": "/Media/AI Graphic Design and Photo Shoot/Project 6 - food photography and ai poster create/2023 Dec 14 - Chup hinh do an Lime8785.jpg",
+        "edited": "/Media/AI Graphic Design and Photo Shoot/Project 6 - food photography and ai poster create/2023_Dec_14_-_Chup_202607251213.jpeg"
+      }
+    ],
+    "standalone": [
+      "/Media/AI Graphic Design and Photo Shoot/Project 6 - food photography and ai poster create/2023_Dec_14_-_Chup_202607251209.jpeg",
+      "/Media/AI Graphic Design and Photo Shoot/Project 6 - food photography and ai poster create/I_want_to_2k_202512192022.jpeg",
+      "/Media/AI Graphic Design and Photo Shoot/Project 6 - food photography and ai poster create/I_want_to_2k_202512211151.jpeg",
+      "/Media/AI Graphic Design and Photo Shoot/Project 6 - food photography and ai poster create/2023_Dec_14_-_Chup_202607251214.jpeg",
+      "/Media/AI Graphic Design and Photo Shoot/Project 6 - food photography and ai poster create/Key_subject_nonnegotiable_2k_202512211347.jpeg",
+      "/Media/AI Graphic Design and Photo Shoot/Project 6 - food photography and ai poster create/Key_subject_nonnegotiable_2k_202512221239.jpeg"
+    ],
+    "disableAnimation": true
   },
   {
     "id": "Project3foodphotographyandaipostercreate",
@@ -68,9 +175,9 @@
     "brand": "Creative Studio",
     "pairs": [],
     "standalone": [
-      "/Media/AI GRaphic design + photo shoot/Project 3 - food photography and ai poster create/Stack 2.jpg",
-      "/Media/AI GRaphic design + photo shoot/Project 3 - food photography and ai poster create/Fine_dining_advertisement_tastin…_4K_202607251056.jpeg",
-      "/Media/AI GRaphic design + photo shoot/Project 3 - food photography and ai poster create/Stack_1.jpg_4K_202607251146.jpeg"
+      "/Media/AI Graphic Design and Photo Shoot/Project 3 - food photography and ai poster create/Stack 2.jpg",
+      "/Media/AI Graphic Design and Photo Shoot/Project 3 - food photography and ai poster create/Fine_dining_advertisement_tastin…_4K_202607251056.jpeg",
+      "/Media/AI Graphic Design and Photo Shoot/Project 3 - food photography and ai poster create/Stack_1.jpg_4K_202607251146.jpeg"
     ],
     "disableAnimation": true
   },
@@ -81,85 +188,37 @@
     "brand": "Creative Studio",
     "pairs": [],
     "standalone": [
-      "/Media/AI GRaphic design + photo shoot/Project 2 - photography and real poster/103846843_687281425460136_2423623817171570336_n.jpg",
-      "/Media/AI GRaphic design + photo shoot/Project 2 - photography and real poster/general tao chicken - poster - 01 2020-1.jpg",
-      "/Media/AI GRaphic design + photo shoot/Project 2 - photography and real poster/general tao chicken - poster - 01 2020-2.jpg"
+      "/Media/AI Graphic Design and Photo Shoot/Project 2 - photography and real poster/103846843_687281425460136_2423623817171570336_n.jpg",
+      "/Media/AI Graphic Design and Photo Shoot/Project 2 - photography and real poster/general tao chicken - poster - 01 2020-1.jpg",
+      "/Media/AI Graphic Design and Photo Shoot/Project 2 - photography and real poster/general tao chicken - poster - 01 2020-2.jpg"
     ]
-  },
-  {
-    "id": "Project4foodphotographyandaipostercreate",
-    "title": "The Culinary Art",
-    "category": "AI x Photography",
-    "brand": "Creative Studio",
-    "pairs": [],
-    "standalone": [
-      "/Media/AI GRaphic design + photo shoot/Project 4 - food photography and ai poster create/2025 Nov 06 - SHUSHUTO Spring Menu Set0229.jpg",
-      "/Media/AI GRaphic design + photo shoot/Project 4 - food photography and ai poster create/2025 Nov 06 - SHUSHUTO Spring Menu Set0246.jpg",
-      "/Media/AI GRaphic design + photo shoot/Project 4 - food photography and ai poster create/2025 Nov 06 - SHUSHUTO Spring Menu Set0280.jpg",
-      "/Media/AI GRaphic design + photo shoot/Project 4 - food photography and ai poster create/2025 Nov 06 - SHUSHUTO Spring Menu Set0403.jpg",
-      "/Media/AI GRaphic design + photo shoot/Project 4 - food photography and ai poster create/2025_Nov_06_-_SHUSHUTO_202607251117.jpeg",
-      "/Media/AI GRaphic design + photo shoot/Project 4 - food photography and ai poster create/2025_Nov_06_-_SHUSHUTO_202607251127.jpeg",
-      "/Media/AI GRaphic design + photo shoot/Project 4 - food photography and ai poster create/2025_Nov_06_-_SHUSHUTO_202607251122.jpeg",
-      "/Media/AI GRaphic design + photo shoot/Project 4 - food photography and ai poster create/2025_Nov_06_-_SHUSHUTO_202607251123.jpeg"
-    ],
-    "disableAnimation": true
-  },
-  {
-    "id": "Project5foodphotographyandaipostercreate",
-    "title": "The Culinary Art",
-    "category": "AI x Photography",
-    "brand": "Creative Studio",
-    "pairs": [],
-    "standalone": [
-      "/Media/AI GRaphic design + photo shoot/Project 5 - food photography and ai poster create/VALENTINE 01.png",
-      "/Media/AI GRaphic design + photo shoot/Project 5 - food photography and ai poster create/VALENTINE_01.png_4K_202607251157 (1).jpeg",
-      "/Media/AI GRaphic design + photo shoot/Project 5 - food photography and ai poster create/VALENTINE_01.png_4K_202607251157.jpeg",
-      "/Media/AI GRaphic design + photo shoot/Project 5 - food photography and ai poster create/VALENTINE 02.png",
-      "/Media/AI GRaphic design + photo shoot/Project 5 - food photography and ai poster create/VALENTINE_02.png_4K_202607251205 (1).jpeg",
-      "/Media/AI GRaphic design + photo shoot/Project 5 - food photography and ai poster create/VALENTINE_02.png_4K_202607251205.jpeg"
-    ]
-  },
-  {
-    "id": "Project6foodphotographyandaipostercreate",
-    "title": "The Culinary Art",
-    "category": "AI x Photography",
-    "brand": "Creative Studio",
-    "pairs": [],
-    "standalone": [
-      "/Media/AI GRaphic design + photo shoot/Project 6 - food photography and ai poster create/2023 Dec 14 - Chup hinh do an Lime8675.jpg",
-      "/Media/AI GRaphic design + photo shoot/Project 6 - food photography and ai poster create/2023_Dec_14_-_Chup_202607251209.jpeg",
-      "/Media/AI GRaphic design + photo shoot/Project 6 - food photography and ai poster create/2023_Dec_14_-_Chup_202607251210.jpeg",
-      "/Media/AI GRaphic design + photo shoot/Project 6 - food photography and ai poster create/I_want_to_2k_202512192022.jpeg",
-      "/Media/AI GRaphic design + photo shoot/Project 6 - food photography and ai poster create/I_want_to_2k_202512211151.jpeg",
-      "/Media/AI GRaphic design + photo shoot/Project 6 - food photography and ai poster create/2023 Dec 14 - Chup hinh do an Lime8785.jpg",
-      "/Media/AI GRaphic design + photo shoot/Project 6 - food photography and ai poster create/2023_Dec_14_-_Chup_202607251214.jpeg",
-      "/Media/AI GRaphic design + photo shoot/Project 6 - food photography and ai poster create/2023_Dec_14_-_Chup_202607251213.jpeg",
-      "/Media/AI GRaphic design + photo shoot/Project 6 - food photography and ai poster create/Key_subject_nonnegotiable_2k_202512211347.jpeg",
-      "/Media/AI GRaphic design + photo shoot/Project 6 - food photography and ai poster create/Key_subject_nonnegotiable_2k_202512221239.jpeg"
-    ],
-    "disableAnimation": true
   },
   {
     "id": "Project7foodphotographyandaipostercreate",
     "title": "The Culinary Art",
     "category": "AI x Photography",
     "brand": "Creative Studio",
-    "pairs": [],
-    "standalone": [
-      "/Media/AI GRaphic design + photo shoot/Project 7 - food photography and ai poster create/2021 Jul 04 -  Cafe Backyard3153.jpg",
-      "/Media/AI GRaphic design + photo shoot/Project 7 - food photography and ai poster create/2021_Jul_04_-_Cafe_202607251226.jpeg"
-    ]
+    "pairs": [
+      {
+        "original": "/Media/AI Graphic Design and Photo Shoot/Project 7 - food photography and ai poster create/2021 Jul 04 -  Cafe Backyard3153.jpg",
+        "edited": "/Media/AI Graphic Design and Photo Shoot/Project 7 - food photography and ai poster create/2021_Jul_04_-_Cafe_202607251226.jpeg"
+      }
+    ],
+    "standalone": []
   },
   {
     "id": "Project8foodphotographyandaipostercreate",
     "title": "The Culinary Art",
     "category": "AI x Photography",
     "brand": "Creative Studio",
-    "pairs": [],
+    "pairs": [
+      {
+        "original": "/Media/AI Graphic Design and Photo Shoot/Project 8 - food photography and ai poster create/Nov 02 2022 -  SHUSHU Notre Dame - NOel and Shushi0027.jpg",
+        "edited": "/Media/AI Graphic Design and Photo Shoot/Project 8 - food photography and ai poster create/Nov_02_2022_-_SHUSHU_202607251231 (1).jpeg"
+      }
+    ],
     "standalone": [
-      "/Media/AI GRaphic design + photo shoot/Project 8 - food photography and ai poster create/Nov 02 2022 -  SHUSHU Notre Dame - NOel and Shushi0027.jpg",
-      "/Media/AI GRaphic design + photo shoot/Project 8 - food photography and ai poster create/Nov_02_2022_-_SHUSHU_202607251231 (1).jpeg",
-      "/Media/AI GRaphic design + photo shoot/Project 8 - food photography and ai poster create/Nov_02_2022_-_SHUSHU_202607251231.jpeg"
+      "/Media/AI Graphic Design and Photo Shoot/Project 8 - food photography and ai poster create/Nov_02_2022_-_SHUSHU_202607251231.jpeg"
     ],
     "disableAnimation": true
   },
@@ -198,7 +257,7 @@
     "brand": "LXR",
     "pairs": [],
     "standalone": [
-      "/Media/AI GRaphic design + photo shoot/project 11 - videography and editing worked at LXR/a BTS for Mother day last year for lxrco montreal quebec.mp4"
+      "/Media/AI Graphic Design and Photo Shoot/project 11 - videography and editing worked at LXR/a BTS for Mother day last year for lxrco montreal quebec.mp4"
     ],
     "disableAnimation": true
   }

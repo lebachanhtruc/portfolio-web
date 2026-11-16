@@ -27,27 +27,31 @@ body {
   cursor: none; /* Hide default cursor */
 }
 
-/* Ambient "Jelly / Fluid" Background Effect (Exact Behance Copy) */
+/* Ambient "Midnight Amethyst" Background Effect (Pre-baked blur+hue for 60fps compositing) */
 body::before {
   content: '';
   position: fixed;
-  top: -10%; left: -10%; right: -10%; bottom: -10%;
+  inset: -4%;
   z-index: -1;
-  /* Premium "Midnight Amethyst" (Tím Khói / Thạch Anh Tím) */
-  /* Shift green to a deep, mysterious purple. Purple is the color of creativity and luxury. */
-  background-image: url('/images/nature_bokeh_bg.jpg');
+  background-image: url('/images/nature_bokeh_amethyst.webp');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
   background-repeat: no-repeat;
-  filter: blur(30px) hue-rotate(160deg) brightness(0.4) contrast(1.1);
   pointer-events: none;
-  transform: scale(1.1); /* Prevent blurred edges from showing white */
+  transform: translateZ(0);
 }
 
-/* Ensure links and buttons don't show default cursor */
-a, button, input, textarea {
-  cursor: none !important;
+/* Ensure links and buttons don't show default cursor when custom cursor is active */
+@media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  a, button, input, textarea {
+    cursor: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce), (pointer: coarse) {
+  body, a, button, input, textarea {
+    cursor: auto !important;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
