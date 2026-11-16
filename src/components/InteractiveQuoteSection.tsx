@@ -170,6 +170,9 @@ const copyText = {
     termValidity: 'Hiệu lực báo giá: Có giá trị trong vòng 30 ngày kể từ ngày phát hành.',
     termPayment: `Thanh toán: Tạm ứng ${DEFAULT_DEPOSIT_PERCENT}% khi xác nhận đơn hàng, thanh toán ${DEFAULT_BALANCE_PERCENT}% còn lại sau khi nghiệm thu/bàn giao.`,
     termExclusions: 'Chi phí vật tư & thiết bị: Báo giá chưa bao gồm chi phí in ấn (menu giấy, decal kính) và chưa bao gồm chi phí mua TV, khung treo TV.',
+    termRevisions: 'Chỉnh sửa thiết kế: Bao gồm tối đa 02 vòng chỉnh sửa miễn phí (trên nội dung chữ, giá món và phong cách đã chốt trước khi làm). Quý khách vui lòng gom góp ý thành 01 danh sách/vòng sau bản Demo 1 & Demo 2; từ vòng thứ 3 hoặc đổi toàn bộ ý tưởng/nội dung sau khi đã duyệt sẽ phụ thu $35–$50/vòng (hoặc báo phí theo khối lượng).',
+    termDelivery: `Bản Demo & Bàn giao: Các bản gửi duyệt sẽ gắn dấu chìm (PREVIEW). File gốc chất lượng cao (4K / chuẩn in ấn, không dấu chìm) được bàn giao đầy đủ ngay sau khi chốt bản cuối và hoàn tất ${DEFAULT_BALANCE_PERCENT}% còn lại.`,
+    termDepositPolicy: `Xác nhận & Tiền cọc: Khoản tạm ứng ${DEFAULT_DEPOSIT_PERCENT}% không hoàn lại sau khi dự án đã bắt đầu lên thiết kế đầu tiên. Bản duyệt gửi quá 07 ngày làm việc chưa có phản hồi được xem là đã chấp thuận cho giai đoạn đó.`,
     btnPrintPdf: '🖨️ Xuất / Tải Bản PDF Báo Giá',
     btnSendSms: '💬 Chốt Báo Giá Qua SMS',
     btnSendEmail: '✉️ Gửi Xác Nhận Qua Email',
@@ -303,6 +306,9 @@ const copyText = {
     termValidity: 'Quote Validity: Valid for 30 days from the issue date.',
     termPayment: `Payment Terms: ${DEFAULT_DEPOSIT_PERCENT}% deposit upon confirmation, ${DEFAULT_BALANCE_PERCENT}% balance upon completion/handover.`,
     termExclusions: 'Hardware & Printing Exclusions: Prices exclude physical printing costs (paper menus, vinyl decals) and exclude TV & TV mount hardware costs.',
+    termRevisions: 'Design Revisions: Includes up to 02 complimentary revision rounds (based on text, pricing, and style approved before production). Feedback should be consolidated into 01 list per round after Demo 1 & Demo 2; round 3+ or full post-approval content/concept changes incur $35–$50/round (or scoped quote).',
+    termDelivery: `Proofs & Final Handover: Drafts sent for review include a PREVIEW watermark. Clean high-resolution final files (4K / print-ready) are delivered upon final sign-off and receipt of the remaining ${DEFAULT_BALANCE_PERCENT}% balance.`,
+    termDepositPolicy: `Milestone Sign-Off & Deposit: The ${DEFAULT_DEPOSIT_PERCENT}% deposit is non-refundable once production or the initial draft begins. Proofs left without feedback after 07 business days are deemed approved for that stage.`,
     btnPrintPdf: '🖨️ Export / Print PDF Quote',
     btnSendSms: '💬 Confirm Quote via SMS',
     btnSendEmail: '✉️ Confirm via Email',
@@ -436,6 +442,9 @@ const copyText = {
     termValidity: 'Validité du devis : Valable 30 jours à compter de la date d’émission.',
     termPayment: `Modalités de paiement : Acompte de ${DEFAULT_DEPOSIT_PERCENT} % à la confirmation, solde de ${DEFAULT_BALANCE_PERCENT} % à la livraison.`,
     termExclusions: 'Exclusions : Les tarifs n’incluent pas les frais d’impression (menus, vinyles) ni l’achat du téléviseur et de son support.',
+    termRevisions: 'Révisions du design : Inclut jusqu’à 02 séries de révisions gratuites (sur les textes, tarifs et style validés avant production). Merci de regrouper vos retours en 01 liste par série après la Démo 1 et la Démo 2 ; dès la 3e série ou en cas de refonte après validation, un supplément de 35 $–50 $/série (ou sur devis) s’applique.',
+    termDelivery: `Maquettes & Livraison : Les maquettes envoyées pour validation portent un filigrane PREVIEW. Les fichiers finaux haute résolution (4K / prêts à imprimer, sans filigrane) sont remis dès l’accord final et le paiement du solde de ${DEFAULT_BALANCE_PERCENT} %.`,
+    termDepositPolicy: `Validation & Acompte : L’acompte de ${DEFAULT_DEPOSIT_PERCENT} % est non remboursable dès le début de la création. Toute maquette restée sans réponse pendant 07 jours ouvrables est réputée validée pour l’étape concernée.`,
     btnPrintPdf: '🖨️ Exporter / Imprimer en PDF',
     btnSendSms: '💬 Confirmer par SMS',
     btnSendEmail: '✉️ Confirmer par Email',
@@ -1943,6 +1952,9 @@ export default function InteractiveQuoteSection({
               <li>{c.termValidity}</li>
               <li>{c.termPayment}</li>
               <li>{c.termExclusions}</li>
+              <li>{c.termRevisions}</li>
+              <li>{c.termDelivery}</li>
+              <li>{c.termDepositPolicy}</li>
             </ul>
           </div>
 
