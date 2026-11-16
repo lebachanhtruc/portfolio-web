@@ -30,9 +30,20 @@ interface TokenSelections {
   influencerClips?: number;
 }
 
+type QuoteServiceKey = 'menu' | 'tvCombo' | 'basicClip' | 'influencer' | 'decal';
+
+interface QuotePresetOption {
+  label: string;
+  priceTag?: string;
+  selections: TokenSelections;
+}
+
 interface StoredQuotePayload {
   profile: TokenClientProfile;
   selections?: TokenSelections;
+  focusNote?: string;
+  visibleItems?: QuoteServiceKey[];
+  presets?: QuotePresetOption[];
   createdAt?: string;
 }
 
@@ -40,6 +51,13 @@ const ADMIN_SALT = 'TYM-ADMIN-2026';
 const ADMIN_HASH = '1e677285bad2a6edd86b2c23aca1c68063d485358c626680419d30a52003f500';
 const SHORT_ID_ALPHABET = '23456789abcdefghjkmnpqrstuvwxyz';
 const MAX_REQUEST_BYTES = 16 * 1024;
+const ALLOWED_SERVICE_KEYS = new Set<QuoteServiceKey>([
+  'menu',
+  'tvCombo',
+  'basicClip',
+  'influencer',
+  'decal'
+]);
 
 function isShortQuoteId(value: string | null | undefined): value is string {
   return Boolean(value && /^[a-z0-9_-]{5,24}$/i.test(value));
@@ -126,9 +144,36 @@ function sanitizePayload(raw: unknown): StoredQuotePayload | null {
   };
 
   const selections = sanitizeSelections(body.selections);
+  const focusNote = clampString(body.focusNote, 400);
+
+  const visibleItems = Array.isArray(body.visibleItems)
+    ? body.visibleItems
+        .map((item) => String(item) as QuoteServiceKey)
+        .filter((item) => ALLOWED_SERVICE_KEYS.has(item))
+        .slice(0, 5)
+    : undefined;
+
+  const presets = Array.isArray(body.presets)
+    ? body.presets
+        .slice(0, 6)
+        .map((item): QuotePresetOption | null => {
+          if (!item || typeof item !== 'object') return null;
+          const rec = item as Record<string, unknown>;
+          const label = clampString(rec.label, 120);
+          const sel = sanitizeSelections(rec.selections);
+          if (!label || !sel) return null;
+          const priceTag = clampString(rec.priceTag, 60);
+          return { label, ...(priceTag ? { priceTag } : {}), selections: sel };
+        })
+        .filter((item): item is QuotePresetOption => item !== null)
+    : undefined;
+
   return {
     profile,
     ...(selections ? { selections } : {}),
+    ...(focusNote ? { focusNote } : {}),
+    ...(visibleItems && visibleItems.length > 0 ? { visibleItems } : {}),
+    ...(presets && presets.length > 0 ? { presets } : {}),
     createdAt: clampString(body.createdAt, 40) || new Date().toISOString()
   };
 }

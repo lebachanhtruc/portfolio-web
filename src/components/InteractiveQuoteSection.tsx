@@ -6,6 +6,8 @@ import {
   decodeQuoteToken,
   isShortQuoteId,
   verifyAdminPasscode,
+  type QuotePresetOption,
+  type QuoteServiceKey,
   type StoredQuotePayload,
   type TokenClientProfile,
   type TokenSelections
@@ -188,6 +190,12 @@ const copyText = {
     quoteNotFoundMsg: 'Không tìm thấy mã báo giá này hoặc liên kết đã hết hạn.',
     storageUnavailableErr: 'Kho lưu trữ trên máy chủ chưa được kết nối. Vui lòng kết nối Vercel Blob Storage rồi thử lại.',
     saveFailedErr: 'Không thể lưu báo giá lên máy chủ. Vui lòng thử lại.',
+    presetsHeading: 'Gói gợi ý chọn nhanh cho nhu cầu của bạn (bấm để thử tính ngay):',
+    presetResetBtn: 'Đặt lại về 0',
+    expandOtherServicesBtn: '+ Xem thêm dịch vụ khác (Lắp đặt TV, Video TikTok, Decal kính)',
+    collapseOtherServicesBtn: 'Thu gọn về phần báo giá trọng tâm ↑',
+    fieldFocusNote: 'Ghi chú nhu cầu riêng (hiển thị nổi bật cho khách)',
+    adminTvContentFocus: 'Tập trung Nội dung TV (chỉ hiện Menu TV & Clip 16:9, ẩn Lắp TV / TikTok / Decal)',
     yesSelected: 'Đã chọn (1 gói)',
     notSelected: 'Chưa chọn'
   },
@@ -315,6 +323,12 @@ const copyText = {
     quoteNotFoundMsg: 'This quotation link was not found or has been removed.',
     storageUnavailableErr: 'Server storage is not connected on this deployment yet. Connect Vercel Blob Storage and retry.',
     saveFailedErr: 'Unable to save quote to server. Please retry.',
+    presetsHeading: 'Recommended packages for your setup (1-click preview):',
+    presetResetBtn: 'Reset to 0',
+    expandOtherServicesBtn: '+ View other services (TV Install, Influencer Video, Window Decal)',
+    collapseOtherServicesBtn: 'Show focused items only ↑',
+    fieldFocusNote: 'Client scope highlight note (optional)',
+    adminTvContentFocus: 'Focus on TV Content only (Menu & 16:9 Clips; hide TV Install / TikTok / Decal)',
     yesSelected: 'Selected (1 pkg)',
     notSelected: 'Not selected'
   },
@@ -442,6 +456,12 @@ const copyText = {
     quoteNotFoundMsg: 'Ce lien de devis est introuvable ou a expiré.',
     storageUnavailableErr: 'Le stockage cloud n’est pas encore connecté sur ce déploiement.',
     saveFailedErr: 'Impossible d’enregistrer le devis. Veuillez réessayer.',
+    presetsHeading: 'Forfaits suggérés selon votre besoin :',
+    presetResetBtn: 'Réinitialiser à 0',
+    expandOtherServicesBtn: '+ Voir les autres services (Pose TV, Vidéo Influenceur, Décalque)',
+    collapseOtherServicesBtn: 'Revenir à l’essentiel ↑',
+    fieldFocusNote: 'Note de besoin client (optionnel)',
+    adminTvContentFocus: 'Centré Contenu TV uniquement (Menu & Clips 16:9)',
     yesSelected: 'Inclus (1 forfait)',
     notSelected: 'Non sélectionné'
   }
@@ -510,6 +530,9 @@ export default function InteractiveQuoteSection({
     selections: QuoteSelections;
     activeToken: string | null;
     hasAdminParam: boolean;
+    focusNote: string;
+    visibleItems: QuoteServiceKey[] | null;
+    presets: QuotePresetOption[];
   } => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
@@ -523,7 +546,10 @@ export default function InteractiveQuoteSection({
             activeToken: token,
             hasAdminParam,
             profile: toClientProfile(decoded.profile),
-            selections: toQuoteSelections(decoded.selections)
+            selections: toQuoteSelections(decoded.selections),
+            focusNote: '',
+            visibleItems: null,
+            presets: []
           };
         }
         if (remoteQuoteState?.status === 'ready' && remoteQuoteState.data) {
@@ -531,7 +557,10 @@ export default function InteractiveQuoteSection({
             activeToken: remoteQuoteState.shortId || token,
             hasAdminParam,
             profile: toClientProfile(remoteQuoteState.data.profile),
-            selections: toQuoteSelections(remoteQuoteState.data.selections)
+            selections: toQuoteSelections(remoteQuoteState.data.selections),
+            focusNote: remoteQuoteState.data.focusNote || '',
+            visibleItems: remoteQuoteState.data.visibleItems || null,
+            presets: remoteQuoteState.data.presets || []
           };
         }
       }
@@ -541,6 +570,9 @@ export default function InteractiveQuoteSection({
         activeToken: null,
         hasAdminParam,
         profile: buildStandardProfile(),
+        focusNote: '',
+        visibleItems: null,
+        presets: [],
         selections: {
           staticMenuPages: Number(params.get('smenu') ?? 0),
           animatedMenuScreens: Number(params.get('amenu') ?? 0),
@@ -559,7 +591,10 @@ export default function InteractiveQuoteSection({
       activeToken: null,
       hasAdminParam: false,
       profile: buildStandardProfile(),
-      selections: { ...ZERO_SELECTIONS }
+      selections: { ...ZERO_SELECTIONS },
+      focusNote: '',
+      visibleItems: null,
+      presets: []
     };
   };
 
@@ -567,7 +602,26 @@ export default function InteractiveQuoteSection({
   const [clientProfile, setClientProfile] = useState<ClientProfile>(initialData.profile);
   const [selections, setSelections] = useState<QuoteSelections>(initialData.selections);
   const [activeToken, setActiveToken] = useState<string | null>(initialData.activeToken);
+  const [focusNote, setFocusNote] = useState<string>(initialData.focusNote);
+  const [visibleItems, setVisibleItems] = useState<QuoteServiceKey[] | null>(
+    initialData.visibleItems
+  );
+  const [presets, setPresets] = useState<QuotePresetOption[]>(initialData.presets);
+  const [showAllServices, setShowAllServices] = useState(false);
   const hasAdminParam = initialData.hasAdminParam;
+
+  const isItemVisible = (key: QuoteServiceKey) =>
+    !visibleItems || visibleItems.length === 0 || showAllServices || visibleItems.includes(key);
+
+  const applyStoredQuote = (id: string, payload: StoredQuotePayload) => {
+    setActiveToken(id);
+    setClientProfile(toClientProfile(payload.profile));
+    setSelections(toQuoteSelections(payload.selections));
+    setFocusNote(payload.focusNote || '');
+    setVisibleItems(payload.visibleItems && payload.visibleItems.length > 0 ? payload.visibleItems : null);
+    setPresets(payload.presets || []);
+    setShowAllServices(false);
+  };
 
   // Admin state: strictly locked unless unlocked in this browser session via valid passcode
   const [isAdminUnlocked, setIsAdminUnlocked] = useState<boolean>(() => {
@@ -594,10 +648,8 @@ export default function InteractiveQuoteSection({
 
   // Sync fetched short-link quote into local state once API response arrives
   useEffect(() => {
-    if (remoteQuoteState?.status === 'ready' && remoteQuoteState.data) {
-      setActiveToken(remoteQuoteState.shortId);
-      setClientProfile(toClientProfile(remoteQuoteState.data.profile));
-      setSelections(toQuoteSelections(remoteQuoteState.data.selections));
+    if (remoteQuoteState?.status === 'ready' && remoteQuoteState.data && remoteQuoteState.shortId) {
+      applyStoredQuote(remoteQuoteState.shortId, remoteQuoteState.data);
     }
   }, [remoteQuoteState]);
 
@@ -634,7 +686,9 @@ export default function InteractiveQuoteSection({
     businessName: '',
     address: '',
     phone: '',
-    quoteNumber: 'TYM-2611-002'
+    quoteNumber: 'TYM-2611-002',
+    focusNote: '',
+    focusTvContentOnly: false
   });
 
   // Fallback for browsers without native dialog.closedBy support (e.g. Safari)
@@ -672,6 +726,10 @@ export default function InteractiveQuoteSection({
     setActiveToken(null);
     setClientProfile(buildStandardProfile());
     setSelections({ ...ZERO_SELECTIONS });
+    setFocusNote('');
+    setVisibleItems(null);
+    setPresets([]);
+    setShowAllServices(false);
   };
 
   const openMediaModal = (title: string, type: 'video' | 'image', src: string) => {
@@ -756,9 +814,10 @@ export default function InteractiveQuoteSection({
 
       const decoded = decodeQuoteToken(tok);
       if (decoded) {
-        setActiveToken(tok);
-        setClientProfile(toClientProfile(decoded.profile));
-        setSelections(toQuoteSelections(decoded.selections));
+        applyStoredQuote(tok, {
+          profile: decoded.profile,
+          selections: decoded.selections
+        });
         return;
       }
 
@@ -769,9 +828,7 @@ export default function InteractiveQuoteSection({
         if (!res.ok) return;
         const json = (await res.json()) as { id?: string; quote?: StoredQuotePayload };
         if (json?.quote?.profile) {
-          setActiveToken(json.id || tok);
-          setClientProfile(toClientProfile(json.quote.profile));
-          setSelections(toQuoteSelections(json.quote.selections));
+          applyStoredQuote(json.id || tok, json.quote);
         }
       }
     } catch {
@@ -868,6 +925,11 @@ export default function InteractiveQuoteSection({
     setIsSavingQuote(true);
     setSaveQuoteError(null);
     try {
+      const focusNoteTrimmed = newClientForm.focusNote.trim();
+      const focusVisibleItems: QuoteServiceKey[] | undefined = newClientForm.focusTvContentOnly
+        ? ['menu', 'basicClip']
+        : undefined;
+
       const res = await fetch('/api/quotes', {
         method: 'POST',
         headers: {
@@ -876,7 +938,9 @@ export default function InteractiveQuoteSection({
         },
         body: JSON.stringify({
           profile: tokenProfile,
-          ...(includeCurrentSelections ? { selections: nextSelections } : {})
+          ...(includeCurrentSelections ? { selections: nextSelections } : {}),
+          ...(focusNoteTrimmed ? { focusNote: focusNoteTrimmed } : {}),
+          ...(focusVisibleItems ? { visibleItems: focusVisibleItems } : {})
         })
       });
 
@@ -897,10 +961,8 @@ export default function InteractiveQuoteSection({
 
       const data = (await res.json()) as { id: string; quote: StoredQuotePayload };
       const shortId = data.id;
+      applyStoredQuote(shortId, data.quote);
       const createdProfile = toClientProfile(data.quote.profile);
-      setActiveToken(shortId);
-      setClientProfile(createdProfile);
-      setSelections(toQuoteSelections(data.quote.selections));
 
       const shareUrl = `${window.location.origin}${window.location.pathname}?q=${encodeURIComponent(shortId)}`;
       navigator.clipboard.writeText(shareUrl);
@@ -955,7 +1017,10 @@ export default function InteractiveQuoteSection({
             address: clientProfile.address,
             phone: clientProfile.phone
           },
-          selections
+          selections,
+          ...(focusNote ? { focusNote } : {}),
+          ...(visibleItems ? { visibleItems } : {}),
+          ...(presets.length > 0 ? { presets } : {})
         })
       });
       if (res.status === 401) {
@@ -1153,16 +1218,58 @@ export default function InteractiveQuoteSection({
                   <span>{c.phoneLabel}</span> {clientProfile.phone}
                 </div>
               )}
+              {focusNote && <div className="recipient-focus-note">{focusNote}</div>}
             </>
           )}
         </div>
 
         <p className="quote-intro-paragraph">{c.introText}</p>
 
-        {/* 4 Interactive Visual Service Cards */}
+        {presets.length > 0 && (
+          <div className="quote-presets-bar no-print">
+            <div className="quote-presets-header">
+              <span>{c.presetsHeading}</span>
+              <button
+                type="button"
+                className="preset-reset-btn"
+                onClick={() => setSelections({ ...ZERO_SELECTIONS })}
+              >
+                {c.presetResetBtn}
+              </button>
+            </div>
+            <div className="quote-presets-grid">
+              {presets.map((preset, idx) => {
+                const target = toQuoteSelections(preset.selections);
+                const active =
+                  selections.staticMenuPages === target.staticMenuPages &&
+                  selections.animatedMenuScreens === target.animatedMenuScreens &&
+                  selections.basicClips === target.basicClips &&
+                  selections.tvComboSelected === target.tvComboSelected &&
+                  selections.decalPanels === target.decalPanels &&
+                  selections.influencerClips === target.influencerClips;
+                return (
+                  <button
+                    key={idx}
+                    type="button"
+                    className={`quote-preset-chip ${active ? 'active' : ''}`}
+                    onClick={() => setSelections(target)}
+                  >
+                    <span className="preset-chip-title">{preset.label}</span>
+                    {preset.priceTag && (
+                      <span className="preset-chip-price">{preset.priceTag}</span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* Interactive Visual Service Cards */}
         <div className="quote-service-cards-grid">
           {/* CARD 1: MENU DESIGN (STATIC VS ANIMATED) */}
-          <article className="quote-service-card">
+          {isItemVisible('menu') && (
+            <article className="quote-service-card">
             <div className="service-media-column">
               <div className="service-media-tabs no-print">
                 <button
@@ -1304,8 +1411,10 @@ export default function InteractiveQuoteSection({
               </div>
             </div>
           </article>
+          )}
 
           {/* CARD 2: TV INSTALLATION & VIDEO LOOP COMBO */}
+          {isItemVisible('tvCombo') && (
           <article className="quote-service-card">
             <div className="service-media-column">
               <div className="service-media-tabs no-print">
@@ -1464,8 +1573,10 @@ export default function InteractiveQuoteSection({
               </div>
             </div>
           </article>
+          )}
 
           {/* CARD 3: BASIC PROMO CLIP 20S */}
+          {isItemVisible('basicClip') && (
           <article className="quote-service-card">
             <div className="service-media-column">
               <div className="service-media-frame">
@@ -1537,8 +1648,10 @@ export default function InteractiveQuoteSection({
               </div>
             </div>
           </article>
+          )}
 
           {/* CARD 4: INFLUENCER / UGC TASTING REVIEW AD VIDEO */}
+          {isItemVisible('influencer') && (
           <article className="quote-service-card">
             <div className="service-media-column">
               <div className="service-media-frame portrait-showcase">
@@ -1613,8 +1726,10 @@ export default function InteractiveQuoteSection({
               </div>
             </div>
           </article>
+          )}
 
           {/* CARD 5: STOREFRONT WINDOW DECAL INSTALLATION (LAST ITEM) */}
+          {isItemVisible('decal') && (
           <article className="quote-service-card">
             <div className="service-media-column">
               <div className="service-media-frame">
@@ -1710,7 +1825,20 @@ export default function InteractiveQuoteSection({
               </div>
             </div>
           </article>
+          )}
         </div>
+
+        {visibleItems && visibleItems.length > 0 && visibleItems.length < 5 && (
+          <div className="quote-expand-other-wrap no-print">
+            <button
+              type="button"
+              className="quote-expand-other-btn"
+              onClick={() => setShowAllServices((v) => !v)}
+            >
+              {showAllServices ? c.collapseOtherServicesBtn : c.expandOtherServicesBtn}
+            </button>
+          </div>
+        )}
 
         {/* Responsive Summary Data Table (following responsive-table guidance) */}
         <div
@@ -1741,56 +1869,68 @@ export default function InteractiveQuoteSection({
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">{c.row1aTitle}</th>
-                <td>$200.00 / mặt</td>
-                <td>{selections.staticMenuPages} mặt</td>
-                <td>${staticMenuSubtotal.toFixed(2)}</td>
-              </tr>
-              <tr>
-                <th scope="row">{c.row1bTitle}</th>
-                <td>$350.00 / mặt màn hình</td>
-                <td>{selections.animatedMenuScreens} mặt</td>
-                <td>${animatedMenuSubtotal.toFixed(2)}</td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  2. Gói Combo: Lắp đặt TV {selections.tvSize === '65' ? '65"' : '55"'} &amp; Loop 3 Clip (1 phút)
-                </th>
-                <td>$450.00 / gói (TV 65": +$150 | Extra clip: +$100)</td>
-                <td>
-                  {selections.tvComboSelected
-                    ? selections.tvSize === '65'
-                      ? '1 gói Combo TV 65" (+$150)'
-                      : '1 gói Combo TV 55"'
-                    : '0'}
-                  {selections.tvExtraClips > 0 ? ` (+${selections.tvExtraClips} extra clip)` : ''}
-                </td>
-                <td>${item2Subtotal.toFixed(2)}</td>
-              </tr>
-              <tr>
-                <th scope="row">{c.row3Title}</th>
-                <td>$100.00 / clip</td>
-                <td>{selections.basicClips} clip</td>
-                <td>${item3Subtotal.toFixed(2)}</td>
-              </tr>
-              <tr>
-                <th scope="row">{c.row4Title}</th>
-                <td>$200.00 / clip</td>
-                <td>{selections.influencerClips} clip</td>
-                <td>${item4Subtotal.toFixed(2)}</td>
-              </tr>
-              <tr>
-                <th scope="row">{c.row5Title}</th>
-                <td>$100.00 / mặt kính</td>
-                <td>
-                  {selections.decalPanels} mặt kính
-                  {selections.decalDesignCount > 0
-                    ? ` (+${selections.decalDesignCount} mẫu thiết kế)`
-                    : ''}
-                </td>
-                <td>${item5Subtotal.toFixed(2)}</td>
-              </tr>
+              {isItemVisible('menu') && (
+                <>
+                  <tr>
+                    <th scope="row">{c.row1aTitle}</th>
+                    <td>$200.00 / mặt</td>
+                    <td>{selections.staticMenuPages} mặt</td>
+                    <td>${staticMenuSubtotal.toFixed(2)}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">{c.row1bTitle}</th>
+                    <td>$350.00 / mặt màn hình</td>
+                    <td>{selections.animatedMenuScreens} mặt</td>
+                    <td>${animatedMenuSubtotal.toFixed(2)}</td>
+                  </tr>
+                </>
+              )}
+              {isItemVisible('tvCombo') && (
+                <tr>
+                  <th scope="row">
+                    2. Gói Combo: Lắp đặt TV {selections.tvSize === '65' ? '65"' : '55"'} &amp; Loop 3 Clip (1 phút)
+                  </th>
+                  <td>$450.00 / gói (TV 65": +$150 | Extra clip: +$100)</td>
+                  <td>
+                    {selections.tvComboSelected
+                      ? selections.tvSize === '65'
+                        ? '1 gói Combo TV 65" (+$150)'
+                        : '1 gói Combo TV 55"'
+                      : '0'}
+                    {selections.tvExtraClips > 0 ? ` (+${selections.tvExtraClips} extra clip)` : ''}
+                  </td>
+                  <td>${item2Subtotal.toFixed(2)}</td>
+                </tr>
+              )}
+              {isItemVisible('basicClip') && (
+                <tr>
+                  <th scope="row">{c.row3Title}</th>
+                  <td>$100.00 / clip</td>
+                  <td>{selections.basicClips} clip</td>
+                  <td>${item3Subtotal.toFixed(2)}</td>
+                </tr>
+              )}
+              {isItemVisible('influencer') && (
+                <tr>
+                  <th scope="row">{c.row4Title}</th>
+                  <td>$200.00 / clip</td>
+                  <td>{selections.influencerClips} clip</td>
+                  <td>${item4Subtotal.toFixed(2)}</td>
+                </tr>
+              )}
+              {isItemVisible('decal') && (
+                <tr>
+                  <th scope="row">{c.row5Title}</th>
+                  <td>$100.00 / mặt kính</td>
+                  <td>
+                    {selections.decalPanels} mặt kính
+                    {selections.decalDesignCount > 0
+                      ? ` (+${selections.decalDesignCount} mẫu thiết kế)`
+                      : ''}
+                  </td>
+                  <td>${item5Subtotal.toFixed(2)}</td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>
@@ -1954,6 +2094,25 @@ export default function InteractiveQuoteSection({
                   />
                 </label>
               </div>
+              <label>
+                <span>{c.fieldFocusNote}</span>
+                <input
+                  type="text"
+                  placeholder="VD: Thiết kế nội dung cho 3 màn hình TV gắn sẵn..."
+                  value={newClientForm.focusNote}
+                  onChange={(e) => setNewClientForm((f) => ({ ...f, focusNote: e.target.value }))}
+                />
+              </label>
+              <label className="generator-checkbox-row">
+                <input
+                  type="checkbox"
+                  checked={newClientForm.focusTvContentOnly}
+                  onChange={(e) =>
+                    setNewClientForm((f) => ({ ...f, focusTvContentOnly: e.target.checked }))
+                  }
+                />
+                <span>{c.adminTvContentFocus}</span>
+              </label>
               <label className="generator-checkbox-row">
                 <input
                   type="checkbox"

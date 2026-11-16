@@ -19,6 +19,14 @@ export interface TokenSelections {
   influencerClips?: number;
 }
 
+export type QuoteServiceKey = 'menu' | 'tvCombo' | 'basicClip' | 'influencer' | 'decal';
+
+export interface QuotePresetOption {
+  label: string;
+  priceTag?: string;
+  selections: TokenSelections;
+}
+
 export interface DecodedQuoteToken {
   profile: TokenClientProfile;
   selections?: TokenSelections;
@@ -27,6 +35,9 @@ export interface DecodedQuoteToken {
 export interface StoredQuotePayload {
   profile: TokenClientProfile;
   selections?: TokenSelections;
+  focusNote?: string;
+  visibleItems?: QuoteServiceKey[];
+  presets?: QuotePresetOption[];
   createdAt?: string;
 }
 
