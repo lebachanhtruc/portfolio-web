@@ -19,6 +19,8 @@ interface SavedAdminQuote {
 
 const ADMIN_STORAGE_KEY = 'tym_admin_saved_quotes_v1';
 const ADMIN_SESSION_KEY = 'tym_admin_unlocked';
+const DEFAULT_DEPOSIT_PERCENT = 30;
+const DEFAULT_BALANCE_PERCENT = 100 - DEFAULT_DEPOSIT_PERCENT;
 
 interface ClientProfile {
   id: string;
@@ -155,11 +157,11 @@ const copyText = {
     colQty: 'Số Lượng Đang Chọn',
     colSubtotal: 'Thành Tiền',
     totalSelectedLabel: 'TỔNG CHI PHÍ DỰ KIẾN (THEO MỤC ĐÃ CHỌN)',
-    depositLabel: 'Tạm ứng khi xác nhận đơn hàng (25%)',
-    balanceLabel: 'Thanh toán khi nghiệm thu / bàn giao (75%)',
+    depositLabel: `Tạm ứng khi xác nhận đơn hàng (${DEFAULT_DEPOSIT_PERCENT}%)`,
+    balanceLabel: `Thanh toán khi nghiệm thu / bàn giao (${DEFAULT_BALANCE_PERCENT}%)`,
     termsTitle: 'Điều Khoản & Lưu Ý Chung',
     termValidity: 'Hiệu lực báo giá: Có giá trị trong vòng 30 ngày kể từ ngày phát hành.',
-    termPayment: 'Thanh toán: Tạm ứng 25% khi xác nhận đơn hàng, thanh toán 75% còn lại sau khi nghiệm thu/bàn giao.',
+    termPayment: `Thanh toán: Tạm ứng ${DEFAULT_DEPOSIT_PERCENT}% khi xác nhận đơn hàng, thanh toán ${DEFAULT_BALANCE_PERCENT}% còn lại sau khi nghiệm thu/bàn giao.`,
     termExclusions: 'Chi phí vật tư & thiết bị: Báo giá chưa bao gồm chi phí in ấn (menu giấy, decal kính) và chưa bao gồm chi phí mua TV, khung treo TV.',
     btnPrintPdf: '🖨️ Xuất / Tải Bản PDF Báo Giá',
     btnSendSms: '💬 Chốt Báo Giá Qua SMS',
@@ -275,11 +277,11 @@ const copyText = {
     colQty: 'Selected Qty',
     colSubtotal: 'Subtotal',
     totalSelectedLabel: 'ESTIMATED TOTAL (SELECTED ITEMS)',
-    depositLabel: 'Deposit upon order confirmation (25%)',
-    balanceLabel: 'Balance upon completion & handover (75%)',
+    depositLabel: `Deposit upon order confirmation (${DEFAULT_DEPOSIT_PERCENT}%)`,
+    balanceLabel: `Balance upon completion & handover (${DEFAULT_BALANCE_PERCENT}%)`,
     termsTitle: 'Terms & General Notes',
     termValidity: 'Quote Validity: Valid for 30 days from the issue date.',
-    termPayment: 'Payment Terms: 25% deposit upon confirmation, 75% balance upon completion/handover.',
+    termPayment: `Payment Terms: ${DEFAULT_DEPOSIT_PERCENT}% deposit upon confirmation, ${DEFAULT_BALANCE_PERCENT}% balance upon completion/handover.`,
     termExclusions: 'Hardware & Printing Exclusions: Prices exclude physical printing costs (paper menus, vinyl decals) and exclude TV & TV mount hardware costs.',
     btnPrintPdf: '🖨️ Export / Print PDF Quote',
     btnSendSms: '💬 Confirm Quote via SMS',
@@ -395,11 +397,11 @@ const copyText = {
     colQty: 'Quantité Choisie',
     colSubtotal: 'Sous-total',
     totalSelectedLabel: 'TOTAL ESTIMÉ (SELON SÉLECTION)',
-    depositLabel: 'Acompte à la confirmation (25 %)',
-    balanceLabel: 'Solde à la livraison / réception (75 %)',
+    depositLabel: `Acompte à la confirmation (${DEFAULT_DEPOSIT_PERCENT} %)`,
+    balanceLabel: `Solde à la livraison / réception (${DEFAULT_BALANCE_PERCENT} %)`,
     termsTitle: 'Conditions & Notes Générales',
     termValidity: 'Validité du devis : Valable 30 jours à compter de la date d’émission.',
-    termPayment: 'Modalités de paiement : Acompte de 25 % à la confirmation, solde de 75 % à la livraison.',
+    termPayment: `Modalités de paiement : Acompte de ${DEFAULT_DEPOSIT_PERCENT} % à la confirmation, solde de ${DEFAULT_BALANCE_PERCENT} % à la livraison.`,
     termExclusions: 'Exclusions : Les tarifs n’incluent pas les frais d’impression (menus, vinyles) ni l’achat du téléviseur et de son support.',
     btnPrintPdf: '🖨️ Exporter / Imprimer en PDF',
     btnSendSms: '💬 Confirmer par SMS',
@@ -445,7 +447,7 @@ export default function InteractiveQuoteSection({
       businessName: '',
       address: 'Montréal & Rive-Sud, QC, Canada',
       phone: '',
-      depositPercent: 25,
+      depositPercent: DEFAULT_DEPOSIT_PERCENT,
       validityDays: 30
     };
   };
@@ -477,7 +479,7 @@ export default function InteractiveQuoteSection({
               businessName: p.businessName || '',
               address: p.address || '',
               phone: p.phone || '',
-              depositPercent: 25,
+              depositPercent: DEFAULT_DEPOSIT_PERCENT,
               validityDays: 30
             },
             selections: {
@@ -695,7 +697,7 @@ export default function InteractiveQuoteSection({
         businessName: decoded.profile.businessName || '',
         address: decoded.profile.address || '',
         phone: decoded.profile.phone || '',
-        depositPercent: 25,
+        depositPercent: DEFAULT_DEPOSIT_PERCENT,
         validityDays: 30
       });
       setSelections({
@@ -729,7 +731,7 @@ export default function InteractiveQuoteSection({
   const grandTotal =
     item1Subtotal + item2Subtotal + item3Subtotal + item4Subtotal + item5Subtotal;
   const depositAmount = Math.round(grandTotal * (clientProfile.depositPercent / 100) * 100) / 100;
-  const balanceAmount = grandTotal - depositAmount;
+  const balanceAmount = Math.round((grandTotal - depositAmount) * 100) / 100;
 
   // Handle Decal Panels stepper (0 or >= 2 panels due to 2-panel minimum rule)
   const adjustDecalPanels = (delta: number) => {
@@ -784,7 +786,7 @@ export default function InteractiveQuoteSection({
       businessName: newClientForm.businessName.trim(),
       address: newClientForm.address.trim() || 'Québec, Canada',
       phone: newClientForm.phone.trim(),
-      depositPercent: 25,
+      depositPercent: DEFAULT_DEPOSIT_PERCENT,
       validityDays: 30
     };
     const token = encodeQuoteToken(
@@ -831,7 +833,7 @@ export default function InteractiveQuoteSection({
     const lines = [
       `TYM Production - Xác nhận Báo Giá (${clientProfile.quoteNumber})`,
       `Khách hàng: ${clientProfile.clientName}`,
-      `Tổng dự kiến: $${grandTotal.toFixed(2)} (Tạm ứng 25%: $${depositAmount.toFixed(2)})`
+      `Tổng dự kiến: $${grandTotal.toFixed(2)} (Tạm ứng ${clientProfile.depositPercent}%: $${depositAmount.toFixed(2)})`
     ];
     return encodeURIComponent(lines.join('\n'));
   };
@@ -1627,7 +1629,7 @@ export default function InteractiveQuoteSection({
           </table>
         </div>
 
-        {/* Totals & 25% Deposit Breakdown */}
+        {/* Totals & 30% Deposit Breakdown */}
         <div className="quote-totals-footer-grid">
           <div className="quote-terms-box">
             <h5>{c.termsTitle}</h5>
