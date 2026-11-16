@@ -3,10 +3,14 @@ import quotesData from '../data/quotes.json';
 import { useLanguage } from '../contexts/LanguageContext';
 import ViewportVideo from './ViewportVideo';
 import {
-  encodeQuoteToken,
   decodeQuoteToken,
-  verifyAdminPasscode
+  isShortQuoteId,
+  verifyAdminPasscode,
+  type StoredQuotePayload,
+  type TokenClientProfile,
+  type TokenSelections
 } from '../utils/quoteToken';
+import type { RemoteQuoteState } from '../App';
 
 interface SavedAdminQuote {
   id: string;
@@ -19,6 +23,7 @@ interface SavedAdminQuote {
 
 const ADMIN_STORAGE_KEY = 'tym_admin_saved_quotes_v1';
 const ADMIN_SESSION_KEY = 'tym_admin_unlocked';
+const ADMIN_PASS_SESSION_KEY = 'tym_admin_pass_session';
 const DEFAULT_DEPOSIT_PERCENT = 30;
 const DEFAULT_BALANCE_PERCENT = 100 - DEFAULT_DEPOSIT_PERCENT;
 
@@ -168,14 +173,21 @@ const copyText = {
     btnSendEmail: '✉️ Gửi Xác Nhận Qua Email',
     btnCopyLink: '🔗 Copy Link Báo Giá Này',
     copiedLinkMsg: '✓ Đã copy link báo giá!',
-    generatorTitle: 'Tạo Nhanh Link Báo Giá Cho Khách Hàng Mới',
-    generatorDesc: 'Điền thông tin khách hàng mới bên dưới. Hệ thống sẽ tạo ngay 1 đường link riêng hiển thị tên, địa chỉ, SĐT và các hạng mục bạn đang chọn.',
+    generatorTitle: 'Tạo Nhanh Link Báo Giá Ngắn Cho Khách Hàng Mới',
+    generatorDesc: 'Điền thông tin khách hàng bên dưới. Hệ thống sẽ lưu riêng tư lên máy chủ và tạo ngay 1 link ngắn (~39 ký tự) gửi cho khách.',
     fieldClientName: 'Tên khách hàng (VD: Chị Lan / Anh Minh)',
     fieldBusiness: 'Tên tiệm / Nhà hàng (Tùy chọn)',
     fieldAddress: 'Địa chỉ tiệm',
     fieldPhone: 'Số điện thoại',
     fieldQuoteNum: 'Mã số báo giá',
-    btnApplyAndCopy: 'Áp Dụng & Copy Link Gửi Khách',
+    btnApplyAndCopy: 'Lưu & Copy Link Ngắn Gửi Khách',
+    savingShortLinkBtn: 'Đang tạo link ngắn...',
+    saveSelectionsBtn: '💾 Lưu Lựa Chọn Lên Link Này',
+    savedSelectionsMsg: '✓ Đã cập nhật lên link!',
+    loadingRemoteQuote: 'Đang tải báo giá riêng tư...',
+    quoteNotFoundMsg: 'Không tìm thấy mã báo giá này hoặc liên kết đã hết hạn.',
+    storageUnavailableErr: 'Kho lưu trữ trên máy chủ chưa được kết nối. Vui lòng kết nối Vercel Blob Storage rồi thử lại.',
+    saveFailedErr: 'Không thể lưu báo giá lên máy chủ. Vui lòng thử lại.',
     yesSelected: 'Đã chọn (1 gói)',
     notSelected: 'Chưa chọn'
   },
@@ -288,14 +300,21 @@ const copyText = {
     btnSendEmail: '✉️ Confirm via Email',
     btnCopyLink: '🔗 Copy Quote Link',
     copiedLinkMsg: '✓ Quote link copied!',
-    generatorTitle: 'Quick Quote Link Generator for New Clients',
-    generatorDesc: 'Enter the new client details below to generate a personalized quote link with their name, address, phone number, and current item selections.',
+    generatorTitle: 'Create Short Private Client Quote Link',
+    generatorDesc: 'Enter client details below. Data is saved privately in cloud storage and returns a short ~39-character personalized quote URL.',
     fieldClientName: 'Client Name (e.g. Ms. Lan / Mr. Minh)',
     fieldBusiness: 'Business / Restaurant Name (Optional)',
     fieldAddress: 'Business Address',
     fieldPhone: 'Phone Number',
     fieldQuoteNum: 'Quote Number',
-    btnApplyAndCopy: 'Apply & Copy Client Quote Link',
+    btnApplyAndCopy: 'Save & Copy Short Client Link',
+    savingShortLinkBtn: 'Creating short link...',
+    saveSelectionsBtn: '💾 Save Selections to Link',
+    savedSelectionsMsg: '✓ Saved to link!',
+    loadingRemoteQuote: 'Loading private quotation...',
+    quoteNotFoundMsg: 'This quotation link was not found or has been removed.',
+    storageUnavailableErr: 'Server storage is not connected on this deployment yet. Connect Vercel Blob Storage and retry.',
+    saveFailedErr: 'Unable to save quote to server. Please retry.',
     yesSelected: 'Selected (1 pkg)',
     notSelected: 'Not selected'
   },
@@ -408,14 +427,21 @@ const copyText = {
     btnSendEmail: '✉️ Confirmer par Email',
     btnCopyLink: '🔗 Copier le Lien du Devis',
     copiedLinkMsg: '✓ Lien copié !',
-    generatorTitle: 'Générateur Rapide de Devis Client',
-    generatorDesc: 'Saisissez les coordonnées du nouveau client pour générer un lien personnalisé avec son nom, son adresse et la sélection actuelle.',
+    generatorTitle: 'Créer un Lien Court de Devis Client',
+    generatorDesc: 'Saisissez les coordonnées du client pour enregistrer ce devis de façon privée et générer un lien court (~39 caractères).',
     fieldClientName: 'Nom du client (ex: Mme Lan)',
     fieldBusiness: 'Nom du commerce / restaurant (Optionnel)',
     fieldAddress: 'Adresse du commerce',
     fieldPhone: 'Numéro de téléphone',
     fieldQuoteNum: 'Numéro de devis',
-    btnApplyAndCopy: 'Appliquer & Copier le Lien Client',
+    btnApplyAndCopy: 'Enregistrer & Copier le Lien Court',
+    savingShortLinkBtn: 'Création du lien court...',
+    saveSelectionsBtn: '💾 Enregistrer sur ce lien',
+    savedSelectionsMsg: '✓ Lien mis à jour !',
+    loadingRemoteQuote: 'Chargement du devis privé...',
+    quoteNotFoundMsg: 'Ce lien de devis est introuvable ou a expiré.',
+    storageUnavailableErr: 'Le stockage cloud n’est pas encore connecté sur ce déploiement.',
+    saveFailedErr: 'Impossible d’enregistrer le devis. Veuillez réessayer.',
     yesSelected: 'Inclus (1 forfait)',
     notSelected: 'Non sélectionné'
   }
@@ -423,15 +449,42 @@ const copyText = {
 
 export default function InteractiveQuoteSection({
   isDedicatedClientMode = false,
+  remoteQuoteState,
   onScrollToPortfolio
 }: {
   isDedicatedClientMode?: boolean;
+  remoteQuoteState?: RemoteQuoteState;
   onScrollToPortfolio?: () => void;
 }) {
   const { language } = useLanguage();
   const c = copyText[language] || copyText.vi;
 
-  // Determine initial quote strictly from signed ?q= token or fall back to public Standard Rate Card (ZERO client PII in bundle)
+  const toClientProfile = (p: TokenClientProfile): ClientProfile => ({
+    id: 'client',
+    quoteNumber: p.quoteNumber,
+    date: p.date,
+    clientName: p.clientName,
+    businessName: p.businessName || '',
+    address: p.address || '',
+    phone: p.phone || '',
+    depositPercent: DEFAULT_DEPOSIT_PERCENT,
+    validityDays: 30
+  });
+
+  const toQuoteSelections = (s?: TokenSelections): QuoteSelections => ({
+    ...ZERO_SELECTIONS,
+    staticMenuPages: Number(s?.staticMenuPages ?? 0),
+    animatedMenuScreens: Number(s?.animatedMenuScreens ?? 0),
+    decalPanels: Number(s?.decalPanels ?? 0),
+    decalDesignCount: Number(s?.decalDesignCount ?? 0),
+    tvComboSelected: Boolean(s?.tvComboSelected),
+    tvSize: s?.tvSize === '65' ? '65' : '55',
+    tvExtraClips: Number(s?.tvExtraClips ?? 0),
+    basicClips: Number(s?.basicClips ?? 0),
+    influencerClips: Number(s?.influencerClips ?? 0)
+  });
+
+  // Determine initial quote strictly from signed ?q= token, short ID, or public Standard Rate Card (ZERO client PII in bundle)
   const buildStandardProfile = (langCode: string = language): ClientProfile => {
     const stdTitle =
       langCode === 'en'
@@ -460,40 +513,25 @@ export default function InteractiveQuoteSection({
   } => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
-      const token = params.get('q');
+      const token = params.get('q')?.trim() ?? null;
       const hasAdminParam = params.get('admin') === '1';
 
       if (token) {
         const decoded = decodeQuoteToken(token);
         if (decoded) {
-          const p = decoded.profile;
-          const s = decoded.selections;
           return {
             activeToken: token,
             hasAdminParam,
-            profile: {
-              id: 'client',
-              quoteNumber: p.quoteNumber,
-              date: p.date,
-              clientName: p.clientName,
-              businessName: p.businessName || '',
-              address: p.address || '',
-              phone: p.phone || '',
-              depositPercent: DEFAULT_DEPOSIT_PERCENT,
-              validityDays: 30
-            },
-            selections: {
-              ...ZERO_SELECTIONS,
-              staticMenuPages: Number(s?.staticMenuPages ?? 0),
-              animatedMenuScreens: Number(s?.animatedMenuScreens ?? 0),
-              decalPanels: Number(s?.decalPanels ?? 0),
-              decalDesignCount: Number(s?.decalDesignCount ?? 0),
-              tvComboSelected: Boolean(s?.tvComboSelected),
-              tvSize: s?.tvSize === '65' ? '65' : '55',
-              tvExtraClips: Number(s?.tvExtraClips ?? 0),
-              basicClips: Number(s?.basicClips ?? 0),
-              influencerClips: Number(s?.influencerClips ?? 0)
-            }
+            profile: toClientProfile(decoded.profile),
+            selections: toQuoteSelections(decoded.selections)
+          };
+        }
+        if (remoteQuoteState?.status === 'ready' && remoteQuoteState.data) {
+          return {
+            activeToken: remoteQuoteState.shortId || token,
+            hasAdminParam,
+            profile: toClientProfile(remoteQuoteState.data.profile),
+            selections: toQuoteSelections(remoteQuoteState.data.selections)
           };
         }
       }
@@ -538,6 +576,9 @@ export default function InteractiveQuoteSection({
   });
   const [adminPinInput, setAdminPinInput] = useState('');
   const [adminPinError, setAdminPinError] = useState(false);
+  const [isSavingQuote, setIsSavingQuote] = useState(false);
+  const [saveQuoteError, setSaveQuoteError] = useState<string | null>(null);
+  const [savedSelectionsMsgVisible, setSavedSelectionsMsgVisible] = useState(false);
   const [savedAdminQuotes, setSavedAdminQuotes] = useState<SavedAdminQuote[]>(() => {
     if (typeof window === 'undefined' || sessionStorage.getItem(ADMIN_SESSION_KEY) !== '1') {
       return [];
@@ -550,6 +591,15 @@ export default function InteractiveQuoteSection({
     }
   });
   const [includeCurrentSelections, setIncludeCurrentSelections] = useState(false);
+
+  // Sync fetched short-link quote into local state once API response arrives
+  useEffect(() => {
+    if (remoteQuoteState?.status === 'ready' && remoteQuoteState.data) {
+      setActiveToken(remoteQuoteState.shortId);
+      setClientProfile(toClientProfile(remoteQuoteState.data.profile));
+      setSelections(toQuoteSelections(remoteQuoteState.data.selections));
+    }
+  }, [remoteQuoteState]);
 
   // Keep standard card localized when switching VI / EN / FR on generic view
   useEffect(() => {
@@ -635,8 +685,12 @@ export default function InteractiveQuoteSection({
     pinDialogRef.current?.showModal();
   };
 
+  const getSessionPasscode = () =>
+    typeof window !== 'undefined' ? sessionStorage.getItem(ADMIN_PASS_SESSION_KEY) || '' : '';
+
   const openGeneratorModal = () => {
-    if (!isAdminUnlocked) {
+    setSaveQuoteError(null);
+    if (!isAdminUnlocked || !getSessionPasscode()) {
       openPinModal();
       return;
     }
@@ -650,6 +704,7 @@ export default function InteractiveQuoteSection({
       return;
     }
     sessionStorage.setItem(ADMIN_SESSION_KEY, '1');
+    sessionStorage.setItem(ADMIN_PASS_SESSION_KEY, adminPinInput.trim());
     setIsAdminUnlocked(true);
     setAdminPinError(false);
     setAdminPinInput('');
@@ -664,6 +719,7 @@ export default function InteractiveQuoteSection({
 
   const handleLockAdmin = () => {
     sessionStorage.removeItem(ADMIN_SESSION_KEY);
+    sessionStorage.removeItem(ADMIN_PASS_SESSION_KEY);
     setIsAdminUnlocked(false);
     setSavedAdminQuotes([]);
     if (clientProfile.id === 'client' && !activeToken) {
@@ -671,7 +727,7 @@ export default function InteractiveQuoteSection({
     }
   };
 
-  const deleteSavedAdminQuote = (id: string) => {
+  const deleteSavedAdminQuote = async (id: string) => {
     const next = savedAdminQuotes.filter((q) => q.id !== id);
     setSavedAdminQuotes(next);
     try {
@@ -679,31 +735,45 @@ export default function InteractiveQuoteSection({
     } catch {
       // ignore storage quota
     }
+    const passcode = getSessionPasscode();
+    if (passcode && isShortQuoteId(id)) {
+      try {
+        await fetch(`/api/quotes?id=${encodeURIComponent(id)}`, {
+          method: 'DELETE',
+          headers: { 'x-admin-passcode': passcode }
+        });
+      } catch {
+        // local cleanup already completed
+      }
+    }
   };
 
-  const loadSavedAdminQuote = (saved: SavedAdminQuote) => {
+  const loadSavedAdminQuote = async (saved: SavedAdminQuote) => {
     try {
       const urlObj = new URL(saved.url);
-      const tok = urlObj.searchParams.get('q');
+      const tok = urlObj.searchParams.get('q')?.trim();
       if (!tok) return;
+
       const decoded = decodeQuoteToken(tok);
-      if (!decoded) return;
-      setActiveToken(tok);
-      setClientProfile({
-        id: 'client',
-        quoteNumber: decoded.profile.quoteNumber,
-        date: decoded.profile.date,
-        clientName: decoded.profile.clientName,
-        businessName: decoded.profile.businessName || '',
-        address: decoded.profile.address || '',
-        phone: decoded.profile.phone || '',
-        depositPercent: DEFAULT_DEPOSIT_PERCENT,
-        validityDays: 30
-      });
-      setSelections({
-        ...ZERO_SELECTIONS,
-        ...(decoded.selections || {})
-      });
+      if (decoded) {
+        setActiveToken(tok);
+        setClientProfile(toClientProfile(decoded.profile));
+        setSelections(toQuoteSelections(decoded.selections));
+        return;
+      }
+
+      if (isShortQuoteId(tok)) {
+        const res = await fetch(`/api/quotes?id=${encodeURIComponent(tok)}`, {
+          cache: 'no-store'
+        });
+        if (!res.ok) return;
+        const json = (await res.json()) as { id?: string; quote?: StoredQuotePayload };
+        if (json?.quote?.profile) {
+          setActiveToken(json.id || tok);
+          setClientProfile(toClientProfile(json.quote.profile));
+          setSelections(toQuoteSelections(json.quote.selections));
+        }
+      }
     } catch {
       // ignore malformed URL
     }
@@ -772,60 +842,134 @@ export default function InteractiveQuoteSection({
     setTimeout(() => setCopiedLink(false), 2500);
   };
 
-  const handleCreateNewClientSubmit = (e: React.FormEvent) => {
+  const handleCreateNewClientSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!isAdminUnlocked || !newClientForm.clientName.trim()) return;
+    if (!isAdminUnlocked || !newClientForm.clientName.trim() || isSavingQuote) return;
+    const passcode = getSessionPasscode();
+    if (!passcode) {
+      generatorDialogRef.current?.close();
+      openPinModal();
+      return;
+    }
+
     const today = new Date();
     const dateStr = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}/${today.getFullYear()}`;
     const qnum = newClientForm.quoteNumber.trim() || 'TYM-2611-002';
-    const createdProfile: ClientProfile = {
-      id: 'client',
+    const tokenProfile: TokenClientProfile = {
       quoteNumber: qnum,
       date: dateStr,
       clientName: newClientForm.clientName.trim(),
       businessName: newClientForm.businessName.trim(),
       address: newClientForm.address.trim() || 'Québec, Canada',
-      phone: newClientForm.phone.trim(),
-      depositPercent: DEFAULT_DEPOSIT_PERCENT,
-      validityDays: 30
+      phone: newClientForm.phone.trim()
     };
-    const token = encodeQuoteToken(
-      {
-        quoteNumber: createdProfile.quoteNumber,
-        date: createdProfile.date,
+    const nextSelections = includeCurrentSelections ? { ...selections } : { ...ZERO_SELECTIONS };
+
+    setIsSavingQuote(true);
+    setSaveQuoteError(null);
+    try {
+      const res = await fetch('/api/quotes', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-admin-passcode': passcode
+        },
+        body: JSON.stringify({
+          profile: tokenProfile,
+          ...(includeCurrentSelections ? { selections: nextSelections } : {})
+        })
+      });
+
+      if (res.status === 401) {
+        handleLockAdmin();
+        generatorDialogRef.current?.close();
+        openPinModal();
+        return;
+      }
+      if (res.status === 503) {
+        setSaveQuoteError(c.storageUnavailableErr);
+        return;
+      }
+      if (!res.ok) {
+        setSaveQuoteError(c.saveFailedErr);
+        return;
+      }
+
+      const data = (await res.json()) as { id: string; quote: StoredQuotePayload };
+      const shortId = data.id;
+      const createdProfile = toClientProfile(data.quote.profile);
+      setActiveToken(shortId);
+      setClientProfile(createdProfile);
+      setSelections(toQuoteSelections(data.quote.selections));
+
+      const shareUrl = `${window.location.origin}${window.location.pathname}?q=${encodeURIComponent(shortId)}`;
+      navigator.clipboard.writeText(shareUrl);
+      setCopiedLink(true);
+      setTimeout(() => setCopiedLink(false), 2500);
+
+      const newEntry: SavedAdminQuote = {
+        id: shortId,
         clientName: createdProfile.clientName,
         businessName: createdProfile.businessName,
-        address: createdProfile.address,
-        phone: createdProfile.phone
-      },
-      includeCurrentSelections ? { ...selections } : undefined
-    );
-    const nextSelections = includeCurrentSelections ? { ...selections } : { ...ZERO_SELECTIONS };
-    setActiveToken(token);
-    setClientProfile(createdProfile);
-    setSelections(nextSelections);
-
-    const shareUrl = `${window.location.origin}${window.location.pathname}?q=${encodeURIComponent(token)}`;
-    navigator.clipboard.writeText(shareUrl);
-    setCopiedLink(true);
-    setTimeout(() => setCopiedLink(false), 2500);
-
-    const newEntry: SavedAdminQuote = {
-      id: `${Date.now()}`,
-      clientName: createdProfile.clientName,
-      businessName: createdProfile.businessName,
-      quoteNumber: createdProfile.quoteNumber,
-      url: shareUrl,
-      createdAt: dateStr
-    };
-    const updatedList = [newEntry, ...savedAdminQuotes.filter((q) => q.quoteNumber !== qnum)];
-    setSavedAdminQuotes(updatedList);
-    try {
-      localStorage.setItem(ADMIN_STORAGE_KEY, JSON.stringify(updatedList));
+        quoteNumber: createdProfile.quoteNumber,
+        url: shareUrl,
+        createdAt: dateStr
+      };
+      const updatedList = [newEntry, ...savedAdminQuotes.filter((q) => q.id !== shortId)];
+      setSavedAdminQuotes(updatedList);
+      try {
+        localStorage.setItem(ADMIN_STORAGE_KEY, JSON.stringify(updatedList));
+      } catch {
+        // ignore storage quota
+      }
+      generatorDialogRef.current?.close();
     } catch {
-      // ignore storage quota
+      setSaveQuoteError(c.saveFailedErr);
+    } finally {
+      setIsSavingQuote(false);
     }
-    generatorDialogRef.current?.close();
+  };
+
+  const handleSaveUpdatedSelections = async () => {
+    if (!isAdminUnlocked || !activeToken || !isShortQuoteId(activeToken) || isSavingQuote) return;
+    const passcode = getSessionPasscode();
+    if (!passcode) {
+      openPinModal();
+      return;
+    }
+
+    setIsSavingQuote(true);
+    try {
+      const res = await fetch(`/api/quotes?id=${encodeURIComponent(activeToken)}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-admin-passcode': passcode
+        },
+        body: JSON.stringify({
+          profile: {
+            quoteNumber: clientProfile.quoteNumber,
+            date: clientProfile.date,
+            clientName: clientProfile.clientName,
+            businessName: clientProfile.businessName || '',
+            address: clientProfile.address,
+            phone: clientProfile.phone
+          },
+          selections
+        })
+      });
+      if (res.status === 401) {
+        handleLockAdmin();
+        openPinModal();
+        return;
+      }
+      if (res.ok) {
+        setSavedSelectionsMsgVisible(true);
+        setTimeout(() => setSavedSelectionsMsgVisible(false), 2500);
+      }
+    } finally {
+      setIsSavingQuote(false);
+    }
   };
 
   // Pre-filled SMS / Email body for quick client confirmation
@@ -893,6 +1037,16 @@ export default function InteractiveQuoteSection({
               >
                 {c.createNewClientBtn}
               </button>
+              {clientProfile.id === 'client' && activeToken && isShortQuoteId(activeToken) && (
+                <button
+                  type="button"
+                  className="quote-switch-btn"
+                  disabled={isSavingQuote}
+                  onClick={handleSaveUpdatedSelections}
+                >
+                  {savedSelectionsMsgVisible ? c.savedSelectionsMsg : c.saveSelectionsBtn}
+                </button>
+              )}
               {clientProfile.id === 'client' && (
                 <button
                   type="button"
@@ -970,24 +1124,36 @@ export default function InteractiveQuoteSection({
           </div>
         </div>
 
-        {/* Client Recipient Box (Only renders customer info when valid private token ?q= is opened) */}
+        {/* Client Recipient Box (Only renders customer info when valid private token/short-id ?q= is opened) */}
         <div className="quote-recipient-banner">
-          <div className="recipient-tag">
-            {clientProfile.id === 'client' ? c.recipientHeader : c.standardRecipientTag}
-          </div>
-          <div className="recipient-main-name">
-            {clientProfile.clientName}
-            {clientProfile.businessName ? ` — ${clientProfile.businessName}` : ''}
-          </div>
-          {clientProfile.address && (
-            <div className="recipient-sub-line">
-              <span>{c.addressLabel}</span> {clientProfile.address}
-            </div>
-          )}
-          {clientProfile.id === 'client' && clientProfile.phone && (
-            <div className="recipient-sub-line">
-              <span>{c.phoneLabel}</span> {clientProfile.phone}
-            </div>
+          {remoteQuoteState?.status === 'loading' ? (
+            <div className="recipient-main-name">{c.loadingRemoteQuote}</div>
+          ) : (
+            <>
+              {(remoteQuoteState?.status === 'not_found' ||
+                remoteQuoteState?.status === 'error') && (
+                <p className="admin-pin-error" style={{ marginBottom: '0.5rem' }}>
+                  {c.quoteNotFoundMsg}
+                </p>
+              )}
+              <div className="recipient-tag">
+                {clientProfile.id === 'client' ? c.recipientHeader : c.standardRecipientTag}
+              </div>
+              <div className="recipient-main-name">
+                {clientProfile.clientName}
+                {clientProfile.businessName ? ` — ${clientProfile.businessName}` : ''}
+              </div>
+              {clientProfile.address && (
+                <div className="recipient-sub-line">
+                  <span>{c.addressLabel}</span> {clientProfile.address}
+                </div>
+              )}
+              {clientProfile.id === 'client' && clientProfile.phone && (
+                <div className="recipient-sub-line">
+                  <span>{c.phoneLabel}</span> {clientProfile.phone}
+                </div>
+              )}
+            </>
           )}
         </div>
 
@@ -1796,8 +1962,13 @@ export default function InteractiveQuoteSection({
                 />
                 <span>{c.adminIncludeSelections}</span>
               </label>
-              <button type="submit" className="quote-cta-btn primary full-width">
-                {c.btnApplyAndCopy}
+              {saveQuoteError && <p className="admin-pin-error">{saveQuoteError}</p>}
+              <button
+                type="submit"
+                className="quote-cta-btn primary full-width"
+                disabled={isSavingQuote}
+              >
+                {isSavingQuote ? c.savingShortLinkBtn : c.btnApplyAndCopy}
               </button>
             </form>
           </div>

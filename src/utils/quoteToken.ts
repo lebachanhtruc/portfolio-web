@@ -24,9 +24,19 @@ export interface DecodedQuoteToken {
   selections?: TokenSelections;
 }
 
-const ADMIN_SALT = 'TYM-ADMIN-2026';
-const ADMIN_HASH = '1e677285bad2a6edd86b2c23aca1c68063d485358c626680419d30a52003f500';
+export interface StoredQuotePayload {
+  profile: TokenClientProfile;
+  selections?: TokenSelections;
+  createdAt?: string;
+}
+
+export const ADMIN_SALT = 'TYM-ADMIN-2026';
+export const ADMIN_HASH = '1e677285bad2a6edd86b2c23aca1c68063d485358c626680419d30a52003f500';
 const TOKEN_KEY = 'TYM-QUOTE-PRIV-2026';
+
+export function isShortQuoteId(value: string | null | undefined): value is string {
+  return Boolean(value && /^[a-z0-9_-]{5,24}$/i.test(value));
+}
 
 // Pure-JS FIPS 180-4 SHA-256 (works reliably over both HTTPS and local HTTP origins)
 const K = [
