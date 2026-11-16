@@ -18,7 +18,8 @@
         "tvComboSelected": true,
         "tvSize": "55",
         "tvExtraClips": 0,
-        "basicClips": 1
+        "basicClips": 1,
+        "influencerClips": 1
       }
     },
     "somii": {
@@ -39,7 +40,8 @@
         "tvComboSelected": true,
         "tvSize": "55",
         "tvExtraClips": 0,
-        "basicClips": 0
+        "basicClips": 0,
+        "influencerClips": 0
       }
     }
   },
@@ -52,6 +54,7 @@
     "tvComboPackage": 450,
     "tv65InchExtra": 150,
     "tvExtraClip": 100,
-    "basicClip20s": 100
+    "basicClip20s": 100,
+    "influencerClipPerVideo": 200
   }
 }

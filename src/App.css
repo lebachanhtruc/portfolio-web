@@ -1693,6 +1693,14 @@ section {
   display: block;
 }
 
+.service-media-frame.portrait-showcase {
+  background: radial-gradient(circle at center, #1b1528 0%, #09090f 100%);
+}
+
+.service-media-frame.portrait-showcase .service-preview-video {
+  object-fit: contain;
+}
+
 .media-expand-btn {
   position: absolute;
   bottom: 10px;

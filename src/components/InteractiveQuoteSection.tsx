@@ -23,6 +23,7 @@ interface QuoteSelections {
   tvSize?: '55' | '65';
   tvExtraClips: number;
   basicClips: number;
+  influencerClips: number;
 }
 
 const copyText = {
@@ -43,6 +44,7 @@ const copyText = {
     createNewClientBtn: '+ Tạo Link Cho Khách Mới',
     scrollToPortfolioBtn: 'Xem thêm Portfolio bên dưới ↓',
     expandMediaBtn: '⤢ Phóng to xem rõ',
+    expandAudioVideoBtn: '⤢ Phóng to (có âm thanh)',
     closeModalBtn: 'Đóng',
     item1Title: '1. Thiết kế & Đồng bộ Menu',
     item1Subtitle: 'Menu Tĩnh (In ấn / TV) & Menu Động 4K (Animation từng món)',
@@ -56,21 +58,11 @@ const copyText = {
     ],
     item1CtrlStatic: 'Số mặt Menu Tĩnh ($200/mặt)',
     item1CtrlAnimated: 'Số mặt Menu Động ($350/mặt)',
-    item2Title: '2. Thi công Decal Kính',
-    item2Subtitle: 'Đo đạc & thi công dán hoàn thiện tại mặt bằng (Tối thiểu 02 mặt kính)',
+    item2Title: '2. Gói Combo: Lắp đặt TV & Sản xuất Video',
+    item2Subtitle: 'Digital Signage Mặt Tiền (Chỉ nhận lắp TV theo gói Combo trọn gói)',
+    item2TabRealTV: '▶ TV 55" thực tế tại tiệm',
+    item2TabSampleClip: '▶ Mẫu Clip 20s trong Loop',
     item2Bullets: [
-      'Đo đạc kích thước thực tế tại mặt bằng, vệ sinh bề mặt kính và thi công dán decal kính mặt tiền hoàn thiện (phẳng đẹp, thẩm mỹ).',
-      'Áp dụng tối thiểu: Nhận thi công từ 02 mặt kính trở lên (đơn thi công tối thiểu $200.00).',
-      'Lưu ý: Đơn giá $100.00/mặt kính chỉ bao gồm công đo đạc và thi công dán; chưa bao gồm chi phí in ấn vật tư decal.',
-      'Chi phí thiết kế decal (nếu tiệm chưa có file sẵn): Tính theo đơn giá thiết kế đồ họa tĩnh tương đương Mục 1 ($200.00 / mặt thiết kế).'
-    ],
-    item2CtrlPanels: 'Số mặt kính thi công ($100/mặt, tối thiểu 2)',
-    item2CtrlDesign: 'Số mặt cần Thiết kế Decal mới ($200/mặt)',
-    item3Title: '3. Gói Combo: Lắp đặt TV & Sản xuất Video',
-    item3Subtitle: 'Digital Signage Mặt Tiền (Chỉ nhận lắp TV theo gói Combo trọn gói)',
-    item3TabRealTV: '▶ TV 55" thực tế tại tiệm',
-    item3TabSampleClip: '▶ Mẫu Clip 20s trong Loop',
-    item3Bullets: [
       'Áp dụng theo gói Combo trọn gói (không nhận thi công lắp đặt TV riêng lẻ).',
       'Khảo sát vị trí, thi công lắp đặt 1 TV 55 inch tại cửa kính mặt tiền, đi dây gọn gàng và cài đặt chế độ phát lặp tự động (auto-loop).',
       'Tùy chọn nâng cấp TV 65 inch: Nếu Quý khách chọn lắp đặt TV 65 inch, chi phí thi công lắp đặt cộng thêm +$150.00 extra (tổng gói Combo TV 65 inch là $600.00).',
@@ -79,19 +71,43 @@ const copyText = {
       'Tùy chọn thêm (Extra clip): Làm thêm clip với chi phí $100.00 / clip (20 giây/clip, không giới hạn số lượng).',
       'Lưu ý: Chưa bao gồm chi phí mua TV, khung đỡ/giá treo TV (và dây kéo/ổ cắm điện mới nếu vị trí lắp chưa có sẵn nguồn điện).'
     ],
-    item3CtrlCombo: 'Chọn Gói Combo Lắp TV + 3 Clip Loop',
-    item3Opt55: 'TV 55" ($450)',
-    item3Opt65: 'TV 65" (+$150 = $600)',
-    item3CtrlExtra: 'Số lượng Extra Clip làm thêm ($100/clip 20s)',
-    item4Title: '4. Sáng tạo Clip Cơ bản',
-    item4Subtitle: 'Video quảng cáo ngắn 20 giây cho TV hoặc Mạng xã hội (Reels / TikTok)',
-    item4Bullets: [
+    item2CtrlCombo: 'Chọn Gói Combo Lắp TV + 3 Clip Loop',
+    item2Opt55: 'TV 55" ($450)',
+    item2Opt65: 'TV 65" (+$150 = $600)',
+    item2CtrlExtra: 'Số lượng Extra Clip làm thêm ($100/clip 20s)',
+    item3Title: '3. Sáng tạo Clip Cơ bản',
+    item3Subtitle: 'Video quảng cáo ngắn 20 giây cho TV hoặc Mạng xã hội (Reels / TikTok)',
+    item3Bullets: [
       'Sản xuất 01 clip quảng cáo ngắn (20 giây) tập trung làm nổi bật 01 món ăn/sản phẩm hoặc 01 chương trình khuyến mãi (lên ý tưởng ngắn, hiệu ứng chuyển động cơ bản trên 1 chủ thể, tiêu đề ngắn & nhạc nền).',
       'Thực hiện dựa trên hình ảnh/video gốc do tiệm cung cấp hoặc hình ảnh món ăn được xử lý nâng cấp sắc nét.',
       'Bàn giao 01 định dạng khung hình theo nhu cầu: khổ ngang (16:9) cho TV hoặc khổ dọc (9:16) đăng mạng xã hội (Facebook, Instagram Reels, TikTok).',
       'Lưu ý: Bao gồm tối đa 02 lần chỉnh sửa chi tiết chữ/nhịp điệu.'
     ],
-    item4CtrlClips: 'Số lượng Clip Cơ bản 20s ($100/clip)',
+    item3CtrlClips: 'Số lượng Clip Cơ bản 20s ($100/clip)',
+    item4Title: '4. Sáng tạo Video Quảng Cáo Influencer / Review Trải Nghiệm',
+    item4Subtitle: 'Clip Reels / TikTok có người review thử món thực tế tại tiệm (30–35 giây / clip)',
+    item4Bullets: [
+      'Xây dựng kịch bản & lời thoại tự nhiên theo phong cách UGC / Influencer review: cảnh mở hộp, cầm sản phẩm cận cảnh và ăn thử trực tiếp trên khung hình kèm biểu cảm chân thực.',
+      'Cắt dựng nhịp nhanh bắt mắt chuẩn mạng xã hội, lồng ghép thanh theo dõi các phần nổi bật (hook mở đầu, khoảnh khắc ăn thử ASMR, đánh giá 10/10) trong vùng hiển thị an toàn của Reels / TikTok.',
+      'Thiết kế đồ họa chữ động thu hút: tiêu đề lớn đầu clip, tag nhấn mạnh thành phần đặc trưng của món, phụ đề song ngữ đồng bộ khớp lời thoại cùng hiệu ứng sticker & âm thanh ASMR + nhạc nền.',
+      'Chèn thanh thông tin chốt đơn & kêu gọi ghé quán (tên tiệm, giá món, địa chỉ, số điện thoại, giờ mở cửa). Bàn giao file dọc Full HD 9:16, thời lượng chuẩn 30–35 giây/clip (kèm tối đa 02 lần chỉnh sửa; video bên cạnh là mẫu 20s minh họa phong cách thực tế).'
+    ],
+    item4CtrlClips: 'Số lượng Video Influencer / Review 30–35s ($200/clip)',
+    item5Title: '5. Thi công Decal Kính',
+    item5Subtitle: 'Đo đạc & thi công dán hoàn thiện tại mặt bằng (Tối thiểu 02 mặt kính)',
+    item5Bullets: [
+      'Đo đạc kích thước thực tế tại mặt bằng, vệ sinh bề mặt kính và thi công dán decal kính mặt tiền hoàn thiện (phẳng đẹp, thẩm mỹ).',
+      'Áp dụng tối thiểu: Nhận thi công từ 02 mặt kính trở lên (đơn thi công tối thiểu $200.00).',
+      'Lưu ý: Đơn giá $100.00/mặt kính chỉ bao gồm công đo đạc và thi công dán; chưa bao gồm chi phí in ấn vật tư decal.',
+      'Chi phí thiết kế decal (nếu tiệm chưa có file sẵn): Tính theo đơn giá thiết kế đồ họa tĩnh tương đương Mục 1 ($200.00 / mặt thiết kế).'
+    ],
+    item5CtrlPanels: 'Số mặt kính thi công ($100/mặt, tối thiểu 2)',
+    item5CtrlDesign: 'Số mặt cần Thiết kế Decal mới ($200/mặt)',
+    row1aTitle: '1A. Thiết kế Menu Tĩnh (In ấn Letter/A4 hoặc TV)',
+    row1bTitle: '1B. Thiết kế Menu Động 4K (Animation từng món)',
+    row3Title: '3. Sáng tạo Video Clip Cơ bản (20 giây/clip)',
+    row4Title: '4. Video Quảng Cáo Influencer / Review Trải Nghiệm (30–35 giây/clip)',
+    row5Title: '5. Thi công Decal Kính Mặt Tiền (Tối thiểu 2 mặt)',
     summaryCaption: 'Bảng Tổng Hợp & Dự Toán Chi Phí Dịch Vụ',
     colService: 'Hạng Mục Dịch Vụ',
     colUnitPrice: 'Đơn Giá Chuẩn',
@@ -137,6 +153,7 @@ const copyText = {
     createNewClientBtn: '+ Create Link for New Client',
     scrollToPortfolioBtn: 'Explore Full Portfolio Below ↓',
     expandMediaBtn: '⤢ Fullscreen Preview',
+    expandAudioVideoBtn: '⤢ Fullscreen (with Audio)',
     closeModalBtn: 'Close',
     item1Title: '1. Menu Design & Synchronization',
     item1Subtitle: 'Static Menu (Print / TV) & 4K Animated Digital Menu Board',
@@ -150,21 +167,11 @@ const copyText = {
     ],
     item1CtrlStatic: 'Static Menu Pages ($200/page)',
     item1CtrlAnimated: 'Animated Menu Screens ($350/screen)',
-    item2Title: '2. Storefront Window Decal Installation',
-    item2Subtitle: 'On-site measurement, surface prep & installation (Minimum 02 glass panels)',
+    item2Title: '2. Combo Package: TV Installation & Video Production',
+    item2Subtitle: 'Storefront Digital Signage (TV installation available exclusively as a Combo)',
+    item2TabRealTV: '▶ Real 55" TV Installed On-Site',
+    item2TabSampleClip: '▶ Sample 20s Loop Clip',
     item2Bullets: [
-      'On-site measurement, glass surface cleaning, and professional storefront decal installation.',
-      'Minimum order: Minimum 02 glass panels required ($200.00 minimum installation fee).',
-      'Note: $100.00/panel covers measurement and installation labor only; excludes decal printing material costs.',
-      'Decal graphic design fee (if artwork is not provided): Charged at the Static Design rate from Item 1 ($200.00 / design layout).'
-    ],
-    item2CtrlPanels: 'Glass Panels to Install ($100/panel, min 2)',
-    item2CtrlDesign: 'New Decal Design Layouts ($200/layout)',
-    item3Title: '3. Combo Package: TV Installation & Video Production',
-    item3Subtitle: 'Storefront Digital Signage (TV installation available exclusively as a Combo)',
-    item3TabRealTV: '▶ Real 55" TV Installed On-Site',
-    item3TabSampleClip: '▶ Sample 20s Loop Clip',
-    item3Bullets: [
       'Available exclusively as a complete Combo Package (standalone TV installation is not offered).',
       'Site survey and installation of 1x 55-inch TV at the storefront window, clean cable routing, and auto-loop playback setup.',
       '65-inch TV Upgrade Option: If selecting a 65-inch TV, an additional +$150.00 installation fee applies ($600.00 total for the 65" TV Combo).',
@@ -173,19 +180,43 @@ const copyText = {
       'Add-on (Extra clip): $100.00 / clip (20 seconds/clip, unlimited quantity).',
       'Note: Excludes the cost of purchasing the TV, TV mount/bracket, and new electrical outlet wiring if not already available near the mounting spot.'
     ],
-    item3CtrlCombo: 'Select TV Installation + 3-Clip Loop Combo',
-    item3Opt55: '55" TV ($450)',
-    item3Opt65: '65" TV (+$150 = $600)',
-    item3CtrlExtra: 'Extra 20s Clips ($100/clip)',
-    item4Title: '4. Basic Promotional Video Clip',
-    item4Subtitle: '20-second spotlight video clip for TV Display or Social Media (Reels / TikTok)',
-    item4Bullets: [
+    item2CtrlCombo: 'Select TV Installation + 3-Clip Loop Combo',
+    item2Opt55: '55" TV ($450)',
+    item2Opt65: '65" TV (+$150 = $600)',
+    item2CtrlExtra: 'Extra 20s Clips ($100/clip)',
+    item3Title: '3. Basic Promotional Video Clip',
+    item3Subtitle: '20-second spotlight video clip for TV Display or Social Media (Reels / TikTok)',
+    item3Bullets: [
       'Production of 01 short promotional clip (20 seconds) spotlighting 01 dish/product or 01 promotion (concept, single-subject motion animation, title overlay & background music).',
       'Created from client-provided photos/footage or AI-enhanced high-resolution food imagery.',
       'Delivered in 01 aspect ratio of choice: Landscape (16:9) for TV or Vertical (9:16) for Social Media (Instagram Reels, TikTok, Facebook).',
       'Note: Includes up to 02 revisions for text/timing details.'
     ],
-    item4CtrlClips: 'Basic 20s Video Clips ($100/clip)',
+    item3CtrlClips: 'Basic 20s Video Clips ($100/clip)',
+    item4Title: '4. Influencer / UGC Tasting Review Ad Video',
+    item4Subtitle: 'Social Reels / TikTok ad featuring on-camera product tasting & review (30–35 sec / clip)',
+    item4Bullets: [
+      'Scripted UGC / Influencer tasting production: attention-grabbing opening hook, unboxing, close-up food showcase, and authentic on-camera reaction & first bite.',
+      'Fast-paced Reels / TikTok editing with top safe-zone story progress pills (hook, texture showcase, ASMR crunch bite, 10/10 verdict) engineered for high watch time.',
+      'Animated motion-graphics typography: bold dish headline & price callouts, floating ingredient tags, synchronized bilingual subtitles, expressive effects, ASMR audio cues, and background soundtrack.',
+      'Branded storefront closing CTA bar (shop name, dish price, street address, phone, opening hours). Delivered in 9:16 Full HD, 30–35 seconds/clip (includes up to 02 revisions; preview shows a 20s format demo).'
+    ],
+    item4CtrlClips: 'Influencer / Review Ad Clips 30–35s ($200/clip)',
+    item5Title: '5. Storefront Window Decal Installation',
+    item5Subtitle: 'On-site measurement, surface prep & installation (Minimum 02 glass panels)',
+    item5Bullets: [
+      'On-site measurement, glass surface cleaning, and professional storefront decal installation.',
+      'Minimum order: Minimum 02 glass panels required ($200.00 minimum installation fee).',
+      'Note: $100.00/panel covers measurement and installation labor only; excludes decal printing material costs.',
+      'Decal graphic design fee (if artwork is not provided): Charged at the Static Design rate from Item 1 ($200.00 / design layout).'
+    ],
+    item5CtrlPanels: 'Glass Panels to Install ($100/panel, min 2)',
+    item5CtrlDesign: 'New Decal Design Layouts ($200/layout)',
+    row1aTitle: '1A. Static Menu Design (Letter/A4 Print or TV)',
+    row1bTitle: '1B. Animated Digital Menu 4K (Per-Dish Animation)',
+    row3Title: '3. Basic Promotional Video Clip (20s / clip)',
+    row4Title: '4. Influencer / UGC Tasting Review Video (30–35s / clip)',
+    row5Title: '5. Storefront Window Decal Installation (Min. 2 panels)',
     summaryCaption: 'Quotation Summary & Live Budget Estimator',
     colService: 'Service Item',
     colUnitPrice: 'Standard Rate',
@@ -231,6 +262,7 @@ const copyText = {
     createNewClientBtn: '+ Créer un Lien Client',
     scrollToPortfolioBtn: 'Voir le Portfolio complet ci-dessous ↓',
     expandMediaBtn: '⤢ Plein écran',
+    expandAudioVideoBtn: '⤢ Plein écran (avec son)',
     closeModalBtn: 'Fermer',
     item1Title: '1. Conception & Synchronisation de Menu',
     item1Subtitle: 'Menu Statique (Impression / TV) & Menu Dynamique 4K (Animation par plat)',
@@ -244,21 +276,11 @@ const copyText = {
     ],
     item1CtrlStatic: 'Faces de Menu Statique (200 $/face)',
     item1CtrlAnimated: 'Écrans de Menu Animé (350 $/écran)',
-    item2Title: '2. Pose de Décalque sur Vitrine',
-    item2Subtitle: 'Prise de mesures, nettoyage et pose sur vitrine (Minimum 02 panneaux)',
+    item2Title: '2. Forfait Combo : Installation TV & Production Vidéo',
+    item2Subtitle: 'Affichage Numérique Vitrine (Installation TV offerte uniquement en forfait Combo)',
+    item2TabRealTV: '▶ TV 55" installée en vitrine',
+    item2TabSampleClip: '▶ Exemple de Clip 20s',
     item2Bullets: [
-      'Prise de mesures sur place, nettoyage des vitres et pose professionnelle de décalque en façade.',
-      'Minimum requis : Pose à partir de 02 panneaux vitrés (forfait minimum de pose de 200,00 $).',
-      'Note : Le tarif de 100,00 $/vitre couvre uniquement la main-d’œuvre de pose ; frais d’impression du vinyle non inclus.',
-      'Frais de création graphique (si aucun fichier prêt à imprimer) : Tarif équivalent au design statique de l’article 1 (200,00 $ / maquette).'
-    ],
-    item2CtrlPanels: 'Vitres à poser (100 $/vitre, min 2)',
-    item2CtrlDesign: 'Nouvelles maquettes de décalque (200 $/maquette)',
-    item3Title: '3. Forfait Combo : Installation TV & Production Vidéo',
-    item3Subtitle: 'Affichage Numérique Vitrine (Installation TV offerte uniquement en forfait Combo)',
-    item3TabRealTV: '▶ TV 55" installée en vitrine',
-    item3TabSampleClip: '▶ Exemple de Clip 20s',
-    item3Bullets: [
       'Offert exclusivement en forfait Combo complet (aucune installation de TV seule).',
       'Installation d’un téléviseur 55 pouces en vitrine, passage des câbles et configuration de la lecture en boucle (auto-loop).',
       'Option TV 65 pouces : Pour l’installation d’un téléviseur 65 pouces, un supplément de pose de +150,00 $ s’applique (600,00 $ au total pour le Combo TV 65").',
@@ -267,19 +289,43 @@ const copyText = {
       'Option supplémentaire (Extra clip) : 100,00 $ / clip (20 secondes/clip, sans limite).',
       'Note : N’inclut pas l’achat du téléviseur, du support mural/plafond ni l’installation d’une nouvelle prise électrique.'
     ],
-    item3CtrlCombo: 'Forfait Combo Pose TV + 3 Clips',
-    item3Opt55: 'TV 55" (450 $)',
-    item3Opt65: 'TV 65" (+150 $ = 600 $)',
-    item3CtrlExtra: 'Clips supplémentaires 20s (100 $/clip)',
-    item4Title: '4. Création de Clip Vidéo de Base',
-    item4Subtitle: 'Clip promotionnel de 20 secondes pour TV ou Réseaux Sociaux (Reels / TikTok)',
-    item4Bullets: [
+    item2CtrlCombo: 'Forfait Combo Pose TV + 3 Clips',
+    item2Opt55: 'TV 55" (450 $)',
+    item2Opt65: 'TV 65" (+150 $ = 600 $)',
+    item2CtrlExtra: 'Clips supplémentaires 20s (100 $/clip)',
+    item3Title: '3. Création de Clip Vidéo de Base',
+    item3Subtitle: 'Clip promotionnel de 20 secondes pour TV ou Réseaux Sociaux (Reels / TikTok)',
+    item3Bullets: [
       'Production d’un clip court (20 secondes) mettant en vedette 01 plat/produit ou 01 promotion (concept, animation de base sur 1 sujet, titrage et musique).',
       'Réalisé à partir des photos/vidéos du restaurant ou d’images culinaires optimisées haute définition.',
       'Livré en 01 format au choix : Horizontal (16:9) pour TV ou Vertical (9:16) pour Instagram Reels, TikTok, Facebook.',
       'Note : Inclut jusqu’à 02 révisions de détails.'
     ],
-    item4CtrlClips: 'Nombre de Clips de Base 20s (100 $/clip)',
+    item3CtrlClips: 'Nombre de Clips de Base 20s (100 $/clip)',
+    item4Title: '4. Vidéo Publicitaire Influenceur / Dégustation Produit',
+    item4Subtitle: 'Clip Reels / TikTok avec dégustation & réaction authentique face caméra (30–35 s / clip)',
+    item4Bullets: [
+      'Scénario et tournage style UGC / Influenceur : accroche visuelle dès les premières secondes, ouverture du plat, gros plans gourmands et réaction authentique à la dégustation.',
+      'Montage dynamique optimisé pour Reels / TikTok avec barre de progression en zone sécurisée (accroche, texture, bouchée ASMR, note 10/10) pour maximiser la rétention.',
+      'Habillage graphique animé : titres d’accroche et prix, étiquettes flottantes des ingrédients, sous-titres bilingues synchronisés, effets visuels, bruitages ASMR et musique rythmée.',
+      'Bandeau final complet du commerce (nom, tarif du plat, adresse, téléphone, heures d’ouverture). Format vertical 9:16 Full HD, durée standard 30–35 secondes/clip (jusqu’à 02 révisions incluses ; l’aperçu montre une démo de 20s).'
+    ],
+    item4CtrlClips: 'Nombre de Vidéos Influenceur 30–35s (200 $/clip)',
+    item5Title: '5. Pose de Décalque sur Vitrine',
+    item5Subtitle: 'Prise de mesures, nettoyage et pose sur vitrine (Minimum 02 panneaux)',
+    item5Bullets: [
+      'Prise de mesures sur place, nettoyage des vitres et pose professionnelle de décalque en façade.',
+      'Minimum requis : Pose à partir de 02 panneaux vitrés (forfait minimum de pose de 200,00 $).',
+      'Note : Le tarif de 100,00 $/vitre couvre uniquement la main-d’œuvre de pose ; frais d’impression du vinyle non inclus.',
+      'Frais de création graphique (si aucun fichier prêt à imprimer) : Tarif équivalent au design statique de l’article 1 (200,00 $ / maquette).'
+    ],
+    item5CtrlPanels: 'Vitres à poser (100 $/vitre, min 2)',
+    item5CtrlDesign: 'Nouvelles maquettes de décalque (200 $/maquette)',
+    row1aTitle: '1A. Conception Menu Statique (Impression Lettre/A4 ou TV)',
+    row1bTitle: '1B. Conception Menu Animé 4K (Animation par plat)',
+    row3Title: '3. Création de Clip Vidéo de Base (20s / clip)',
+    row4Title: '4. Vidéo Publicitaire Influenceur / Dégustation (30–35s / clip)',
+    row5Title: '5. Pose de Décalque sur Vitrine (Min. 2 vitres)',
     summaryCaption: 'Récapitulatif du Devis & Calculateur de Budget',
     colService: 'Service',
     colUnitPrice: 'Tarif Unitaire',
@@ -358,8 +404,10 @@ export default function InteractiveQuoteSection({
             decalPanels: Number(params.get('decal') ?? 2),
             decalDesignCount: Number(params.get('ddesign') ?? 0),
             tvComboSelected: params.get('tv') !== '0',
+            tvSize: params.get('tvsize') === '65' ? '65' : '55',
             tvExtraClips: Number(params.get('extra') ?? 0),
-            basicClips: Number(params.get('clip') ?? 1)
+            basicClips: Number(params.get('clip') ?? 1),
+            influencerClips: Number(params.get('uclip') ?? 1)
           }
         };
       }
@@ -380,7 +428,10 @@ export default function InteractiveQuoteSection({
             depositPercent: preset.depositPercent,
             validityDays: preset.validityDays
           },
-          selections: { ...preset.defaultSelections }
+          selections: {
+            ...preset.defaultSelections,
+            influencerClips: preset.defaultSelections.influencerClips ?? 0
+          }
         };
       }
     }
@@ -401,7 +452,10 @@ export default function InteractiveQuoteSection({
         depositPercent: sandy.depositPercent,
         validityDays: sandy.validityDays
       },
-      selections: { ...sandy.defaultSelections }
+      selections: {
+        ...sandy.defaultSelections,
+        influencerClips: sandy.defaultSelections.influencerClips ?? 1
+      }
     };
   };
 
@@ -410,9 +464,9 @@ export default function InteractiveQuoteSection({
   const [clientProfile, setClientProfile] = useState<ClientProfile>(initialData.profile);
   const [selections, setSelections] = useState<QuoteSelections>(initialData.selections);
 
-  // Media preview tabs inside Card 1 and Card 3
+  // Media preview tabs inside Card 1 and Card 2 (TV Combo)
   const [item1MediaTab, setItem1MediaTab] = useState<'animated' | 'static'>('animated');
-  const [item3MediaTab, setItem3MediaTab] = useState<'realtv' | 'sampleclip'>('realtv');
+  const [tvMediaTab, setTvMediaTab] = useState<'realtv' | 'sampleclip'>('realtv');
 
   // Copy link notification state
   const [copiedLink, setCopiedLink] = useState(false);
@@ -496,7 +550,10 @@ export default function InteractiveQuoteSection({
         depositPercent: p.depositPercent,
         validityDays: p.validityDays
       });
-      setSelections({ ...p.defaultSelections });
+      setSelections({
+        ...p.defaultSelections,
+        influencerClips: p.defaultSelections.influencerClips ?? 0
+      });
     }
   };
 
@@ -509,25 +566,27 @@ export default function InteractiveQuoteSection({
     generatorDialogRef.current?.showModal();
   };
 
-  // Pricing calculations
+  // Pricing calculations (ordered 1..5 to match quotation cards & summary table)
   const rates = quotesData.pricing;
   const staticMenuSubtotal = selections.staticMenuPages * rates.staticMenuPerPage;
   const animatedMenuSubtotal = selections.animatedMenuScreens * rates.animatedMenuPerScreen;
   const item1Subtotal = staticMenuSubtotal + animatedMenuSubtotal;
 
-  const decalInstallSubtotal = selections.decalPanels * rates.decalPerPanel;
-  const decalDesignSubtotal = selections.decalDesignCount * rates.decalDesignPerLayout;
-  const item2Subtotal = decalInstallSubtotal + decalDesignSubtotal;
-
   const tvSizeExtra =
     selections.tvComboSelected && selections.tvSize === '65' ? rates.tv65InchExtra : 0;
   const tvBaseSubtotal = selections.tvComboSelected ? rates.tvComboPackage + tvSizeExtra : 0;
   const tvExtraSubtotal = selections.tvExtraClips * rates.tvExtraClip;
-  const item3Subtotal = tvBaseSubtotal + tvExtraSubtotal;
+  const item2Subtotal = tvBaseSubtotal + tvExtraSubtotal;
 
-  const item4Subtotal = selections.basicClips * rates.basicClip20s;
+  const item3Subtotal = selections.basicClips * rates.basicClip20s;
+  const item4Subtotal = selections.influencerClips * rates.influencerClipPerVideo;
 
-  const grandTotal = item1Subtotal + item2Subtotal + item3Subtotal + item4Subtotal;
+  const decalInstallSubtotal = selections.decalPanels * rates.decalPerPanel;
+  const decalDesignSubtotal = selections.decalDesignCount * rates.decalDesignPerLayout;
+  const item5Subtotal = decalInstallSubtotal + decalDesignSubtotal;
+
+  const grandTotal =
+    item1Subtotal + item2Subtotal + item3Subtotal + item4Subtotal + item5Subtotal;
   const depositAmount = Math.round(grandTotal * (clientProfile.depositPercent / 100) * 100) / 100;
   const balanceAmount = grandTotal - depositAmount;
 
@@ -558,11 +617,13 @@ export default function InteractiveQuoteSection({
       if (target.quoteNumber) url.searchParams.set('qnum', target.quoteNumber);
       url.searchParams.set('smenu', String(selections.staticMenuPages));
       url.searchParams.set('amenu', String(selections.animatedMenuScreens));
-      url.searchParams.set('decal', String(selections.decalPanels));
-      url.searchParams.set('ddesign', String(selections.decalDesignCount));
       url.searchParams.set('tv', selections.tvComboSelected ? '1' : '0');
+      url.searchParams.set('tvsize', selections.tvSize === '65' ? '65' : '55');
       url.searchParams.set('extra', String(selections.tvExtraClips));
       url.searchParams.set('clip', String(selections.basicClips));
+      url.searchParams.set('uclip', String(selections.influencerClips));
+      url.searchParams.set('decal', String(selections.decalPanels));
+      url.searchParams.set('ddesign', String(selections.decalDesignCount));
     }
     return url.toString();
   };
@@ -613,6 +674,7 @@ export default function InteractiveQuoteSection({
   const mediaRealTV = '/Media/quote-showcase/real-tv-demo.mp4';
   const mediaSampleLoopClip = '/Media/quote-showcase/sample-loop-clip.mp4';
   const mediaBasicClip = '/Media/quote-showcase/clip-co-ban-demo.mp4';
+  const mediaInfluencerClip = '/Media/quote-showcase/clip-influencer-demo.mp4';
 
   return (
     <section id="section-Pricing & Services" className="interactive-quote-section container">
@@ -852,123 +914,30 @@ export default function InteractiveQuoteSection({
             </div>
           </article>
 
-          {/* CARD 2: STOREFRONT WINDOW DECAL INSTALLATION */}
-          <article className="quote-service-card">
-            <div className="service-media-column">
-              <div className="service-media-frame">
-                <img
-                  src={mediaDecalStorefront}
-                  alt="Storefront Window Decal"
-                  className="service-preview-img"
-                  style={{ objectPosition: 'left center' }}
-                />
-                <button
-                  type="button"
-                  className="media-expand-btn no-print"
-                  onClick={() => openMediaModal(c.item2Title, 'image', mediaDecalStorefront)}
-                >
-                  {c.expandMediaBtn}
-                </button>
-              </div>
-            </div>
-
-            <div className="service-details-column">
-              <div className="service-card-header">
-                <div>
-                  <h4 className="service-item-title">{c.item2Title}</h4>
-                  <p className="service-item-subtitle">{c.item2Subtitle}</p>
-                </div>
-                <div className="service-price-badges">
-                  <div className="price-pill">
-                    <span className="price-amount">$100.00</span>
-                    <span className="price-unit">/ mặt kính (tối thiểu 2)</span>
-                  </div>
-                </div>
-              </div>
-
-              <ul className="service-bullet-list">
-                {c.item2Bullets.map((b, i) => (
-                  <li key={i}>{b}</li>
-                ))}
-              </ul>
-
-              <div className="service-interactive-controls no-print">
-                <div className="qty-control-row">
-                  <span className="qty-label">{c.item2CtrlPanels}</span>
-                  <div className="qty-stepper">
-                    <button
-                      type="button"
-                      onClick={() => adjustDecalPanels(-1)}
-                      aria-label="Decrease decal glass panels"
-                    >
-                      −
-                    </button>
-                    <span className="qty-value">{selections.decalPanels}</span>
-                    <button
-                      type="button"
-                      onClick={() => adjustDecalPanels(1)}
-                      aria-label="Increase decal glass panels"
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-
-                <div className="qty-control-row">
-                  <span className="qty-label">{c.item2CtrlDesign}</span>
-                  <div className="qty-stepper">
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setSelections((s) => ({
-                          ...s,
-                          decalDesignCount: Math.max(0, s.decalDesignCount - 1)
-                        }))
-                      }
-                      aria-label="Decrease decal design count"
-                    >
-                      −
-                    </button>
-                    <span className="qty-value">{selections.decalDesignCount}</span>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setSelections((s) => ({ ...s, decalDesignCount: s.decalDesignCount + 1 }))
-                      }
-                      aria-label="Increase decal design count"
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          {/* CARD 3: TV INSTALLATION & VIDEO LOOP COMBO */}
+          {/* CARD 2: TV INSTALLATION & VIDEO LOOP COMBO */}
           <article className="quote-service-card">
             <div className="service-media-column">
               <div className="service-media-tabs no-print">
                 <button
                   type="button"
-                  className={`media-tab-btn ${item3MediaTab === 'realtv' ? 'active' : ''}`}
-                  onClick={() => setItem3MediaTab('realtv')}
+                  className={`media-tab-btn ${tvMediaTab === 'realtv' ? 'active' : ''}`}
+                  onClick={() => setTvMediaTab('realtv')}
                 >
-                  {c.item3TabRealTV}
+                  {c.item2TabRealTV}
                 </button>
                 <button
                   type="button"
-                  className={`media-tab-btn ${item3MediaTab === 'sampleclip' ? 'active' : ''}`}
-                  onClick={() => setItem3MediaTab('sampleclip')}
+                  className={`media-tab-btn ${tvMediaTab === 'sampleclip' ? 'active' : ''}`}
+                  onClick={() => setTvMediaTab('sampleclip')}
                 >
-                  {c.item3TabSampleClip}
+                  {c.item2TabSampleClip}
                 </button>
               </div>
 
               <div className="service-media-frame">
                 <video
-                  key={item3MediaTab}
-                  src={item3MediaTab === 'realtv' ? mediaRealTV : mediaSampleLoopClip}
+                  key={tvMediaTab}
+                  src={tvMediaTab === 'realtv' ? mediaRealTV : mediaSampleLoopClip}
                   autoPlay
                   loop
                   muted
@@ -980,9 +949,9 @@ export default function InteractiveQuoteSection({
                   className="media-expand-btn no-print"
                   onClick={() =>
                     openMediaModal(
-                      c.item3Title,
+                      c.item2Title,
                       'video',
-                      item3MediaTab === 'realtv' ? mediaRealTV : mediaSampleLoopClip
+                      tvMediaTab === 'realtv' ? mediaRealTV : mediaSampleLoopClip
                     )
                   }
                 >
@@ -994,8 +963,8 @@ export default function InteractiveQuoteSection({
             <div className="service-details-column">
               <div className="service-card-header">
                 <div>
-                  <h4 className="service-item-title">{c.item3Title}</h4>
-                  <p className="service-item-subtitle">{c.item3Subtitle}</p>
+                  <h4 className="service-item-title">{c.item2Title}</h4>
+                  <p className="service-item-subtitle">{c.item2Subtitle}</p>
                 </div>
                 <div className="service-price-badges">
                   <div className="price-pill accent">
@@ -1014,14 +983,14 @@ export default function InteractiveQuoteSection({
               </div>
 
               <ul className="service-bullet-list">
-                {c.item3Bullets.map((b, i) => (
+                {c.item2Bullets.map((b, i) => (
                   <li key={i}>{b}</li>
                 ))}
               </ul>
 
               <div className="service-interactive-controls no-print">
                 <div className="qty-control-row">
-                  <span className="qty-label">{c.item3CtrlCombo}</span>
+                  <span className="qty-label">{c.item2CtrlCombo}</span>
                   <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
                     <button
                       type="button"
@@ -1039,8 +1008,8 @@ export default function InteractiveQuoteSection({
                       }
                     >
                       {selections.tvComboSelected && (selections.tvSize || '55') === '55'
-                        ? `✓ ${c.item3Opt55}`
-                        : c.item3Opt55}
+                        ? `✓ ${c.item2Opt55}`
+                        : c.item2Opt55}
                     </button>
                     <button
                       type="button"
@@ -1056,8 +1025,8 @@ export default function InteractiveQuoteSection({
                       }
                     >
                       {selections.tvComboSelected && selections.tvSize === '65'
-                        ? `✓ ${c.item3Opt65}`
-                        : c.item3Opt65}
+                        ? `✓ ${c.item2Opt65}`
+                        : c.item2Opt65}
                     </button>
                     <button
                       type="button"
@@ -1072,7 +1041,7 @@ export default function InteractiveQuoteSection({
                 </div>
 
                 <div className="qty-control-row">
-                  <span className="qty-label">{c.item3CtrlExtra}</span>
+                  <span className="qty-label">{c.item2CtrlExtra}</span>
                   <div className="qty-stepper">
                     <button
                       type="button"
@@ -1102,7 +1071,7 @@ export default function InteractiveQuoteSection({
             </div>
           </article>
 
-          {/* CARD 4: BASIC PROMO CLIP 20S */}
+          {/* CARD 3: BASIC PROMO CLIP 20S */}
           <article className="quote-service-card">
             <div className="service-media-column">
               <div className="service-media-frame">
@@ -1117,7 +1086,7 @@ export default function InteractiveQuoteSection({
                 <button
                   type="button"
                   className="media-expand-btn no-print"
-                  onClick={() => openMediaModal(c.item4Title, 'video', mediaBasicClip)}
+                  onClick={() => openMediaModal(c.item3Title, 'video', mediaBasicClip)}
                 >
                   {c.expandMediaBtn}
                 </button>
@@ -1127,8 +1096,8 @@ export default function InteractiveQuoteSection({
             <div className="service-details-column">
               <div className="service-card-header">
                 <div>
-                  <h4 className="service-item-title">{c.item4Title}</h4>
-                  <p className="service-item-subtitle">{c.item4Subtitle}</p>
+                  <h4 className="service-item-title">{c.item3Title}</h4>
+                  <p className="service-item-subtitle">{c.item3Subtitle}</p>
                 </div>
                 <div className="service-price-badges">
                   <div className="price-pill">
@@ -1139,14 +1108,14 @@ export default function InteractiveQuoteSection({
               </div>
 
               <ul className="service-bullet-list">
-                {c.item4Bullets.map((b, i) => (
+                {c.item3Bullets.map((b, i) => (
                   <li key={i}>{b}</li>
                 ))}
               </ul>
 
               <div className="service-interactive-controls no-print">
                 <div className="qty-control-row">
-                  <span className="qty-label">{c.item4CtrlClips}</span>
+                  <span className="qty-label">{c.item3CtrlClips}</span>
                   <div className="qty-stepper">
                     <button
                       type="button"
@@ -1167,6 +1136,176 @@ export default function InteractiveQuoteSection({
                         setSelections((s) => ({ ...s, basicClips: s.basicClips + 1 }))
                       }
                       aria-label="Increase basic clips"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          {/* CARD 4: INFLUENCER / UGC TASTING REVIEW AD VIDEO */}
+          <article className="quote-service-card">
+            <div className="service-media-column">
+              <div className="service-media-frame portrait-showcase">
+                <video
+                  src={mediaInfluencerClip}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="service-preview-video"
+                />
+                <button
+                  type="button"
+                  className="media-expand-btn no-print"
+                  onClick={() => openMediaModal(c.item4Title, 'video', mediaInfluencerClip)}
+                >
+                  {c.expandAudioVideoBtn}
+                </button>
+              </div>
+            </div>
+
+            <div className="service-details-column">
+              <div className="service-card-header">
+                <div>
+                  <h4 className="service-item-title">{c.item4Title}</h4>
+                  <p className="service-item-subtitle">{c.item4Subtitle}</p>
+                </div>
+                <div className="service-price-badges">
+                  <div className="price-pill accent">
+                    <span className="price-amount">$200.00</span>
+                    <span className="price-unit">/ clip (30–35s)</span>
+                  </div>
+                </div>
+              </div>
+
+              <ul className="service-bullet-list">
+                {c.item4Bullets.map((b, i) => (
+                  <li key={i}>{b}</li>
+                ))}
+              </ul>
+
+              <div className="service-interactive-controls no-print">
+                <div className="qty-control-row">
+                  <span className="qty-label">{c.item4CtrlClips}</span>
+                  <div className="qty-stepper">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setSelections((s) => ({
+                          ...s,
+                          influencerClips: Math.max(0, s.influencerClips - 1)
+                        }))
+                      }
+                      aria-label="Decrease influencer ad clips"
+                    >
+                      −
+                    </button>
+                    <span className="qty-value">{selections.influencerClips}</span>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setSelections((s) => ({
+                          ...s,
+                          influencerClips: s.influencerClips + 1
+                        }))
+                      }
+                      aria-label="Increase influencer ad clips"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          {/* CARD 5: STOREFRONT WINDOW DECAL INSTALLATION (LAST ITEM) */}
+          <article className="quote-service-card">
+            <div className="service-media-column">
+              <div className="service-media-frame">
+                <img
+                  src={mediaDecalStorefront}
+                  alt="Storefront Window Decal"
+                  className="service-preview-img"
+                  style={{ objectPosition: 'left center' }}
+                />
+                <button
+                  type="button"
+                  className="media-expand-btn no-print"
+                  onClick={() => openMediaModal(c.item5Title, 'image', mediaDecalStorefront)}
+                >
+                  {c.expandMediaBtn}
+                </button>
+              </div>
+            </div>
+
+            <div className="service-details-column">
+              <div className="service-card-header">
+                <div>
+                  <h4 className="service-item-title">{c.item5Title}</h4>
+                  <p className="service-item-subtitle">{c.item5Subtitle}</p>
+                </div>
+                <div className="service-price-badges">
+                  <div className="price-pill">
+                    <span className="price-amount">$100.00</span>
+                    <span className="price-unit">/ mặt kính (tối thiểu 2)</span>
+                  </div>
+                </div>
+              </div>
+
+              <ul className="service-bullet-list">
+                {c.item5Bullets.map((b, i) => (
+                  <li key={i}>{b}</li>
+                ))}
+              </ul>
+
+              <div className="service-interactive-controls no-print">
+                <div className="qty-control-row">
+                  <span className="qty-label">{c.item5CtrlPanels}</span>
+                  <div className="qty-stepper">
+                    <button
+                      type="button"
+                      onClick={() => adjustDecalPanels(-1)}
+                      aria-label="Decrease decal glass panels"
+                    >
+                      −
+                    </button>
+                    <span className="qty-value">{selections.decalPanels}</span>
+                    <button
+                      type="button"
+                      onClick={() => adjustDecalPanels(1)}
+                      aria-label="Increase decal glass panels"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+
+                <div className="qty-control-row">
+                  <span className="qty-label">{c.item5CtrlDesign}</span>
+                  <div className="qty-stepper">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setSelections((s) => ({
+                          ...s,
+                          decalDesignCount: Math.max(0, s.decalDesignCount - 1)
+                        }))
+                      }
+                      aria-label="Decrease decal design count"
+                    >
+                      −
+                    </button>
+                    <span className="qty-value">{selections.decalDesignCount}</span>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setSelections((s) => ({ ...s, decalDesignCount: s.decalDesignCount + 1 }))
+                      }
+                      aria-label="Increase decal design count"
                     >
                       +
                     </button>
@@ -1207,31 +1346,20 @@ export default function InteractiveQuoteSection({
             </thead>
             <tbody>
               <tr>
-                <th scope="row">1A. Thiết kế Menu Tĩnh (In ấn Letter/A4 hoặc TV)</th>
+                <th scope="row">{c.row1aTitle}</th>
                 <td>$200.00 / mặt</td>
                 <td>{selections.staticMenuPages} mặt</td>
                 <td>${staticMenuSubtotal.toFixed(2)}</td>
               </tr>
               <tr>
-                <th scope="row">1B. Thiết kế Menu Động 4K (Animation từng món)</th>
+                <th scope="row">{c.row1bTitle}</th>
                 <td>$350.00 / mặt màn hình</td>
                 <td>{selections.animatedMenuScreens} mặt</td>
                 <td>${animatedMenuSubtotal.toFixed(2)}</td>
               </tr>
               <tr>
-                <th scope="row">2. Thi công Decal Kính Mặt Tiền (Tối thiểu 2 mặt)</th>
-                <td>$100.00 / mặt kính</td>
-                <td>
-                  {selections.decalPanels} mặt kính
-                  {selections.decalDesignCount > 0
-                    ? ` (+${selections.decalDesignCount} mẫu thiết kế)`
-                    : ''}
-                </td>
-                <td>${item2Subtotal.toFixed(2)}</td>
-              </tr>
-              <tr>
                 <th scope="row">
-                  3. Gói Combo: Lắp đặt TV {selections.tvSize === '65' ? '65"' : '55"'} &amp; Loop 3 Clip (1 phút)
+                  2. Gói Combo: Lắp đặt TV {selections.tvSize === '65' ? '65"' : '55"'} &amp; Loop 3 Clip (1 phút)
                 </th>
                 <td>$450.00 / gói (TV 65": +$150 | Extra clip: +$100)</td>
                 <td>
@@ -1242,13 +1370,30 @@ export default function InteractiveQuoteSection({
                     : '0'}
                   {selections.tvExtraClips > 0 ? ` (+${selections.tvExtraClips} extra clip)` : ''}
                 </td>
+                <td>${item2Subtotal.toFixed(2)}</td>
+              </tr>
+              <tr>
+                <th scope="row">{c.row3Title}</th>
+                <td>$100.00 / clip</td>
+                <td>{selections.basicClips} clip</td>
                 <td>${item3Subtotal.toFixed(2)}</td>
               </tr>
               <tr>
-                <th scope="row">4. Sáng tạo Video Clip Cơ bản (20 giây/clip)</th>
-                <td>$100.00 / clip</td>
-                <td>{selections.basicClips} clip</td>
+                <th scope="row">{c.row4Title}</th>
+                <td>$200.00 / clip</td>
+                <td>{selections.influencerClips} clip</td>
                 <td>${item4Subtotal.toFixed(2)}</td>
+              </tr>
+              <tr>
+                <th scope="row">{c.row5Title}</th>
+                <td>$100.00 / mặt kính</td>
+                <td>
+                  {selections.decalPanels} mặt kính
+                  {selections.decalDesignCount > 0
+                    ? ` (+${selections.decalDesignCount} mẫu thiết kế)`
+                    : ''}
+                </td>
+                <td>${item5Subtotal.toFixed(2)}</td>
               </tr>
             </tbody>
           </table>
@@ -1311,6 +1456,7 @@ export default function InteractiveQuoteSection({
       <dialog
         ref={previewDialogRef}
         {...({ closedby: 'any' } as any)}
+        onClose={() => setPreviewMedia(null)}
         aria-labelledby={previewDialogTitleId}
         className="quote-native-dialog media-dialog"
       >
