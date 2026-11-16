@@ -27,6 +27,18 @@ interface QuoteSelections {
   influencerClips: number;
 }
 
+const ZERO_SELECTIONS: QuoteSelections = {
+  staticMenuPages: 0,
+  animatedMenuScreens: 0,
+  decalPanels: 0,
+  decalDesignCount: 0,
+  tvComboSelected: false,
+  tvSize: '55',
+  tvExtraClips: 0,
+  basicClips: 0,
+  influencerClips: 0
+};
+
 const copyText = {
   vi: {
     badge: 'TYM PRODUCTION • BÁO GIÁ TƯƠNG TÁC & TRỰC QUAN',
@@ -400,16 +412,35 @@ export default function InteractiveQuoteSection({
             validityDays: 30
           },
           selections: {
-            staticMenuPages: Number(params.get('smenu') ?? 1),
-            animatedMenuScreens: Number(params.get('amenu') ?? 1),
-            decalPanels: Number(params.get('decal') ?? 2),
+            staticMenuPages: Number(params.get('smenu') ?? 0),
+            animatedMenuScreens: Number(params.get('amenu') ?? 0),
+            decalPanels: Number(params.get('decal') ?? 0),
             decalDesignCount: Number(params.get('ddesign') ?? 0),
-            tvComboSelected: params.get('tv') !== '0',
+            tvComboSelected: params.get('tv') === '1',
             tvSize: params.get('tvsize') === '65' ? '65' : '55',
             tvExtraClips: Number(params.get('extra') ?? 0),
-            basicClips: Number(params.get('clip') ?? 1),
-            influencerClips: Number(params.get('uclip') ?? 1)
+            basicClips: Number(params.get('clip') ?? 0),
+            influencerClips: Number(params.get('uclip') ?? 0)
           }
+        };
+      }
+
+      if (quoteKey === 'general') {
+        return {
+          mode: 'general',
+          isUrlLockedClient: false,
+          profile: {
+            id: 'general',
+            quoteNumber: 'TYM-2026-STD',
+            date: '16/11/2026',
+            clientName: language === 'vi' ? 'Quý Khách Hàng / Đối Tác Nhà Hàng' : 'Valued Restaurant Partner',
+            businessName: '',
+            address: 'Montréal & Rive-Sud, QC, Canada',
+            phone: '',
+            depositPercent: 25,
+            validityDays: 30
+          },
+          selections: { ...ZERO_SELECTIONS }
         };
       }
 
@@ -437,7 +468,7 @@ export default function InteractiveQuoteSection({
       }
     }
 
-    // Default to Sandy's quote so the user can review it immediately, while allowing 1-click switch to General or Somii
+    // Default to Sandy's quote with all quantities initialized at 0
     const sandy = clientsMap.sandy;
     return {
       mode: 'sandy',
@@ -455,7 +486,7 @@ export default function InteractiveQuoteSection({
       },
       selections: {
         ...sandy.defaultSelections,
-        influencerClips: sandy.defaultSelections.influencerClips ?? 1
+        influencerClips: sandy.defaultSelections.influencerClips ?? 0
       }
     };
   };
@@ -538,6 +569,7 @@ export default function InteractiveQuoteSection({
         depositPercent: 25,
         validityDays: 30
       });
+      setSelections({ ...ZERO_SELECTIONS });
     } else if (clientsMap[modeKey]) {
       const p = clientsMap[modeKey];
       setClientProfile({

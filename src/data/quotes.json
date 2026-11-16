@@ -11,15 +11,15 @@
       "depositPercent": 25,
       "validityDays": 30,
       "defaultSelections": {
-        "staticMenuPages": 1,
-        "animatedMenuScreens": 1,
-        "decalPanels": 2,
+        "staticMenuPages": 0,
+        "animatedMenuScreens": 0,
+        "decalPanels": 0,
         "decalDesignCount": 0,
-        "tvComboSelected": true,
+        "tvComboSelected": false,
         "tvSize": "55",
         "tvExtraClips": 0,
-        "basicClips": 1,
-        "influencerClips": 1
+        "basicClips": 0,
+        "influencerClips": 0
       }
     },
     "somii": {
@@ -33,11 +33,11 @@
       "depositPercent": 25,
       "validityDays": 30,
       "defaultSelections": {
-        "staticMenuPages": 1,
+        "staticMenuPages": 0,
         "animatedMenuScreens": 0,
-        "decalPanels": 7,
-        "decalDesignCount": 1,
-        "tvComboSelected": true,
+        "decalPanels": 0,
+        "decalDesignCount": 0,
+        "tvComboSelected": false,
         "tvSize": "55",
         "tvExtraClips": 0,
         "basicClips": 0,
