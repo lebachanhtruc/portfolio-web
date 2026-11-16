@@ -35,7 +35,7 @@ function App() {
   }, [isAdminEntry, isDedicatedClientQuote]);
 
   const scrollToPortfolio = () => {
-    const el = document.getElementById('section-AI x Photography');
+    const el = document.getElementById('section-Videography');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }

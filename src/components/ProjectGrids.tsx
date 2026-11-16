@@ -368,7 +368,7 @@ function ProjectGroup({
 
 export default function ProjectGrids() {
   const { t } = useLanguage();
-  const tabs = ['AI x Photography', 'Videography', 'Photography'];
+  const tabs = ['Videography', 'AI x Photography', 'Photography'];
   const [showBackToTop, setShowBackToTop] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
@@ -467,7 +467,7 @@ export default function ProjectGrids() {
     }
   };
 
-  const menuTabs = ['AI x Photography', 'Videography', 'Photography', 'Pricing & Services'];
+  const menuTabs = ['Videography', 'AI x Photography', 'Photography', 'Pricing & Services'];
   const activeLightboxItem = lightboxState ? lightboxState.items[lightboxState.index] : null;
 
   return (
