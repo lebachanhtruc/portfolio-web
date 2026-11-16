@@ -288,9 +288,9 @@ export default function ProjectGrids() {
   }, []);
 
   const scrollToSection = (tab: string) => {
-    const el = sectionRefs.current[tab];
+    const el = sectionRefs.current[tab] || document.getElementById(`section-${tab}`);
     if (el) {
-      const y = el.getBoundingClientRect().top + window.scrollY - 120;
+      const y = el.getBoundingClientRect().top + window.scrollY - 80;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
@@ -301,6 +301,8 @@ export default function ProjectGrids() {
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
+
+  const menuTabs = ['AI x Photography', 'Videography', 'Photography', 'Pricing & Services'];
 
   return (
     <section className="projects-masterpiece container" style={{ position: 'relative' }}>
@@ -319,7 +321,7 @@ export default function ProjectGrids() {
               {/* Repeated Section Menu Divider */}
               <div className="filter-menu-wrapper">
                 <div className="pill-menu">
-                  {tabs.map(menuTab => (
+                  {menuTabs.map(menuTab => (
                     <button 
                       key={menuTab} 
                       className={`pill-btn ${tab === menuTab ? 'active' : ''}`}

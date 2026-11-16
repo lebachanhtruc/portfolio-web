@@ -1,0 +1,54 @@
+{
+  "clients": {
+    "sandy": {
+      "id": "sandy",
+      "quoteNumber": "TYM-2611-001",
+      "date": "16/11/2026",
+      "clientName": "Chị Sandy",
+      "businessName": "",
+      "address": "950 Bd du Séminaire N, Saint-Jean-sur-Richelieu, QC J3A 1L2",
+      "phone": "+1 (514) 660-2605",
+      "depositPercent": 25,
+      "validityDays": 30,
+      "defaultSelections": {
+        "staticMenuPages": 1,
+        "animatedMenuScreens": 1,
+        "decalPanels": 2,
+        "decalDesignCount": 0,
+        "tvComboSelected": true,
+        "tvExtraClips": 0,
+        "basicClips": 1
+      }
+    },
+    "somii": {
+      "id": "somii",
+      "quoteNumber": "TYM-2610-001",
+      "date": "20/10/2026",
+      "clientName": "Anh Tuấn",
+      "businessName": "SOMII SUSHI BAR - BISTRO JAPONAIS",
+      "address": "Montréal / Québec, Canada",
+      "phone": "+1 (263) 380-3625",
+      "depositPercent": 25,
+      "validityDays": 30,
+      "defaultSelections": {
+        "staticMenuPages": 1,
+        "animatedMenuScreens": 0,
+        "decalPanels": 7,
+        "decalDesignCount": 1,
+        "tvComboSelected": true,
+        "tvExtraClips": 0,
+        "basicClips": 0
+      }
+    }
+  },
+  "pricing": {
+    "staticMenuPerPage": 200,
+    "animatedMenuPerScreen": 350,
+    "decalPerPanel": 100,
+    "decalMinPanels": 2,
+    "decalDesignPerLayout": 200,
+    "tvComboPackage": 450,
+    "tvExtraClip": 100,
+    "basicClip20s": 100
+  }
+}

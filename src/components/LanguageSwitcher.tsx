@@ -25,7 +25,17 @@ export default function LanguageSwitcher() {
   ];
 
   return (
-    <div className="bottom-floating-controls">
+    <div className="bottom-floating-controls no-print">
+      <button
+        className="floating-contact-btn icon-btn quote-float-btn"
+        onClick={() =>
+          document.getElementById('section-Pricing & Services')?.scrollIntoView({ behavior: 'smooth' })
+        }
+        title={t('projects.tabs.Pricing & Services')}
+        aria-label={t('projects.tabs.Pricing & Services')}
+      >
+        <span style={{ fontWeight: 800, fontSize: '15px' }}>$</span>
+      </button>
       <a 
         href="sms:+14389857846"
         className="floating-contact-btn icon-btn"

@@ -16,9 +16,27 @@ const translations = { en, vi, fr };
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguageState] = useState<Language>('en');
+  const [language, setLanguageState] = useState<Language>(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const urlLang = params.get('lang') as Language;
+      if (urlLang && ['en', 'vi', 'fr'].includes(urlLang)) {
+        return urlLang;
+      }
+      if (params.has('quote') || params.has('client')) {
+        return 'vi';
+      }
+      const savedLang = localStorage.getItem('app_language') as Language;
+      if (savedLang && ['en', 'vi', 'fr'].includes(savedLang)) {
+        return savedLang;
+      }
+    }
+    return 'en';
+  });
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.has('quote') || params.has('client') || params.has('lang')) return;
     const savedLang = localStorage.getItem('app_language') as Language;
     if (savedLang && ['en', 'vi', 'fr'].includes(savedLang)) {
       setLanguageState(savedLang);
