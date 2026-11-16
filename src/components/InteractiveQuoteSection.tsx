@@ -2,6 +2,23 @@ import React, { useState, useEffect, useRef, useId } from 'react';
 import quotesData from '../data/quotes.json';
 import { useLanguage } from '../contexts/LanguageContext';
 import ViewportVideo from './ViewportVideo';
+import {
+  encodeQuoteToken,
+  decodeQuoteToken,
+  verifyAdminPasscode
+} from '../utils/quoteToken';
+
+interface SavedAdminQuote {
+  id: string;
+  clientName: string;
+  businessName?: string;
+  quoteNumber: string;
+  url: string;
+  createdAt: string;
+}
+
+const ADMIN_STORAGE_KEY = 'tym_admin_saved_quotes_v1';
+const ADMIN_SESSION_KEY = 'tym_admin_unlocked';
 
 interface ClientProfile {
   id: string;
@@ -51,9 +68,20 @@ const copyText = {
     phoneLabel: 'Số điện thoại:',
     introText:
       'TYM Production trân trọng gửi đến Quý khách hàng bảng báo giá tương tác kèm sản phẩm minh họa thực tế. Quý khách có thể bấm xem trực tiếp video mẫu và tùy chỉnh số lượng từng hạng mục để ước tính ngân sách:',
-    modeGeneral: 'Bảng Giá Tiêu Chuẩn',
-    modeSandy: 'Báo Giá: Chị Sandy',
-    modeSomii: 'Báo Giá: Somii Sushi',
+    standardClientName: 'Bảng Giá Chuẩn Tham Khảo',
+    standardRecipientTag: 'DỊCH VỤ THIẾT KẾ & SẢN XUẤT HÌNH ẢNH',
+    btnCopyEstimate: '🔗 Copy Dự Toán Đang Chọn',
+    adminBadge: '🔑 TYM ADMIN CONSOLE',
+    adminUnlockBtn: '🔑 Mở Khóa Quản Trị',
+    adminLockBtn: '🔒 Khóa Admin',
+    adminPinTitle: 'Xác Thực Quản Trị Viên TYM Production',
+    adminPinDesc: 'Nhập mã PIN quản trị để tạo và quản lý link báo giá riêng tư cho từng khách hàng.',
+    adminPinPlaceholder: 'Nhập mã PIN quản trị',
+    adminPinWrong: 'Mã PIN không đúng. Vui lòng thử lại.',
+    adminUnlockSubmit: 'Mở Khóa',
+    adminSavedTitle: 'Khách hàng đã tạo (chỉ lưu trên thiết bị này):',
+    adminIncludeSelections: 'Đính kèm các mục đang chọn bên dưới (tắt để khách tự chọn từ 0)',
+    adminResetStandard: 'Về Bảng Chuẩn',
     createNewClientBtn: '+ Tạo Link Cho Khách Mới',
     scrollToPortfolioBtn: 'Xem thêm Portfolio bên dưới ↓',
     expandMediaBtn: '⤢ Phóng to xem rõ',
@@ -140,7 +168,7 @@ const copyText = {
     copiedLinkMsg: '✓ Đã copy link báo giá!',
     generatorTitle: 'Tạo Nhanh Link Báo Giá Cho Khách Hàng Mới',
     generatorDesc: 'Điền thông tin khách hàng mới bên dưới. Hệ thống sẽ tạo ngay 1 đường link riêng hiển thị tên, địa chỉ, SĐT và các hạng mục bạn đang chọn.',
-    fieldClientName: 'Tên khách hàng (VD: Chị Sandy / Anh Minh)',
+    fieldClientName: 'Tên khách hàng (VD: Chị Lan / Anh Minh)',
     fieldBusiness: 'Tên tiệm / Nhà hàng (Tùy chọn)',
     fieldAddress: 'Địa chỉ tiệm',
     fieldPhone: 'Số điện thoại',
@@ -160,10 +188,21 @@ const copyText = {
     phoneLabel: 'Phone:',
     introText:
       'TYM Production is pleased to present this interactive visual quotation with live work samples. Preview our video demos directly below and adjust quantities to estimate your project budget:',
-    modeGeneral: 'Standard Rate Card',
-    modeSandy: 'Client: Ms. Sandy',
-    modeSomii: 'Client: Somii Sushi',
-    createNewClientBtn: '+ Create Link for New Client',
+    standardClientName: 'Standard Service Rate Card',
+    standardRecipientTag: 'CREATIVE DESIGN & VISUAL PRODUCTION',
+    btnCopyEstimate: '🔗 Copy This Estimate',
+    adminBadge: '🔑 TYM ADMIN CONSOLE',
+    adminUnlockBtn: '🔑 Unlock Studio Admin',
+    adminLockBtn: '🔒 Lock Admin',
+    adminPinTitle: 'TYM Production Admin Access',
+    adminPinDesc: 'Enter your studio passcode to generate private, single-client quotation links.',
+    adminPinPlaceholder: 'Enter studio passcode',
+    adminPinWrong: 'Incorrect passcode. Please try again.',
+    adminUnlockSubmit: 'Unlock',
+    adminSavedTitle: 'Private links created on this device:',
+    adminIncludeSelections: 'Pre-fill with selected items below (leave unchecked to start at 0)',
+    adminResetStandard: 'Reset to Standard',
+    createNewClientBtn: '+ Create Private Client Link',
     scrollToPortfolioBtn: 'Explore Full Portfolio Below ↓',
     expandMediaBtn: '⤢ Fullscreen Preview',
     expandAudioVideoBtn: '⤢ Fullscreen (with Audio)',
@@ -249,7 +288,7 @@ const copyText = {
     copiedLinkMsg: '✓ Quote link copied!',
     generatorTitle: 'Quick Quote Link Generator for New Clients',
     generatorDesc: 'Enter the new client details below to generate a personalized quote link with their name, address, phone number, and current item selections.',
-    fieldClientName: 'Client Name (e.g. Ms. Sandy / Mr. Minh)',
+    fieldClientName: 'Client Name (e.g. Ms. Lan / Mr. Minh)',
     fieldBusiness: 'Business / Restaurant Name (Optional)',
     fieldAddress: 'Business Address',
     fieldPhone: 'Phone Number',
@@ -269,10 +308,21 @@ const copyText = {
     phoneLabel: 'Téléphone :',
     introText:
       'TYM Production a le plaisir de vous présenter ce devis interactif accompagné d’exemples réels. Visionnez nos démos vidéo ci-dessous et ajustez les quantités pour estimer votre budget :',
-    modeGeneral: 'Grille Tarifaire Standard',
-    modeSandy: 'Devis : Mme Sandy',
-    modeSomii: 'Devis : Somii Sushi',
-    createNewClientBtn: '+ Créer un Lien Client',
+    standardClientName: 'Grille Tarifaire Standard',
+    standardRecipientTag: 'CONCEPTION & PRODUCTION VISUELLE',
+    btnCopyEstimate: '🔗 Copier cette Estimation',
+    adminBadge: '🔑 CONSOLE ADMIN TYM',
+    adminUnlockBtn: '🔑 Déverrouiller Admin',
+    adminLockBtn: '🔒 Verrouiller',
+    adminPinTitle: 'Accès Administrateur TYM Production',
+    adminPinDesc: 'Entrez votre code secret pour créer des liens de devis privés par client.',
+    adminPinPlaceholder: 'Code secret',
+    adminPinWrong: 'Code incorrect. Veuillez réessayer.',
+    adminUnlockSubmit: 'Déverrouiller',
+    adminSavedTitle: 'Liens privés enregistrés sur cet appareil :',
+    adminIncludeSelections: 'Pré-remplir avec les quantités actuelles (décoché = départ à 0)',
+    adminResetStandard: 'Grille Standard',
+    createNewClientBtn: '+ Créer un Lien Privé Client',
     scrollToPortfolioBtn: 'Voir le Portfolio complet ci-dessous ↓',
     expandMediaBtn: '⤢ Plein écran',
     expandAudioVideoBtn: '⤢ Plein écran (avec son)',
@@ -358,7 +408,7 @@ const copyText = {
     copiedLinkMsg: '✓ Lien copié !',
     generatorTitle: 'Générateur Rapide de Devis Client',
     generatorDesc: 'Saisissez les coordonnées du nouveau client pour générer un lien personnalisé avec son nom, son adresse et la sélection actuelle.',
-    fieldClientName: 'Nom du client (ex: Mme Sandy)',
+    fieldClientName: 'Nom du client (ex: Mme Lan)',
     fieldBusiness: 'Nom du commerce / restaurant (Optionnel)',
     fieldAddress: 'Adresse du commerce',
     fieldPhone: 'Numéro de téléphone',
@@ -379,122 +429,130 @@ export default function InteractiveQuoteSection({
   const { language } = useLanguage();
   const c = copyText[language] || copyText.vi;
 
-  // Determine initial client mode from URL parameters
+  // Determine initial quote strictly from signed ?q= token or fall back to public Standard Rate Card (ZERO client PII in bundle)
+  const buildStandardProfile = (langCode: string = language): ClientProfile => {
+    const stdTitle =
+      langCode === 'en'
+        ? 'Standard Service Rate Card'
+        : langCode === 'fr'
+          ? 'Grille Tarifaire Standard'
+          : 'Bảng Giá Chuẩn Tham Khảo';
+    return {
+      id: 'standard',
+      quoteNumber: 'TYM-2026-STD',
+      date: '16/11/2026',
+      clientName: stdTitle,
+      businessName: '',
+      address: 'Montréal & Rive-Sud, QC, Canada',
+      phone: '',
+      depositPercent: 25,
+      validityDays: 30
+    };
+  };
+
   const getInitialClientFromUrl = (): {
-    mode: string;
     profile: ClientProfile;
     selections: QuoteSelections;
-    isUrlLockedClient: boolean;
+    activeToken: string | null;
+    hasAdminParam: boolean;
   } => {
-    const clientsMap = quotesData.clients as Record<string, any>;
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
-      const quoteKey = params.get('quote')?.toLowerCase();
-      const customClientName = params.get('client');
+      const token = params.get('q');
+      const hasAdminParam = params.get('admin') === '1';
 
-      if (customClientName) {
-        const today = new Date();
-        const dateStr =
-          params.get('date') ||
-          `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}/${today.getFullYear()}`;
-        return {
-          mode: 'custom',
-          isUrlLockedClient: true,
-          profile: {
-            id: 'custom',
-            quoteNumber: params.get('qnum') || `TYM-${today.getFullYear().toString().slice(-2)}${String(today.getMonth() + 1).padStart(2, '0')}-002`,
-            date: dateStr,
-            clientName: customClientName,
-            businessName: params.get('biz') || '',
-            address: params.get('addr') || 'Québec, Canada',
-            phone: params.get('phone') || '',
-            depositPercent: 25,
-            validityDays: 30
-          },
-          selections: {
-            staticMenuPages: Number(params.get('smenu') ?? 0),
-            animatedMenuScreens: Number(params.get('amenu') ?? 0),
-            decalPanels: Number(params.get('decal') ?? 0),
-            decalDesignCount: Number(params.get('ddesign') ?? 0),
-            tvComboSelected: params.get('tv') === '1',
-            tvSize: params.get('tvsize') === '65' ? '65' : '55',
-            tvExtraClips: Number(params.get('extra') ?? 0),
-            basicClips: Number(params.get('clip') ?? 0),
-            influencerClips: Number(params.get('uclip') ?? 0)
-          }
-        };
+      if (token) {
+        const decoded = decodeQuoteToken(token);
+        if (decoded) {
+          const p = decoded.profile;
+          const s = decoded.selections;
+          return {
+            activeToken: token,
+            hasAdminParam,
+            profile: {
+              id: 'client',
+              quoteNumber: p.quoteNumber,
+              date: p.date,
+              clientName: p.clientName,
+              businessName: p.businessName || '',
+              address: p.address || '',
+              phone: p.phone || '',
+              depositPercent: 25,
+              validityDays: 30
+            },
+            selections: {
+              ...ZERO_SELECTIONS,
+              staticMenuPages: Number(s?.staticMenuPages ?? 0),
+              animatedMenuScreens: Number(s?.animatedMenuScreens ?? 0),
+              decalPanels: Number(s?.decalPanels ?? 0),
+              decalDesignCount: Number(s?.decalDesignCount ?? 0),
+              tvComboSelected: Boolean(s?.tvComboSelected),
+              tvSize: s?.tvSize === '65' ? '65' : '55',
+              tvExtraClips: Number(s?.tvExtraClips ?? 0),
+              basicClips: Number(s?.basicClips ?? 0),
+              influencerClips: Number(s?.influencerClips ?? 0)
+            }
+          };
+        }
       }
 
-      if (quoteKey === 'general') {
-        return {
-          mode: 'general',
-          isUrlLockedClient: false,
-          profile: {
-            id: 'general',
-            quoteNumber: 'TYM-2026-STD',
-            date: '16/11/2026',
-            clientName: language === 'vi' ? 'Quý Khách Hàng / Đối Tác Nhà Hàng' : 'Valued Restaurant Partner',
-            businessName: '',
-            address: 'Montréal & Rive-Sud, QC, Canada',
-            phone: '',
-            depositPercent: 25,
-            validityDays: 30
-          },
-          selections: { ...ZERO_SELECTIONS }
-        };
-      }
-
-      if (quoteKey && clientsMap[quoteKey]) {
-        const preset = clientsMap[quoteKey];
-        return {
-          mode: quoteKey,
-          isUrlLockedClient: true,
-          profile: {
-            id: preset.id,
-            quoteNumber: preset.quoteNumber,
-            date: preset.date,
-            clientName: preset.clientName,
-            businessName: preset.businessName,
-            address: preset.address,
-            phone: preset.phone,
-            depositPercent: preset.depositPercent,
-            validityDays: preset.validityDays
-          },
-          selections: {
-            ...preset.defaultSelections,
-            influencerClips: preset.defaultSelections.influencerClips ?? 0
-          }
-        };
-      }
+      // Allow anonymous numeric estimate links only (?smenu=...&amenu=...), keeping zero client identity
+      return {
+        activeToken: null,
+        hasAdminParam,
+        profile: buildStandardProfile(),
+        selections: {
+          staticMenuPages: Number(params.get('smenu') ?? 0),
+          animatedMenuScreens: Number(params.get('amenu') ?? 0),
+          decalPanels: Number(params.get('decal') ?? 0),
+          decalDesignCount: Number(params.get('ddesign') ?? 0),
+          tvComboSelected: params.get('tv') === '1',
+          tvSize: params.get('tvsize') === '65' ? '65' : '55',
+          tvExtraClips: Number(params.get('extra') ?? 0),
+          basicClips: Number(params.get('clip') ?? 0),
+          influencerClips: Number(params.get('uclip') ?? 0)
+        }
+      };
     }
 
-    // Default to Sandy's quote with all quantities initialized at 0
-    const sandy = clientsMap.sandy;
     return {
-      mode: 'sandy',
-      isUrlLockedClient: false,
-      profile: {
-        id: sandy.id,
-        quoteNumber: sandy.quoteNumber,
-        date: sandy.date,
-        clientName: sandy.clientName,
-        businessName: sandy.businessName,
-        address: sandy.address,
-        phone: sandy.phone,
-        depositPercent: sandy.depositPercent,
-        validityDays: sandy.validityDays
-      },
-      selections: {
-        ...sandy.defaultSelections,
-        influencerClips: sandy.defaultSelections.influencerClips ?? 0
-      }
+      activeToken: null,
+      hasAdminParam: false,
+      profile: buildStandardProfile(),
+      selections: { ...ZERO_SELECTIONS }
     };
   };
 
   const initialData = getInitialClientFromUrl();
-  const [activeMode, setActiveMode] = useState<string>(initialData.mode);
   const [clientProfile, setClientProfile] = useState<ClientProfile>(initialData.profile);
   const [selections, setSelections] = useState<QuoteSelections>(initialData.selections);
+  const [activeToken, setActiveToken] = useState<string | null>(initialData.activeToken);
+  const hasAdminParam = initialData.hasAdminParam;
+
+  // Admin state: strictly locked unless unlocked in this browser session via valid passcode
+  const [isAdminUnlocked, setIsAdminUnlocked] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
+    return sessionStorage.getItem(ADMIN_SESSION_KEY) === '1';
+  });
+  const [adminPinInput, setAdminPinInput] = useState('');
+  const [adminPinError, setAdminPinError] = useState(false);
+  const [savedAdminQuotes, setSavedAdminQuotes] = useState<SavedAdminQuote[]>(() => {
+    if (typeof window === 'undefined' || sessionStorage.getItem(ADMIN_SESSION_KEY) !== '1') {
+      return [];
+    }
+    try {
+      const raw = localStorage.getItem(ADMIN_STORAGE_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch {
+      return [];
+    }
+  });
+  const [includeCurrentSelections, setIncludeCurrentSelections] = useState(false);
+
+  // Keep standard card localized when switching VI / EN / FR on generic view
+  useEffect(() => {
+    setClientProfile((prev) => (prev.id === 'standard' ? buildStandardProfile(language) : prev));
+  }, [language]);
 
   // Media preview tabs inside Card 1 and Card 2 (TV Combo)
   const [item1MediaTab, setItem1MediaTab] = useState<'animated' | 'static'>('animated');
@@ -506,8 +564,10 @@ export default function InteractiveQuoteSection({
   // Native <dialog> refs & IDs (following light-dismiss-a-dialog guidance)
   const previewDialogRef = useRef<HTMLDialogElement>(null);
   const generatorDialogRef = useRef<HTMLDialogElement>(null);
+  const pinDialogRef = useRef<HTMLDialogElement>(null);
   const previewDialogTitleId = useId();
   const generatorDialogTitleId = useId();
+  const pinDialogTitleId = useId();
   const tableCaptionId = useId();
 
   const [previewMedia, setPreviewMedia] = useState<{
@@ -527,9 +587,11 @@ export default function InteractiveQuoteSection({
 
   // Fallback for browsers without native dialog.closedBy support (e.g. Safari)
   useEffect(() => {
-    const dialogs = [previewDialogRef.current, generatorDialogRef.current].filter(
-      Boolean
-    ) as HTMLDialogElement[];
+    const dialogs = [
+      previewDialogRef.current,
+      generatorDialogRef.current,
+      pinDialogRef.current
+    ].filter(Boolean) as HTMLDialogElement[];
 
     if (!('closedBy' in HTMLDialogElement.prototype)) {
       const handlers = dialogs.map((dialog) => {
@@ -552,42 +614,12 @@ export default function InteractiveQuoteSection({
         handlers.forEach(({ dialog, handler }) => dialog.removeEventListener('click', handler));
       };
     }
-  }, []);
+  }, [isAdminUnlocked]);
 
-  const switchPresetMode = (modeKey: 'general' | 'sandy' | 'somii') => {
-    const clientsMap = quotesData.clients as Record<string, any>;
-    setActiveMode(modeKey);
-    if (modeKey === 'general') {
-      setClientProfile({
-        id: 'general',
-        quoteNumber: 'TYM-2026-STD',
-        date: '16/11/2026',
-        clientName: language === 'vi' ? 'Quý Khách Hàng / Đối Tác Nhà Hàng' : 'Valued Restaurant Partner',
-        businessName: '',
-        address: 'Montréal & Rive-Sud, QC, Canada',
-        phone: '',
-        depositPercent: 25,
-        validityDays: 30
-      });
-      setSelections({ ...ZERO_SELECTIONS });
-    } else if (clientsMap[modeKey]) {
-      const p = clientsMap[modeKey];
-      setClientProfile({
-        id: p.id,
-        quoteNumber: p.quoteNumber,
-        date: p.date,
-        clientName: p.clientName,
-        businessName: p.businessName,
-        address: p.address,
-        phone: p.phone,
-        depositPercent: p.depositPercent,
-        validityDays: p.validityDays
-      });
-      setSelections({
-        ...p.defaultSelections,
-        influencerClips: p.defaultSelections.influencerClips ?? 0
-      });
-    }
+  const handleResetToStandard = () => {
+    setActiveToken(null);
+    setClientProfile(buildStandardProfile());
+    setSelections({ ...ZERO_SELECTIONS });
   };
 
   const openMediaModal = (title: string, type: 'video' | 'image', src: string) => {
@@ -595,8 +627,84 @@ export default function InteractiveQuoteSection({
     previewDialogRef.current?.showModal();
   };
 
+  const openPinModal = () => {
+    setAdminPinInput('');
+    setAdminPinError(false);
+    pinDialogRef.current?.showModal();
+  };
+
   const openGeneratorModal = () => {
+    if (!isAdminUnlocked) {
+      openPinModal();
+      return;
+    }
     generatorDialogRef.current?.showModal();
+  };
+
+  const handleUnlockAdminSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!verifyAdminPasscode(adminPinInput)) {
+      setAdminPinError(true);
+      return;
+    }
+    sessionStorage.setItem(ADMIN_SESSION_KEY, '1');
+    setIsAdminUnlocked(true);
+    setAdminPinError(false);
+    setAdminPinInput('');
+    try {
+      const raw = localStorage.getItem(ADMIN_STORAGE_KEY);
+      setSavedAdminQuotes(raw ? JSON.parse(raw) : []);
+    } catch {
+      setSavedAdminQuotes([]);
+    }
+    pinDialogRef.current?.close();
+  };
+
+  const handleLockAdmin = () => {
+    sessionStorage.removeItem(ADMIN_SESSION_KEY);
+    setIsAdminUnlocked(false);
+    setSavedAdminQuotes([]);
+    if (clientProfile.id === 'client' && !activeToken) {
+      handleResetToStandard();
+    }
+  };
+
+  const deleteSavedAdminQuote = (id: string) => {
+    const next = savedAdminQuotes.filter((q) => q.id !== id);
+    setSavedAdminQuotes(next);
+    try {
+      localStorage.setItem(ADMIN_STORAGE_KEY, JSON.stringify(next));
+    } catch {
+      // ignore storage quota
+    }
+  };
+
+  const loadSavedAdminQuote = (saved: SavedAdminQuote) => {
+    try {
+      const urlObj = new URL(saved.url);
+      const tok = urlObj.searchParams.get('q');
+      if (!tok) return;
+      const decoded = decodeQuoteToken(tok);
+      if (!decoded) return;
+      setActiveToken(tok);
+      setClientProfile({
+        id: 'client',
+        quoteNumber: decoded.profile.quoteNumber,
+        date: decoded.profile.date,
+        clientName: decoded.profile.clientName,
+        businessName: decoded.profile.businessName || '',
+        address: decoded.profile.address || '',
+        phone: decoded.profile.phone || '',
+        depositPercent: 25,
+        validityDays: 30
+      });
+      setSelections({
+        ...ZERO_SELECTIONS,
+        ...(decoded.selections || {})
+      });
+    } catch {
+      // ignore malformed URL
+    }
   };
 
   // Pricing calculations (ordered 1..5 to match quotation cards & summary table)
@@ -634,35 +742,29 @@ export default function InteractiveQuoteSection({
     });
   };
 
-  // Build shareable URL for current client/selections
-  const buildShareableUrl = (customProfile?: ClientProfile) => {
-    const target = customProfile || clientProfile;
+  // Build shareable URL (signed opaque ?q= token for clients, or numeric-only budget link for anonymous standard view)
+  const buildShareableUrl = (tokenOverride?: string | null) => {
     const url = new URL(window.location.origin + window.location.pathname);
-    if (target.id === 'sandy' || target.id === 'somii') {
-      url.searchParams.set('quote', target.id);
-    } else if (target.id === 'general') {
-      url.searchParams.set('quote', 'general');
-    } else {
-      url.searchParams.set('client', target.clientName);
-      if (target.businessName) url.searchParams.set('biz', target.businessName);
-      if (target.address) url.searchParams.set('addr', target.address);
-      if (target.phone) url.searchParams.set('phone', target.phone);
-      if (target.quoteNumber) url.searchParams.set('qnum', target.quoteNumber);
-      url.searchParams.set('smenu', String(selections.staticMenuPages));
-      url.searchParams.set('amenu', String(selections.animatedMenuScreens));
-      url.searchParams.set('tv', selections.tvComboSelected ? '1' : '0');
-      url.searchParams.set('tvsize', selections.tvSize === '65' ? '65' : '55');
-      url.searchParams.set('extra', String(selections.tvExtraClips));
-      url.searchParams.set('clip', String(selections.basicClips));
-      url.searchParams.set('uclip', String(selections.influencerClips));
-      url.searchParams.set('decal', String(selections.decalPanels));
-      url.searchParams.set('ddesign', String(selections.decalDesignCount));
+    const tok = tokenOverride !== undefined ? tokenOverride : activeToken;
+    if (tok) {
+      url.searchParams.set('q', tok);
+      return url.toString();
     }
+    url.searchParams.set('smenu', String(selections.staticMenuPages));
+    url.searchParams.set('amenu', String(selections.animatedMenuScreens));
+    url.searchParams.set('tv', selections.tvComboSelected ? '1' : '0');
+    url.searchParams.set('tvsize', selections.tvSize === '65' ? '65' : '55');
+    url.searchParams.set('extra', String(selections.tvExtraClips));
+    url.searchParams.set('clip', String(selections.basicClips));
+    url.searchParams.set('uclip', String(selections.influencerClips));
+    url.searchParams.set('decal', String(selections.decalPanels));
+    url.searchParams.set('ddesign', String(selections.decalDesignCount));
+    url.hash = encodeURIComponent('section-Pricing & Services');
     return url.toString();
   };
 
-  const handleCopyQuoteLink = (customProfile?: ClientProfile) => {
-    const link = buildShareableUrl(customProfile);
+  const handleCopyQuoteLink = (tokenOverride?: string | null) => {
+    const link = buildShareableUrl(tokenOverride);
     navigator.clipboard.writeText(link);
     setCopiedLink(true);
     setTimeout(() => setCopiedLink(false), 2500);
@@ -670,12 +772,13 @@ export default function InteractiveQuoteSection({
 
   const handleCreateNewClientSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newClientForm.clientName.trim()) return;
+    if (!isAdminUnlocked || !newClientForm.clientName.trim()) return;
     const today = new Date();
     const dateStr = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}/${today.getFullYear()}`;
+    const qnum = newClientForm.quoteNumber.trim() || 'TYM-2611-002';
     const createdProfile: ClientProfile = {
-      id: 'custom',
-      quoteNumber: newClientForm.quoteNumber.trim() || 'TYM-2611-002',
+      id: 'client',
+      quoteNumber: qnum,
       date: dateStr,
       clientName: newClientForm.clientName.trim(),
       businessName: newClientForm.businessName.trim(),
@@ -684,9 +787,42 @@ export default function InteractiveQuoteSection({
       depositPercent: 25,
       validityDays: 30
     };
-    setActiveMode('custom');
+    const token = encodeQuoteToken(
+      {
+        quoteNumber: createdProfile.quoteNumber,
+        date: createdProfile.date,
+        clientName: createdProfile.clientName,
+        businessName: createdProfile.businessName,
+        address: createdProfile.address,
+        phone: createdProfile.phone
+      },
+      includeCurrentSelections ? { ...selections } : undefined
+    );
+    const nextSelections = includeCurrentSelections ? { ...selections } : { ...ZERO_SELECTIONS };
+    setActiveToken(token);
     setClientProfile(createdProfile);
-    handleCopyQuoteLink(createdProfile);
+    setSelections(nextSelections);
+
+    const shareUrl = `${window.location.origin}${window.location.pathname}?q=${encodeURIComponent(token)}`;
+    navigator.clipboard.writeText(shareUrl);
+    setCopiedLink(true);
+    setTimeout(() => setCopiedLink(false), 2500);
+
+    const newEntry: SavedAdminQuote = {
+      id: `${Date.now()}`,
+      clientName: createdProfile.clientName,
+      businessName: createdProfile.businessName,
+      quoteNumber: createdProfile.quoteNumber,
+      url: shareUrl,
+      createdAt: dateStr
+    };
+    const updatedList = [newEntry, ...savedAdminQuotes.filter((q) => q.quoteNumber !== qnum)];
+    setSavedAdminQuotes(updatedList);
+    try {
+      localStorage.setItem(ADMIN_STORAGE_KEY, JSON.stringify(updatedList));
+    } catch {
+      // ignore storage quota
+    }
     generatorDialogRef.current?.close();
   };
 
@@ -711,45 +847,24 @@ export default function InteractiveQuoteSection({
 
   return (
     <section id="section-Pricing & Services" className="interactive-quote-section container">
-      {/* Top Toolbar: Client Preset Switcher & Quick Link Generator (hidden when printing) */}
+      {/* Top Toolbar: Public visitors see ONLY badge & copy estimate; Admin controls remain strictly hidden unless ?admin=1 unlocked */}
       <div className="quote-top-toolbar no-print">
         <div className="quote-mode-pills">
           <span className="quote-badge-label">{c.badge}</span>
-          <div className="quote-client-switcher">
-            <button
-              type="button"
-              className={`quote-switch-btn ${activeMode === 'sandy' ? 'active' : ''}`}
-              onClick={() => switchPresetMode('sandy')}
-            >
-              {c.modeSandy}
+          {hasAdminParam && !isAdminUnlocked && (
+            <button type="button" className="quote-action-pill" onClick={openPinModal}>
+              {c.adminUnlockBtn}
             </button>
-            <button
-              type="button"
-              className={`quote-switch-btn ${activeMode === 'general' ? 'active' : ''}`}
-              onClick={() => switchPresetMode('general')}
-            >
-              {c.modeGeneral}
-            </button>
-            <button
-              type="button"
-              className={`quote-switch-btn ${activeMode === 'somii' ? 'active' : ''}`}
-              onClick={() => switchPresetMode('somii')}
-            >
-              {c.modeSomii}
-            </button>
-            <button
-              type="button"
-              className="quote-switch-btn create-new-btn"
-              onClick={openGeneratorModal}
-            >
-              {c.createNewClientBtn}
-            </button>
-          </div>
+          )}
         </div>
 
         <div className="quote-toolbar-actions">
           <button type="button" className="quote-action-pill" onClick={() => handleCopyQuoteLink()}>
-            {copiedLink ? c.copiedLinkMsg : c.btnCopyLink}
+            {copiedLink
+              ? c.copiedLinkMsg
+              : clientProfile.id === 'client'
+                ? c.btnCopyLink
+                : c.btnCopyEstimate}
           </button>
           {isDedicatedClientMode && onScrollToPortfolio && (
             <button
@@ -762,6 +877,75 @@ export default function InteractiveQuoteSection({
           )}
         </div>
       </div>
+
+      {/* Private Studio Admin Bar (only rendered in unlocked browser session on admin's device) */}
+      {isAdminUnlocked && (
+        <div className="quote-admin-strip no-print">
+          <div className="quote-admin-header-row">
+            <span className="quote-admin-badge">{c.adminBadge}</span>
+            <div className="quote-admin-actions">
+              <button
+                type="button"
+                className="quote-switch-btn create-new-btn"
+                onClick={openGeneratorModal}
+              >
+                {c.createNewClientBtn}
+              </button>
+              {clientProfile.id === 'client' && (
+                <button
+                  type="button"
+                  className="quote-switch-btn"
+                  onClick={handleResetToStandard}
+                >
+                  {c.adminResetStandard}
+                </button>
+              )}
+              <button type="button" className="quote-switch-btn" onClick={handleLockAdmin}>
+                {c.adminLockBtn}
+              </button>
+            </div>
+          </div>
+
+          {savedAdminQuotes.length > 0 && (
+            <div className="quote-admin-saved-row">
+              <span className="admin-saved-label">{c.adminSavedTitle}</span>
+              <div className="admin-saved-chips">
+                {savedAdminQuotes.map((sq) => (
+                  <div key={sq.id} className="admin-saved-chip">
+                    <button
+                      type="button"
+                      className="admin-chip-load"
+                      onClick={() => loadSavedAdminQuote(sq)}
+                    >
+                      {sq.clientName} ({sq.quoteNumber})
+                    </button>
+                    <button
+                      type="button"
+                      className="admin-chip-copy"
+                      onClick={() => {
+                        navigator.clipboard.writeText(sq.url);
+                        setCopiedLink(true);
+                        setTimeout(() => setCopiedLink(false), 2000);
+                      }}
+                      title={c.btnCopyLink}
+                    >
+                      🔗
+                    </button>
+                    <button
+                      type="button"
+                      className="admin-chip-del"
+                      onClick={() => deleteSavedAdminQuote(sq.id)}
+                      aria-label={`Remove ${sq.clientName}`}
+                    >
+                      ✕
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Main Quotation Document Container */}
       <div className="quote-document-card glass-panel">
@@ -784,9 +968,11 @@ export default function InteractiveQuoteSection({
           </div>
         </div>
 
-        {/* Client Recipient Box */}
+        {/* Client Recipient Box (Only renders customer info when valid private token ?q= is opened) */}
         <div className="quote-recipient-banner">
-          <div className="recipient-tag">{c.recipientHeader}</div>
+          <div className="recipient-tag">
+            {clientProfile.id === 'client' ? c.recipientHeader : c.standardRecipientTag}
+          </div>
           <div className="recipient-main-name">
             {clientProfile.clientName}
             {clientProfile.businessName ? ` — ${clientProfile.businessName}` : ''}
@@ -796,7 +982,7 @@ export default function InteractiveQuoteSection({
               <span>{c.addressLabel}</span> {clientProfile.address}
             </div>
           )}
-          {clientProfile.phone && (
+          {clientProfile.id === 'client' && clientProfile.phone && (
             <div className="recipient-sub-line">
               <span>{c.phoneLabel}</span> {clientProfile.phone}
             </div>
@@ -1528,79 +1714,128 @@ export default function InteractiveQuoteSection({
         </div>
       </dialog>
 
-      {/* Modal 2: Quick Client Quote Link Generator (native <dialog closedby="any">) */}
+      {/* Modal 2: Admin-Only Client Quote Link Generator (native <dialog closedby="any">) */}
+      {isAdminUnlocked && (
+        <dialog
+          ref={generatorDialogRef}
+          {...({ closedby: 'any' } as any)}
+          aria-labelledby={generatorDialogTitleId}
+          className="quote-native-dialog generator-dialog"
+        >
+          <div className="dialog-inner-box">
+            <div className="dialog-top-bar">
+              <h3 id={generatorDialogTitleId}>{c.generatorTitle}</h3>
+              <form method="dialog">
+                <button type="submit" className="dialog-close-btn">
+                  ✕ {c.closeModalBtn}
+                </button>
+              </form>
+            </div>
+            <p className="generator-modal-desc">{c.generatorDesc}</p>
+            <form onSubmit={handleCreateNewClientSubmit} className="generator-form">
+              <label>
+                <span>{c.fieldClientName} *</span>
+                <input
+                  type="text"
+                  required
+                  placeholder="VD: Chị Lan / Anh Minh"
+                  value={newClientForm.clientName}
+                  onChange={(e) =>
+                    setNewClientForm((f) => ({ ...f, clientName: e.target.value }))
+                  }
+                />
+              </label>
+              <label>
+                <span>{c.fieldBusiness}</span>
+                <input
+                  type="text"
+                  placeholder="VD: Bistro Japonais / Café..."
+                  value={newClientForm.businessName}
+                  onChange={(e) =>
+                    setNewClientForm((f) => ({ ...f, businessName: e.target.value }))
+                  }
+                />
+              </label>
+              <label>
+                <span>{c.fieldAddress}</span>
+                <input
+                  type="text"
+                  placeholder="VD: 123 Rue Exemple, Montréal, QC"
+                  value={newClientForm.address}
+                  onChange={(e) => setNewClientForm((f) => ({ ...f, address: e.target.value }))}
+                />
+              </label>
+              <div className="generator-form-row">
+                <label>
+                  <span>{c.fieldPhone}</span>
+                  <input
+                    type="text"
+                    placeholder="VD: +1 (514) 000-0000"
+                    value={newClientForm.phone}
+                    onChange={(e) => setNewClientForm((f) => ({ ...f, phone: e.target.value }))}
+                  />
+                </label>
+                <label>
+                  <span>{c.fieldQuoteNum}</span>
+                  <input
+                    type="text"
+                    value={newClientForm.quoteNumber}
+                    onChange={(e) =>
+                      setNewClientForm((f) => ({ ...f, quoteNumber: e.target.value }))
+                    }
+                  />
+                </label>
+              </div>
+              <label className="generator-checkbox-row">
+                <input
+                  type="checkbox"
+                  checked={includeCurrentSelections}
+                  onChange={(e) => setIncludeCurrentSelections(e.target.checked)}
+                />
+                <span>{c.adminIncludeSelections}</span>
+              </label>
+              <button type="submit" className="quote-cta-btn primary full-width">
+                {c.btnApplyAndCopy}
+              </button>
+            </form>
+          </div>
+        </dialog>
+      )}
+
+      {/* Modal 3: Studio Admin PIN Unlock Dialog (native <dialog closedby="any">) */}
       <dialog
-        ref={generatorDialogRef}
+        ref={pinDialogRef}
         {...({ closedby: 'any' } as any)}
-        aria-labelledby={generatorDialogTitleId}
-        className="quote-native-dialog generator-dialog"
+        aria-labelledby={pinDialogTitleId}
+        className="quote-native-dialog generator-dialog admin-pin-dialog"
       >
         <div className="dialog-inner-box">
           <div className="dialog-top-bar">
-            <h3 id={generatorDialogTitleId}>{c.generatorTitle}</h3>
+            <h3 id={pinDialogTitleId}>{c.adminPinTitle}</h3>
             <form method="dialog">
               <button type="submit" className="dialog-close-btn">
                 ✕ {c.closeModalBtn}
               </button>
             </form>
           </div>
-          <p className="generator-modal-desc">{c.generatorDesc}</p>
-          <form onSubmit={handleCreateNewClientSubmit} className="generator-form">
+          <p className="generator-modal-desc">{c.adminPinDesc}</p>
+          <form onSubmit={handleUnlockAdminSubmit} className="generator-form">
             <label>
-              <span>{c.fieldClientName} *</span>
               <input
-                type="text"
+                type="password"
                 required
-                placeholder="VD: Chị Sandy / Anh Minh"
-                value={newClientForm.clientName}
-                onChange={(e) =>
-                  setNewClientForm((f) => ({ ...f, clientName: e.target.value }))
-                }
+                autoComplete="current-password"
+                placeholder={c.adminPinPlaceholder}
+                value={adminPinInput}
+                onChange={(e) => {
+                  setAdminPinInput(e.target.value);
+                  if (adminPinError) setAdminPinError(false);
+                }}
               />
             </label>
-            <label>
-              <span>{c.fieldBusiness}</span>
-              <input
-                type="text"
-                placeholder="VD: Bistro Japonais / Café..."
-                value={newClientForm.businessName}
-                onChange={(e) =>
-                  setNewClientForm((f) => ({ ...f, businessName: e.target.value }))
-                }
-              />
-            </label>
-            <label>
-              <span>{c.fieldAddress}</span>
-              <input
-                type="text"
-                placeholder="VD: 950 Bd du Séminaire N, J3A 1L2"
-                value={newClientForm.address}
-                onChange={(e) => setNewClientForm((f) => ({ ...f, address: e.target.value }))}
-              />
-            </label>
-            <div className="generator-form-row">
-              <label>
-                <span>{c.fieldPhone}</span>
-                <input
-                  type="text"
-                  placeholder="VD: +1 (514) 660-2605"
-                  value={newClientForm.phone}
-                  onChange={(e) => setNewClientForm((f) => ({ ...f, phone: e.target.value }))}
-                />
-              </label>
-              <label>
-                <span>{c.fieldQuoteNum}</span>
-                <input
-                  type="text"
-                  value={newClientForm.quoteNumber}
-                  onChange={(e) =>
-                    setNewClientForm((f) => ({ ...f, quoteNumber: e.target.value }))
-                  }
-                />
-              </label>
-            </div>
+            {adminPinError && <p className="admin-pin-error">{c.adminPinWrong}</p>}
             <button type="submit" className="quote-cta-btn primary full-width">
-              {c.btnApplyAndCopy}
+              {c.adminUnlockSubmit}
             </button>
           </form>
         </div>

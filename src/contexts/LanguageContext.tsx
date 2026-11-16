@@ -24,7 +24,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       if (urlLang && ['en', 'vi', 'fr'].includes(urlLang)) {
         return urlLang;
       }
-      if (params.has('quote') || params.has('client')) {
+      if (params.has('q') || params.has('quote') || params.has('admin')) {
         return 'vi';
       }
       const savedLang = localStorage.getItem('app_language') as Language;
@@ -37,7 +37,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    if (params.has('quote') || params.has('client') || params.has('lang')) return;
+    if (params.has('q') || params.has('quote') || params.has('admin') || params.has('lang')) return;
     const savedLang = localStorage.getItem('app_language') as Language;
     if (savedLang && ['en', 'vi', 'fr'].includes(savedLang)) {
       setLanguageState(savedLang);

@@ -2581,6 +2581,108 @@ button.project-media-trigger {
   }
 }
 
+/* Private Studio Admin Console Styles */
+.quote-admin-strip {
+  margin-bottom: 1.25rem;
+  padding: 1rem 1.25rem;
+  border-radius: 16px;
+  background: rgba(88, 28, 135, 0.18);
+  border: 1px dashed rgba(192, 132, 252, 0.45);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.quote-admin-header-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.quote-admin-badge {
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #e9d5ff;
+}
+
+.quote-admin-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.quote-admin-saved-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-saved-label {
+  font-size: 0.78rem;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+.admin-saved-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.admin-saved-chip {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.admin-chip-load,
+.admin-chip-copy,
+.admin-chip-del {
+  background: transparent;
+  border: none;
+  color: #e2e8f0;
+  font-size: 0.78rem;
+  padding: 0.35rem 0.6rem;
+}
+
+.admin-chip-load:hover,
+.admin-chip-copy:hover {
+  background: rgba(192, 132, 252, 0.22);
+}
+
+.admin-chip-del:hover {
+  background: rgba(239, 68, 68, 0.28);
+  color: #fecaca;
+}
+
+label.generator-checkbox-row {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  color: #e2e8f0;
+}
+
+label.generator-checkbox-row input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+  accent-color: #a855f7;
+}
+
+.admin-pin-error {
+  font-size: 0.82rem;
+  color: #f87171;
+  font-weight: 600;
+}
+
 /* Clean Print / Save-as-PDF Stylesheet */
 @media print {
   body {

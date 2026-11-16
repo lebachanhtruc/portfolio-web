@@ -8,22 +8,31 @@ import InteractiveQuoteSection from './components/InteractiveQuoteSection'
 import Footer from './components/Footer'
 import LanguageSwitcher from './components/LanguageSwitcher'
 import { LanguageProvider } from './contexts/LanguageContext'
+import { decodeQuoteToken } from './utils/quoteToken'
 
 function App() {
-  const isDedicatedClientQuote =
-    typeof window !== 'undefined' &&
-    (new URLSearchParams(window.location.search).has('quote') ||
-      new URLSearchParams(window.location.search).has('client'));
+  const searchParams =
+    typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
+  const quoteToken = searchParams?.get('q');
+  const isDedicatedClientQuote = Boolean(quoteToken && decodeQuoteToken(quoteToken));
+  const isAdminEntry = searchParams?.get('admin') === '1';
 
   useEffect(() => {
     const hash = window.location.hash;
-    if (!hash || hash.length < 2) return;
-    const targetId = decodeURIComponent(hash.slice(1));
-    const timer = window.setTimeout(() => {
-      document.getElementById(targetId)?.scrollIntoView({ behavior: 'auto' });
-    }, 60);
-    return () => window.clearTimeout(timer);
-  }, []);
+    if (hash && hash.length >= 2) {
+      const targetId = decodeURIComponent(hash.slice(1));
+      const timer = window.setTimeout(() => {
+        document.getElementById(targetId)?.scrollIntoView({ behavior: 'auto' });
+      }, 60);
+      return () => window.clearTimeout(timer);
+    }
+    if (isAdminEntry && !isDedicatedClientQuote) {
+      const timer = window.setTimeout(() => {
+        document.getElementById('section-Pricing & Services')?.scrollIntoView({ behavior: 'auto' });
+      }, 60);
+      return () => window.clearTimeout(timer);
+    }
+  }, [isAdminEntry, isDedicatedClientQuote]);
 
   const scrollToPortfolio = () => {
     const el = document.getElementById('section-AI x Photography');
