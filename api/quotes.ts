@@ -148,23 +148,27 @@ function handleBlobError(err: unknown, fallbackMessage: string) {
   return jsonResponse({ error: fallbackMessage }, 500);
 }
 
-async function parseQuoteRequest(
-  request: Request
-): Promise<{ ok: true; payload: StoredQuotePayload; requestedId: string } | { ok: false; response: Response }> {
+interface ParsedQuoteRequest {
+  payload?: StoredQuotePayload;
+  requestedId?: string;
+  response?: Response;
+}
+
+async function parseQuoteRequest(request: Request): Promise<ParsedQuoteRequest> {
   let body: unknown;
   try {
     const text = await request.text();
     if (text.length > MAX_REQUEST_BYTES) {
-      return { ok: false, response: jsonResponse({ error: 'Payload too large' }, 413) };
+      return { response: jsonResponse({ error: 'Payload too large' }, 413) };
     }
     body = JSON.parse(text);
   } catch {
-    return { ok: false, response: jsonResponse({ error: 'Invalid JSON request body' }, 400) };
+    return { response: jsonResponse({ error: 'Invalid JSON request body' }, 400) };
   }
 
   const payload = sanitizePayload(body);
   if (!payload) {
-    return { ok: false, response: jsonResponse({ error: 'Missing required clientName' }, 400) };
+    return { response: jsonResponse({ error: 'Missing required clientName' }, 400) };
   }
 
   const requestedId =
@@ -173,10 +177,10 @@ async function parseQuoteRequest(
       : '';
 
   if (requestedId && !isShortQuoteId(requestedId)) {
-    return { ok: false, response: jsonResponse({ error: 'Invalid requestedId format' }, 400) };
+    return { response: jsonResponse({ error: 'Invalid requestedId format' }, 400) };
   }
 
-  return { ok: true, payload, requestedId };
+  return { payload, requestedId };
 }
 
 export async function GET(request: Request) {
@@ -207,8 +211,10 @@ export async function POST(request: Request) {
   }
 
   const parsed = await parseQuoteRequest(request);
-  if (!parsed.ok) return parsed.response;
-  const { payload: sanitized, requestedId: requestedSlug } = parsed;
+  if (parsed.response) return parsed.response;
+  if (!parsed.payload) return jsonResponse({ error: 'Invalid quote payload' }, 400);
+  const sanitized = parsed.payload;
+  const requestedSlug = parsed.requestedId || '';
 
   try {
     const maxAttempts = requestedSlug ? 1 : 4;
@@ -253,7 +259,8 @@ export async function PUT(request: Request) {
   }
 
   const parsed = await parseQuoteRequest(request);
-  if (!parsed.ok) return parsed.response;
+  if (parsed.response) return parsed.response;
+  if (!parsed.payload) return jsonResponse({ error: 'Invalid quote payload' }, 400);
 
   try {
     const existing = await get(blobPathForId(id), { access: 'private', useCache: false });
