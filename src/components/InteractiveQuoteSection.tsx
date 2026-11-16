@@ -20,6 +20,7 @@ interface QuoteSelections {
   decalPanels: number;
   decalDesignCount: number;
   tvComboSelected: boolean;
+  tvSize?: '55' | '65';
   tvExtraClips: number;
   basicClips: number;
 }
@@ -72,12 +73,15 @@ const copyText = {
     item3Bullets: [
       'Áp dụng theo gói Combo trọn gói (không nhận thi công lắp đặt TV riêng lẻ).',
       'Khảo sát vị trí, thi công lắp đặt 1 TV 55 inch tại cửa kính mặt tiền, đi dây gọn gàng và cài đặt chế độ phát lặp tự động (auto-loop).',
+      'Tùy chọn nâng cấp TV 65 inch: Nếu Quý khách chọn lắp đặt TV 65 inch, chi phí thi công lắp đặt cộng thêm +$150.00 extra (tổng gói Combo TV 65 inch là $600.00).',
       'Sản xuất chuỗi video quảng cáo chạy lặp (tổng thời lượng 1 phút, gồm tối đa 3 clip ngắn riêng lẻ, mỗi clip 20 giây).',
       'Nội dung mỗi clip 20 giây: Tập trung giới thiệu 01 món ăn/thức uống hoặc 01 thông điệp ưu đãi nổi bật với chuyển động đơn giản, không bao gồm thiết kế danh sách nhiều món & bảng giá chi tiết như Menu Động.',
       'Tùy chọn thêm (Extra clip): Làm thêm clip với chi phí $100.00 / clip (20 giây/clip, không giới hạn số lượng).',
       'Lưu ý: Chưa bao gồm chi phí mua TV, khung đỡ/giá treo TV (và dây kéo/ổ cắm điện mới nếu vị trí lắp chưa có sẵn nguồn điện).'
     ],
-    item3CtrlCombo: 'Chọn Gói Combo Lắp TV 55" + 3 Clip Loop ($450)',
+    item3CtrlCombo: 'Chọn Gói Combo Lắp TV + 3 Clip Loop',
+    item3Opt55: 'TV 55" ($450)',
+    item3Opt65: 'TV 65" (+$150 = $600)',
     item3CtrlExtra: 'Số lượng Extra Clip làm thêm ($100/clip 20s)',
     item4Title: '4. Sáng tạo Clip Cơ bản',
     item4Subtitle: 'Video quảng cáo ngắn 20 giây cho TV hoặc Mạng xã hội (Reels / TikTok)',
@@ -163,12 +167,15 @@ const copyText = {
     item3Bullets: [
       'Available exclusively as a complete Combo Package (standalone TV installation is not offered).',
       'Site survey and installation of 1x 55-inch TV at the storefront window, clean cable routing, and auto-loop playback setup.',
+      '65-inch TV Upgrade Option: If selecting a 65-inch TV, an additional +$150.00 installation fee applies ($600.00 total for the 65" TV Combo).',
       'Production of a 1-minute promotional video loop (up to 3 individual short clips, 20 seconds each).',
       'Each 20s clip: Highlights 01 featured dish/drink or 01 promotional message with clean motion effects (does not include multi-item full menu board layouts like Item 1).',
       'Add-on (Extra clip): $100.00 / clip (20 seconds/clip, unlimited quantity).',
       'Note: Excludes the cost of purchasing the TV, TV mount/bracket, and new electrical outlet wiring if not already available near the mounting spot.'
     ],
-    item3CtrlCombo: 'Select 55" TV Installation + 3-Clip Loop Combo ($450)',
+    item3CtrlCombo: 'Select TV Installation + 3-Clip Loop Combo',
+    item3Opt55: '55" TV ($450)',
+    item3Opt65: '65" TV (+$150 = $600)',
     item3CtrlExtra: 'Extra 20s Clips ($100/clip)',
     item4Title: '4. Basic Promotional Video Clip',
     item4Subtitle: '20-second spotlight video clip for TV Display or Social Media (Reels / TikTok)',
@@ -254,12 +261,15 @@ const copyText = {
     item3Bullets: [
       'Offert exclusivement en forfait Combo complet (aucune installation de TV seule).',
       'Installation d’un téléviseur 55 pouces en vitrine, passage des câbles et configuration de la lecture en boucle (auto-loop).',
+      'Option TV 65 pouces : Pour l’installation d’un téléviseur 65 pouces, un supplément de pose de +150,00 $ s’applique (600,00 $ au total pour le Combo TV 65").',
       'Production d’une boucle vidéo promotionnelle d’une minute (jusqu’à 3 clips individuels de 20 secondes chacun).',
       'Contenu par clip de 20s : Met en valeur 01 plat/boisson ou 01 promotion avec animation simple (n’inclut pas une grille complète de menu comme l’article 1).',
       'Option supplémentaire (Extra clip) : 100,00 $ / clip (20 secondes/clip, sans limite).',
       'Note : N’inclut pas l’achat du téléviseur, du support mural/plafond ni l’installation d’une nouvelle prise électrique.'
     ],
-    item3CtrlCombo: 'Forfait Combo Pose TV 55" + 3 Clips (450 $)',
+    item3CtrlCombo: 'Forfait Combo Pose TV + 3 Clips',
+    item3Opt55: 'TV 55" (450 $)',
+    item3Opt65: 'TV 65" (+150 $ = 600 $)',
     item3CtrlExtra: 'Clips supplémentaires 20s (100 $/clip)',
     item4Title: '4. Création de Clip Vidéo de Base',
     item4Subtitle: 'Clip promotionnel de 20 secondes pour TV ou Réseaux Sociaux (Reels / TikTok)',
@@ -509,7 +519,9 @@ export default function InteractiveQuoteSection({
   const decalDesignSubtotal = selections.decalDesignCount * rates.decalDesignPerLayout;
   const item2Subtotal = decalInstallSubtotal + decalDesignSubtotal;
 
-  const tvBaseSubtotal = selections.tvComboSelected ? rates.tvComboPackage : 0;
+  const tvSizeExtra =
+    selections.tvComboSelected && selections.tvSize === '65' ? rates.tv65InchExtra : 0;
+  const tvBaseSubtotal = selections.tvComboSelected ? rates.tvComboPackage + tvSizeExtra : 0;
   const tvExtraSubtotal = selections.tvExtraClips * rates.tvExtraClip;
   const item3Subtotal = tvBaseSubtotal + tvExtraSubtotal;
 
@@ -988,7 +1000,11 @@ export default function InteractiveQuoteSection({
                 <div className="service-price-badges">
                   <div className="price-pill accent">
                     <span className="price-amount">$450.00</span>
-                    <span className="price-unit">/ trọn gói Combo</span>
+                    <span className="price-unit">/ Combo TV 55"</span>
+                  </div>
+                  <div className="price-pill">
+                    <span className="price-amount">+$150.00</span>
+                    <span className="price-unit">/ nâng cấp TV 65"</span>
                   </div>
                   <div className="price-pill">
                     <span className="price-amount">+$100.00</span>
@@ -1006,15 +1022,53 @@ export default function InteractiveQuoteSection({
               <div className="service-interactive-controls no-print">
                 <div className="qty-control-row">
                   <span className="qty-label">{c.item3CtrlCombo}</span>
-                  <button
-                    type="button"
-                    className={`combo-toggle-btn ${selections.tvComboSelected ? 'selected' : ''}`}
-                    onClick={() =>
-                      setSelections((s) => ({ ...s, tvComboSelected: !s.tvComboSelected }))
-                    }
-                  >
-                    {selections.tvComboSelected ? `✓ ${c.yesSelected}` : c.notSelected}
-                  </button>
+                  <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
+                    <button
+                      type="button"
+                      className={`combo-toggle-btn ${
+                        selections.tvComboSelected && (selections.tvSize || '55') === '55'
+                          ? 'selected'
+                          : ''
+                      }`}
+                      onClick={() =>
+                        setSelections((s) => ({
+                          ...s,
+                          tvComboSelected: true,
+                          tvSize: '55'
+                        }))
+                      }
+                    >
+                      {selections.tvComboSelected && (selections.tvSize || '55') === '55'
+                        ? `✓ ${c.item3Opt55}`
+                        : c.item3Opt55}
+                    </button>
+                    <button
+                      type="button"
+                      className={`combo-toggle-btn ${
+                        selections.tvComboSelected && selections.tvSize === '65' ? 'selected' : ''
+                      }`}
+                      onClick={() =>
+                        setSelections((s) => ({
+                          ...s,
+                          tvComboSelected: true,
+                          tvSize: '65'
+                        }))
+                      }
+                    >
+                      {selections.tvComboSelected && selections.tvSize === '65'
+                        ? `✓ ${c.item3Opt65}`
+                        : c.item3Opt65}
+                    </button>
+                    <button
+                      type="button"
+                      className={`combo-toggle-btn ${!selections.tvComboSelected ? 'selected' : ''}`}
+                      onClick={() =>
+                        setSelections((s) => ({ ...s, tvComboSelected: false }))
+                      }
+                    >
+                      {c.notSelected}
+                    </button>
+                  </div>
                 </div>
 
                 <div className="qty-control-row">
@@ -1176,10 +1230,16 @@ export default function InteractiveQuoteSection({
                 <td>${item2Subtotal.toFixed(2)}</td>
               </tr>
               <tr>
-                <th scope="row">3. Gói Combo: Lắp đặt TV 55" & Loop 3 Clip (1 phút)</th>
-                <td>$450.00 / gói (+$100/extra clip)</td>
+                <th scope="row">
+                  3. Gói Combo: Lắp đặt TV {selections.tvSize === '65' ? '65"' : '55"'} &amp; Loop 3 Clip (1 phút)
+                </th>
+                <td>$450.00 / gói (TV 65": +$150 | Extra clip: +$100)</td>
                 <td>
-                  {selections.tvComboSelected ? '1 gói Combo' : '0'}
+                  {selections.tvComboSelected
+                    ? selections.tvSize === '65'
+                      ? '1 gói Combo TV 65" (+$150)'
+                      : '1 gói Combo TV 55"'
+                    : '0'}
                   {selections.tvExtraClips > 0 ? ` (+${selections.tvExtraClips} extra clip)` : ''}
                 </td>
                 <td>${item3Subtotal.toFixed(2)}</td>
