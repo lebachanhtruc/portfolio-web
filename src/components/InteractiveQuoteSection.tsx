@@ -166,7 +166,7 @@ const copyText = {
       'Thực đơn tương tác thông minh (hỗ trợ 40+ món): song song 2 chế độ xem (Bảng Deli nhanh & Thẻ ảnh món ăn), tùy biến option từng món, bộ lọc dị ứng / chế độ ăn (Không đậu phộng, Thuần chay, Không thịt heo, Không sữa, Không gluten) và Giỏ gọi món tự cộng tổng tiền.',
       'Tích hợp vận hành thực tế tại quán: tự động hiển thị trạng thái Đang mở cửa / Đã đóng cửa theo giờ Montréal, thẻ giới thiệu món sắp ra mắt (Coming Soon Reel), nút gọi điện / chỉ đường Google Maps 1 chạm.',
       'Tối ưu SEO Google & Tốc độ tải (Core Web Vitals): cài đặt sẵn Schema.org (Restaurant/Bakery, giờ mở cửa, menu & đánh giá), hreflang đa ngôn ngữ, đường dẫn sạch (/menu, /thuc-don, /traiteur), sitemap hình ảnh và Google Analytics 4.',
-      'Bàn giao trọn gói ($700.00): đưa web lên Vercel chạy siêu tốc miễn phí duy trì server (trên tên miền riêng .ca/.com của quán), bàn giao mã nguồn & hỗ trợ tối đa 02 vòng tinh chỉnh từ ảnh/nội dung tiệm cung cấp (chưa bao gồm phí mua tên miền ~$15–$25/năm & cổng thanh toán POS).'
+      'Triển khai & bàn giao vận hành ($700.00): đưa web lên chạy ổn định trên tên miền riêng .ca/.com của quán (miễn phí duy trì server tiêu chuẩn) kèm tối đa 02 vòng tinh chỉnh trong lúc xây dựng. TYM Production lưu trữ & quản lý mã nguồn gốc — sau này khi tiệm cần đổi giá, thêm món hoặc chỉnh sửa nội dung, chỉ cần liên hệ TYM thực hiện (tính phí riêng theo thời điểm/khối lượng; chưa gồm phí mua tên miền ~$15–$25/năm & cổng thanh toán online/POS).'
     ],
     item6CtrlPackage: 'Chọn Gói Thiết kế Website Trọn Gói ($700)',
     item6OptSelected: 'Gói Website ($700)',
@@ -319,7 +319,7 @@ const copyText = {
       'Smart Interactive Menu (supports 40+ dishes): dual Deli Board & Photo Card layouts, dish option pickers, live allergen/dietary filters (Peanut-Free, Vegan, Pork-Free option, Dairy-Free, Gluten-Free) + auto-calculating Quick Order Cart.',
       'Built for real store operations: automated Montréal live Open/Closed & holiday banner status, Coming Soon dish teaser reel card, 1-tap phone call & Google Maps directions.',
       'Technical SEO & performance setup: Schema.org Restaurant/Bakery structured data (GPS, hours, reviews & full hasMenu), hreflang alternates, clean URL slugs (/menu, /catering), image sitemap.xml & Google Analytics 4.',
-      'Turnkey handover ($700.00): deployed free-hosting on Vercel under your custom domain, full source handover & up to 02 revision rounds from restaurant-supplied photos/text (excludes ~$15–$25/yr domain registration & paid POS/online payment gateways).'
+      'Live launch & managed operations ($700.00): deployed on your custom .ca/.com domain (free standard server hosting) with up to 02 revision rounds during the build. TYM Production retains and manages the original source code — whenever you need future price updates, new items, or content edits, simply reach out to TYM (billed per request/scope; excludes ~$15–$25/yr domain registration & paid POS/online payment gateways).'
     ],
     item6CtrlPackage: 'Select Turnkey Website Package ($700)',
     item6OptSelected: 'Website Package ($700)',
@@ -472,7 +472,7 @@ const copyText = {
       'Menu interactif 40+ plats : double affichage (Tableau Deli rapide & Cartes photo), sélecteur d’options, filtres allergènes/régimes (Sans arachides, Végétal, Sans porc, Sans lactose, Sans gluten) et panier d’estimation rapide.',
       'Fonctionnalités métier réelles : statut Ouvert / Fermé automatique selon l’heure de Montréal (et avis de congé), carte teaser vidéo de nouveauté, appel et itinéraire Google Maps en 1 clic.',
       'SEO technique & vitesse : données structurées Schema.org Restaurant/Bakery (horaires, GPS, avis, hasMenu), balises hreflang, URLs propres (/menu, /traiteur), sitemap images et Google Analytics 4.',
-      'Livraison clé en main (700,00 $) : hébergement gratuit rapide sur Vercel sous votre domaine, remise du code source et 02 séries d’ajustements à partir de vos photos/textes (hors achat domaine ~15–25 $/an et passerelle POS/paiement en ligne).'
+      'Mise en ligne & gestion opérationnelle (700,00 $) : déploiement sous votre domaine .ca/.com (hébergement serveur standard gratuit) avec jusqu’à 02 séries d’ajustements en cours de création. TYM Production conserve et gère le code source d’origine — pour toute future mise à jour de prix, ajout de plats ou retouche de contenu, il suffit de contacter TYM (facturé à la demande selon l’ampleur ; hors achat du domaine ~15–25 $/an et passerelle POS/paiement en ligne).'
     ],
     item6CtrlPackage: 'Choisir le Forfait Site Web Clé en Main (700 $)',
     item6OptSelected: 'Forfait Site Web (700 $)',
