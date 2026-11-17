@@ -15,7 +15,7 @@ export default function Footer() {
     <footer className="footer-masterpiece">
       <div className="footer-bg-overlay"></div>
       <div className="footer-content">
-        <h1 className="massive-thank-you text-outline">THANK YOU</h1>
+        <h2 className="massive-thank-you text-outline">THANK YOU</h2>
         <div className="footer-contact">
           <p>
             <a href="mailto:lebachanhtruc@gmail.com" onClick={handleCopyEmail} style={{ color: 'inherit', textDecoration: 'none' }}>

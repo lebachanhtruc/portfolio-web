@@ -73,7 +73,7 @@ export default function HeroSection() {
             display: 'flex',
             justifyContent: 'space-between',
             padding: '0 5vw',
-            marginTop: '-1vw',
+            marginTop: 'clamp(0.75rem, 1.4vw, 1.5rem)',
             zIndex: 10
           }}
         >

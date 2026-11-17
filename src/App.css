@@ -2321,8 +2321,12 @@ dialog.quote-native-dialog {
   color: #f8fafc;
   padding: 0;
   max-width: min(92vw, 960px);
-  max-height: 90vh;
+  max-height: 90dvh;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85);
+}
+
+dialog.quote-native-dialog:focus:not(:focus-visible) {
+  outline: none;
 }
 
 dialog.quote-native-dialog.generator-dialog {
@@ -2372,7 +2376,7 @@ dialog.quote-native-dialog::backdrop {
   background: #050508;
   border-radius: 12px;
   overflow: hidden;
-  max-height: 74vh;
+  max-height: 74dvh;
 }
 
 .dialog-full-video,
@@ -2666,9 +2670,27 @@ dialog.quote-native-dialog::backdrop {
   .generator-form-row {
     grid-template-columns: 1fr;
   }
+  .dialog-inner-box {
+    padding: 1rem;
+  }
+  .portfolio-lightbox-dialog .dialog-top-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+  }
+  .lightbox-header-actions {
+    justify-content: flex-start;
+  }
+  .creative-portrait-container {
+    padding-inline-start: 14px;
+  }
+  .film-strip-decoration {
+    left: -2px;
+    width: 38px;
+  }
 }
 
-@media (pointer: coarse) {
+@media (pointer: coarse), (max-width: 768px) {
   .qty-stepper button,
   .media-tab-btn,
   .pill-btn,
@@ -2677,11 +2699,24 @@ dialog.quote-native-dialog::backdrop {
   .preset-reset-btn,
   .quote-expand-other-btn,
   .quote-cta-btn,
+  .lightbox-nav-btn,
+  .dialog-close-btn,
   .floating-contact-btn.icon-btn,
   .lang-toggle-btn,
   .back-to-top-btn {
     min-block-size: 44px;
     min-inline-size: 44px;
+  }
+  .contact-list a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 44px;
+  }
+  .slider-expand-pill::after,
+  .media-expand-btn::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
   }
   .admin-chip-copy,
   .admin-chip-del,
@@ -2763,6 +2798,7 @@ dialog.quote-native-dialog::backdrop {
   line-height: 1.15;
   color: #ffffff;
   text-transform: none;
+  text-wrap: balance;
   margin-bottom: 1rem;
 }
 
@@ -2770,6 +2806,7 @@ dialog.quote-native-dialog::backdrop {
   font-size: 1.02rem;
   color: #cbd5e1;
   line-height: 1.7;
+  text-wrap: pretty;
   margin-bottom: 1.75rem;
   max-width: 68ch;
 }
@@ -2971,14 +3008,14 @@ button.project-media-trigger {
 }
 
 .portfolio-lightbox-stage {
-  min-height: 55vh;
-  max-height: 76vh;
+  min-height: 55dvh;
+  max-height: 76dvh;
 }
 
 .lightbox-slider-box {
   width: min(440px, 85vw);
   aspect-ratio: 9 / 16;
-  max-height: 70vh;
+  max-height: 70dvh;
 }
 
 .lightbox-slider-box .slider-img {
