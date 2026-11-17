@@ -12,11 +12,15 @@
       "ctaSwitchCv": "View Product Builder Profile →",
       "ctaSwitchAgency": "← Back to TYM Production Studio",
       "agencyHeadline": "Turn dishes into high-converting visual stories",
-      "agencyLead": "TYM Production partners with restaurants, bakeries, and hospitality brands in Montréal & Rive-Sud—delivering AI photography, 4K animated menus, Reels ads, decals, and storefront TV signage.",
+      "agencyLead": "TYM Production partners with restaurants, bakeries, and hospitality brands in Montréal & Rive-Sud—delivering AI photography, multilingual websites, 4K animated menus, Reels ads, decals, and storefront TV signage.",
       "pillars": [
         {
           "title": "Culinary Shoot & Generative AI",
           "desc": "On-site food photography enhanced with AI lighting, plating refinement, and luxury campaign posters at smart budgets."
+        },
+        {
+          "title": "Custom Brand & Menu Website ($700)",
+          "desc": "Multilingual mobile-fast sites like patisseriedzung.ca: interactive 40+ dish menu, allergen filters, Google SEO & source/hosting managed by TYM."
         },
         {
           "title": "Print & 4K Animated Digital Menus",

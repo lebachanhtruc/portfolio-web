@@ -124,14 +124,13 @@ const NOTION_CASE_URL =
   'https://helix-saffron-268.notion.site/Ba-Chanh-Truc-Le-Product-Owner-Portfolio-3a59fce0d40680e3981bea63e19586e2';
 const LOOM_WALKTHROUGH_URL = 'https://www.loom.com/share/1e467bf8ae8043ccbd5027abcdcb82c0';
 
-export default function AboutSection() {
-  const { t, translations } = useLanguage();
-  const modeParam =
-    typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('mode') : null;
-  const initialMode: 'agency' | 'cv' =
-    modeParam === 'cv' || modeParam === 'builder' ? 'cv' : 'agency';
+interface AboutSectionProps {
+  profileMode: 'agency' | 'cv';
+  onProfileModeChange: (mode: 'agency' | 'cv') => void;
+}
 
-  const [profileMode, setProfileMode] = useState<'agency' | 'cv'>(initialMode);
+export default function AboutSection({ profileMode, onProfileModeChange }: AboutSectionProps) {
+  const { t, translations } = useLanguage();
   const [copiedPhone, setCopiedPhone] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
 
@@ -161,7 +160,7 @@ export default function AboutSection() {
       } else {
         nextMode = profileMode === 'agency' ? 'cv' : 'agency';
       }
-      setProfileMode(nextMode);
+      onProfileModeChange(nextMode);
       (nextMode === 'agency' ? agencyTabRef.current : cvTabRef.current)?.focus();
     }
   };
@@ -220,10 +219,9 @@ export default function AboutSection() {
               type="button"
               role="tab"
               aria-selected={profileMode === 'agency'}
-              aria-controls="profile-panel-agency"
               tabIndex={profileMode === 'agency' ? 0 : -1}
               className={`profile-mode-btn ${profileMode === 'agency' ? 'active' : ''}`}
-              onClick={() => setProfileMode('agency')}
+              onClick={() => onProfileModeChange('agency')}
               onKeyDown={handleTabKeyDown}
             >
               🎬 {t('about.modes.agency')}
@@ -234,10 +232,9 @@ export default function AboutSection() {
               type="button"
               role="tab"
               aria-selected={profileMode === 'cv'}
-              aria-controls="profile-panel-cv"
               tabIndex={profileMode === 'cv' ? 0 : -1}
               className={`profile-mode-btn ${profileMode === 'cv' ? 'active' : ''}`}
-              onClick={() => setProfileMode('cv')}
+              onClick={() => onProfileModeChange('cv')}
               onKeyDown={handleTabKeyDown}
             >
               🛠️ {t('about.modes.cv')}
@@ -274,7 +271,7 @@ export default function AboutSection() {
                   <button
                     type="button"
                     className="agency-btn-secondary"
-                    onClick={() => setProfileMode('cv')}
+                    onClick={() => onProfileModeChange('cv')}
                   >
                     {t('about.modes.ctaSwitchCv')}
                   </button>
@@ -326,7 +323,7 @@ export default function AboutSection() {
               <button
                 type="button"
                 className="agency-btn-secondary"
-                onClick={() => setProfileMode('agency')}
+                onClick={() => onProfileModeChange('agency')}
               >
                 {t('about.modes.ctaSwitchAgency')}
               </button>

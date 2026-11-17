@@ -127,7 +127,7 @@ const copyText = {
     item2Opt55: 'TV 55" ($450)',
     item2Opt65: 'TV 65" (+$150 = $600)',
     item2CtrlExtra: 'Số lượng Extra Clip làm thêm ($100/clip 20s)',
-    item3Title: '3. Sáng tạo Clip Cơ bản',
+    item3Title: '4. Sáng tạo Clip Cơ bản',
     item3Subtitle: 'Video quảng cáo ngắn 20 giây cho TV hoặc Mạng xã hội (Reels / TikTok)',
     item3Bullets: [
       'Sản xuất 01 clip quảng cáo ngắn (20 giây) tập trung làm nổi bật 01 món ăn/sản phẩm hoặc 01 chương trình khuyến mãi (lên ý tưởng ngắn, hiệu ứng chuyển động cơ bản trên 1 chủ thể, tiêu đề ngắn & nhạc nền).',
@@ -136,7 +136,7 @@ const copyText = {
       'Lưu ý: Bao gồm tối đa 02 lần chỉnh sửa chi tiết chữ/nhịp điệu.'
     ],
     item3CtrlClips: 'Số lượng Clip Cơ bản 20s ($100/clip)',
-    item4Title: '4. Sáng tạo Video Quảng Cáo Influencer / Review Trải Nghiệm',
+    item4Title: '5. Sáng tạo Video Quảng Cáo Influencer / Review Trải Nghiệm',
     item4Subtitle: 'Clip Reels / TikTok có người review thử món thực tế tại tiệm (30–35 giây / clip)',
     item4Bullets: [
       'Xây dựng kịch bản & lời thoại tự nhiên theo phong cách UGC / Influencer review: cảnh mở hộp, cầm sản phẩm cận cảnh và ăn thử trực tiếp trên khung hình kèm biểu cảm chân thực.',
@@ -145,7 +145,7 @@ const copyText = {
       'Chèn thanh thông tin chốt đơn & kêu gọi ghé quán (tên tiệm, giá món, địa chỉ, số điện thoại, giờ mở cửa). Bàn giao file dọc Full HD 9:16, thời lượng chuẩn 30–35 giây/clip (kèm tối đa 02 lần chỉnh sửa; video bên cạnh là mẫu 20s minh họa phong cách thực tế).'
     ],
     item4CtrlClips: 'Số lượng Video Influencer / Review 30–35s ($200/clip)',
-    item5Title: '5. Thi công Decal Kính',
+    item5Title: '6. Thi công Decal Kính',
     item5Subtitle: 'Đo đạc & thi công dán hoàn thiện tại mặt bằng (Tối thiểu 02 mặt kính)',
     item5Bullets: [
       'Đo đạc kích thước thực tế tại mặt bằng, vệ sinh bề mặt kính và thi công dán decal kính mặt tiền hoàn thiện (phẳng đẹp, thẩm mỹ).',
@@ -155,7 +155,7 @@ const copyText = {
     ],
     item5CtrlPanels: 'Số mặt kính thi công ($100/mặt, tối thiểu 2)',
     item5CtrlDesign: 'Số mặt cần Thiết kế Decal mới ($200/mặt)',
-    item6Title: '6. Thiết kế & Xây dựng Website Thương Hiệu Trọn Gói',
+    item6Title: '3. Thiết kế & Xây dựng Website Thương Hiệu Trọn Gói',
     item6Subtitle: 'Website chuẩn F&B đa ngôn ngữ, tối ưu Mobile & SEO Google (Mẫu thực tế: patisseriedzung.ca)',
     item6TabHome: '🌐 Trang chủ thực tế',
     item6TabMenu: '🍽️ Menu 44+ món & Bộ lọc',
@@ -172,10 +172,10 @@ const copyText = {
     item6OptSelected: 'Gói Website ($700)',
     row1aTitle: '1A. Thiết kế Menu Tĩnh (In ấn Letter/A4 hoặc TV)',
     row1bTitle: '1B. Thiết kế Menu Động 4K (Animation từng món)',
-    row3Title: '3. Sáng tạo Video Clip Cơ bản (20 giây/clip)',
-    row4Title: '4. Video Quảng Cáo Influencer / Review Trải Nghiệm (30–35 giây/clip)',
-    row5Title: '5. Thi công Decal Kính Mặt Tiền (Tối thiểu 2 mặt)',
-    row6Title: '6. Thiết kế & Xây dựng Website Trọn Gói (Mẫu: patisseriedzung.ca)',
+    row3Title: '4. Sáng tạo Video Clip Cơ bản (20 giây/clip)',
+    row4Title: '5. Video Quảng Cáo Influencer / Review Trải Nghiệm (30–35 giây/clip)',
+    row5Title: '6. Thi công Decal Kính Mặt Tiền (Tối thiểu 2 mặt)',
+    row6Title: '3. Thiết kế & Xây dựng Website Trọn Gói (Mẫu: patisseriedzung.ca)',
     row6UnitLabel: '$700.00 / website trọn gói',
     summaryCaption: 'Bảng Tổng Hợp & Dự Toán Chi Phí Dịch Vụ',
     colService: 'Hạng Mục Dịch Vụ',
@@ -280,7 +280,7 @@ const copyText = {
     item2Opt55: '55" TV ($450)',
     item2Opt65: '65" TV (+$150 = $600)',
     item2CtrlExtra: 'Extra 20s Clips ($100/clip)',
-    item3Title: '3. Basic Promotional Video Clip',
+    item3Title: '4. Basic Promotional Video Clip',
     item3Subtitle: '20-second spotlight video clip for TV Display or Social Media (Reels / TikTok)',
     item3Bullets: [
       'Production of 01 short promotional clip (20 seconds) spotlighting 01 dish/product or 01 promotion (concept, single-subject motion animation, title overlay & background music).',
@@ -289,7 +289,7 @@ const copyText = {
       'Note: Includes up to 02 revisions for text/timing details.'
     ],
     item3CtrlClips: 'Basic 20s Video Clips ($100/clip)',
-    item4Title: '4. Influencer / UGC Tasting Review Ad Video',
+    item4Title: '5. Influencer / UGC Tasting Review Ad Video',
     item4Subtitle: 'Social Reels / TikTok ad featuring on-camera product tasting & review (30–35 sec / clip)',
     item4Bullets: [
       'Scripted UGC / Influencer tasting production: attention-grabbing opening hook, unboxing, close-up food showcase, and authentic on-camera reaction & first bite.',
@@ -298,7 +298,7 @@ const copyText = {
       'Branded storefront closing CTA bar (shop name, dish price, street address, phone, opening hours). Delivered in 9:16 Full HD, 30–35 seconds/clip (includes up to 02 revisions; preview shows a 20s format demo).'
     ],
     item4CtrlClips: 'Influencer / Review Ad Clips 30–35s ($200/clip)',
-    item5Title: '5. Storefront Window Decal Installation',
+    item5Title: '6. Storefront Window Decal Installation',
     item5Subtitle: 'On-site measurement, surface prep & installation (Minimum 02 glass panels)',
     item5Bullets: [
       'On-site measurement, glass surface cleaning, and professional storefront decal installation.',
@@ -308,7 +308,7 @@ const copyText = {
     ],
     item5CtrlPanels: 'Glass Panels to Install ($100/panel, min 2)',
     item5CtrlDesign: 'New Decal Design Layouts ($200/layout)',
-    item6Title: '6. Custom Brand & Restaurant Website Package',
+    item6Title: '3. Custom Brand & Restaurant Website Package',
     item6Subtitle: 'Multilingual F&B website optimized for mobile & Google SEO (Live reference: patisseriedzung.ca)',
     item6TabHome: '🌐 Live Hero View',
     item6TabMenu: '🍽️ 44+ Dish Menu & Filters',
@@ -325,10 +325,10 @@ const copyText = {
     item6OptSelected: 'Website Package ($700)',
     row1aTitle: '1A. Static Menu Design (Letter/A4 Print or TV)',
     row1bTitle: '1B. Animated Digital Menu 4K (Per-Dish Animation)',
-    row3Title: '3. Basic Promotional Video Clip (20s / clip)',
-    row4Title: '4. Influencer / UGC Tasting Review Video (30–35s / clip)',
-    row5Title: '5. Storefront Window Decal Installation (Min. 2 panels)',
-    row6Title: '6. Custom Brand & Restaurant Website (Ref: patisseriedzung.ca)',
+    row3Title: '4. Basic Promotional Video Clip (20s / clip)',
+    row4Title: '5. Influencer / UGC Tasting Review Video (30–35s / clip)',
+    row5Title: '6. Storefront Window Decal Installation (Min. 2 panels)',
+    row6Title: '3. Custom Brand & Restaurant Website (Ref: patisseriedzung.ca)',
     row6UnitLabel: '$700.00 / turnkey website',
     summaryCaption: 'Quotation Summary & Live Budget Estimator',
     colService: 'Service Item',
@@ -433,7 +433,7 @@ const copyText = {
     item2Opt55: 'TV 55" (450 $)',
     item2Opt65: 'TV 65" (+150 $ = 600 $)',
     item2CtrlExtra: 'Clips supplémentaires 20s (100 $/clip)',
-    item3Title: '3. Création de Clip Vidéo de Base',
+    item3Title: '4. Création de Clip Vidéo de Base',
     item3Subtitle: 'Clip promotionnel de 20 secondes pour TV ou Réseaux Sociaux (Reels / TikTok)',
     item3Bullets: [
       'Production d’un clip court (20 secondes) mettant en vedette 01 plat/produit ou 01 promotion (concept, animation de base sur 1 sujet, titrage et musique).',
@@ -442,7 +442,7 @@ const copyText = {
       'Note : Inclut jusqu’à 02 révisions de détails.'
     ],
     item3CtrlClips: 'Nombre de Clips de Base 20s (100 $/clip)',
-    item4Title: '4. Vidéo Publicitaire Influenceur / Dégustation Produit',
+    item4Title: '5. Vidéo Publicitaire Influenceur / Dégustation Produit',
     item4Subtitle: 'Clip Reels / TikTok avec dégustation & réaction authentique face caméra (30–35 s / clip)',
     item4Bullets: [
       'Scénario et tournage style UGC / Influenceur : accroche visuelle dès les premières secondes, ouverture du plat, gros plans gourmands et réaction authentique à la dégustation.',
@@ -451,7 +451,7 @@ const copyText = {
       'Bandeau final complet du commerce (nom, tarif du plat, adresse, téléphone, heures d’ouverture). Format vertical 9:16 Full HD, durée standard 30–35 secondes/clip (jusqu’à 02 révisions incluses ; l’aperçu montre une démo de 20s).'
     ],
     item4CtrlClips: 'Nombre de Vidéos Influenceur 30–35s (200 $/clip)',
-    item5Title: '5. Pose de Décalque sur Vitrine',
+    item5Title: '6. Pose de Décalque sur Vitrine',
     item5Subtitle: 'Prise de mesures, nettoyage et pose sur vitrine (Minimum 02 panneaux)',
     item5Bullets: [
       'Prise de mesures sur place, nettoyage des vitres et pose professionnelle de décalque en façade.',
@@ -461,7 +461,7 @@ const copyText = {
     ],
     item5CtrlPanels: 'Vitres à poser (100 $/vitre, min 2)',
     item5CtrlDesign: 'Nouvelles maquettes de décalque (200 $/maquette)',
-    item6Title: '6. Conception & Développement de Site Web Sur Mesure',
+    item6Title: '3. Conception & Développement de Site Web Sur Mesure',
     item6Subtitle: 'Site vitrine F&B multilingue, rapide sur mobile & optimisé SEO Google (Réf. : patisseriedzung.ca)',
     item6TabHome: '🌐 Accueil en direct',
     item6TabMenu: '🍽️ Menu 44+ plats & Filtres',
@@ -478,10 +478,10 @@ const copyText = {
     item6OptSelected: 'Forfait Site Web (700 $)',
     row1aTitle: '1A. Conception Menu Statique (Impression Lettre/A4 ou TV)',
     row1bTitle: '1B. Conception Menu Animé 4K (Animation par plat)',
-    row3Title: '3. Création de Clip Vidéo de Base (20s / clip)',
-    row4Title: '4. Vidéo Publicitaire Influenceur / Dégustation (30–35s / clip)',
-    row5Title: '5. Pose de Décalque sur Vitrine (Min. 2 vitres)',
-    row6Title: '6. Site Web Sur Mesure Multilingue (Réf. : patisseriedzung.ca)',
+    row3Title: '4. Création de Clip Vidéo de Base (20s / clip)',
+    row4Title: '5. Vidéo Publicitaire Influenceur / Dégustation (30–35s / clip)',
+    row5Title: '6. Pose de Décalque sur Vitrine (Min. 2 vitres)',
+    row6Title: '3. Site Web Sur Mesure Multilingue (Réf. : patisseriedzung.ca)',
     row6UnitLabel: '700,00 $ / forfait clé en main',
     summaryCaption: 'Récapitulatif du Devis & Calculateur de Budget',
     colService: 'Service',
@@ -1647,259 +1647,7 @@ export default function InteractiveQuoteSection({
           </article>
           )}
 
-          {/* CARD 3: BASIC PROMO CLIP 20S */}
-          {isItemVisible('basicClip') && (
-          <article className="quote-service-card">
-            <div className="service-media-column">
-              <div className="service-media-frame">
-                <ViewportVideo
-                  src={mediaBasicClip}
-                  poster="/Media/posters/clip-co-ban-demo.jpg"
-                  width={640}
-                  height={400}
-                  className="service-preview-video"
-                />
-                <button
-                  type="button"
-                  className="media-expand-btn no-print"
-                  onClick={() => openMediaModal(c.item3Title, 'video', mediaBasicClip)}
-                >
-                  {c.expandMediaBtn}
-                </button>
-              </div>
-            </div>
-
-            <div className="service-details-column">
-              <div className="service-card-header">
-                <div>
-                  <h4 className="service-item-title">{c.item3Title}</h4>
-                  <p className="service-item-subtitle">{c.item3Subtitle}</p>
-                </div>
-                <div className="service-price-badges">
-                  <div className="price-pill">
-                    <span className="price-amount">$100.00</span>
-                    <span className="price-unit">/ clip (20 giây)</span>
-                  </div>
-                </div>
-              </div>
-
-              <ul className="service-bullet-list">
-                {c.item3Bullets.map((b, i) => (
-                  <li key={i}>{b}</li>
-                ))}
-              </ul>
-
-              <div className="service-interactive-controls no-print">
-                <div className="qty-control-row">
-                  <span className="qty-label">{c.item3CtrlClips}</span>
-                  <div className="qty-stepper">
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setSelections((s) => ({
-                          ...s,
-                          basicClips: Math.max(0, s.basicClips - 1)
-                        }))
-                      }
-                      aria-label="Decrease basic clips"
-                    >
-                      −
-                    </button>
-                    <span className="qty-value">{selections.basicClips}</span>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setSelections((s) => ({ ...s, basicClips: s.basicClips + 1 }))
-                      }
-                      aria-label="Increase basic clips"
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-          )}
-
-          {/* CARD 4: INFLUENCER / UGC TASTING REVIEW AD VIDEO */}
-          {isItemVisible('influencer') && (
-          <article className="quote-service-card">
-            <div className="service-media-column">
-              <div className="service-media-frame portrait-showcase">
-                <ViewportVideo
-                  src={mediaInfluencerClip}
-                  poster="/Media/posters/clip-influencer-demo.jpg"
-                  width={540}
-                  height={960}
-                  className="service-preview-video"
-                />
-                <button
-                  type="button"
-                  className="media-expand-btn no-print"
-                  onClick={() => openMediaModal(c.item4Title, 'video', mediaInfluencerClip)}
-                >
-                  {c.expandAudioVideoBtn}
-                </button>
-              </div>
-            </div>
-
-            <div className="service-details-column">
-              <div className="service-card-header">
-                <div>
-                  <h4 className="service-item-title">{c.item4Title}</h4>
-                  <p className="service-item-subtitle">{c.item4Subtitle}</p>
-                </div>
-                <div className="service-price-badges">
-                  <div className="price-pill accent">
-                    <span className="price-amount">$200.00</span>
-                    <span className="price-unit">/ clip (30–35s)</span>
-                  </div>
-                </div>
-              </div>
-
-              <ul className="service-bullet-list">
-                {c.item4Bullets.map((b, i) => (
-                  <li key={i}>{b}</li>
-                ))}
-              </ul>
-
-              <div className="service-interactive-controls no-print">
-                <div className="qty-control-row">
-                  <span className="qty-label">{c.item4CtrlClips}</span>
-                  <div className="qty-stepper">
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setSelections((s) => ({
-                          ...s,
-                          influencerClips: Math.max(0, s.influencerClips - 1)
-                        }))
-                      }
-                      aria-label="Decrease influencer ad clips"
-                    >
-                      −
-                    </button>
-                    <span className="qty-value">{selections.influencerClips}</span>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setSelections((s) => ({
-                          ...s,
-                          influencerClips: s.influencerClips + 1
-                        }))
-                      }
-                      aria-label="Increase influencer ad clips"
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-          )}
-
-          {/* CARD 5: STOREFRONT WINDOW DECAL INSTALLATION (LAST ITEM) */}
-          {isItemVisible('decal') && (
-          <article className="quote-service-card">
-            <div className="service-media-column">
-              <div className="service-media-frame">
-                <img
-                  src={mediaDecalStorefront}
-                  alt="Storefront Window Decal"
-                  width={640}
-                  height={400}
-                  loading="lazy"
-                  decoding="async"
-                  className="service-preview-img"
-                  style={{ objectPosition: 'left center' }}
-                />
-                <button
-                  type="button"
-                  className="media-expand-btn no-print"
-                  onClick={() => openMediaModal(c.item5Title, 'image', mediaDecalStorefront)}
-                >
-                  {c.expandMediaBtn}
-                </button>
-              </div>
-            </div>
-
-            <div className="service-details-column">
-              <div className="service-card-header">
-                <div>
-                  <h4 className="service-item-title">{c.item5Title}</h4>
-                  <p className="service-item-subtitle">{c.item5Subtitle}</p>
-                </div>
-                <div className="service-price-badges">
-                  <div className="price-pill">
-                    <span className="price-amount">$100.00</span>
-                    <span className="price-unit">/ mặt kính (tối thiểu 2)</span>
-                  </div>
-                </div>
-              </div>
-
-              <ul className="service-bullet-list">
-                {c.item5Bullets.map((b, i) => (
-                  <li key={i}>{b}</li>
-                ))}
-              </ul>
-
-              <div className="service-interactive-controls no-print">
-                <div className="qty-control-row">
-                  <span className="qty-label">{c.item5CtrlPanels}</span>
-                  <div className="qty-stepper">
-                    <button
-                      type="button"
-                      onClick={() => adjustDecalPanels(-1)}
-                      aria-label="Decrease decal glass panels"
-                    >
-                      −
-                    </button>
-                    <span className="qty-value">{selections.decalPanels}</span>
-                    <button
-                      type="button"
-                      onClick={() => adjustDecalPanels(1)}
-                      aria-label="Increase decal glass panels"
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-
-                <div className="qty-control-row">
-                  <span className="qty-label">{c.item5CtrlDesign}</span>
-                  <div className="qty-stepper">
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setSelections((s) => ({
-                          ...s,
-                          decalDesignCount: Math.max(0, s.decalDesignCount - 1)
-                        }))
-                      }
-                      aria-label="Decrease decal design count"
-                    >
-                      −
-                    </button>
-                    <span className="qty-value">{selections.decalDesignCount}</span>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setSelections((s) => ({ ...s, decalDesignCount: s.decalDesignCount + 1 }))
-                      }
-                      aria-label="Increase decal design count"
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-          )}
-
-          {/* CARD 6: CUSTOM BRAND & RESTAURANT WEBSITE PACKAGE ($700 - CASE STUDY: PATISSERIEDZUNG.CA) */}
+          {/* CARD 3: CUSTOM BRAND & RESTAURANT WEBSITE PACKAGE ($700 - CASE STUDY: PATISSERIEDZUNG.CA) */}
           {isItemVisible('website') && (
           <article className="quote-service-card">
             <div className="service-media-column">
@@ -2010,6 +1758,258 @@ export default function InteractiveQuoteSection({
             </div>
           </article>
           )}
+
+          {/* CARD 4: BASIC PROMO CLIP 20S */}
+          {isItemVisible('basicClip') && (
+          <article className="quote-service-card">
+            <div className="service-media-column">
+              <div className="service-media-frame">
+                <ViewportVideo
+                  src={mediaBasicClip}
+                  poster="/Media/posters/clip-co-ban-demo.jpg"
+                  width={640}
+                  height={400}
+                  className="service-preview-video"
+                />
+                <button
+                  type="button"
+                  className="media-expand-btn no-print"
+                  onClick={() => openMediaModal(c.item3Title, 'video', mediaBasicClip)}
+                >
+                  {c.expandMediaBtn}
+                </button>
+              </div>
+            </div>
+
+            <div className="service-details-column">
+              <div className="service-card-header">
+                <div>
+                  <h4 className="service-item-title">{c.item3Title}</h4>
+                  <p className="service-item-subtitle">{c.item3Subtitle}</p>
+                </div>
+                <div className="service-price-badges">
+                  <div className="price-pill">
+                    <span className="price-amount">$100.00</span>
+                    <span className="price-unit">/ clip (20 giây)</span>
+                  </div>
+                </div>
+              </div>
+
+              <ul className="service-bullet-list">
+                {c.item3Bullets.map((b, i) => (
+                  <li key={i}>{b}</li>
+                ))}
+              </ul>
+
+              <div className="service-interactive-controls no-print">
+                <div className="qty-control-row">
+                  <span className="qty-label">{c.item3CtrlClips}</span>
+                  <div className="qty-stepper">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setSelections((s) => ({
+                          ...s,
+                          basicClips: Math.max(0, s.basicClips - 1)
+                        }))
+                      }
+                      aria-label="Decrease basic clips"
+                    >
+                      −
+                    </button>
+                    <span className="qty-value">{selections.basicClips}</span>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setSelections((s) => ({ ...s, basicClips: s.basicClips + 1 }))
+                      }
+                      aria-label="Increase basic clips"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          )}
+
+          {/* CARD 5: INFLUENCER / UGC TASTING REVIEW AD VIDEO */}
+          {isItemVisible('influencer') && (
+          <article className="quote-service-card">
+            <div className="service-media-column">
+              <div className="service-media-frame portrait-showcase">
+                <ViewportVideo
+                  src={mediaInfluencerClip}
+                  poster="/Media/posters/clip-influencer-demo.jpg"
+                  width={540}
+                  height={960}
+                  className="service-preview-video"
+                />
+                <button
+                  type="button"
+                  className="media-expand-btn no-print"
+                  onClick={() => openMediaModal(c.item4Title, 'video', mediaInfluencerClip)}
+                >
+                  {c.expandAudioVideoBtn}
+                </button>
+              </div>
+            </div>
+
+            <div className="service-details-column">
+              <div className="service-card-header">
+                <div>
+                  <h4 className="service-item-title">{c.item4Title}</h4>
+                  <p className="service-item-subtitle">{c.item4Subtitle}</p>
+                </div>
+                <div className="service-price-badges">
+                  <div className="price-pill accent">
+                    <span className="price-amount">$200.00</span>
+                    <span className="price-unit">/ clip (30–35s)</span>
+                  </div>
+                </div>
+              </div>
+
+              <ul className="service-bullet-list">
+                {c.item4Bullets.map((b, i) => (
+                  <li key={i}>{b}</li>
+                ))}
+              </ul>
+
+              <div className="service-interactive-controls no-print">
+                <div className="qty-control-row">
+                  <span className="qty-label">{c.item4CtrlClips}</span>
+                  <div className="qty-stepper">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setSelections((s) => ({
+                          ...s,
+                          influencerClips: Math.max(0, s.influencerClips - 1)
+                        }))
+                      }
+                      aria-label="Decrease influencer ad clips"
+                    >
+                      −
+                    </button>
+                    <span className="qty-value">{selections.influencerClips}</span>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setSelections((s) => ({
+                          ...s,
+                          influencerClips: s.influencerClips + 1
+                        }))
+                      }
+                      aria-label="Increase influencer ad clips"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          )}
+
+          {/* CARD 6: STOREFRONT WINDOW DECAL INSTALLATION (LAST ITEM) */}
+          {isItemVisible('decal') && (
+          <article className="quote-service-card">
+            <div className="service-media-column">
+              <div className="service-media-frame">
+                <img
+                  src={mediaDecalStorefront}
+                  alt="Storefront Window Decal"
+                  width={640}
+                  height={400}
+                  loading="lazy"
+                  decoding="async"
+                  className="service-preview-img"
+                  style={{ objectPosition: 'left center' }}
+                />
+                <button
+                  type="button"
+                  className="media-expand-btn no-print"
+                  onClick={() => openMediaModal(c.item5Title, 'image', mediaDecalStorefront)}
+                >
+                  {c.expandMediaBtn}
+                </button>
+              </div>
+            </div>
+
+            <div className="service-details-column">
+              <div className="service-card-header">
+                <div>
+                  <h4 className="service-item-title">{c.item5Title}</h4>
+                  <p className="service-item-subtitle">{c.item5Subtitle}</p>
+                </div>
+                <div className="service-price-badges">
+                  <div className="price-pill">
+                    <span className="price-amount">$100.00</span>
+                    <span className="price-unit">/ mặt kính (tối thiểu 2)</span>
+                  </div>
+                </div>
+              </div>
+
+              <ul className="service-bullet-list">
+                {c.item5Bullets.map((b, i) => (
+                  <li key={i}>{b}</li>
+                ))}
+              </ul>
+
+              <div className="service-interactive-controls no-print">
+                <div className="qty-control-row">
+                  <span className="qty-label">{c.item5CtrlPanels}</span>
+                  <div className="qty-stepper">
+                    <button
+                      type="button"
+                      onClick={() => adjustDecalPanels(-1)}
+                      aria-label="Decrease decal glass panels"
+                    >
+                      −
+                    </button>
+                    <span className="qty-value">{selections.decalPanels}</span>
+                    <button
+                      type="button"
+                      onClick={() => adjustDecalPanels(1)}
+                      aria-label="Increase decal glass panels"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+
+                <div className="qty-control-row">
+                  <span className="qty-label">{c.item5CtrlDesign}</span>
+                  <div className="qty-stepper">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setSelections((s) => ({
+                          ...s,
+                          decalDesignCount: Math.max(0, s.decalDesignCount - 1)
+                        }))
+                      }
+                      aria-label="Decrease decal design count"
+                    >
+                      −
+                    </button>
+                    <span className="qty-value">{selections.decalDesignCount}</span>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setSelections((s) => ({ ...s, decalDesignCount: s.decalDesignCount + 1 }))
+                      }
+                      aria-label="Increase decal design count"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          )}
         </div>
 
         {visibleItems && visibleItems.length > 0 && visibleItems.length < 6 && (
@@ -2086,6 +2086,14 @@ export default function InteractiveQuoteSection({
                   <td>${item2Subtotal.toFixed(2)}</td>
                 </tr>
               )}
+              {isItemVisible('website') && (
+                <tr>
+                  <th scope="row">{c.row6Title}</th>
+                  <td>{c.row6UnitLabel}</td>
+                  <td>{selections.websiteSelected ? c.yesSelected : '0'}</td>
+                  <td>${item6Subtotal.toFixed(2)}</td>
+                </tr>
+              )}
               {isItemVisible('basicClip') && (
                 <tr>
                   <th scope="row">{c.row3Title}</th>
@@ -2113,14 +2121,6 @@ export default function InteractiveQuoteSection({
                       : ''}
                   </td>
                   <td>${item5Subtotal.toFixed(2)}</td>
-                </tr>
-              )}
-              {isItemVisible('website') && (
-                <tr>
-                  <th scope="row">{c.row6Title}</th>
-                  <td>{c.row6UnitLabel}</td>
-                  <td>{selections.websiteSelected ? c.yesSelected : '0'}</td>
-                  <td>${item6Subtotal.toFixed(2)}</td>
                 </tr>
               )}
             </tbody>

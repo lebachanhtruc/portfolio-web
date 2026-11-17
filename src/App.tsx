@@ -74,6 +74,18 @@ function App() {
         remoteQuoteState.status !== 'error')
   );
 
+  const modeParam = searchParams?.get('mode')?.trim().toLowerCase();
+  const initialHash = typeof window !== 'undefined' ? window.location.hash : '';
+  const initialMode: 'agency' | 'cv' =
+    !isDedicatedClientQuote &&
+    !isAdminEntry &&
+    !initialHash.startsWith('#section-') &&
+    (modeParam === 'cv' || modeParam === 'builder')
+      ? 'cv'
+      : 'agency';
+
+  const [profileMode, setProfileMode] = useState<'agency' | 'cv'>(initialMode);
+
   useEffect(() => {
     const hash = window.location.hash;
     if (hash && hash.length >= 2) {
@@ -111,14 +123,14 @@ function App() {
             />
           )}
           <HeroSection />
-          <AboutSection />
-          <ProjectGrids />
-          {!isDedicatedClientQuote && (
+          <AboutSection profileMode={profileMode} onProfileModeChange={setProfileMode} />
+          {profileMode === 'agency' && <ProjectGrids />}
+          {!isDedicatedClientQuote && profileMode === 'agency' && (
             <InteractiveQuoteSection remoteQuoteState={remoteQuoteState} />
           )}
           <Footer />
         </main>
-        <LanguageSwitcher />
+        <LanguageSwitcher showQuoteButton={profileMode === 'agency' || isDedicatedClientQuote} />
       </div>
     </LanguageProvider>
   )

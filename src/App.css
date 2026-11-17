@@ -2803,6 +2803,7 @@ dialog.quote-native-dialog::backdrop {
 }
 
 .profile-mode-btn {
+  position: relative;
   background: transparent;
   border: none;
   color: #cbd5e1;
@@ -2819,9 +2820,16 @@ dialog.quote-native-dialog::backdrop {
   background: rgba(255, 255, 255, 0.08);
 }
 
-.profile-mode-btn.active {
+.profile-mode-btn[aria-selected='true'] {
   background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
   color: #ffffff;
+}
+
+.profile-mode-btn[aria-selected='true']::after {
+  content: '';
+  position: absolute;
+  inset: auto 22% 5px;
+  border-block-end: 2px solid currentColor;
 }
 
 .agency-overview-grid {
@@ -2878,7 +2886,12 @@ dialog.quote-native-dialog::backdrop {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 1.15rem 1.25rem;
+  min-inline-size: 0;
   transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.agency-pillar-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
 }
 
 .agency-pillar-card:hover {
@@ -3499,6 +3512,9 @@ button.project-media-trigger {
   }
   .agency-pillars-grid {
     grid-template-columns: 1fr;
+  }
+  .agency-pillar-card:last-child:nth-child(odd) {
+    grid-column: auto;
   }
 }
 

@@ -12,11 +12,15 @@
       "ctaSwitchCv": "Voir le Profil Product Builder →",
       "ctaSwitchAgency": "← Voir le Studio TYM Production",
       "agencyHeadline": "Transformez vos plats en histoires visuelles rentables",
-      "agencyLead": "TYM Production accompagne les restaurants et marques alimentaires à Montréal et sur la Rive-Sud : photographie IA, menus numériques 4K, publicités Reels, décalques et affichage TV.",
+      "agencyLead": "TYM Production accompagne les restaurants et marques alimentaires à Montréal et sur la Rive-Sud : photo IA, site web multilingue, menus numériques 4K, publicités Reels, décalques et affichage TV.",
       "pillars": [
         {
           "title": "Photographie Culinaire & IA Générative",
           "desc": "Séances photo sur place rehaussées par l'IA et création d'affiches gastronomiques haut de gamme à budget maîtrisé."
+        },
+        {
+          "title": "Site Web Sur Mesure & Menu (700 $)",
+          "desc": "Site multilingue rapide sur mobile tel que patisseriedzung.ca : menu interactif 40+ plats, filtres allergènes, SEO Google et code géré par TYM."
         },
         {
           "title": "Conception de Menus & Menus Animés 4K",
