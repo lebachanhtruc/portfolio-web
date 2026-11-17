@@ -20,6 +20,11 @@ html {
   scroll-padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
 }
 
+img {
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
 body {
   background-color: var(--bg-color);
   color: var(--text-primary);

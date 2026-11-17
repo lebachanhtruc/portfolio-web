@@ -284,7 +284,10 @@ section {
 }
 
 .film-portrait-new {
-  width: 100%;
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 1071 / 1920;
   border-radius: 8px;
   position: relative;
   z-index: 2;

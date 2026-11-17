@@ -184,8 +184,8 @@ export default function AboutSection() {
                   src={portraitSrc}
                   alt="TYM Production Showcase"
                   className="film-portrait-new"
-                  width={540}
-                  height={960}
+                  width={1071}
+                  height={1920}
                   loading="lazy"
                   decoding="async"
                 />
@@ -264,8 +264,8 @@ export default function AboutSection() {
                     src={portraitSrc}
                     alt="Portrait"
                     className="film-portrait-new"
-                    width={540}
-                    height={960}
+                    width={1071}
+                    height={1920}
                     loading="lazy"
                     decoding="async"
                   />
