@@ -2688,6 +2688,26 @@ dialog.quote-native-dialog::backdrop {
     left: -2px;
     width: 38px;
   }
+  .timeline::before,
+  .timeline-node {
+    left: 82px;
+  }
+  .timeline-year {
+    width: 82px;
+    padding-right: 0.95rem;
+  }
+  .timeline-year span:first-child {
+    font-size: 0.88rem;
+    white-space: nowrap;
+  }
+  .timeline-year span:last-child {
+    font-size: 0.76rem;
+    white-space: nowrap;
+  }
+  .timeline-content {
+    padding-left: 1.15rem;
+    min-inline-size: 0;
+  }
 }
 
 @media (pointer: coarse), (max-width: 768px) {
@@ -2703,7 +2723,12 @@ dialog.quote-native-dialog::backdrop {
   .dialog-close-btn,
   .floating-contact-btn.icon-btn,
   .lang-toggle-btn,
-  .back-to-top-btn {
+  .back-to-top-btn,
+  .profile-mode-btn,
+  .agency-btn-primary,
+  .agency-btn-secondary,
+  .builder-link-btn,
+  .builder-inline-chip {
     min-block-size: 44px;
     min-inline-size: 44px;
   }
@@ -2915,6 +2940,422 @@ dialog.quote-native-dialog::backdrop {
   align-items: center;
   gap: 1rem;
   margin-bottom: 1.5rem;
+}
+
+/* ========================================================
+   PRODUCT BUILDER PROFILE SHELL (Redesigned from Job Check)
+   ======================================================== */
+.builder-profile-shell {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+.builder-intro-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.builder-honest-callout {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(110, 231, 183, 0.28);
+  border-inline-start: 3px solid #6ee7b7;
+  border-radius: 12px;
+  padding-block: 0.9rem;
+  padding-inline: 1.15rem;
+  max-inline-size: 72ch;
+}
+
+.builder-callout-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #6ee7b7;
+  margin-block-end: 0.3rem;
+}
+
+.builder-honest-callout p {
+  font-size: 0.92rem;
+  color: #e2e8f0;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.builder-metrics-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 1rem;
+  margin-block-start: 0.25rem;
+}
+
+.builder-metric-card {
+  background: rgba(18, 14, 30, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding-block: 1.15rem;
+  padding-inline: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-inline-size: 0;
+}
+
+.builder-metric-value {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 2.6vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #6ee7b7;
+}
+
+.builder-metric-label {
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.builder-metric-sub {
+  font-size: 0.84rem;
+  color: #cbd5e1;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+/* Flagship Work Sample Card with Container Queries */
+.builder-flagship-card {
+  container: flagship / inline-size;
+  background: linear-gradient(155deg, rgba(26, 20, 44, 0.9) 0%, rgba(12, 16, 28, 0.92) 100%);
+  border: 1px solid rgba(192, 132, 252, 0.28);
+  border-radius: 20px;
+  padding-block: 1.5rem;
+  padding-inline: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.builder-flagship-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.builder-flagship-title-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 0.9rem;
+}
+
+.builder-flagship-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #06281e;
+  background: #6ee7b7;
+  padding-block: 0.24rem;
+  padding-inline: 0.65rem;
+  border-radius: 999px;
+}
+
+.builder-flagship-title-wrap h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: none;
+  margin: 0;
+}
+
+.builder-flagship-period {
+  font-size: 0.84rem;
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+.builder-flagship-summary {
+  font-size: 0.98rem;
+  color: #e2e8f0;
+  line-height: 1.65;
+  max-inline-size: 74ch;
+  text-wrap: pretty;
+}
+
+.builder-arch-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.95rem;
+}
+
+@container flagship (inline-size >= 620px) {
+  .builder-arch-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.builder-arch-card {
+  background: rgba(10, 12, 22, 0.68);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding-block: 1rem;
+  padding-inline: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-inline-size: 0;
+}
+
+.builder-arch-tag {
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: #e9d5ff;
+  background: rgba(168, 85, 247, 0.16);
+  border: 1px solid rgba(192, 132, 252, 0.35);
+  padding-block: 0.18rem;
+  padding-inline: 0.55rem;
+  border-radius: 6px;
+}
+
+.builder-arch-card h4 {
+  font-family: var(--font-primary);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: none;
+  margin: 0;
+}
+
+.builder-arch-card p {
+  font-size: 0.86rem;
+  color: #cbd5e1;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.builder-flagship-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding-block-start: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.builder-flagship-actions {
+  display: flex;
+  flex-wrap: wrap;
+  flex-wrap: balance;
+  gap: 0.7rem;
+}
+
+.builder-link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.builder-link-btn:focus-visible,
+.builder-inline-chip:focus-visible,
+.profile-mode-btn:focus-visible {
+  outline: 2px solid #c084fc;
+  outline-offset: 3px;
+}
+
+.builder-demo-hint {
+  font-size: 0.82rem;
+  color: #a8b3cf;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+/* Subgrid Capabilities Matrix */
+.builder-section-heading {
+  margin-block-start: 0;
+  margin-block-end: 1.25rem;
+}
+
+.builder-cap-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.builder-cap-card {
+  background: rgba(18, 14, 30, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 16px;
+  padding-block: 1.15rem;
+  padding-inline: 1.25rem;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 0.8rem;
+  min-inline-size: 0;
+}
+
+@media (min-width: 769px) {
+  .builder-cap-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: auto 1fr;
+  }
+
+  .builder-cap-card {
+    grid-row: span 2;
+    grid-template-rows: auto 1fr;
+    grid-template-rows: subgrid;
+  }
+}
+
+.builder-cap-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  padding-block-end: 0.65rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.builder-cap-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #6ee7b7;
+  background: rgba(16, 185, 129, 0.14);
+  border: 1px solid rgba(110, 231, 183, 0.3);
+  padding-block: 0.15rem;
+  padding-inline: 0.55rem;
+  border-radius: 999px;
+}
+
+.builder-cap-header h4 {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: none;
+  margin: 0;
+}
+
+.builder-cap-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #cbd5e1;
+  font-size: 0.87rem;
+  line-height: 1.5;
+}
+
+.builder-cap-list li {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.builder-cap-list li::before {
+  content: '›';
+  color: #c084fc;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Experience & Dossier Bottom Grid */
+.builder-dossier-grid {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.builder-experience-col,
+.builder-meta-col {
+  min-inline-size: 0;
+}
+
+.builder-meta-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.builder-meta-card {
+  background: rgba(18, 14, 30, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding-block: 1.25rem;
+  padding-inline: 1.25rem;
+}
+
+.builder-social-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.builder-inline-chip {
+  display: inline-flex;
+  align-items: center;
+  padding-block: 0.35rem;
+  padding-inline: 0.75rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #f8fafc;
+  text-decoration: none;
+  font-size: 0.84rem;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.builder-inline-chip:hover {
+  background: rgba(192, 132, 252, 0.22);
+}
+
+.builder-edu-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.builder-edu-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.builder-edu-date {
+  font-size: 0.8rem;
+  color: #a8b3cf;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@media (max-width: 960px) {
+  .builder-dossier-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .builder-flagship-card {
+    padding-block: 1.15rem;
+    padding-inline: 1.1rem;
+  }
+  .builder-flagship-actions {
+    flex-direction: column;
+  }
+  .builder-link-btn {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* Interactive Media Trigger Button inside ProjectGrids */

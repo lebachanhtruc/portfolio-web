@@ -1,15 +1,15 @@
 {
   "hero": {
-    "role": "PRODUCT OWNER & PRODUCTEUR CRÉATIF"
+    "role": "PRODUCT BUILDER & PRODUCTEUR CRÉATIF"
   },
   "about": {
     "modes": {
       "agency": "Studio & Services (TYM Production)",
-      "cv": "Profil Product Owner (CV)",
+      "cv": "Profil Product Builder (CV)",
       "badgeAgency": "POUR RESTAURANTS & MARQUES CULINAIRES",
-      "badgeCv": "PROFIL PRODUCT OWNER & TECHNIQUE",
+      "badgeCv": "PRODUCT BUILDER & OPÉRATIONS IA",
       "ctaViewQuote": "Voir le Devis Interactif ↓",
-      "ctaSwitchCv": "Voir le CV Product Owner (PSPO I) →",
+      "ctaSwitchCv": "Voir le Profil Product Builder →",
       "ctaSwitchAgency": "← Voir le Studio TYM Production",
       "agencyHeadline": "Transformez vos plats en histoires visuelles rentables",
       "agencyLead": "TYM Production accompagne les restaurants et marques alimentaires à Montréal et sur la Rive-Sud : photographie IA, menus numériques 4K, publicités Reels, décalques et affichage TV.",
@@ -34,11 +34,125 @@
       "agencyAreasLabel": "TERRITOIRE DESSERVI",
       "agencyAreasValue": "Montréal, Longueuil, Brossard & Rive-Sud, QC"
     },
-    "bioTitle": "À Propos",
+    "bioTitle": "Profil Product Builder",
     "bio": {
-      "p1": "Je fais le pont entre la vision créative et l'exécution technique. En tant que Product Owner certifié PSPO I, je me spécialise dans la traduction des exigences commerciales complexes en solutions évolutives et centrées sur l'utilisateur.",
-      "p2": "Mon expérience dans la production de médias créatifs me permet d'aborder les problèmes avec une double perspective unique : analytique et esthétique.",
-      "p3": "Je suis profondément passionné par l'automatisation des flux de travail, la migration des systèmes pour l'efficacité opérationnelle et l'utilisation de l'IA Générative pour repousser les limites du prototypage rapide."
+      "p1": "Ancien responsable des opérations multi-sites (2,3 M$+ de revenus annuels, 20 500+ commandes) devenu Product Builder, axé sur la suppression des goulots administratifs.",
+      "p2": "Au lieu d'attendre les files de développement, j'analyse les flux terrain, je dirige des flux de codage IA (Google AI Studio & Google Antigravity) selon la discipline Backlog et Definition of Done (PSPO I — 91,3 %) et je livre des outils internes fiables.",
+      "p3": "Transparence totale : je ne prétends pas écrire toute la syntaxe de mémoire—ma force réside dans la maîtrise des règles métier, de la sécurité des données et du débogage lorsque l'IA se trompe."
+    },
+    "builder": {
+      "headline": "D'Opérateur à Product Builder : transformer les goulots en logiciels réels",
+      "lead": "Ancien responsable des opérations multi-sites (2,3 M$+ de revenus, 20 500+ commandes). Je transforme les contraintes terrain en outils full-stack opérationnels en dirigeant des workflows IA (Google AI Studio & Google Antigravity) avec la rigueur Backlog, Critères d'Acceptation et DoD (PSPO I).",
+      "approachLabel": "Méthode IA Honnête (Sans Prétention)",
+      "approachText": "Pas un développeur traditionnel codant à la main de mémoire : je maîtrise l'architecture métier, l'isolation des données et les tests limites—en séparant l'interprétation LLM du calcul mathjs et en corrigeant l'IA dès qu'elle dévie.",
+      "metrics": [
+        {
+          "value": "85%",
+          "label": "Temps de paie réduit",
+          "sub": "De plus de 4h manuelles à 30 min par cycle bi-hebdomadaire"
+        },
+        {
+          "value": "2,3 M$+",
+          "label": "Opérations F&B gérées",
+          "sub": "20 500+ commandes · +12 % YoY livraison · ~187h et 3 150 $+/an économisés"
+        },
+        {
+          "value": "91,3%",
+          "label": "Rigueur PSPO I (Scrum.org)",
+          "sub": "Simulateur 400 questions conçu · Backlog & DoD pour valider l'IA"
+        }
+      ],
+      "spotlight": {
+        "badge": "RÉALISATION PHARE (0 → 1)",
+        "title": "Lime Payroll Enterprise",
+        "period": "02/2026 – Présent",
+        "summary": "SaaS interne multi-locataires de gestion de paie et réconciliation POS livré pour 20+ employés via Google AI Studio & Google Antigravity.",
+        "ctaDemo": "Tester la Démo Live ↗",
+        "ctaNotion": "Études de Cas & Incident K-Series ↗",
+        "ctaLoom": "Vidéo Démo (Loom) ↗",
+        "demoHint": "Cliquez sur \"Try Interactive Demo\" pour explorer 20 employés simulés, l'AI Rule Copilot et les alertes >9h.",
+        "cards": [
+          {
+            "tag": "Garde-fous IA",
+            "title": "Calcul Déterministe Contre les Hallucinations",
+            "desc": "Google Gemini traduit les règles en JSON structuré uniquement ; l'évaluation mathématique passe par mathjs AST avec plafonds stricts et mode manuel hors-ligne."
+          },
+          {
+            "tag": "Audit POS",
+            "title": "Fusion CSV & Détection Anomalies >9h",
+            "desc": "Ingère les exports POS, normalise les accents français, signale les oublis de pointage >9h et trace chaque ajustement dans un journal pos_validations immuable."
+          },
+          {
+            "tag": "Sécurité & Règles",
+            "title": "11 Règles, RBAC & RLS Supabase",
+            "desc": "Modélise partage de pourboires FOH/BOH, heures garanties, dettes reportées et répartition des coûts avec RBAC 4 niveaux, RLS company_id et tests Puppeteer E2E."
+          },
+          {
+            "tag": "Zéro Dette Tech",
+            "title": "Sandbox Anonyme & Nettoyage ACID",
+            "desc": "Déploie 20 profils FOH/BOH à la demande (fn_seed_sandbox) avec visite guidée en 4 étapes et purge automatique par cron + pagehide (fn_cleanup_sandbox)."
+          }
+        ]
+      },
+      "capabilitiesTitle": "Compétences Clés & Écosystème Technique",
+      "capabilityCols": [
+        {
+          "title": "Opérations & Précision Financière",
+          "badge": "Métier",
+          "items": [
+            "Analyse terrain des goulots opérationnels",
+            "Manuels SOP & Routage cuisine KDS",
+            "Diagnostic racine (MEV-WEB & encodage Epson)",
+            "Logique de paie, pourboires & répartition coûts",
+            "APIs POS & Livraison (Lightspeed, UberEats, ALCE)",
+            "Coût réel main-d'œuvre (DAS, CNESST) & ROI"
+          ]
+        },
+        {
+          "title": "Construction IA & Gouvernance",
+          "badge": "PSPO I",
+          "items": [
+            "Pilotage Google AI Studio & Antigravity",
+            "Vérification des sorties & débogage",
+            "Product Backlog & Critères d'Acceptation",
+            "Garde-fous Definition of Done (PSPO I — 91,3 %)",
+            "Tests cas limites & E2E (Puppeteer)",
+            "Arbitrage Déterministe vs. LLM"
+          ]
+        },
+        {
+          "title": "Écosystème Technique",
+          "badge": "Dirigé par IA",
+          "items": [
+            "React 19, TypeScript, Tailwind CSS v4",
+            "Endpoints REST Node.js / Express v5",
+            "Supabase (Schéma PostgreSQL, RLS, Auth)",
+            "Google GenAI SDK (JSON Structuré)",
+            "Analyse CSV, mathjs AST & Export XLSX",
+            "Suite Adobe, Midjourney & Vidéo VEO"
+          ]
+        }
+      ],
+      "educationItems": [
+        {
+          "title": "Professional Scrum Product Owner™ I (PSPO I)",
+          "org": "Scrum.org — Score : 91,3 % (Simulateur 400 questions Fisher-Yates conçu)",
+          "date": "07/2026"
+        },
+        {
+          "title": "DEP – Infographie / Design Graphique",
+          "org": "Centre de technologie Rosemont (EMSB) — Montréal, QC",
+          "date": "12/2019"
+        },
+        {
+          "title": "Baccalauréat en Marketing",
+          "org": "Université Internationale (VNU HCMC) — Vietnam",
+          "date": "05/2015"
+        }
+      ],
+      "locationValue": "Longueuil, Québec, Canada (Télétravail Canada / Montréal)",
+      "linkedinLabel": "Profil LinkedIn ↗",
+      "githubLabel": "GitHub ↗"
     },
     "techStack": "Pile Technologique",
     "coreCompetencies": "Compétences Clés",
@@ -56,24 +170,24 @@
     "proficiencies": {
       "vi": "Vietnamien (Langue maternelle)",
       "en": "Anglais (Professionnel)",
-      "fr": "Français (Intermédiaire)"
+      "fr": "Français (Intermédiaire B1)"
     },
     "timeline": {
       "t1": {
-        "role": "Product Owner / Développeur Solo",
-        "desc": "Automatisation basée sur l'IA, SaaS React/Supabase, Architecture sans dette technique"
+        "role": "Product Builder & Systèmes Opérationnels IA (SaaS Interne)",
+        "desc": "Pilotage des workflows IA (Google AI Studio & Antigravity) sur React, TypeScript, Express & Supabase PostgreSQL sous rigueur Backlog/DoD ; séparation intention LLM et calculs mathjs avec alertes >9h réduisant le temps de paie de 85 %."
       },
       "t2": {
-        "role": "Responsable des Opérations & Chef POS",
-        "desc": "Mise à l'échelle & Intégration API, Migration K-Series, Optimisation des flux de travail"
+        "role": "Responsable Opérations & Intégration POS",
+        "desc": "Gestion de 2,3 M$+ de revenus (20 500+ commandes) ; intégration API UberEats/ALCE vers Lightspeed POS, migration MEV-WEB K-Series et résolution d'un bug d'encodage Epson, refonte KDS, économie ~187h & 3 150 $+/an, +12 % de commandes YoY."
       },
       "t3": {
-        "role": "Producteur de Médias Créatifs",
-        "desc": "Conversion E-commerce, Intégration IA (Midjourney, VEO), Flux de médias"
+        "role": "Producteur de Médias Créatifs & Workflow IA",
+        "desc": "Gestion des propositions, budgets et production multi-clients pour le commerce et la restauration ; intégration Midjourney & VEO pour optimiser la conversion e-commerce."
       },
       "t4": {
-        "role": "Superviseur des Représentants",
-        "desc": "Techniques de marketing basées sur les données, Relations clients B2B"
+        "role": "Superviseur des Ventes & Marketing",
+        "desc": "Supervision des équipes commerciales et campagnes marketing B2B axées données à Hô Chi Minh-Ville."
       }
     }
   },

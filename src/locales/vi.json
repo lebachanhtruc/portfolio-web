@@ -1,15 +1,15 @@
 {
   "hero": {
-    "role": "GIÁM ĐỐC SẢN PHẨM & NHÀ SẢN XUẤT SÁNG TẠO"
+    "role": "PRODUCT BUILDER & NHÀ SẢN XUẤT SÁNG TẠO"
   },
   "about": {
     "modes": {
       "agency": "Studio & Dịch Vụ (TYM Production)",
-      "cv": "Hồ Sơ Product Owner (CV)",
+      "cv": "Hồ Sơ Product Builder (CV)",
       "badgeAgency": "DÀNH CHO CHỦ NHÀ HÀNG & THƯƠNG HIỆU F&B",
-      "badgeCv": "HỒ SƠ PRODUCT OWNER & KỸ THUẬT",
+      "badgeCv": "PRODUCT BUILDER & TỰ ĐỘNG HÓA VẬN HÀNH (AI)",
       "ctaViewQuote": "Xem Bảng Báo Giá Tương Tác ↓",
-      "ctaSwitchCv": "Xem CV Product Owner (PSPO I) →",
+      "ctaSwitchCv": "Xem Hồ Sơ Product Builder →",
       "ctaSwitchAgency": "← Xem Dịch Vụ Studio TYM Production",
       "agencyHeadline": "Biến món ăn thành câu chuyện hút khách & tăng đơn",
       "agencyLead": "TYM Production đồng hành cùng nhà hàng, tiệm bánh và thương hiệu F&B tại Montréal & Rive-Sud với giải pháp hình ảnh trọn gói từ chụp ảnh, xử lý AI, thiết kế Menu đến lắp đặt TV Digital Signage.",
@@ -34,15 +34,129 @@
       "agencyAreasLabel": "KHU VỰC PHỤC VỤ",
       "agencyAreasValue": "Montréal, Longueuil, Brossard & Rive-Sud, QC"
     },
-    "bioTitle": "Giới Thiệu",
+    "bioTitle": "Tổng Quan Product Builder",
     "bio": {
-      "p1": "Tôi là cầu nối giữa tầm nhìn sáng tạo và thực thi kỹ thuật. Là một Product Owner có chứng chỉ PSPO I, tôi chuyên chuyển đổi các yêu cầu kinh doanh phức tạp thành các giải pháp mở rộng, lấy người dùng làm trung tâm.",
-      "p2": "Nền tảng về sản xuất truyền thông sáng tạo cho phép tôi tiếp cận vấn đề với một góc nhìn kép độc đáo: cả về phân tích logic lẫn thẩm mỹ nghệ thuật.",
-      "p3": "Tôi đặc biệt đam mê tự động hóa quy trình làm việc, chuyển đổi hệ thống để tăng hiệu quả vận hành và tận dụng AI Tạo sinh (GenAI) để bứt phá giới hạn trong việc tạo mẫu nhanh."
+      "p1": "Xuất thân từ Quản lý vận hành đa chi nhánh ($2.3M+ doanh thu/năm, 20,500+ đơn hàng) chuyển hướng thành Product Builder tập trung xử lý triệt để các điểm nghẽn hành chính — bảng lương.",
+      "p2": "Thay vì chờ đội ngũ kỹ thuật hay viết yêu cầu suông trên giấy, tôi bám sát quy trình thực tế tại quầy, điều phối luồng làm việc AI coding (Google AI Studio & Google Antigravity) theo chuẩn Backlog và Definition of Done (PSPO I — 91.3%) để ship phần mềm chạy thật.",
+      "p3": "Minh bạch về năng lực: tôi không phải lập trình viên viết cú pháp tay từ trí nhớ—thế mạnh của tôi là nắm chắc logic vận hành, ranh giới bảo mật/tài chính và trực tiếp phát hiện, sửa lỗi khi đầu ra AI sai."
+    },
+    "builder": {
+      "headline": "Từ Quản Lý Vận Hành đến Product Builder: Tự xây công cụ chạy thật",
+      "lead": "Xuất thân Quản lý Vận hành ($2.3M+ doanh thu/năm, 20,500+ đơn hàng). Tôi biến nỗi đau quy trình thực địa thành công cụ nội bộ hoàn chỉnh bằng cách điều phối AI coding (Google AI Studio & Google Antigravity) dưới kỷ luật Product Backlog, Acceptance Criteria & DoD (PSPO I).",
+      "approachLabel": "Cách Tôi Build Cùng AI (Trung Thực 100%)",
+      "approachText": "Không nhận vơ tự gõ code thuần: Tôi nắm trọn bài toán nghiệp vụ, kiến trúc dữ liệu, kiểm thử biên (edge-case) — tách bạch LLM dịch ngôn ngữ với mathjs tính toán xác định và trực tiếp debug khi AI sinh sai logic.",
+      "metrics": [
+        {
+          "value": "85%",
+          "label": "Giảm thời gian làm lương",
+          "sub": "Từ hơn 4 giờ đối soát CSV thủ công còn 30 phút mỗi kỳ 2 tuần"
+        },
+        {
+          "value": "$2.3M+",
+          "label": "Quy mô vận hành thực chiến",
+          "sub": "20,500+ đơn hàng · +12% đơn đặt trước YoY · tiết kiệm ~187h & $3,150+/năm"
+        },
+        {
+          "value": "91.3%",
+          "label": "Kỷ luật PSPO I (Scrum.org)",
+          "sub": "Tự build app 400 câu ôn thi · áp Backlog & DoD kiểm duyệt code AI"
+        }
+      ],
+      "spotlight": {
+        "badge": "SẢN PHẨM TIÊU BIỂU (0 → 1)",
+        "title": "Lime Payroll Enterprise",
+        "period": "02/2026 – Hiện tại",
+        "summary": "Hệ thống SaaS nội bộ đa chi nhánh quản lý bảng lương & đối soát POS cho hơn 20 nhân viên xoay ca, kiến trúc & phát hành qua Google AI Studio và Antigravity.",
+        "ctaDemo": "Mở Live Demo Sandbox ↗",
+        "ctaNotion": "Case Study & K-Series Log ↗",
+        "ctaLoom": "Xem Video Walkthrough ↗",
+        "demoHint": "Bấm \"Try Interactive Demo\" tại màn hình đăng nhập để test 20 nhân viên mẫu, AI Rule Copilot & cảnh báo ca >9h.",
+        "cards": [
+          {
+            "tag": "Chống Ảo Giác AI",
+            "title": "Tách Rời LLM Khỏi Phép Tính Tài Chính",
+            "desc": "Gemini chỉ chuyển yêu cầu tiếng Anh thành JSON có cấu trúc; phép tính chạy hoàn toàn qua mathjs AST kèm ngưỡng chặn an toàn và cơ chế fallback thủ công."
+          },
+          {
+            "tag": "Đối Soát POS",
+            "title": "Gộp CSV & Cảnh Báo Quên Chấm Công (>9h)",
+            "desc": "Tự động gộp file POS trùng lặp, chuẩn hóa tên tiếng Pháp có dấu, đánh dấu ca >9 tiếng và lưu nhật ký chỉnh sửa bất biến (pos_validations)."
+          },
+          {
+            "tag": "Bảo Mật Đa Tenant",
+            "title": "11 Quy Tắc Lương, RBAC & Supabase RLS",
+            "desc": "Mô hình hóa chia tip FOH/BOH, giờ tối thiểu, nợ chuyển kỳ, phân bổ chi phí liên chi nhánh; phân quyền 4 cấp, RLS theo company_id và test Puppeteer E2E."
+          },
+          {
+            "tag": "Zero Tech Debt",
+            "title": "Sandbox 1 Chạm & Tự Dọn Dẹp ACID",
+            "desc": "Khởi tạo nhanh 20 nhân viên mẫu qua Anonymous Auth (fn_seed_sandbox), hướng dẫn 4 bước và tự thu hồi session bằng cron + pagehide (fn_cleanup_sandbox)."
+          }
+        ]
+      },
+      "capabilitiesTitle": "Năng Lực Cốt Lõi & Hệ Sinh Thái Công Nghệ",
+      "capabilityCols": [
+        {
+          "title": "Vận Hành & Độ Chính Xác Tài Chính",
+          "badge": "Nghiệp vụ",
+          "items": [
+            "Khám phá điểm nghẽn vận hành từ thực địa",
+            "Thiết kế SOP & Tối ưu luồng KDS / quầy bếp",
+            "Điều tra nguyên nhân gốc rễ (MEV-WEB & Epson API)",
+            "Logic chia tip, lương bảo đảm & phân bổ chi phí",
+            "Tích hợp API POS & Giao hàng (Lightspeed, UberEats, ALCE)",
+            "Tính chi phí nhân công gộp (DAS, CNESST) & Supply ROI"
+          ]
+        },
+        {
+          "title": "Build Cùng AI & Kiểm Định Chất Lượng",
+          "badge": "PSPO I",
+          "items": [
+            "Điều phối Google AI Studio & Antigravity",
+            "Nghiệm thu, bắt lỗi & debug đầu ra AI",
+            "Product Backlog & Tiêu chí chấp nhận (AC)",
+            "Kiểm soát Definition of Done (PSPO I — 91.3%)",
+            "Kiểm thử biên & E2E tự động (Puppeteer)",
+            "Đánh đổi kiến trúc Deterministic vs. LLM"
+          ]
+        },
+        {
+          "title": "Hệ Sinh Thái Kỹ Thuật",
+          "badge": "AI-Directed",
+          "items": [
+            "React 19, TypeScript, Tailwind CSS v4",
+            "Node.js / Express v5 REST Endpoints",
+            "Supabase (PostgreSQL Schema, RLS, Auth)",
+            "Google GenAI SDK (Structured JSON)",
+            "CSV Ingestion, mathjs AST & Xuất XLSX",
+            "Adobe Suite, Midjourney & Quy trình VEO"
+          ]
+        }
+      ],
+      "educationItems": [
+        {
+          "title": "Professional Scrum Product Owner™ I (PSPO I)",
+          "org": "Scrum.org — Điểm: 91.3% (Tự build hệ thống luyện thi 400 câu Fisher-Yates)",
+          "date": "07/2026"
+        },
+        {
+          "title": "DEP – Thiết Kế Đồ Họa (Graphic Design)",
+          "org": "Rosemont Technology Center (EMSB) — Montréal, QC",
+          "date": "12/2019"
+        },
+        {
+          "title": "Cử Nhân Marketing (Bachelor of Marketing)",
+          "org": "Đại học Quốc Tế (ĐHQG TP.HCM) — Việt Nam",
+          "date": "05/2015"
+        }
+      ],
+      "locationValue": "Longueuil, Quebec, Canada (Remote Canada / Montréal)",
+      "linkedinLabel": "Hồ Sơ LinkedIn ↗",
+      "githubLabel": "GitHub ↗"
     },
     "techStack": "Công Nghệ & Công Cụ",
     "coreCompetencies": "Năng Lực Cốt Lõi",
-    "experience": "Kinh Nghiệm",
+    "experience": "Kinh Nghiệm Thực Chiến",
     "contact": "LIÊN HỆ",
     "textMe": "NHẮN TIN",
     "sendSms": "Gửi Tin Nhắn",
@@ -55,25 +169,25 @@
     "languages": "Ngôn Ngữ",
     "proficiencies": {
       "vi": "Tiếng Việt (Bản ngữ)",
-      "en": "Tiếng Anh (Chuyên nghiệp)",
-      "fr": "Tiếng Pháp (Trung cấp)"
+      "en": "Tiếng Anh (Giao tiếp chuyên môn)",
+      "fr": "Tiếng Pháp (Trung cấp B1)"
     },
     "timeline": {
       "t1": {
-        "role": "Giám Đốc Sản Phẩm / Nhà Phát Triển Độc Lập",
-        "desc": "Tự động hóa AI, Nền tảng SaaS React/Supabase, Kiến trúc tối ưu không nợ kỹ thuật"
+        "role": "Product Builder & Hệ Thống Vận Hành AI (Internal SaaS)",
+        "desc": "Điều phối AI coding (Google AI Studio & Antigravity) trên nền React, TypeScript, Express & Supabase PostgreSQL theo kỷ luật Backlog/DoD; tách bạch Gemini JSON với mathjs AST và theo dõi ca lỗi >9h giúp giảm 85% thời gian làm lương."
       },
       "t2": {
-        "role": "Quản Lý Vận Hành & Trưởng Bộ Phận POS",
-        "desc": "Mở rộng & Tích hợp API, Chuyển đổi hệ thống K-Series, Tối ưu quy trình làm việc"
+        "role": "Quản Lý Vận Hành & Tích Hợp Hệ Thống POS",
+        "desc": "Điều hành doanh thu ~$2.3M+ (20,500+ đơn hàng); tích hợp API UberEats/ALCE thẳng vào Lightspeed POS, dẫn dắt nâng cấp MEV-WEB K-Series và tìm ra tận gốc lỗi mã hóa ký tự máy in Epson, tái cấu trúc luồng KDS, tiết kiệm ~187h & $3,150+/năm, tăng +12% đơn đặt trước YoY."
       },
       "t3": {
-        "role": "Nhà Sản Xuất Truyền Thông Sáng Tạo",
-        "desc": "Tối ưu chuyển đổi E-commerce, Tích hợp AI (Midjourney, VEO), Quy trình Media"
+        "role": "Nhà Sản Xuất Truyền Thông & Quy Trình AI",
+        "desc": "Quản lý báo giá, ngân sách và tiến độ sản xuất đa khách hàng ngành bán lẻ cao cấp & F&B; tích hợp Midjourney và VEO tăng tốc sản xuất nội dung thúc đẩy chuyển đổi e-commerce."
       },
       "t4": {
-        "role": "Trưởng Nhóm Đại Diện Bán Hàng",
-        "desc": "Kỹ thuật marketing dựa trên dữ liệu, Xây dựng quan hệ khách hàng B2B"
+        "role": "Trưởng Nhóm Kinh Doanh & Chuyên Viên Marketing",
+        "desc": "Giám sát đội ngũ kinh doanh thực địa và triển khai các chiến dịch marketing B2B dựa trên dữ liệu tại TP.HCM."
       }
     }
   },

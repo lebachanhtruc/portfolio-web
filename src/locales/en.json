@@ -1,15 +1,15 @@
 {
   "hero": {
-    "role": "PRODUCT OWNER & CREATIVE PRODUCER"
+    "role": "PRODUCT BUILDER & CREATIVE PRODUCER"
   },
   "about": {
     "modes": {
       "agency": "Studio & Services (TYM Production)",
-      "cv": "Product Owner Resume (CV)",
+      "cv": "Product Builder Profile (CV)",
       "badgeAgency": "FOR RESTAURANTS & F&B BRANDS",
-      "badgeCv": "PRODUCT OWNER & TECH PROFILE",
+      "badgeCv": "PRODUCT BUILDER & AI OPERATIONS",
       "ctaViewQuote": "View Interactive Quotation ↓",
-      "ctaSwitchCv": "View Product Owner CV (PSPO I) →",
+      "ctaSwitchCv": "View Product Builder Profile →",
       "ctaSwitchAgency": "← Back to TYM Production Studio",
       "agencyHeadline": "Turn dishes into high-converting visual stories",
       "agencyLead": "TYM Production partners with restaurants, bakeries, and hospitality brands in Montréal & Rive-Sud—delivering AI photography, 4K animated menus, Reels ads, decals, and storefront TV signage.",
@@ -34,11 +34,125 @@
       "agencyAreasLabel": "SERVICE COVERAGE",
       "agencyAreasValue": "Montréal, Longueuil, Brossard & South Shore, QC"
     },
-    "bioTitle": "About Me",
+    "bioTitle": "Product Builder Overview",
     "bio": {
-      "p1": "I bridge the gap between creative vision and technical execution. As a PSPO I certified Product Owner, I specialize in translating complex business requirements into scalable, user-centric solutions.",
-      "p2": "My background in creative media production allows me to approach problems with a unique dual perspective: analytical and aesthetic.",
-      "p3": "I am deeply passionate about automating workflows, migrating systems for operational efficiency, and leveraging Generative AI to push the boundaries of rapid prototyping."
+      "p1": "Former Multi-Site Operations Lead ($2.3M+ annual revenue, 20,500+ orders) turned Product Builder focused on eliminating manual back-office bottlenecks.",
+      "p2": "Rather than waiting on engineering queues, I sit with frontline workflows, direct AI coding workflows (Google AI Studio & Google Antigravity) under strict Product Backlog and Definition of Done discipline (PSPO I — 91.3%), and ship reliable internal tools.",
+      "p3": "I am candid about how I build: not a traditional syntax-from-memory software engineer—my edge is owning operational logic, safety boundaries, and catching where AI gets things wrong."
+    },
+    "builder": {
+      "headline": "Operator-Turned-Builder turning messy ops into shipped software",
+      "lead": "Former Multi-Site Operations Lead ($2.3M+ annual revenue, 20,500+ orders) turned Product Builder. I translate frontline bottlenecks into working full-stack tools by directing AI coding workflows (Google AI Studio & Google Antigravity) with Backlog, Acceptance Criteria & DoD rigor (PSPO I).",
+      "approachLabel": "How I Build With AI (100% Honest Workflow)",
+      "approachText": "Not a syntax-from-memory developer: I architect the operational rules, data isolation, and edge-case tests—splitting LLM intent parsing from deterministic mathjs calculations and debugging whenever AI output breaks.",
+      "metrics": [
+        {
+          "value": "85%",
+          "label": "Payroll Time Cut",
+          "sub": "From 4h+ manual CSV reconciliation to 30 min / bi-weekly cycle"
+        },
+        {
+          "value": "$2.3M+",
+          "label": "F&B Ops & P&L Owned",
+          "sub": "20,500+ orders · +12% YoY delivery growth · ~187h & $3,150+/yr saved"
+        },
+        {
+          "value": "91.3%",
+          "label": "PSPO I Quality Rigor",
+          "sub": "Built a 400-question simulator · Backlog & DoD gates for AI outputs"
+        }
+      ],
+      "spotlight": {
+        "badge": "FLAGSHIP BUILD (0 → 1)",
+        "title": "Lime Payroll Enterprise",
+        "period": "02/2026 – Present",
+        "summary": "Full-stack multi-tenant payroll & POS reconciliation internal SaaS shipped for 20+ shift staff via Google AI Studio & Google Antigravity.",
+        "ctaDemo": "Launch Live Sandbox ↗",
+        "ctaNotion": "Case Studies & K-Series Log ↗",
+        "ctaLoom": "Video Walkthrough (Loom) ↗",
+        "demoHint": "Click \"Try Interactive Demo\" on login to explore 20 seeded staff, AI Rule Copilot & >9h anomaly flags.",
+        "cards": [
+          {
+            "tag": "AI Guardrails",
+            "title": "Deterministic Math Over LLM Hallucination",
+            "desc": "Google Gemini compiles plain-English pay rules into Structured JSON schemas only; mathjs AST evaluates numbers with hard business caps and offline manual fallback."
+          },
+          {
+            "tag": "POS & Audit",
+            "title": "CSV Merging & >9h Anomaly Flagging",
+            "desc": "Ingests multi-export POS CSVs, normalizes French accents, flags >9h missed clock-outs, and records every override in an immutable pos_validations audit ledger."
+          },
+          {
+            "tag": "Security & Scale",
+            "title": "11 Contract Rules, RBAC & Supabase RLS",
+            "desc": "Models tip pooling, guaranteed min hours, carry-forward debt, and cost sharing with 4-tier RBAC, step-up confirmation, company_id RLS, and Puppeteer E2E checks."
+          },
+          {
+            "tag": "Zero Tech Debt",
+            "title": "Anonymous PLG Sandbox & Auto Cleanup",
+            "desc": "Seeds 20 realistic FOH/BOH staff on demand (fn_seed_sandbox) paired with a 4-step tour and cron + pagehide ACID garbage collection (fn_cleanup_sandbox)."
+          }
+        ]
+      },
+      "capabilitiesTitle": "Core Capabilities & Ecosystem",
+      "capabilityCols": [
+        {
+          "title": "Operations & Financial Accuracy",
+          "badge": "Domain",
+          "items": [
+            "End-to-End Bottleneck Discovery",
+            "SOP Playbooks & Workflow Redesign",
+            "Root-Cause Troubleshooting (MEV-WEB)",
+            "Payroll, Tip Pooling & Cost-Sharing Logic",
+            "POS & Delivery APIs (Lightspeed, UberEats, ALCE)",
+            "Fully-Loaded Labor (DAS, CNESST) & Supply ROI"
+          ]
+        },
+        {
+          "title": "AI Building & Governance",
+          "badge": "PSPO I",
+          "items": [
+            "Directing Google AI Studio & Antigravity",
+            "Output Verification & Live Debugging",
+            "Product Backlog & Acceptance Criteria",
+            "Definition of Done Guardrails (PSPO I — 91.3%)",
+            "Edge-Case & Headless E2E Checks (Puppeteer)",
+            "Deterministic vs. LLM Architecture Trade-offs"
+          ]
+        },
+        {
+          "title": "Technical Ecosystem",
+          "badge": "AI-Directed",
+          "items": [
+            "React 19, TypeScript, Tailwind CSS v4",
+            "Node.js / Express v5 REST Endpoints",
+            "Supabase (PostgreSQL Schema, RLS, Auth)",
+            "Google GenAI SDK (Structured JSON)",
+            "CSV Parsers, mathjs AST & XLSX Export",
+            "Adobe Suite, Midjourney & VEO Workflows"
+          ]
+        }
+      ],
+      "educationItems": [
+        {
+          "title": "Professional Scrum Product Owner™ I (PSPO I)",
+          "org": "Scrum.org — Score: 91.3% (Built custom 400-question Fisher-Yates simulator)",
+          "date": "07/2026"
+        },
+        {
+          "title": "DEP – Graphic Design",
+          "org": "Rosemont Technology Center (EMSB) — Montréal, QC",
+          "date": "12/2019"
+        },
+        {
+          "title": "Bachelor of Marketing",
+          "org": "International University (VNU HCMC) — Vietnam",
+          "date": "05/2015"
+        }
+      ],
+      "locationValue": "Longueuil, Quebec, Canada (Remote Canada / Montréal)",
+      "linkedinLabel": "LinkedIn ↗",
+      "githubLabel": "GitHub ↗"
     },
     "techStack": "Tech Stack & Tools",
     "coreCompetencies": "Core Competencies",
@@ -55,25 +169,25 @@
     "languages": "Languages",
     "proficiencies": {
       "vi": "Vietnamese (Native)",
-      "en": "English (Professional)",
-      "fr": "French (Intermediate)"
+      "en": "English (Professional Working)",
+      "fr": "French (Intermediate B1)"
     },
     "timeline": {
       "t1": {
-        "role": "Product Owner / Solo Builder",
-        "desc": "AI-Driven Automation, React/Supabase SaaS, Zero Tech Debt Architecture"
+        "role": "Operations & AI Systems Builder (Internal SaaS)",
+        "desc": "Directed AI coding workflows (Google AI Studio & Antigravity) across React, TypeScript, Express & Supabase PostgreSQL under Backlog/DoD rigor; shipped deterministic mathjs rules and >9h POS anomaly tracking to cut bi-weekly payroll time by 85%."
       },
       "t2": {
-        "role": "Operations Manager & POS Lead",
-        "desc": "Scale & API Integration, K-Series Migration, Workflow Optimization"
+        "role": "Operations Manager & Systems Integration Lead",
+        "desc": "Owned daily ops & POS tech across $2.3M+ revenue (20,500+ orders); automated UberEats/ALCE APIs into Lightspeed POS, led MEV-WEB K-Series migration & isolated an Epson printer text-encoding bug, redesigned KDS routing, saved ~187h & $3,150+/yr, and grew booked orders +12% YoY."
       },
       "t3": {
-        "role": "Creative Media Producer",
-        "desc": "E-commerce Conversion, AI Integration (Midjourney, VEO), Media Workflows"
+        "role": "Creative Media Producer & AI Workflow Lead",
+        "desc": "Managed client proposals, budgets & multi-brand production for luxury retail and F&B; embedded Midjourney & VEO workflows to scale content pipelines and lift e-commerce conversion."
       },
       "t4": {
-        "role": "Sales Rep Supervisor",
-        "desc": "Data-driven marketing techniques, B2B client relationships"
+        "role": "Sales Supervisor & Marketing Specialist",
+        "desc": "Supervised field sales operations and executed data-driven B2B marketing initiatives across Ho Chi Minh City."
       }
     }
   },
