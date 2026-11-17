@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { scrollToElementById } from '../utils/scroll';
 
 const PhoneIcon = () => (
   <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -166,9 +167,7 @@ export default function AboutSection({ profileMode, onProfileModeChange }: About
   };
 
   const scrollToQuote = () => {
-    document
-      .getElementById('section-Pricing & Services')
-      ?.scrollIntoView({ behavior: 'smooth' });
+    void scrollToElementById('section-Pricing & Services', 0);
   };
 
   const agencyPillars = translations.about.modes.pillars;

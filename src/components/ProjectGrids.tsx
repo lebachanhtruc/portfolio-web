@@ -4,6 +4,7 @@ import BeforeAfterSlider from './BeforeAfterSlider';
 import ViewportVideo from './ViewportVideo';
 import { useLanguage } from '../contexts/LanguageContext';
 import { encodeMediaPath } from '../utils/media';
+import { scrollToElement } from '../utils/scroll';
 
 export interface GalleryItem {
   kind: 'pair' | 'image' | 'video';
@@ -454,17 +455,12 @@ export default function ProjectGrids() {
 
   const scrollToSection = (tab: string) => {
     const el = sectionRefs.current[tab] || document.getElementById(`section-${tab}`);
-    if (el) {
-      const y = el.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
+    const offset = tab === 'Pricing & Services' ? 0 : undefined;
+    void scrollToElement(el, offset);
   };
 
   const scrollToMenu = () => {
-    if (menuRef.current) {
-      const y = menuRef.current.getBoundingClientRect().top + window.scrollY - 100;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
+    void scrollToElement(menuRef.current, 48);
   };
 
   const menuTabs = ['Videography', 'AI x Photography', 'Photography', 'Pricing & Services'];

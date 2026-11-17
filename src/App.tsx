@@ -9,6 +9,7 @@ import Footer from './components/Footer'
 import LanguageSwitcher from './components/LanguageSwitcher'
 import { LanguageProvider } from './contexts/LanguageContext'
 import { decodeQuoteToken, isShortQuoteId, type StoredQuotePayload } from './utils/quoteToken'
+import { scrollToElementById } from './utils/scroll'
 
 export interface RemoteQuoteState {
   status: 'idle' | 'loading' | 'ready' | 'not_found' | 'error';
@@ -91,23 +92,24 @@ function App() {
     if (hash && hash.length >= 2) {
       const targetId = decodeURIComponent(hash.slice(1));
       const timer = window.setTimeout(() => {
-        document.getElementById(targetId)?.scrollIntoView({ behavior: 'auto' });
+        void scrollToElementById(
+          targetId,
+          targetId === 'section-Pricing & Services' ? 0 : undefined,
+          true
+        );
       }, 60);
       return () => window.clearTimeout(timer);
     }
     if (isAdminEntry && !isDedicatedClientQuote) {
       const timer = window.setTimeout(() => {
-        document.getElementById('section-Pricing & Services')?.scrollIntoView({ behavior: 'auto' });
+        void scrollToElementById('section-Pricing & Services', 0, true);
       }, 60);
       return () => window.clearTimeout(timer);
     }
   }, [isAdminEntry, isDedicatedClientQuote]);
 
   const scrollToPortfolio = () => {
-    const el = document.getElementById('section-Videography');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    void scrollToElementById('section-Videography');
   };
 
   return (

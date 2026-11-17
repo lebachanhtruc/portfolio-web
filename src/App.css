@@ -505,7 +505,7 @@ section {
 
 .category-section {
   margin-bottom: 4rem; /* Reduced from 8rem to halve the distance between major categories */
-  scroll-margin-top: 100px; /* Offset for smooth scrolling */
+  scroll-margin-top: 48px; /* Offset for smooth scrolling */
 }
 
 .pill-menu {
@@ -557,8 +557,6 @@ section {
 .project-group {
   min-height: 200px;
   margin-bottom: 5rem; /* Consistent base gap between project groups */
-  content-visibility: auto;
-  contain-intrinsic-size: auto 720px;
 }
 
 .project-group-title {
@@ -2528,7 +2526,6 @@ dialog.quote-native-dialog::backdrop {
   }
   .project-group {
     margin-bottom: 2rem;
-    contain-intrinsic-size: auto 520px;
   }
   .filter-menu-wrapper {
     margin-bottom: 2rem;

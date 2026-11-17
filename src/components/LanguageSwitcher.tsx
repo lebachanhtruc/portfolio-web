@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { scrollToElementById } from '../utils/scroll';
 
 const MessageIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -29,9 +30,9 @@ export default function LanguageSwitcher({ showQuoteButton = true }: { showQuote
       {showQuoteButton && (
         <button
           className="floating-contact-btn icon-btn quote-float-btn"
-          onClick={() =>
-            document.getElementById('section-Pricing & Services')?.scrollIntoView({ behavior: 'smooth' })
-          }
+          onClick={() => {
+            void scrollToElementById('section-Pricing & Services', 0);
+          }}
           title={t('projects.tabs.Pricing & Services')}
           aria-label={t('projects.tabs.Pricing & Services')}
         >
@@ -48,7 +49,9 @@ export default function LanguageSwitcher({ showQuoteButton = true }: { showQuote
       </a>
       <button 
         className="floating-contact-btn icon-btn"
-        onClick={() => document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' })}
+        onClick={() => {
+          void scrollToElementById('contact-section', 32);
+        }}
         title={t('about.contact')}
         aria-label={t('about.contact')}
       >
