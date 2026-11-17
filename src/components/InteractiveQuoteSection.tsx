@@ -51,6 +51,7 @@ interface QuoteSelections {
   tvExtraClips: number;
   basicClips: number;
   influencerClips: number;
+  websiteSelected: boolean;
 }
 
 const ZERO_SELECTIONS: QuoteSelections = {
@@ -62,7 +63,8 @@ const ZERO_SELECTIONS: QuoteSelections = {
   tvSize: '55',
   tvExtraClips: 0,
   basicClips: 0,
-  influencerClips: 0
+  influencerClips: 0,
+  websiteSelected: false
 };
 
 const copyText = {
@@ -153,11 +155,28 @@ const copyText = {
     ],
     item5CtrlPanels: 'Số mặt kính thi công ($100/mặt, tối thiểu 2)',
     item5CtrlDesign: 'Số mặt cần Thiết kế Decal mới ($200/mặt)',
+    item6Title: '6. Thiết kế & Xây dựng Website Thương Hiệu Trọn Gói',
+    item6Subtitle: 'Website chuẩn F&B đa ngôn ngữ, tối ưu Mobile & SEO Google (Mẫu thực tế: patisseriedzung.ca)',
+    item6TabHome: '🌐 Trang chủ thực tế',
+    item6TabMenu: '🍽️ Menu 44+ món & Bộ lọc',
+    item6LiveLabel: '🌐 Xem web mẫu thực tế: patisseriedzung.ca ↗',
+    item6Bullets: [
+      'Kiến trúc 5 khu vực hoàn chỉnh như Pâtisserie Dzung: Trang chủ Hero Video điện ảnh (có nút bật/tắt âm & phóng to), Thực đơn tương tác, Trang Đặt tiệc Catering 3 bước, Thư viện Ảnh/Reels kèm Lightbox và trang Thông tin giờ mở cửa / chỉ đường.',
+      'Hệ thống đa ngôn ngữ tức thì (tối đa 3–4 ngôn ngữ: Việt / Pháp / Anh / Hoa): tự động nhận diện ngôn ngữ và chuyển đổi mượt toàn bộ tên món, mô tả, bộ lọc & nút đặt hàng không cần tải lại trang.',
+      'Thực đơn tương tác thông minh (hỗ trợ 40+ món): song song 2 chế độ xem (Bảng Deli nhanh & Thẻ ảnh món ăn), tùy biến option từng món, bộ lọc dị ứng / chế độ ăn (Không đậu phộng, Thuần chay, Không thịt heo, Không sữa, Không gluten) và Giỏ gọi món tự cộng tổng tiền.',
+      'Tích hợp vận hành thực tế tại quán: tự động hiển thị trạng thái Đang mở cửa / Đã đóng cửa theo giờ Montréal, thẻ giới thiệu món sắp ra mắt (Coming Soon Reel), nút gọi điện / chỉ đường Google Maps 1 chạm.',
+      'Tối ưu SEO Google & Tốc độ tải (Core Web Vitals): cài đặt sẵn Schema.org (Restaurant/Bakery, giờ mở cửa, menu & đánh giá), hreflang đa ngôn ngữ, đường dẫn sạch (/menu, /thuc-don, /traiteur), sitemap hình ảnh và Google Analytics 4.',
+      'Bàn giao trọn gói ($700.00): đưa web lên Vercel chạy siêu tốc miễn phí duy trì server (trên tên miền riêng .ca/.com của quán), bàn giao mã nguồn & hỗ trợ tối đa 02 vòng tinh chỉnh từ ảnh/nội dung tiệm cung cấp (chưa bao gồm phí mua tên miền ~$15–$25/năm & cổng thanh toán POS).'
+    ],
+    item6CtrlPackage: 'Chọn Gói Thiết kế Website Trọn Gói ($700)',
+    item6OptSelected: 'Gói Website ($700)',
     row1aTitle: '1A. Thiết kế Menu Tĩnh (In ấn Letter/A4 hoặc TV)',
     row1bTitle: '1B. Thiết kế Menu Động 4K (Animation từng món)',
     row3Title: '3. Sáng tạo Video Clip Cơ bản (20 giây/clip)',
     row4Title: '4. Video Quảng Cáo Influencer / Review Trải Nghiệm (30–35 giây/clip)',
     row5Title: '5. Thi công Decal Kính Mặt Tiền (Tối thiểu 2 mặt)',
+    row6Title: '6. Thiết kế & Xây dựng Website Trọn Gói (Mẫu: patisseriedzung.ca)',
+    row6UnitLabel: '$700.00 / website trọn gói',
     summaryCaption: 'Bảng Tổng Hợp & Dự Toán Chi Phí Dịch Vụ',
     colService: 'Hạng Mục Dịch Vụ',
     colUnitPrice: 'Đơn Giá Chuẩn',
@@ -195,7 +214,7 @@ const copyText = {
     saveFailedErr: 'Không thể lưu báo giá lên máy chủ. Vui lòng thử lại.',
     presetsHeading: 'Gói gợi ý chọn nhanh cho nhu cầu của bạn (bấm để thử tính ngay):',
     presetResetBtn: 'Đặt lại về 0',
-    expandOtherServicesBtn: '+ Xem thêm dịch vụ khác (Lắp đặt TV, Video TikTok, Decal kính)',
+    expandOtherServicesBtn: '+ Xem thêm dịch vụ khác (Lắp đặt TV, Video TikTok, Decal kính, Website)',
     collapseOtherServicesBtn: 'Thu gọn về phần báo giá trọng tâm ↑',
     fieldFocusNote: 'Ghi chú nhu cầu riêng (hiển thị nổi bật cho khách)',
     adminTvContentFocus: 'Tập trung Nội dung TV (chỉ hiện Menu TV & Clip 16:9, ẩn Lắp TV / TikTok / Decal)',
@@ -289,11 +308,28 @@ const copyText = {
     ],
     item5CtrlPanels: 'Glass Panels to Install ($100/panel, min 2)',
     item5CtrlDesign: 'New Decal Design Layouts ($200/layout)',
+    item6Title: '6. Custom Brand & Restaurant Website Package',
+    item6Subtitle: 'Multilingual F&B website optimized for mobile & Google SEO (Live reference: patisseriedzung.ca)',
+    item6TabHome: '🌐 Live Hero View',
+    item6TabMenu: '🍽️ 44+ Dish Menu & Filters',
+    item6LiveLabel: '🌐 View live example: patisseriedzung.ca ↗',
+    item6Bullets: [
+      'Complete 5-view architecture (modeled after Pâtisserie Dzung): Hero cinema video player (mute & fullscreen controls), Interactive Menu, 3-step Catering & Events page, Photo/Reel Gallery with Lightbox, and Store Story/Visit view.',
+      'Instant multilingual switching (up to 3–4 languages: FR / EN / VI / ZH): translates full menus, descriptions, allergen notices, and booking prompts cleanly with zero page reload.',
+      'Smart Interactive Menu (supports 40+ dishes): dual Deli Board & Photo Card layouts, dish option pickers, live allergen/dietary filters (Peanut-Free, Vegan, Pork-Free option, Dairy-Free, Gluten-Free) + auto-calculating Quick Order Cart.',
+      'Built for real store operations: automated Montréal live Open/Closed & holiday banner status, Coming Soon dish teaser reel card, 1-tap phone call & Google Maps directions.',
+      'Technical SEO & performance setup: Schema.org Restaurant/Bakery structured data (GPS, hours, reviews & full hasMenu), hreflang alternates, clean URL slugs (/menu, /catering), image sitemap.xml & Google Analytics 4.',
+      'Turnkey handover ($700.00): deployed free-hosting on Vercel under your custom domain, full source handover & up to 02 revision rounds from restaurant-supplied photos/text (excludes ~$15–$25/yr domain registration & paid POS/online payment gateways).'
+    ],
+    item6CtrlPackage: 'Select Turnkey Website Package ($700)',
+    item6OptSelected: 'Website Package ($700)',
     row1aTitle: '1A. Static Menu Design (Letter/A4 Print or TV)',
     row1bTitle: '1B. Animated Digital Menu 4K (Per-Dish Animation)',
     row3Title: '3. Basic Promotional Video Clip (20s / clip)',
     row4Title: '4. Influencer / UGC Tasting Review Video (30–35s / clip)',
     row5Title: '5. Storefront Window Decal Installation (Min. 2 panels)',
+    row6Title: '6. Custom Brand & Restaurant Website (Ref: patisseriedzung.ca)',
+    row6UnitLabel: '$700.00 / turnkey website',
     summaryCaption: 'Quotation Summary & Live Budget Estimator',
     colService: 'Service Item',
     colUnitPrice: 'Standard Rate',
@@ -331,7 +367,7 @@ const copyText = {
     saveFailedErr: 'Unable to save quote to server. Please retry.',
     presetsHeading: 'Recommended packages for your setup (1-click preview):',
     presetResetBtn: 'Reset to 0',
-    expandOtherServicesBtn: '+ View other services (TV Install, Influencer Video, Window Decal)',
+    expandOtherServicesBtn: '+ View other services (TV Install, Influencer Video, Window Decal, Website)',
     collapseOtherServicesBtn: 'Show focused items only ↑',
     fieldFocusNote: 'Client scope highlight note (optional)',
     adminTvContentFocus: 'Focus on TV Content only (Menu & 16:9 Clips; hide TV Install / TikTok / Decal)',
@@ -425,11 +461,28 @@ const copyText = {
     ],
     item5CtrlPanels: 'Vitres à poser (100 $/vitre, min 2)',
     item5CtrlDesign: 'Nouvelles maquettes de décalque (200 $/maquette)',
+    item6Title: '6. Conception & Développement de Site Web Sur Mesure',
+    item6Subtitle: 'Site vitrine F&B multilingue, rapide sur mobile & optimisé SEO Google (Réf. : patisseriedzung.ca)',
+    item6TabHome: '🌐 Accueil en direct',
+    item6TabMenu: '🍽️ Menu 44+ plats & Filtres',
+    item6LiveLabel: '🌐 Voir le site réel : patisseriedzung.ca ↗',
+    item6Bullets: [
+      'Architecture complète en 5 vues (modèle Pâtisserie Dzung) : Hero vidéo cinématographique (son/plein écran), Menu interactif, page Traiteur en 3 étapes, Galerie Photos/Reels avec Lightbox et page Visite/Horaires.',
+      'Changement de langue instantané (jusqu’à 3–4 langues : FR / EN / VI / ZH) : traduit menus, descriptions, filtres et appels à l’action sans rechargement.',
+      'Menu interactif 40+ plats : double affichage (Tableau Deli rapide & Cartes photo), sélecteur d’options, filtres allergènes/régimes (Sans arachides, Végétal, Sans porc, Sans lactose, Sans gluten) et panier d’estimation rapide.',
+      'Fonctionnalités métier réelles : statut Ouvert / Fermé automatique selon l’heure de Montréal (et avis de congé), carte teaser vidéo de nouveauté, appel et itinéraire Google Maps en 1 clic.',
+      'SEO technique & vitesse : données structurées Schema.org Restaurant/Bakery (horaires, GPS, avis, hasMenu), balises hreflang, URLs propres (/menu, /traiteur), sitemap images et Google Analytics 4.',
+      'Livraison clé en main (700,00 $) : hébergement gratuit rapide sur Vercel sous votre domaine, remise du code source et 02 séries d’ajustements à partir de vos photos/textes (hors achat domaine ~15–25 $/an et passerelle POS/paiement en ligne).'
+    ],
+    item6CtrlPackage: 'Choisir le Forfait Site Web Clé en Main (700 $)',
+    item6OptSelected: 'Forfait Site Web (700 $)',
     row1aTitle: '1A. Conception Menu Statique (Impression Lettre/A4 ou TV)',
     row1bTitle: '1B. Conception Menu Animé 4K (Animation par plat)',
     row3Title: '3. Création de Clip Vidéo de Base (20s / clip)',
     row4Title: '4. Vidéo Publicitaire Influenceur / Dégustation (30–35s / clip)',
     row5Title: '5. Pose de Décalque sur Vitrine (Min. 2 vitres)',
+    row6Title: '6. Site Web Sur Mesure Multilingue (Réf. : patisseriedzung.ca)',
+    row6UnitLabel: '700,00 $ / forfait clé en main',
     summaryCaption: 'Récapitulatif du Devis & Calculateur de Budget',
     colService: 'Service',
     colUnitPrice: 'Tarif Unitaire',
@@ -467,7 +520,7 @@ const copyText = {
     saveFailedErr: 'Impossible d’enregistrer le devis. Veuillez réessayer.',
     presetsHeading: 'Forfaits suggérés selon votre besoin :',
     presetResetBtn: 'Réinitialiser à 0',
-    expandOtherServicesBtn: '+ Voir les autres services (Pose TV, Vidéo Influenceur, Décalque)',
+    expandOtherServicesBtn: '+ Voir les autres services (Pose TV, Vidéo Influenceur, Décalque, Site Web)',
     collapseOtherServicesBtn: 'Revenir à l’essentiel ↑',
     fieldFocusNote: 'Note de besoin client (optionnel)',
     adminTvContentFocus: 'Centré Contenu TV uniquement (Menu & Clips 16:9)',
@@ -510,7 +563,8 @@ export default function InteractiveQuoteSection({
     tvSize: s?.tvSize === '65' ? '65' : '55',
     tvExtraClips: Number(s?.tvExtraClips ?? 0),
     basicClips: Number(s?.basicClips ?? 0),
-    influencerClips: Number(s?.influencerClips ?? 0)
+    influencerClips: Number(s?.influencerClips ?? 0),
+    websiteSelected: Boolean(s?.websiteSelected)
   });
 
   // Determine initial quote strictly from signed ?q= token, short ID, or public Standard Rate Card (ZERO client PII in bundle)
@@ -591,7 +645,8 @@ export default function InteractiveQuoteSection({
           tvSize: params.get('tvsize') === '65' ? '65' : '55',
           tvExtraClips: Number(params.get('extra') ?? 0),
           basicClips: Number(params.get('clip') ?? 0),
-          influencerClips: Number(params.get('uclip') ?? 0)
+          influencerClips: Number(params.get('uclip') ?? 0),
+          websiteSelected: params.get('web') === '1'
         }
       };
     }
@@ -667,9 +722,10 @@ export default function InteractiveQuoteSection({
     setClientProfile((prev) => (prev.id === 'standard' ? buildStandardProfile(language) : prev));
   }, [language]);
 
-  // Media preview tabs inside Card 1 and Card 2 (TV Combo)
+  // Media preview tabs inside Card 1, Card 2 (TV Combo), and Card 6 (Website)
   const [item1MediaTab, setItem1MediaTab] = useState<'animated' | 'static'>('animated');
   const [tvMediaTab, setTvMediaTab] = useState<'realtv' | 'sampleclip'>('realtv');
+  const [item6MediaTab, setItem6MediaTab] = useState<'home' | 'menu'>('home');
 
   // Copy link notification state
   const [copiedLink, setCopiedLink] = useState(false);
@@ -863,9 +919,10 @@ export default function InteractiveQuoteSection({
   const decalInstallSubtotal = selections.decalPanels * rates.decalPerPanel;
   const decalDesignSubtotal = selections.decalDesignCount * rates.decalDesignPerLayout;
   const item5Subtotal = decalInstallSubtotal + decalDesignSubtotal;
+  const item6Subtotal = selections.websiteSelected ? rates.websitePackage : 0;
 
   const grandTotal =
-    item1Subtotal + item2Subtotal + item3Subtotal + item4Subtotal + item5Subtotal;
+    item1Subtotal + item2Subtotal + item3Subtotal + item4Subtotal + item5Subtotal + item6Subtotal;
   const depositAmount = Math.round(grandTotal * (clientProfile.depositPercent / 100) * 100) / 100;
   const balanceAmount = Math.round((grandTotal - depositAmount) * 100) / 100;
 
@@ -897,6 +954,9 @@ export default function InteractiveQuoteSection({
     url.searchParams.set('uclip', String(selections.influencerClips));
     url.searchParams.set('decal', String(selections.decalPanels));
     url.searchParams.set('ddesign', String(selections.decalDesignCount));
+    if (selections.websiteSelected) {
+      url.searchParams.set('web', '1');
+    }
     url.hash = encodeURIComponent('section-Pricing & Services');
     return url.toString();
   };
@@ -1064,6 +1124,8 @@ export default function InteractiveQuoteSection({
   const mediaSampleLoopClip = '/Media/quote-showcase/sample-loop-clip.mp4';
   const mediaBasicClip = '/Media/quote-showcase/clip-co-ban-demo.mp4';
   const mediaInfluencerClip = '/Media/quote-showcase/clip-influencer-demo.mp4';
+  const mediaWebsiteHome = '/Media/quote-showcase/patisserie-dzung-home.jpg';
+  const mediaWebsiteMenu = '/Media/quote-showcase/patisserie-dzung-menu.jpg';
 
   return (
     <section id="section-Pricing & Services" className="interactive-quote-section container">
@@ -1255,7 +1317,8 @@ export default function InteractiveQuoteSection({
                   selections.basicClips === target.basicClips &&
                   selections.tvComboSelected === target.tvComboSelected &&
                   selections.decalPanels === target.decalPanels &&
-                  selections.influencerClips === target.influencerClips;
+                  selections.influencerClips === target.influencerClips &&
+                  selections.websiteSelected === target.websiteSelected;
                 return (
                   <button
                     key={idx}
@@ -1835,9 +1898,121 @@ export default function InteractiveQuoteSection({
             </div>
           </article>
           )}
+
+          {/* CARD 6: CUSTOM BRAND & RESTAURANT WEBSITE PACKAGE ($700 - CASE STUDY: PATISSERIEDZUNG.CA) */}
+          {isItemVisible('website') && (
+          <article className="quote-service-card">
+            <div className="service-media-column">
+              <div className="service-media-tabs no-print">
+                <button
+                  type="button"
+                  className={`media-tab-btn ${item6MediaTab === 'home' ? 'active' : ''}`}
+                  onClick={() => setItem6MediaTab('home')}
+                >
+                  {c.item6TabHome}
+                </button>
+                <button
+                  type="button"
+                  className={`media-tab-btn ${item6MediaTab === 'menu' ? 'active' : ''}`}
+                  onClick={() => setItem6MediaTab('menu')}
+                >
+                  {c.item6TabMenu}
+                </button>
+              </div>
+
+              <div className="service-media-frame">
+                <img
+                  src={item6MediaTab === 'home' ? mediaWebsiteHome : mediaWebsiteMenu}
+                  alt="Pâtisserie Dzung Website Case Study Preview"
+                  width={1280}
+                  height={800}
+                  loading={isDedicatedClientMode ? undefined : 'lazy'}
+                  decoding="async"
+                  className="service-preview-img"
+                  style={{ objectPosition: 'top center' }}
+                />
+                <button
+                  type="button"
+                  className="media-expand-btn no-print"
+                  onClick={() =>
+                    openMediaModal(
+                      c.item6Title,
+                      'image',
+                      item6MediaTab === 'home' ? mediaWebsiteHome : mediaWebsiteMenu
+                    )
+                  }
+                >
+                  {c.expandMediaBtn}
+                </button>
+              </div>
+
+              <a
+                href="https://www.patisseriedzung.ca/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="quote-sample-live-link no-print"
+              >
+                {c.item6LiveLabel}
+              </a>
+            </div>
+
+            <div className="service-details-column">
+              <div className="service-card-header">
+                <div>
+                  <h4 className="service-item-title">{c.item6Title}</h4>
+                  <p className="service-item-subtitle">{c.item6Subtitle}</p>
+                </div>
+                <div className="service-price-badges">
+                  <div className="price-pill accent">
+                    <span className="price-amount">$700.00</span>
+                    <span className="price-unit">
+                      {language === 'en'
+                        ? '/ turnkey site'
+                        : language === 'fr'
+                          ? '/ site clé en main'
+                          : '/ trọn gói'}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <ul className="service-bullet-list">
+                {c.item6Bullets.map((b, i) => (
+                  <li key={i}>{b}</li>
+                ))}
+              </ul>
+
+              <div className="service-interactive-controls no-print">
+                <div className="qty-control-row">
+                  <span className="qty-label">{c.item6CtrlPackage}</span>
+                  <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
+                    <button
+                      type="button"
+                      className={`combo-toggle-btn ${selections.websiteSelected ? 'selected' : ''}`}
+                      onClick={() =>
+                        setSelections((s) => ({ ...s, websiteSelected: true }))
+                      }
+                    >
+                      {selections.websiteSelected ? `✓ ${c.item6OptSelected}` : c.item6OptSelected}
+                    </button>
+                    <button
+                      type="button"
+                      className={`combo-toggle-btn ${!selections.websiteSelected ? 'selected' : ''}`}
+                      onClick={() =>
+                        setSelections((s) => ({ ...s, websiteSelected: false }))
+                      }
+                    >
+                      {c.notSelected}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          )}
         </div>
 
-        {visibleItems && visibleItems.length > 0 && visibleItems.length < 5 && (
+        {visibleItems && visibleItems.length > 0 && visibleItems.length < 6 && (
           <div className="quote-expand-other-wrap no-print">
             <button
               type="button"
@@ -1938,6 +2113,14 @@ export default function InteractiveQuoteSection({
                       : ''}
                   </td>
                   <td>${item5Subtotal.toFixed(2)}</td>
+                </tr>
+              )}
+              {isItemVisible('website') && (
+                <tr>
+                  <th scope="row">{c.row6Title}</th>
+                  <td>{c.row6UnitLabel}</td>
+                  <td>{selections.websiteSelected ? c.yesSelected : '0'}</td>
+                  <td>${item6Subtotal.toFixed(2)}</td>
                 </tr>
               )}
             </tbody>

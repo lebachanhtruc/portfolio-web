@@ -17,9 +17,16 @@ export interface TokenSelections {
   tvExtraClips?: number;
   basicClips?: number;
   influencerClips?: number;
+  websiteSelected?: boolean;
 }
 
-export type QuoteServiceKey = 'menu' | 'tvCombo' | 'basicClip' | 'influencer' | 'decal';
+export type QuoteServiceKey =
+  | 'menu'
+  | 'tvCombo'
+  | 'basicClip'
+  | 'influencer'
+  | 'decal'
+  | 'website';
 
 export interface QuotePresetOption {
   label: string;

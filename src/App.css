@@ -1907,6 +1907,35 @@ section {
   color: #0f172a;
 }
 
+.quote-sample-live-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-block-start: 0.6rem;
+  padding-block: 0.55rem;
+  padding-inline: 0.9rem;
+  border-radius: 10px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(110, 231, 183, 0.35);
+  color: #6ee7b7;
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.quote-sample-live-link:hover {
+  background: rgba(110, 231, 183, 0.22);
+  color: #ffffff;
+}
+
+.quote-sample-live-link:focus-visible {
+  outline: 2px solid #6ee7b7;
+  outline-offset: 2px;
+}
+
 .service-details-column {
   display: flex;
   flex-direction: column;
@@ -2728,7 +2757,8 @@ dialog.quote-native-dialog::backdrop {
   .agency-btn-primary,
   .agency-btn-secondary,
   .builder-link-btn,
-  .builder-inline-chip {
+  .builder-inline-chip,
+  .quote-sample-live-link {
     min-block-size: 44px;
     min-inline-size: 44px;
   }
