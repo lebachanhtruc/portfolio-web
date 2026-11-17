@@ -4,7 +4,7 @@ import BeforeAfterSlider from './BeforeAfterSlider';
 import ViewportVideo from './ViewportVideo';
 import { useLanguage } from '../contexts/LanguageContext';
 import { encodeMediaPath } from '../utils/media';
-import { scrollToElement } from '../utils/scroll';
+import { scrollToElement, scrollToElementById } from '../utils/scroll';
 
 export interface GalleryItem {
   kind: 'pair' | 'image' | 'video';
@@ -116,7 +116,13 @@ function ProjectGroup({
     return list[Math.abs(hash) % list.length];
   };
 
-  const localizedCategory = t(`projects.tabs.${project.category}`);
+  const isWebsiteShowcase = Boolean(project.websiteShowcase);
+  const showcaseData = isWebsiteShowcase
+    ? (translations as any)?.projects?.websiteShowcase
+    : null;
+  const localizedCategory = isWebsiteShowcase
+    ? t('projects.websiteShowcase.cardCategory')
+    : t(`projects.tabs.${project.category}`);
 
   // Build ordered gallery items array for lightbox Next/Prev navigation inside this group
   const galleryItems: GalleryItem[] = [
@@ -152,7 +158,9 @@ function ProjectGroup({
   const itemCount = pairCount + (project.standalone?.length || 0);
 
   let gridClass = 'vertical-grid';
-  if (project.category === 'Photography') {
+  if (isWebsiteShowcase) {
+    gridClass = 'website-showcase-grid';
+  } else if (project.category === 'Photography') {
     gridClass = 'masonry-grid';
   } else if (itemCount === 10) {
     gridClass = 'grid-5x2';
@@ -183,15 +191,15 @@ function ProjectGroup({
         />
       );
     }
-    const position = getObjectPosition(src);
+    const position = isWebsiteShowcase ? 'top center' : getObjectPosition(src);
     return (
       <img
         src={safeSrc}
         alt={getLocalizedCardTitle(src)}
         loading="lazy"
         decoding="async"
-        width={540}
-        height={960}
+        width={isWebsiteShowcase ? 1280 : 540}
+        height={isWebsiteShowcase ? 800 : 960}
         className={`project-media ${containClass}`.trim()}
         style={position ? { objectPosition: position } : undefined}
       />
@@ -204,6 +212,37 @@ function ProjectGroup({
         {t(`projects.titles.${project.title}`)} -{' '}
         <span className="highlight-text">{project.brand}</span>
       </h2>
+      {showcaseData && (
+        <div className="website-showcase-intro">
+          <p className="website-showcase-subtitle">{showcaseData.subtitle}</p>
+          <div className="website-showcase-tags">
+            {(showcaseData.tags as string[]).map((tag, i) => (
+              <span key={i} className="website-showcase-tag">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div className="website-showcase-actions">
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="website-showcase-live-btn"
+              >
+                {showcaseData.liveCta}
+              </a>
+            )}
+            <button
+              type="button"
+              className="website-showcase-quote-btn"
+              onClick={() => void scrollToElementById('quote-website-card', 32)}
+            >
+              {showcaseData.quoteCta}
+            </button>
+          </div>
+        </div>
+      )}
       <div className="mobile-swipe-indicator">
         {scrollState !== 'start' && <span className="swipe-arrow-left">←</span>}
         <span>{t('projects.swipeToExplore')}</span>

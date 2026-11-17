@@ -1105,7 +1105,7 @@ section {
 
 /* Responsive */
 @media (max-width: 480px) {
-  .grid-3-cols, .vertical-grid, .masonry-grid, .grid-5x2, .grid-5-cols, .grid-3-cols-center-high, .grid-2-cols, .grid-1-col {
+  .grid-3-cols, .vertical-grid, .masonry-grid, .grid-5x2, .grid-5-cols, .grid-3-cols-center-high, .grid-2-cols, .grid-1-col, .website-showcase-grid {
     display: flex !important;
     flex-wrap: nowrap !important;
     overflow-x: auto !important;
@@ -1205,6 +1205,11 @@ section {
 
   .media-wrapper.contain-media {
     aspect-ratio: 4 / 3;
+  }
+
+  .website-showcase-grid .media-wrapper,
+  .website-showcase-grid .media-wrapper.contain-media {
+    aspect-ratio: 16 / 10;
   }
 
   .hero-left-label, .hero-right-label {
@@ -3663,6 +3668,132 @@ label.generator-checkbox-row input[type='checkbox'] {
 }
 
 /* Clean Print / Save-as-PDF Stylesheet */
+/* ========================================================
+   WEBSITE DESIGN SHOWCASE IN PORTFOLIO GRID
+   ======================================================== */
+#quote-website-card {
+  scroll-margin-top: 32px;
+}
+
+.website-showcase-intro {
+  max-inline-size: 900px;
+  margin-inline: auto;
+  margin-block-start: -1.5rem;
+  margin-block-end: 2.25rem;
+  text-align: center;
+  display: grid;
+  gap: 1.05rem;
+  justify-items: center;
+}
+
+.website-showcase-subtitle {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+  text-wrap: pretty;
+  max-inline-size: 68ch;
+}
+
+.website-showcase-tags {
+  display: flex;
+  flex-wrap: wrap;
+  flex-wrap: balance;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.website-showcase-tag {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #e9d5ff;
+  background: rgba(168, 85, 247, 0.14);
+  border: 1px solid rgba(192, 132, 252, 0.34);
+  padding: 0.32rem 0.78rem;
+  border-radius: 999px;
+}
+
+.website-showcase-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.website-showcase-live-btn,
+.website-showcase-quote-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 44px;
+  padding: 0.65rem 1.25rem;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, filter 0.2s ease;
+}
+
+.website-showcase-live-btn {
+  background: rgba(16, 185, 129, 0.14);
+  border: 1px solid rgba(52, 211, 153, 0.48);
+  color: #a7f3d0;
+}
+
+.website-showcase-live-btn:hover {
+  background: rgba(16, 185, 129, 0.24);
+  border-color: rgba(52, 211, 153, 0.8);
+  transform: translateY(-2px);
+}
+
+.website-showcase-quote-btn {
+  background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+  border: none;
+  color: #ffffff;
+}
+
+.website-showcase-quote-btn:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+}
+
+.website-showcase-live-btn:focus-visible,
+.website-showcase-quote-btn:focus-visible {
+  outline: 2px solid #c084fc;
+  outline-offset: 3px;
+}
+
+.website-showcase-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.website-showcase-grid .media-wrapper,
+.website-showcase-grid .media-wrapper.contain-media {
+  aspect-ratio: 16 / 10;
+  background: #0d111a;
+}
+
+@media (max-width: 960px) and (min-width: 481px) {
+  .website-showcase-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .website-showcase-actions {
+    inline-size: 100%;
+  }
+  .website-showcase-live-btn,
+  .website-showcase-quote-btn {
+    inline-size: 100%;
+    text-align: center;
+    font-size: 0.83rem;
+    padding-inline: 0.9rem;
+  }
+}
+
 @media print {
   body {
     background: #ffffff !important;

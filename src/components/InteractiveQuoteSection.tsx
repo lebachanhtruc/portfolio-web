@@ -1649,7 +1649,7 @@ export default function InteractiveQuoteSection({
 
           {/* CARD 3: CUSTOM BRAND & RESTAURANT WEBSITE PACKAGE ($700 - CASE STUDY: PATISSERIEDZUNG.CA) */}
           {isItemVisible('website') && (
-          <article className="quote-service-card">
+          <article id="quote-website-card" className="quote-service-card">
             <div className="service-media-column">
               <div className="service-media-tabs no-print">
                 <button

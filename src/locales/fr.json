@@ -212,12 +212,26 @@
     "titles": {
       "Sensory Experience": "Expérience Sensorielle",
       "Broadcast Vision": "Vision Télévisuelle",
+      "Website Design & Ordering": "Site Web Sur Mesure",
       "Digital Menu 4K & Ad Reels": "Vidéos Pub IA & Menus Animés 4K",
       "Menu Design & Signage": "Menus Imprimés & Décalques",
       "The Culinary Art": "L'Art Culinaire",
       "Product Elegance": "L'Élégance du Produit",
       "Still Life Essence": "L'Essence de la Nature Morte",
       "Cinematic Motion": "Mouvement Cinématographique"
+    },
+    "websiteShowcase": {
+      "subtitle": "Forfait Site Web F&B Clé en Main (700 $) — Déployé en direct sur patisseriedzung.ca : changement de langue FR/EN/VI/ZH instantané, menu interactif 40+ plats, filtres allergènes, Traiteur & SEO Google.",
+      "tags": [
+        "4 Langues Instantanées",
+        "Menu 40+ Plats & Filtres",
+        "Statut Ouvert / Fermé",
+        "SEO Google & Schémas",
+        "Forfait Clé en Main 700 $"
+      ],
+      "liveCta": "🌐 Voir le site réel : patisseriedzung.ca ↗",
+      "quoteCta": "Voir le Devis Site Web (700 $) ↓",
+      "cardCategory": "Conception Site Web"
     },
     "cardTitles": {
       "food": [
@@ -273,7 +287,10 @@
         "somii-menu-matngoai": "Menu Dépliant 6 Faces (Somii Sushi)",
         "menu-tinh-demo": "Maquette Menu Extérieur",
         "menu-tinh-trong": "Maquette Menu Intérieur",
-        "decal-kinh-demo": "Pose de Décalque sur Vitrine"
+        "decal-kinh-demo": "Pose de Décalque sur Vitrine",
+        "patisserie-dzung-home": "Hero Vidéo & Changement de Langue",
+        "patisserie-dzung-menu": "Menu Interactif 44+ Plats & Allergènes",
+        "patisserie-dzung-catering": "Devis Traiteur & Contact Direct"
       }
     },
     "lightbox": {

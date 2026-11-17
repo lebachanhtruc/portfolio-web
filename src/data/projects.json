@@ -27,6 +27,22 @@
     ]
   },
   {
+    "id": "WebsiteDesignPatisserieDzung",
+    "title": "Website Design & Ordering",
+    "category": "Videography",
+    "brand": "Pâtisserie Dzung",
+    "websiteShowcase": true,
+    "containMedia": true,
+    "liveUrl": "https://www.patisseriedzung.ca/",
+    "pairs": [],
+    "standalone": [
+      "/Media/quote-showcase/patisserie-dzung-home.jpg",
+      "/Media/quote-showcase/patisserie-dzung-menu.jpg",
+      "/Media/quote-showcase/patisserie-dzung-catering.jpg"
+    ],
+    "disableAnimation": true
+  },
+  {
     "id": "Project9AigeneratedVideoforpublicScreenTV",
     "title": "Broadcast Vision",
     "category": "Videography",

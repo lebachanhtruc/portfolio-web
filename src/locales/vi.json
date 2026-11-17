@@ -212,12 +212,26 @@
     "titles": {
       "Sensory Experience": "Trải Nghiệm Đa Giác Quan",
       "Broadcast Vision": "Tầm Nhìn Truyền Hình",
+      "Website Design & Ordering": "Thiết Kế Website Thương Hiệu",
       "Digital Menu 4K & Ad Reels": "Video Quảng Cáo AI & Menu Động 4K",
       "Menu Design & Signage": "Thiết Kế Menu & Decal Mặt Tiền",
       "The Culinary Art": "Nghệ Thuật Ẩm Thực",
       "Product Elegance": "Sự Tinh Tế Của Sản Phẩm",
       "Still Life Essence": "Tinh Hoa Tĩnh Vật",
       "Cinematic Motion": "Chuyển Động Điện Ảnh"
+    },
+    "websiteShowcase": {
+      "subtitle": "Gói Thiết Kế Website Thương Hiệu F&B Trọn Gói ($700) — Thực tế vận hành trên patisseriedzung.ca: đa ngôn ngữ FR/EN/VI/ZH, thực đơn tương tác 40+ món, lọc dị ứng, Catering & SEO Google.",
+      "tags": [
+        "4 Ngôn Ngữ Tức Thì",
+        "Menu 40+ Món & Bộ Lọc",
+        "Trạng Thái Mở / Đóng Cửa",
+        "Schema SEO & Google Maps",
+        "Gói Trọn Gói $700"
+      ],
+      "liveCta": "🌐 Xem web mẫu thực tế: patisseriedzung.ca ↗",
+      "quoteCta": "Xem Chi Tiết Báo Giá Website ($700) ↓",
+      "cardCategory": "Thiết Kế Website Trọn Gói"
     },
     "cardTitles": {
       "food": [
@@ -273,7 +287,10 @@
         "somii-menu-matngoai": "Menu Gấp 3 / 6 Mặt (Somii Sushi)",
         "menu-tinh-demo": "Menu Mặt Ngoài & Bảng Giá",
         "menu-tinh-trong": "Menu Mặt Trong Chi Tiết",
-        "decal-kinh-demo": "Thi Công Decal Kính Mặt Tiền"
+        "decal-kinh-demo": "Thi Công Decal Kính Mặt Tiền",
+        "patisserie-dzung-home": "Trang Chủ Hero Video & Đa Ngôn Ngữ",
+        "patisserie-dzung-menu": "Thực Đơn 44+ Món & Bộ Lọc Dị Ứng",
+        "patisserie-dzung-catering": "Trang Đặt Tiệc Catering & Liên Hệ"
       }
     },
     "lightbox": {

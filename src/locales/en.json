@@ -212,12 +212,26 @@
     "titles": {
       "Sensory Experience": "Sensory Experience",
       "Broadcast Vision": "Broadcast Vision",
+      "Website Design & Ordering": "Custom Restaurant Website",
       "Digital Menu 4K & Ad Reels": "AI Ad Reels & 4K Animated Menus",
       "Menu Design & Signage": "Menu Design & Window Decals",
       "The Culinary Art": "The Culinary Art",
       "Product Elegance": "Product Elegance",
       "Still Life Essence": "Still Life Essence",
       "Cinematic Motion": "Cinematic Motion"
+    },
+    "websiteShowcase": {
+      "subtitle": "Turnkey Brand & F&B Website Package ($700) — Built and running live on patisseriedzung.ca: instant FR/EN/VI/ZH switching, 40+ dish interactive menu, allergen filters, Catering & Google SEO.",
+      "tags": [
+        "4 Instant Languages",
+        "40+ Dish Menu & Filters",
+        "Live Store Hours Status",
+        "Google SEO & Schema",
+        "$700 Turnkey Build"
+      ],
+      "liveCta": "🌐 Visit live showcase: patisseriedzung.ca ↗",
+      "quoteCta": "View Website Package Pricing ($700) ↓",
+      "cardCategory": "Turnkey Web Design"
     },
     "cardTitles": {
       "food": [
@@ -273,7 +287,10 @@
         "somii-menu-matngoai": "Tri-Fold 6-Panel Menu (Somii Sushi)",
         "menu-tinh-demo": "Printed & TV Menu Front Layout",
         "menu-tinh-trong": "Printed & TV Menu Inside Layout",
-        "decal-kinh-demo": "Storefront Window Decal Install"
+        "decal-kinh-demo": "Storefront Window Decal Install",
+        "patisserie-dzung-home": "Hero Cinema Video & 4-Language Switcher",
+        "patisserie-dzung-menu": "44+ Dish Interactive Menu & Allergens",
+        "patisserie-dzung-catering": "Catering Inquiry & 1-Tap Order Flow"
       }
     },
     "lightbox": {
