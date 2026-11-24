@@ -1,20 +1,72 @@
 import { useLanguage } from '../contexts/LanguageContext';
 import { useEffect, useId, useRef, useState } from 'react';
 import { scrollToElementById } from '../utils/scroll';
+import { encodeMediaPath } from '../utils/media';
+
+interface KilnCardCopy {
+  eyebrow: string;
+  title: string;
+  desc: string;
+  cta: string;
+}
+
+const KILN_CARDS = [
+  {
+    id: 'luxury',
+    targetId: 'project-CaseStudyLXRStudio',
+    image: '/Media/lxr-editorial/lxr-cny-dior-saddle.webp',
+    objectPosition: 'center 78%',
+    width: 1067,
+    height: 1600,
+    priority: true
+  },
+  {
+    id: 'culinary',
+    targetId: 'project-CaseStudyShushuGastronomy',
+    image:
+      '/Media/AI Graphic Design and Photo Shoot/Project 4 - food photography and ai poster create/2025 Nov 06 - SHUSHUTO Spring Menu Set0280.jpg',
+    objectPosition: 'center 52%',
+    width: 1200,
+    height: 1800,
+    priority: false
+  },
+  {
+    id: 'web',
+    targetId: 'project-WebsiteDesignPatisserieDzung',
+    image: '/Media/quote-showcase/patisserie-dzung-home.jpg',
+    objectPosition: '82% 38%',
+    width: 1280,
+    height: 800,
+    priority: false
+  },
+  {
+    id: 'print',
+    targetId: 'project-CommercialPrintPrePressArchive',
+    image: '/Media/print-archive/print-taydo-trifold-mockup.webp',
+    objectPosition: '26% 36%',
+    width: 1800,
+    height: 1200,
+    priority: false
+  }
+] as const;
 
 export default function HeroSection({
-  profileMode = 'agency'
+  profileMode = 'agency',
+  onNavigatePillar
 }: {
   profileMode?: 'agency' | 'cv';
+  onNavigatePillar?: (targetId: string) => void;
 }) {
   const { t, translations } = useLanguage();
   const [isInView, setIsInView] = useState(false);
   const [isShowreelOpen, setIsShowreelOpen] = useState(false);
+  const [activeKiln, setActiveKiln] = useState(0);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const showreelDialogRef = useRef<HTMLDialogElement>(null);
   const showreelVideoRef = useRef<HTMLVideoElement>(null);
   const showreelTitleId = useId();
+  const kilnBaseId = useId();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -100,12 +152,27 @@ export default function HeroSection({
     setIsShowreelOpen(false);
   };
 
+  const handleKilnHover = (idx: number) => {
+    if (typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches) {
+      setActiveKiln(idx);
+    }
+  };
+
+  const handlePillarNavigate = (targetId: string) => {
+    if (onNavigatePillar) {
+      onNavigatePillar(targetId);
+      return;
+    }
+    void scrollToElementById(targetId);
+  };
+
   const roleText = profileMode === 'agency' ? t('hero.agencyRole') : t('hero.role');
   const showreelChapters: string[] = translations.hero.showreelChapters || [];
+  const kilnItems: KilnCardCopy[] = (translations as any)?.hero?.kiln || [];
 
   return (
-    <section className="hero-masterpiece">
-      <div className="hero-text-container" style={{ flexDirection: 'column' }}>
+    <section className="hero-masterpiece hero-editorial-split">
+      <div className="hero-top-masthead">
         <div className="hero-title-wrapper">
           <h1
             ref={titleRef}
@@ -130,22 +197,14 @@ export default function HeroSection({
             LIO
           </h1>
         </div>
-        <div
-          className="hero-labels"
-          style={{
-            width: '100%',
-            display: 'flex',
-            justifyContent: 'space-between',
-            padding: '0 5vw',
-            marginTop: 'clamp(0.75rem, 1.4vw, 1.5rem)',
-            zIndex: 10
-          }}
-        >
-          <div className="hero-left-label">TRUC LE</div>
-          <div className="hero-right-label">{roleText}</div>
-        </div>
 
-        <div className="hero-showreel-row">
+        <div className="hero-meta-bar">
+          <div className="hero-identity-cluster">
+            <span className="hero-left-label">TRUC LE</span>
+            <span className="hero-meta-sep" aria-hidden="true">·</span>
+            <span className="hero-right-label">{roleText}</span>
+          </div>
+
           <button
             type="button"
             className="hero-showreel-btn"
@@ -155,6 +214,86 @@ export default function HeroSection({
             <span>{t('hero.showreelCta')}</span>
             <span className="showreel-pill-tag">{t('hero.showreelBadge')}</span>
           </button>
+        </div>
+      </div>
+
+      {/* Editorial 4-Pillar Spring Accordion (Kiln-inspired, native CSS linear() spring + no text re-wrap) */}
+      <div
+        className="hero-kiln-stage"
+        role="region"
+        aria-label={t('hero.kilnAria')}
+      >
+        <div className="kiln-strip">
+          {KILN_CARDS.map((card, idx) => {
+            const copy = kilnItems[idx] || {
+              eyebrow: `0${idx + 1}`,
+              title: card.id,
+              desc: '',
+              cta: 'Explore →'
+            };
+            const isActive = activeKiln === idx;
+            const panelId = `${kilnBaseId}-panel-${card.id}`;
+
+            return (
+              <article
+                key={card.id}
+                data-pillar={card.id}
+                className={`kiln-card ${isActive ? 'is-active' : ''}`}
+                onMouseEnter={() => handleKilnHover(idx)}
+              >
+                <img
+                  src={encodeMediaPath(card.image)}
+                  alt={`${copy.title} — ${copy.desc}`}
+                  width={card.width}
+                  height={card.height}
+                  {...(card.priority ? { fetchPriority: 'high' as const, decoding: 'sync' as const } : {})}
+                  className="kiln-card-img"
+                  style={{ objectPosition: card.objectPosition }}
+                />
+                <div className="kiln-card-scrim" aria-hidden="true" />
+
+                <button
+                  type="button"
+                  className="kiln-card-trigger"
+                  aria-expanded={isActive}
+                  aria-controls={panelId}
+                  aria-label={`${copy.eyebrow} — ${copy.title}`}
+                  onClick={() => setActiveKiln(idx)}
+                  onFocus={() => setActiveKiln(idx)}
+                />
+
+                <div className="kiln-card-chrome">
+                  <div className="kiln-card-top">
+                    <span className="kiln-card-eyebrow">{copy.eyebrow}</span>
+                    <span className="kiln-card-toggle" aria-hidden="true">
+                      +
+                    </span>
+                  </div>
+
+                  <div className="kiln-card-bottom">
+                    <h2 className="kiln-card-title">{copy.title}</h2>
+                    <div
+                      id={panelId}
+                      className="kiln-card-reveal"
+                      aria-hidden={!isActive}
+                    >
+                      <div className="kiln-card-details">
+                        <p className="kiln-card-desc">{copy.desc}</p>
+                        <button
+                          type="button"
+                          className="kiln-card-cta"
+                          tabIndex={isActive ? 0 : -1}
+                          onClick={() => handlePillarNavigate(card.targetId)}
+                        >
+                          {copy.cta}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
 

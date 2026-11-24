@@ -15,6 +15,33 @@
       "03 Menu Động 4K",
       "04 TV Mặt Tiền & Reels",
       "05 Web Chuyển Đổi & In Ấn"
+    ],
+    "kilnAria": "Bốn trụ cột chuyên môn nổi bật",
+    "kiln": [
+      {
+        "eyebrow": "01 / LUXURY",
+        "title": "Studio Luxury.",
+        "desc": "Chỉ đạo nghệ thuật & ánh sáng studio thực tế cho Dior, Céline, Gucci, LV & Hermès tại LXR.",
+        "cta": "Xem Bộ Ảnh LXR →"
+      },
+      {
+        "eyebrow": "02 / ẨM THỰC",
+        "title": "Ẩm Thực AI.",
+        "desc": "Chụp món thực tế kết hợp ánh sáng AI tạo sinh & video 4K (+12% đơn đặt số YoY).",
+        "cta": "Xem So Sánh Trước/Sau →"
+      },
+      {
+        "eyebrow": "03 / WEB",
+        "title": "Web & CRO.",
+        "desc": "Hệ sinh thái địa phương 0→1: Google 4.9★ (119 đánh giá), web 4 ngôn ngữ, GA4 & Luật 25.",
+        "cta": "Xem Case Study Web →"
+      },
+      {
+        "eyebrow": "04 / IN ẤN",
+        "title": "In Ấn & Ops.",
+        "desc": "Chế bản CMYK tại Montréal, bao bì song ngữ FR/EN, sổ tay 21 trang InDesign & menu 3D.",
+        "cta": "Xem Hồ Sơ In Ấn →"
+      }
     ]
   },
   "about": {

@@ -112,6 +112,17 @@ function App() {
     void scrollToElementById('section-Videography');
   };
 
+  const navigateToPillar = (targetId: string) => {
+    if (profileMode !== 'agency') {
+      setProfileMode('agency');
+      window.setTimeout(() => {
+        void scrollToElementById(targetId);
+      }, 90);
+      return;
+    }
+    void scrollToElementById(targetId);
+  };
+
   return (
     <LanguageProvider>
       <div className="app-container">
@@ -124,7 +135,7 @@ function App() {
               onScrollToPortfolio={scrollToPortfolio}
             />
           )}
-          <HeroSection profileMode={profileMode} />
+          <HeroSection profileMode={profileMode} onNavigatePillar={navigateToPillar} />
           <AboutSection profileMode={profileMode} onProfileModeChange={setProfileMode} />
           {profileMode === 'agency' && <ProjectGrids />}
           {!isDedicatedClientQuote && profileMode === 'agency' && (

@@ -15,6 +15,33 @@
       "03 4K Digital Menus",
       "04 TV Signage & Reels",
       "05 Conversion Web & Print"
+    ],
+    "kilnAria": "Featured creative pillars",
+    "kiln": [
+      {
+        "eyebrow": "01 / LUXURY",
+        "title": "Luxury Studio.",
+        "desc": "In-camera art direction & studio lighting for Dior, Céline, Gucci, LV & Hermès at LXR.",
+        "cta": "Explore LXR Lookbook →"
+      },
+      {
+        "eyebrow": "02 / CULINARY",
+        "title": "Culinary AI.",
+        "desc": "On-site gastronomy shoots paired with generative AI lighting & 4K motion (+12% YoY orders).",
+        "cta": "See Before / After AI →"
+      },
+      {
+        "eyebrow": "03 / WEB",
+        "title": "Growth Web.",
+        "desc": "0→1 multilingual F&B web & local SEO — 4.9★ Google (119 reviews), GA4, Clarity & Law 25.",
+        "cta": "Inspect Live Case →"
+      },
+      {
+        "eyebrow": "04 / PRINT",
+        "title": "Print & Ops.",
+        "desc": "Montréal CMYK pre-press, bilingual FR/EN packaging, 21p InDesign & commercial menus.",
+        "cta": "View Print Archive →"
+      }
     ]
   },
   "about": {

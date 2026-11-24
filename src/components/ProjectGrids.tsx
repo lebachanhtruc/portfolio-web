@@ -236,7 +236,7 @@ function ProjectGroup({
   };
 
   return (
-    <div className="project-group" ref={containerRef}>
+    <div id={`project-${project.id}`} className="project-group" ref={containerRef}>
       <h2 className="project-group-title">
         {t(`projects.titles.${project.title}`)} -{' '}
         <span className="highlight-text">{project.brand}</span>

@@ -15,6 +15,33 @@
       "03 Menus Animés 4K",
       "04 TV Vitrine & Reels",
       "05 Web Conversion & Print"
+    ],
+    "kilnAria": "Piliers créatifs en vedette",
+    "kiln": [
+      {
+        "eyebrow": "01 / LUXE",
+        "title": "Studio Luxe.",
+        "desc": "Direction artistique & éclairage studio pour Dior, Céline, Gucci, LV & Hermès chez LXR.",
+        "cta": "Voir le Lookbook LXR →"
+      },
+      {
+        "eyebrow": "02 / CULINAIRE",
+        "title": "Culinaire IA.",
+        "desc": "Shooting gastronomique sur place, éclairage IA générative & menus 4K (+12 % commandes YoY).",
+        "cta": "Voir Avant / Après IA →"
+      },
+      {
+        "eyebrow": "03 / WEB",
+        "title": "Web & CRO.",
+        "desc": "Écosystème local 0→1 : Google 4,9★ (119 avis), site 4 langues, GA4, Clarity & Loi 25.",
+        "cta": "Voir l'Étude de Cas →"
+      },
+      {
+        "eyebrow": "04 / PRINT",
+        "title": "Print & Ops.",
+        "desc": "Prépresse CMJN Montréal, emballage bilingue FR/EN, cahier 21 pages InDesign & menus.",
+        "cta": "Voir l'Archive Print →"
+      }
     ]
   },
   "about": {

@@ -4266,3 +4266,566 @@ dialog.showreel-dialog[open] {
     padding-inline: 0.55rem;
   }
 }
+
+/* =========================================================
+   EDITORIAL SPLIT HERO + KILN 4-PILLAR SPRING ACCORDION
+   ========================================================= */
+.hero-masterpiece.hero-editorial-split {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(0.9rem, 2vh, 1.5rem);
+  padding: clamp(1.25rem, 2.8vh, 2.25rem) clamp(1.1rem, 3.8vw, 3.25rem) clamp(0.85rem, 1.8vh, 1.35rem);
+  background:
+    linear-gradient(to bottom, transparent 62%, #000000 100%),
+    radial-gradient(ellipse 80% 58% at 50% 28%, rgba(88, 28, 135, 0.56) 0%, rgba(16, 7, 32, 0.92) 56%, #000000 100%);
+  overflow: clip;
+}
+
+.hero-editorial-split .hero-top-masthead {
+  width: 100%;
+  max-width: 1240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(0.65rem, 1.4vh, 1.1rem);
+  z-index: 10;
+}
+
+.hero-editorial-split .massive-portfolio-text {
+  font-size: clamp(2.85rem, 7.6vw, 6.6rem);
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+}
+
+.hero-editorial-split .tv-mask {
+  width: clamp(54px, 6.8vw, 94px);
+  height: clamp(66px, 8.2vw, 114px);
+  margin: 0 clamp(0.35rem, 0.8vw, 0.75rem);
+  border-radius: clamp(12px, 1.4vw, 18px);
+  border-width: 3px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(192, 132, 252, 0.28);
+}
+
+.hero-meta-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-block: 0.35rem;
+  padding-inline: 0.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-identity-cluster {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.hero-editorial-split .hero-left-label,
+.hero-editorial-split .hero-right-label {
+  font-size: clamp(0.76rem, 1.05vw, 0.96rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero-editorial-split .hero-left-label {
+  color: #f8fafc;
+}
+
+.hero-editorial-split .hero-right-label {
+  color: #c084fc;
+}
+
+.hero-meta-sep {
+  color: rgba(192, 132, 252, 0.55);
+  font-weight: 700;
+}
+
+.hero-editorial-split .hero-showreel-btn {
+  min-block-size: 40px;
+  padding-block: 0.48rem;
+  padding-inline: 1rem 0.72rem;
+  font-size: clamp(0.78rem, 0.95vw, 0.88rem);
+}
+
+.hero-editorial-split .hero-showreel-btn:active {
+  transform: scale(0.97);
+}
+
+/* --- Kiln 4-Card Spring Strip --- */
+.hero-kiln-stage {
+  width: 100%;
+  max-width: 1240px;
+  z-index: 10;
+}
+
+.kiln-strip {
+  display: flex;
+  align-items: stretch;
+  gap: clamp(0.55rem, 0.95vw, 0.85rem);
+  width: 100%;
+  height: clamp(330px, 50dvh, 470px);
+}
+
+.kiln-card {
+  position: relative;
+  flex: 1 1 0%;
+  min-inline-size: 0;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #0c0916;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.52);
+  isolation: isolate;
+}
+
+.kiln-card.is-active {
+  flex: 2.85 1 0%;
+  border-color: rgba(192, 132, 252, 0.52);
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.72), 0 0 0 1px rgba(110, 231, 183, 0.22);
+}
+
+.kiln-card:has(.kiln-card-trigger:focus-visible) {
+  outline: 2px solid #6ee7b7;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .kiln-card {
+    /* Standard fallback first, then inline physics-based linear() spring easing */
+    transition:
+      flex-grow 0.62s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.25s ease-out,
+      box-shadow 0.35s ease-out;
+    transition-timing-function:
+      linear(0, 0.013 1%, 0.05 2.1%, 0.207 4.9%, 0.655 11.4%, 0.858 15%, 0.994 18.8%, 1.031 21.1%, 1.044 23.6%, 1.038 27.6%, 1.006 38.9%, 0.997 46.2%, 1.001 62%, 1),
+      ease-out,
+      ease-out;
+  }
+}
+
+.kiln-card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.76) saturate(0.95);
+  z-index: 0;
+}
+
+.kiln-card.is-active .kiln-card-img {
+  filter: brightness(0.94) saturate(1.06);
+}
+
+.kiln-card[data-pillar='print'] .kiln-card-img {
+  transform: scale(1.18);
+  filter: brightness(0.84) saturate(1.02);
+}
+
+.kiln-card[data-pillar='print'].is-active .kiln-card-img {
+  transform: scale(1.12);
+  filter: brightness(0.96) saturate(1.06);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .kiln-card-img {
+    transform: scale(1.04);
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease-out;
+  }
+  .kiln-card.is-active .kiln-card-img {
+    transform: scale(1);
+  }
+  .kiln-card[data-pillar='print'] .kiln-card-img {
+    transform: scale(1.22);
+  }
+  .kiln-card[data-pillar='print'].is-active .kiln-card-img {
+    transform: scale(1.14);
+  }
+}
+
+.kiln-card-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 4, 14, 0.56) 0%,
+    rgba(6, 4, 14, 0.1) 34%,
+    rgba(6, 4, 14, 0.44) 64%,
+    rgba(6, 4, 14, 0.95) 100%
+  );
+}
+
+/* Editorial asymmetric scrim on bright website screenshot so white copy stays high-contrast */
+.kiln-card[data-pillar='web'].is-active .kiln-card-scrim {
+  background:
+    linear-gradient(
+      98deg,
+      rgba(6, 4, 14, 0.94) 0%,
+      rgba(6, 4, 14, 0.82) 40%,
+      rgba(6, 4, 14, 0.24) 70%,
+      rgba(6, 4, 14, 0.38) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(6, 4, 14, 0.52) 0%,
+      rgba(6, 4, 14, 0.08) 32%,
+      rgba(6, 4, 14, 0.52) 65%,
+      rgba(6, 4, 14, 0.96) 100%
+    );
+}
+
+.kiln-card[data-pillar='print'] .kiln-card-scrim {
+  background: linear-gradient(
+    180deg,
+    rgba(6, 4, 14, 0.5) 0%,
+    rgba(6, 4, 14, 0.08) 32%,
+    rgba(6, 4, 14, 0.58) 68%,
+    rgba(6, 4, 14, 0.98) 92%,
+    rgba(6, 4, 14, 1) 100%
+  );
+}
+
+.kiln-card-trigger {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.kiln-card-trigger:focus-visible {
+  outline: none;
+}
+
+.kiln-card-chrome {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(0.9rem, 1.5vw, 1.35rem);
+  pointer-events: none;
+}
+
+.kiln-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.kiln-card-eyebrow {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: clamp(0.6rem, 0.72vw, 0.68rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(248, 250, 252, 0.94);
+  background: rgba(8, 6, 18, 0.56);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  padding: 0.22rem 0.5rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kiln-card-toggle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1;
+  color: #ffffff;
+  background: rgba(8, 6, 18, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(8px);
+}
+
+.kiln-card.is-active .kiln-card-toggle {
+  background: rgba(110, 231, 183, 0.2);
+  border-color: rgba(110, 231, 183, 0.75);
+  color: #6ee7b7;
+  transform: rotate(45deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .kiln-card-toggle {
+    transition: transform 0.36s ease-out, background 0.22s ease-out, border-color 0.22s ease-out, color 0.22s ease-out;
+    transition-timing-function: linear(0, 0.19 10%, 0.76 26%, 1.04 44%, 0.99 66%, 1), ease-out, ease-out, ease-out;
+  }
+}
+
+.kiln-card-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-inline-size: 0;
+}
+
+.kiln-card-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.48vw, 1.55rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  text-transform: none;
+  white-space: nowrap;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.7);
+}
+
+.kiln-card.is-active .kiln-card-title {
+  font-size: clamp(1.35rem, 2.15vw, 2.05rem);
+}
+
+/* Smooth reveal with locked inner width so description text NEVER re-wraps mid-spring */
+.kiln-card-reveal {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+  transition: opacity 0.24s ease-out, max-height 0.38s ease-out, margin-top 0.3s ease-out;
+}
+
+.kiln-card.is-active .kiln-card-reveal {
+  max-height: 160px;
+  opacity: 1;
+  margin-top: 0.55rem;
+}
+
+.kiln-card-details {
+  width: min(440px, 39vw);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.kiln-card-desc {
+  margin: 0;
+  font-size: clamp(0.8rem, 0.96vw, 0.92rem);
+  line-height: 1.45;
+  color: rgba(241, 245, 249, 0.92);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.65);
+}
+
+.kiln-card-cta {
+  pointer-events: auto;
+  position: relative;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-block-size: 38px;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid rgba(110, 231, 183, 0.6);
+  background: rgba(9, 14, 24, 0.78);
+  backdrop-filter: blur(10px);
+  color: #ecfdf5;
+  font-family: var(--font-primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.2s ease-out, border-color 0.2s ease-out, color 0.2s ease-out, transform 0.16s ease-out, box-shadow 0.2s ease-out;
+}
+
+.kiln-card-cta:hover {
+  background: #6ee7b7;
+  border-color: #6ee7b7;
+  color: #052e16;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
+}
+
+.kiln-card-cta:active {
+  transform: scale(0.96);
+}
+
+.kiln-card-cta:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+/* Clean in-flow scroll cue (prevents overlap with floating mobile dock) */
+.hero-editorial-split .hero-scroll-cue {
+  position: static;
+  left: auto;
+  bottom: auto;
+  transform: none;
+  margin-top: 0.15rem;
+  padding-block: 0.25rem;
+}
+
+.hero-editorial-split .hero-scroll-cue:hover,
+.hero-editorial-split .hero-scroll-cue:focus-visible {
+  transform: translateY(2px);
+}
+
+.hero-editorial-split .hero-scroll-track {
+  height: 20px;
+}
+
+/* --- Tablet & Mobile: Vertical Spring Accordion --- */
+@media (max-width: 900px) {
+  .hero-masterpiece.hero-editorial-split {
+    justify-content: flex-start;
+    gap: 0.95rem;
+    padding: 1.05rem 1rem 5.5rem;
+  }
+
+  .hero-editorial-split .massive-portfolio-text {
+    font-size: clamp(2.15rem, 11.2vw, 3.6rem);
+  }
+
+  .hero-editorial-split .tv-mask {
+    width: clamp(40px, 11vw, 66px);
+    height: clamp(50px, 13.5vw, 80px);
+    margin: 0 0.32rem;
+    border-radius: 12px;
+  }
+
+  .hero-meta-bar {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.6rem;
+    padding-block: 0.55rem;
+  }
+
+  .hero-identity-cluster {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.22rem;
+  }
+
+  .hero-meta-sep {
+    display: none;
+  }
+
+  .hero-editorial-split .hero-left-label,
+  .hero-editorial-split .hero-right-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+  }
+
+  .kiln-strip {
+    flex-direction: column;
+    height: auto;
+    gap: 0.55rem;
+  }
+
+  .kiln-card {
+    flex: none;
+    height: 66px;
+    border-radius: 16px;
+  }
+
+  .kiln-card.is-active {
+    flex: none;
+    height: 295px;
+  }
+
+  .kiln-card:not(.is-active) .kiln-card-scrim {
+    background: linear-gradient(
+      90deg,
+      rgba(6, 4, 14, 0.92) 0%,
+      rgba(6, 4, 14, 0.68) 54%,
+      rgba(6, 4, 14, 0.36) 100%
+    );
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .kiln-card {
+      transition:
+        height 0.52s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.22s ease-out,
+        box-shadow 0.3s ease-out;
+      transition-timing-function:
+        linear(0, 0.02 2%, 0.25 7%, 0.75 15%, 1.02 25%, 1.03 31%, 1.005 45%, 1),
+        ease-out,
+        ease-out;
+    }
+  }
+
+  .kiln-card-chrome {
+    padding: 0.85rem 1rem;
+  }
+
+  .kiln-card:not(.is-active) .kiln-card-chrome {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.65rem;
+  }
+
+  .kiln-card:not(.is-active) .kiln-card-top {
+    order: 2;
+    gap: 0.5rem;
+  }
+
+  .kiln-card:not(.is-active) .kiln-card-eyebrow {
+    display: none;
+  }
+
+  .kiln-card:not(.is-active) .kiln-card-bottom {
+    order: 1;
+  }
+
+  .kiln-card-title {
+    font-size: 1.06rem;
+  }
+
+  .kiln-card.is-active .kiln-card-title {
+    font-size: 1.46rem;
+  }
+
+  .kiln-card-details {
+    width: 100%;
+  }
+
+  .kiln-card-desc {
+    font-size: 0.82rem;
+  }
+
+  /* Keep scroll cue compact on the left, completely clear of the bottom-right utility dock */
+  .hero-editorial-split .hero-scroll-cue {
+    align-self: flex-start;
+    align-items: flex-start;
+    padding-left: 0.15rem;
+    padding-right: 0;
+    margin-top: 0.2rem;
+  }
+
+  .hero-editorial-split .hero-scroll-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+  }
+}
