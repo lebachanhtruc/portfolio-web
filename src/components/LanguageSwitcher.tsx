@@ -23,9 +23,11 @@ const ArrowUpIcon = () => (
 
 export default function LanguageSwitcher({
   showQuoteButton = true,
+  onOpenQuote,
   backToTopTargetId = 'portfolio-nav-dock'
 }: {
   showQuoteButton?: boolean;
+  onOpenQuote?: () => void;
   backToTopTargetId?: string;
 }) {
   const { language, setLanguage, t } = useLanguage();
@@ -74,6 +76,10 @@ export default function LanguageSwitcher({
             type="button"
             className="floating-contact-btn icon-btn quote-float-btn"
             onClick={() => {
+              if (onOpenQuote) {
+                onOpenQuote();
+                return;
+              }
               void scrollToElementById('section-Pricing & Services', 16);
             }}
             title={t('projects.tabs.Pricing & Services')}

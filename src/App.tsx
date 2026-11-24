@@ -85,7 +85,21 @@ function App() {
       ? 'cv'
       : 'agency';
 
+  const hasQuoteEstimateParams = Boolean(
+    searchParams &&
+      ['smenu', 'amenu', 'decal', 'tv', 'clip', 'uclip', 'web'].some((k) => searchParams.has(k))
+  );
+
   const [profileMode, setProfileMode] = useState<'agency' | 'cv'>(initialMode);
+  const [isQuoteExpanded, setIsQuoteExpanded] = useState<boolean>(() =>
+    Boolean(
+      isDedicatedClientQuote ||
+        isAdminEntry ||
+        hasQuoteEstimateParams ||
+        decodeURIComponent(initialHash || '') === '#section-Pricing & Services' ||
+        initialHash === '#quote-website-card'
+    )
+  );
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -125,6 +139,16 @@ function App() {
     }, 60);
   };
 
+  const openInteractiveQuote = (targetId = 'section-Pricing & Services', offset = 16) => {
+    if (profileMode !== 'agency') {
+      setProfileMode('agency');
+    }
+    setIsQuoteExpanded(true);
+    window.setTimeout(() => {
+      void scrollToElementById(targetId, offset);
+    }, 90);
+  };
+
   const navigateToPillar = (targetId: string) => {
     if (profileMode !== 'agency') {
       setProfileMode('agency');
@@ -144,20 +168,38 @@ function App() {
           {isDedicatedClientQuote && (
             <InteractiveQuoteSection
               isDedicatedClientMode={true}
+              isExpanded={true}
               remoteQuoteState={remoteQuoteState}
               onScrollToPortfolio={scrollToPortfolio}
             />
           )}
           <HeroSection profileMode={profileMode} onNavigatePillar={navigateToPillar} />
-          <AboutSection profileMode={profileMode} onProfileModeChange={setProfileMode} />
-          {profileMode === 'agency' && <ProjectGrids onOpenCvProfile={openCvProfile} />}
-          {!isDedicatedClientQuote && profileMode === 'agency' && (
-            <InteractiveQuoteSection remoteQuoteState={remoteQuoteState} />
+          <AboutSection
+            profileMode={profileMode}
+            onProfileModeChange={setProfileMode}
+            onOpenQuote={openInteractiveQuote}
+          />
+          {profileMode === 'agency' && (
+            <ProjectGrids
+              onOpenCvProfile={openCvProfile}
+              onOpenQuote={openInteractiveQuote}
+            />
           )}
-          <Footer />
+          {!isDedicatedClientQuote && profileMode === 'agency' && (
+            <InteractiveQuoteSection
+              remoteQuoteState={remoteQuoteState}
+              isExpanded={isQuoteExpanded}
+              onToggleExpand={setIsQuoteExpanded}
+            />
+          )}
+          <Footer
+            onOpenCvProfile={openCvProfile}
+            onOpenQuote={() => openInteractiveQuote('section-Pricing & Services', 16)}
+          />
         </main>
         <LanguageSwitcher
           showQuoteButton={profileMode === 'agency' || isDedicatedClientQuote}
+          onOpenQuote={() => openInteractiveQuote('section-Pricing & Services', 16)}
           backToTopTargetId={profileMode === 'agency' ? 'portfolio-nav-dock' : 'about-studio'}
         />
       </div>

@@ -53,12 +53,14 @@ function ProjectGroup({
   project,
   animClass,
   onOpenLightbox,
-  onOpenCvProfile
+  onOpenCvProfile,
+  onOpenQuote
 }: {
   project: any;
   animClass: string;
   onOpenLightbox: (items: GalleryItem[], startIndex: number) => void;
   onOpenCvProfile?: () => void;
+  onOpenQuote?: (targetId?: string, offset?: number) => void;
 }) {
   const { t, translations } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
@@ -283,7 +285,13 @@ function ProjectGroup({
             <button
               type="button"
               className="website-showcase-quote-btn"
-              onClick={() => void scrollToElementById('quote-website-card', 32)}
+              onClick={() => {
+                if (onOpenQuote) {
+                  onOpenQuote('quote-website-card', 32);
+                  return;
+                }
+                void scrollToElementById('quote-website-card', 32);
+              }}
             >
               {showcaseData.quoteCta}
             </button>
@@ -315,7 +323,6 @@ function ProjectGroup({
                   <BeforeAfterSlider
                     original={pair.original}
                     edited={pair.edited}
-                    impactBadge={groupImpactBadge}
                     onExpand={() => onOpenLightbox(galleryItems, index)}
                   />
                 </div>
@@ -468,14 +475,23 @@ function ProjectGroup({
   );
 }
 
+const FEATURED_CULINARY_IDS = new Set([
+  'CaseStudyShushuGastronomy',
+  'DigitalMenu4KAndCommercialAds',
+  'CaseStudyLimeGriffintown'
+]);
+
 export default function ProjectGrids({
-  onOpenCvProfile
+  onOpenCvProfile,
+  onOpenQuote
 }: {
   onOpenCvProfile?: () => void;
+  onOpenQuote?: (targetId?: string, offset?: number) => void;
 }) {
   const { t, translations } = useLanguage();
   const tabs = ['Luxury', 'Culinary', 'Web', 'Print'];
   const [activeTab, setActiveTab] = useState('Luxury');
+  const [showAllCulinary, setShowAllCulinary] = useState(false);
   const [isNavStuck, setIsNavStuck] = useState(false);
   const stickyShellRef = useRef<HTMLDivElement>(null);
   const stickySentinelRef = useRef<HTMLDivElement>(null);
@@ -590,6 +606,10 @@ export default function ProjectGrids({
 
   const scrollToSection = (tab: string) => {
     setActiveTab(tab);
+    if (tab === 'Pricing & Services' && onOpenQuote) {
+      onOpenQuote('section-Pricing & Services', 20);
+      return;
+    }
     const el = sectionRefs.current[tab] || document.getElementById(`section-${tab}`);
     const offset = tab === 'Pricing & Services' ? 20 : undefined;
     void scrollToElement(el, offset);
@@ -636,9 +656,15 @@ export default function ProjectGrids({
 
       <div className="projects-container">
         {tabs.map((tab) => {
-          const tabProjects = projectsData.filter((p) => p.category === tab);
-          if (tabProjects.length === 0) return null;
+          const allTabProjects = projectsData.filter((p) => p.category === tab);
+          if (allTabProjects.length === 0) return null;
           const chapter = chaptersCopy[tab];
+          const isCulinaryChapter = tab === 'Culinary';
+          const visibleTabProjects =
+            isCulinaryChapter && !showAllCulinary
+              ? allTabProjects.filter((p) => FEATURED_CULINARY_IDS.has(p.id))
+              : allTabProjects;
+          const hasHiddenCulinary = isCulinaryChapter && allTabProjects.length > visibleTabProjects.length;
 
           return (
             <div
@@ -662,7 +688,7 @@ export default function ProjectGrids({
                 </header>
               )}
 
-              {tabProjects.map((project: any) => {
+              {visibleTabProjects.map((project: any) => {
                 const globalIndex = projectsData.findIndex((p) => p.id === project.id);
                 return (
                   <ProjectGroup
@@ -671,9 +697,25 @@ export default function ProjectGrids({
                     animClass={project.disableAnimation ? '' : `scroll-anim-${(globalIndex % 13) + 1}`}
                     onOpenLightbox={openLightbox}
                     onOpenCvProfile={onOpenCvProfile}
+                    onOpenQuote={onOpenQuote}
                   />
                 );
               })}
+
+              {(hasHiddenCulinary || (isCulinaryChapter && showAllCulinary)) && (
+                <div className="culinary-expand-wrap">
+                  <button
+                    type="button"
+                    className="studio-btn-ghost culinary-expand-btn"
+                    aria-expanded={showAllCulinary}
+                    onClick={() => setShowAllCulinary((prev) => !prev)}
+                  >
+                    {showAllCulinary
+                      ? t('projects.collapseCulinary')
+                      : t('projects.expandCulinary')}
+                  </button>
+                </div>
+              )}
             </div>
           );
         })}

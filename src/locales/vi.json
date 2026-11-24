@@ -92,7 +92,7 @@
         }
       ],
       "agencyAreasLabel": "KHU VỰC PHỤC VỤ",
-      "agencyAreasValue": "Montréal, Longueuil, Brossard & Rive-Sud, QC"
+      "agencyAreasValue": "Montréal & Rive-Sud, QC"
     },
     "bioTitle": "Tổng Quan Product Builder",
     "bio": {
@@ -351,7 +351,7 @@
       "Cinematic Motion": "Chuyển Động Điện Ảnh"
     },
     "websiteShowcase": {
-      "subtitle": "Hệ Thống Web & Tăng Trưởng Địa Phương F&B — Xây từ 0→1 cho Pâtisserie Dzung: Google Business Profile 4.9★ (119 đánh giá) + Native GBP Menu 15 món, Instagram Business, web 4 ngôn ngữ FR/EN/VI/ZH, QR (/goi-bo), GA4 Consent Mode v2 + Clarity, A/B Test 50/50 & Luật 25 Québec.",
+      "subtitle": "Xây từ 0→1 cho Pâtisserie Dzung: Google Business 4.9★ (119 đánh giá), web 4 ngôn ngữ, QR bao bì O2O, A/B Test GA4 + Clarity & chuẩn Luật 25 Québec.",
       "tags": [
         "Google 4.9★ (119 Reviews)",
         "Local SEO & IG Business",
@@ -451,6 +451,14 @@
       "viewBts": "▶ Xem Clip Hậu Trường",
       "viewPhoto": "🖼 Xem Ảnh Thành Phẩm"
     },
-    "swipeToExplore": "Vuốt ngang để xem thêm"
+    "swipeToExplore": "Vuốt ngang để xem thêm",
+    "expandCulinary": "Xem thêm 2 chiến dịch Ẩm Thực & TV +",
+    "collapseCulinary": "Thu gọn phần nổi bật −"
+  },
+  "footer": {
+    "eyebrow": "MONTRÉAL · CHỈ ĐẠO SÁNG TẠO, WEB TĂNG TRƯỞNG & HỆ THỐNG AI",
+    "headline": "Cùng tạo nên giá trị đo lường được.",
+    "copy": "© 2026 Truc Le · TYM Production · Montréal, QC",
+    "rateCard": "Bảng Giá"
   }
 }

@@ -125,9 +125,14 @@ const PATISSERIE_REPO_URL = 'https://github.com/lebachanhtruc/patisserie-dzung';
 interface AboutSectionProps {
   profileMode: 'agency' | 'cv';
   onProfileModeChange: (mode: 'agency' | 'cv') => void;
+  onOpenQuote?: (targetId?: string, offset?: number) => void;
 }
 
-export default function AboutSection({ profileMode, onProfileModeChange }: AboutSectionProps) {
+export default function AboutSection({
+  profileMode,
+  onProfileModeChange,
+  onOpenQuote
+}: AboutSectionProps) {
   const { t, translations } = useLanguage();
   const [copiedPhone, setCopiedPhone] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -164,6 +169,10 @@ export default function AboutSection({ profileMode, onProfileModeChange }: About
   };
 
   const scrollToQuote = () => {
+    if (onOpenQuote) {
+      onOpenQuote('section-Pricing & Services', 0);
+      return;
+    }
     void scrollToElementById('section-Pricing & Services', 0);
   };
 

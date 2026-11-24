@@ -34,7 +34,7 @@ const KILN_CARDS = [
     id: 'web',
     targetId: 'section-Web',
     image: '/Media/quote-showcase/patisserie-dzung-home.jpg',
-    objectPosition: '82% 38%',
+    objectPosition: '84% 58%',
     width: 1280,
     height: 800,
     priority: false

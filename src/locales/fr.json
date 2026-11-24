@@ -92,7 +92,7 @@
         }
       ],
       "agencyAreasLabel": "TERRITOIRE DESSERVI",
-      "agencyAreasValue": "Montréal, Longueuil, Brossard & Rive-Sud, QC"
+      "agencyAreasValue": "Montréal & Rive-Sud, QC"
     },
     "bioTitle": "Profil Product Builder",
     "bio": {
@@ -351,7 +351,7 @@
       "Cinematic Motion": "Mouvement Cinématographique"
     },
     "websiteShowcase": {
-      "subtitle": "Système Web & Croissance Locale F&B — Déployé de 0→1 pour Pâtisserie Dzung : Google Business 4,9★ (119 avis) + Menu Natif GBP, Instagram Business, vitrine FR/EN/VI/ZH, menu 40+ plats, QR (/goi-bo), GA4 Consent Mode v2 + Clarity, test A/B 50/50 & Loi 25.",
+      "subtitle": "Bâti de 0→1 pour Pâtisserie Dzung : fiche Google 4,9★ (119 avis), site vitrine 4 langues, QR emballage O2O, tests A/B GA4 + Clarity & conformité Loi 25.",
       "tags": [
         "Google 4,9★ (119 Avis)",
         "SEO Local & IG Business",
@@ -451,6 +451,14 @@
       "viewBts": "▶ Voir les Coulisses",
       "viewPhoto": "🖼 Voir la Photo Finale"
     },
-    "swipeToExplore": "Balayez pour explorer"
+    "swipeToExplore": "Balayez pour explorer",
+    "expandCulinary": "Voir 2 autres campagnes Culinaire & TV +",
+    "collapseCulinary": "Afficher la sélection principale −"
+  },
+  "footer": {
+    "eyebrow": "MONTRÉAL · DIRECTION CRÉATIVE, WEB & SYSTÈMES IA",
+    "headline": "Créons un impact mesurable.",
+    "copy": "© 2026 Truc Le · TYM Production · Montréal, QC",
+    "rateCard": "Tarifs"
   }
 }

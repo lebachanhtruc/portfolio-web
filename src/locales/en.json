@@ -92,7 +92,7 @@
         }
       ],
       "agencyAreasLabel": "SERVICE COVERAGE",
-      "agencyAreasValue": "Montréal, Longueuil, Brossard & South Shore, QC"
+      "agencyAreasValue": "Montréal & South Shore, QC"
     },
     "bioTitle": "Product Builder Overview",
     "bio": {
@@ -351,7 +351,7 @@
       "Cinematic Motion": "Cinematic Motion"
     },
     "websiteShowcase": {
-      "subtitle": "Full-Funnel Local Growth & F&B Web System — Built 0→1 for Pâtisserie Dzung: 4.9★ Google Business Profile (119 reviews) + 15-item Native GBP Menu, Instagram Business, live FR/EN/VI/ZH storefront, 40+ dish menu, O2O QR (/goi-bo), GA4 Consent Mode v2 + Clarity, 50/50 A/B test & Québec Law 25.",
+      "subtitle": "Built 0→1 for Pâtisserie Dzung: 4.9★ Google profile (119 reviews), 4-language menu storefront, O2O packaging QR, GA4 + Clarity A/B testing & Québec Law 25.",
       "tags": [
         "4.9★ Google (119 Reviews)",
         "Local SEO & IG Business",
@@ -451,6 +451,14 @@
       "viewBts": "▶ Watch BTS Footage",
       "viewPhoto": "🖼 View Final Photo"
     },
-    "swipeToExplore": "Swipe to explore"
+    "swipeToExplore": "Swipe to explore",
+    "expandCulinary": "Show 2 More Culinary & TV Campaigns +",
+    "collapseCulinary": "Show Featured Culinary Only −"
+  },
+  "footer": {
+    "eyebrow": "MONTRÉAL · CREATIVE DIRECTION, GROWTH WEB & AI SYSTEMS",
+    "headline": "Let's build something measurable.",
+    "copy": "© 2026 Truc Le · TYM Production · Montréal, QC",
+    "rateCard": "Rate Card"
   }
 }
