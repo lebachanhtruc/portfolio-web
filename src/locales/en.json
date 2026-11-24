@@ -82,14 +82,15 @@
         }
       ],
       "growthSpotlight": {
-        "badge": "LIVE GROWTH & CRO LAB",
-        "title": "Pâtisserie Dzung — 4-Language Storefront & Analytics",
+        "badge": "LIVE GROWTH, LOCAL SEO & CRO LAB",
+        "title": "Pâtisserie Dzung — 0→1 Local Ecosystem & 4.9★ Google Profile",
         "period": "2025 – Present",
-        "summary": "End-to-end multilingual F&B storefront (FR/EN/VI/ZH) with 40+ interactive dishes, offline-to-online packaging QR (/goi-bo), live CRO experimentation, and Québec Law 25 opt-in compliance.",
+        "summary": "Built the full local digital funnel from zero: 4.9★ Google Business Profile (119 reviews, 93.3% 5★) with 15-item Native GBP Menu & Local SEO, Instagram Business (@patisseriedzung), and a 4-language storefront (FR/EN/VI/ZH) with O2O packaging QR (/goi-bo), live CRO & Québec Law 25.",
         "ctaLive": "Visit patisseriedzung.ca ↗",
+        "ctaMaps": "Google Maps 4.9★ (119) ↗",
         "ctaQr": "Inspect O2O QR (/goi-bo) ↗",
         "ctaRepo": "GitHub Source Code ↗",
-        "demoHint": "Live instrumentation: opt into the Québec Law 25 cookie banner to activate GA4 Consent Mode v2 & Clarity, or append ?ab=A / ?ab=B to preview the 50/50 Hero CTA split test.",
+        "demoHint": "Live instrumentation: inspect the 4.9★ (119 reviews) Google profile, opt into the Law 25 banner for GA4 Consent Mode v2 & Clarity, or append ?ab=A / ?ab=B for the 50/50 Hero CTA test.",
         "cards": [
           {
             "tag": "GA4 & Clarity",
@@ -102,9 +103,9 @@
             "desc": "Built a persistent client-side split test (Call-First vs. Menu-First) assigning users via localStorage and segmenting outcomes through GA4 user property ab_hero_cta & Clarity custom tags."
           },
           {
-            "tag": "O2O & SEO",
-            "title": "Packaging QR, GSC & Branded UTMs",
-            "desc": "Shipped an offline packaging QR video guide (/goi-bo), verified Google Search Console with sitemap.xml + Schema.org JSON-LD, and deployed 5 branded short UTM redirects (/ig, /fb, /maps, /qr, /qr-goibo)."
+            "tag": "Local SEO & O2O",
+            "title": "4.9★ GBP (119 Reviews), IG Business & UTMs",
+            "desc": "Built Google Business Profile from 0 to 4.9★ (119 reviews), shipped a 15-item Native GBP Menu replacing 15%-marked-up 3rd-party pricing, optimized Instagram Business, O2O packaging QR (/goi-bo), GSC & 5 branded UTMs (/maps, /ig, /fb, /qr)."
           },
           {
             "tag": "Law 25",
@@ -230,15 +231,15 @@
       },
       "t2": {
         "role": "Founder — Growth Marketing, Creative Media & Web Systems (Part-time)",
-        "desc": "Shipped lebachanhtruc.ca (trilingual studio + serverless Vercel Blob quote links) and patisseriedzung.ca (4-language storefront, O2O packaging QR /goi-bo, GA4 Consent Mode v2, Clarity heatmaps, 50/50 Hero CTA A/B test, GSC SEO, branded UTMs & Québec Law 25), plus bilingual Reels ads, 4K menus & Midjourney/VEO pipelines."
+        "desc": "Shipped lebachanhtruc.ca (trilingual studio + 46s showreel + Vercel Blob quote links) and Pâtisserie Dzung's 0-to-1 ecosystem (4.9★ / 119-review Google Business Profile + Native GBP Menu, IG Business, 4-language web, O2O QR /goi-bo, GA4 Consent Mode v2, Clarity, 50/50 A/B test, GSC, UTMs & Law 25), plus Reels ads, 4K menus & Midjourney/VEO."
       },
       "t3": {
         "role": "Operations Manager — Digital Growth & Systems Lead",
         "desc": "Owned ~$2.3M+ revenue (20,500+ orders) & UberEats performance (+12% YoY booked orders via ad ROI & menu photography); automated UberEats/ALCE APIs into Lightspeed K-Series, resolved MEV-WEB Epson printer encoding bugs, redesigned KDS routing, and saved ~187h & $3,150+/yr."
       },
       "t4": {
-        "role": "Photography Lead – North America (Promoted 01/2022) & Ecommerce Photographer",
-        "desc": "Produced luxury studio catalog and campaign visuals for authenticated pre-owned handbags (Louis Vuitton, Chanel, Hermès, Gucci) across lxrco.com and North American retail partners; remotely directed US-based contractor photographers from Montréal alongside Mother's Day BTS video, lighting specs & post-production QC."
+        "role": "Photography Lead – North America (01/2022–06/2022) & Photographer (10/2020–01/2022)",
+        "desc": "Reported directly to the COO and earned internal promotion to North America Lead within 14 months (+33% merit raise in 6 months). Produced luxury catalog & campaign visuals for authenticated pre-owned handbags (Hermès, Chanel, Louis Vuitton) across lxrco.com and North American retail; remotely directed US contractor photographers from Montréal alongside Mother's Day BTS film & QC."
       },
       "t5": {
         "role": "Graphic Designer · Sales Supervisor · Marketing Specialist",
@@ -260,8 +261,9 @@
       "expand": "Expand",
       "ariaLabel": "Before and after comparison slider",
       "impactCulinary": "Visual Merchandising Overhaul → +12% YoY Digital Booked Orders (~$2.3M/yr ops)",
-      "impactLuxury": "Photography Lead – North America · Luxury E-Commerce QC & Remote US Direction",
-      "impactCampaign": "On-Set Shoot + Generative AI Lighting · Campaign-Ready Visuals"
+      "impactLuxury": "Reported to COO · Promoted to Photography Lead – North America in 14m · Remote US QC",
+      "impactCampaign": "On-Set Shoot + Generative AI Lighting · Campaign-Ready Visuals",
+      "impactPrint": "Pre-Press CMYK · Bleed & Die-Line Specs · 4K/55\" Storefront Signage · DEP Printing Certified"
     },
     "titles": {
       "Sensory Experience": "Sensory Experience",
@@ -278,16 +280,17 @@
       "Cinematic Motion": "Cinematic Motion"
     },
     "websiteShowcase": {
-      "subtitle": "Turnkey Brand & F&B Website Package — Running live on patisseriedzung.ca: instant FR/EN/VI/ZH switching, 40+ dish interactive menu, O2O packaging QR (/goi-bo), GA4 Consent Mode v2 + Clarity heatmaps, 50/50 A/B testing, Google Search Console SEO & Québec Law 25 opt-in privacy.",
+      "subtitle": "Full-Funnel Local Growth & F&B Web System — Built 0→1 for Pâtisserie Dzung: 4.9★ Google Business Profile (119 reviews) + 15-item Native GBP Menu, Instagram Business, live FR/EN/VI/ZH storefront, 40+ dish menu, O2O QR (/goi-bo), GA4 Consent Mode v2 + Clarity, 50/50 A/B test & Québec Law 25.",
       "tags": [
+        "4.9★ Google (119 Reviews)",
+        "Local SEO & IG Business",
         "4 Languages & O2O QR",
         "GA4 + Clarity CRO",
         "50/50 A/B Test & UTMs",
-        "Québec Law 25 Opt-In",
-        "40+ Dish Menu & SEO",
-        "Turnkey Storefront"
+        "Québec Law 25 Opt-In"
       ],
       "liveCta": "🌐 Visit live showcase: patisseriedzung.ca ↗",
+      "mapsCta": "⭐ Google Maps 4.9★ (119) ↗",
       "quoteCta": "View Website Package Quotation ↓",
       "cardCategory": "Turnkey Web & Growth"
     },

@@ -82,14 +82,15 @@
         }
       ],
       "growthSpotlight": {
-        "badge": "LABO CROISSANCE & CRO EN DIRECT",
-        "title": "Pâtisserie Dzung — Vitrine 4 Langues & Analytique",
+        "badge": "LABO CROISSANCE, SEO LOCAL & CRO",
+        "title": "Pâtisserie Dzung — Écosystème Local 0→1 & Google 4,9★",
         "period": "2025 – Présent",
-        "summary": "Site vitrine F&B multilingue (FR/EN/VI/ZH) avec menu interactif 40+ plats, page QR sur emballage (/goi-bo), expérimentation CRO en production et conformité Loi 25 du Québec.",
+        "summary": "Entonnoir digital local bâti de zéro : Fiche Google Business 4,9★ (119 avis, 93,3 % 5★) avec Menu Natif 15 plats & SEO Local, Instagram Business (@patisseriedzung), et site vitrine 4 langues (FR/EN/VI/ZH) avec QR emballage (/goi-bo), CRO & Loi 25.",
         "ctaLive": "Visiter patisseriedzung.ca ↗",
+        "ctaMaps": "Google Maps 4,9★ (119) ↗",
         "ctaQr": "Voir la page QR O2O (/goi-bo) ↗",
         "ctaRepo": "Code source GitHub ↗",
-        "demoHint": "Instrumentation en direct : acceptez la bannière Loi 25 pour activer GA4 Consent Mode v2 & Clarity, ou ajoutez ?ab=A / ?ab=B pour prévisualiser le test A/B Hero CTA 50/50.",
+        "demoHint": "Instrumentation en direct : vérifiez la fiche Google 4,9★ (119 avis), acceptez la bannière Loi 25 pour GA4 Consent Mode v2 & Clarity, ou ajoutez ?ab=A / ?ab=B pour le test A/B Hero CTA.",
         "cards": [
           {
             "tag": "GA4 & Clarity",
@@ -102,9 +103,9 @@
             "desc": "Expérience client persistante (Appel en priorité vs Menu en priorité) via localStorage segmentée dans GA4 (propriété ab_hero_cta) et les balises Clarity."
           },
           {
-            "tag": "O2O & SEO",
-            "title": "QR Emballage, GSC & UTM Courts",
-            "desc": "Guide vidéo QR sur boîte (/goi-bo), Google Search Console vérifié avec sitemap.xml + Schema.org JSON-LD, et 5 redirections UTM courtes (/ig, /fb, /maps, /qr, /qr-goibo)."
+            "tag": "SEO Local & O2O",
+            "title": "Google 4,9★ (119 Avis), IG Business & UTM",
+            "desc": "Fiche Google montée à 4,9★ (119 avis), Menu Natif GBP 15 plats remplaçant la majoration 15 % tierce, Instagram Business optimisé, QR emballage (/goi-bo), GSC & 5 UTM courts (/maps, /ig, /fb, /qr)."
           },
           {
             "tag": "Loi 25",
@@ -230,15 +231,15 @@
       },
       "t2": {
         "role": "Fondateur — Marketing de Croissance, Médias & Systèmes Web (Temps partiel)",
-        "desc": "Création de lebachanhtruc.ca (studio trilingue + devis serverless Vercel Blob) et patisseriedzung.ca (vitrine 4 langues, QR emballage /goi-bo, GA4 Consent Mode v2, Clarity, test A/B 50/50, GSC, UTM courts & Loi 25), plus campagnes Reels bilingues, menus 4K & pipelines Midjourney/VEO."
+        "desc": "Création de lebachanhtruc.ca (studio trilingue + showreel 46s + devis Vercel Blob) et écosystème 0→1 Pâtisserie Dzung (Google Business 4,9★ / 119 avis + Menu Natif GBP, IG Business, vitrine 4 langues, QR /goi-bo, GA4 Consent Mode v2, Clarity, A/B 50/50, GSC, UTM & Loi 25), plus Reels bilingues, menus 4K & Midjourney/VEO."
       },
       "t3": {
         "role": "Responsable Opérations — Croissance Digitale & Systèmes POS",
         "desc": "Gestion de ~2,3 M$+ de revenus (20 500+ commandes) & performance UberEats (+12 % YoY via ROI pub & photo menu) ; intégration API UberEats/ALCE vers Lightspeed K-Series, résolution MEV-WEB Epson, refonte KDS et économie ~187h & 3 150 $+/an."
       },
       "t4": {
-        "role": "Photography Lead – Amérique du Nord (Promu 01/2022) & Photographe E-commerce",
-        "desc": "Production studio e-commerce et campagnes pour sacs de luxe pré-aimés authentifiés (Louis Vuitton, Chanel, Hermès, Gucci) sur lxrco.com et détaillants nord-américains ; coordination à distance de photographes contractuels aux États-Unis depuis Montréal, vidéos BTS Fête des Mères & contrôle qualité."
+        "role": "Photography Lead – Amérique du Nord (01/2022–06/2022) & Photographe (10/2020–01/2022)",
+        "desc": "Rattaché directement à la COO et promu Lead Amérique du Nord en 14 mois (hausse de mérite +33 % en 6 mois). Production studio et campagnes pour sacs de luxe pré-aimés authentifiés (Hermès, Chanel, Louis Vuitton) sur lxrco.com et détaillants nord-américains ; coordination à distance de photographes contractuels aux É.-U., film BTS Fête des Mères & QC."
       },
       "t5": {
         "role": "Infographiste · Superviseur des Ventes · Spécialiste Marketing",
@@ -260,8 +261,9 @@
       "expand": "Agrandir",
       "ariaLabel": "Curseur de comparaison avant et après",
       "impactCulinary": "Refonte Visuelle Menu → +12 % Commandes Digitales YoY (~2,3 M$/an d'opérations)",
-      "impactLuxury": "Photography Lead – Amérique du Nord · QC Luxe & Coordination Pigistes US",
-      "impactCampaign": "Shooting sur Place + Éclairage IA Générative · Prêt pour Campagne"
+      "impactLuxury": "Rattaché à la COO · Promu Photography Lead – Amérique du Nord en 14 mois · QC US",
+      "impactCampaign": "Shooting sur Place + Éclairage IA Générative · Prêt pour Campagne",
+      "impactPrint": "Prépresse CMJN · Fonds Perdus & Découpes · Écrans 4K/55\" · DEP Imprimerie"
     },
     "titles": {
       "Sensory Experience": "Expérience Sensorielle",
@@ -278,16 +280,17 @@
       "Cinematic Motion": "Mouvement Cinématographique"
     },
     "websiteShowcase": {
-      "subtitle": "Forfait Site Web F&B Clé en Main — En ligne sur patisseriedzung.ca : changement FR/EN/VI/ZH instantané, menu interactif 40+ plats, QR emballage (/goi-bo), GA4 Consent Mode v2 + Clarity, test A/B 50/50, SEO Google Search Console & conformité Loi 25.",
+      "subtitle": "Système Web & Croissance Locale F&B — Déployé de 0→1 pour Pâtisserie Dzung : Google Business 4,9★ (119 avis) + Menu Natif GBP, Instagram Business, vitrine FR/EN/VI/ZH, menu 40+ plats, QR (/goi-bo), GA4 Consent Mode v2 + Clarity, test A/B 50/50 & Loi 25.",
       "tags": [
+        "Google 4,9★ (119 Avis)",
+        "SEO Local & IG Business",
         "4 Langues & QR O2O",
         "GA4 + Clarity CRO",
         "Test A/B 50/50 & UTM",
-        "Conformité Loi 25 QC",
-        "Menu 40+ Plats & SEO",
-        "Site Clé en Main"
+        "Conformité Loi 25 QC"
       ],
       "liveCta": "🌐 Voir le site réel : patisseriedzung.ca ↗",
+      "mapsCta": "⭐ Google Maps 4,9★ (119) ↗",
       "quoteCta": "Voir le Devis Site Web ↓",
       "cardCategory": "Web & Croissance Clé en Main"
     },

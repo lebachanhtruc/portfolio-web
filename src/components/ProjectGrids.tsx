@@ -132,7 +132,9 @@ function ProjectGroup({
         ? t('projects.slider.impactLuxury')
         : project.id === 'CaseStudySeasonalFineDining'
           ? t('projects.slider.impactCampaign')
-          : undefined;
+          : project.id === 'MenuDesignAndStorefrontBranding'
+            ? t('projects.slider.impactPrint')
+            : undefined;
 
   // Build ordered gallery items array for lightbox Next/Prev navigation inside this group
   const galleryItems: GalleryItem[] = [
@@ -255,6 +257,16 @@ function ProjectGroup({
                 className="website-showcase-live-btn"
               >
                 {showcaseData.liveCta}
+              </a>
+            )}
+            {showcaseData.mapsCta && (
+              <a
+                href="https://www.google.com/maps/place/Patisserie+Dzung/@45.4714654,-73.4587648,17z/data=!3m1!4b1!4m6!3m5!1s0x4cc9054ca9b665f5:0x451da51af4413046!8m2!3d45.4714654!4d-73.4587648!16s%2Fg%2F11zx0_530d"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="website-showcase-quote-btn"
+              >
+                {showcaseData.mapsCta}
               </a>
             )}
             <button

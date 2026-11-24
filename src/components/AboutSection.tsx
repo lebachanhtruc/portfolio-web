@@ -125,6 +125,8 @@ const NOTION_CASE_URL =
   'https://helix-saffron-268.notion.site/Ba-Chanh-Truc-Le-Operations-AI-Systems-Builder-3a59fce0d40680e3981bea63e19586e2';
 const LOOM_WALKTHROUGH_URL = 'https://www.loom.com/share/1e467bf8ae8043ccbd5027abcdcb82c0';
 const PATISSERIE_LIVE_URL = 'https://www.patisseriedzung.ca/';
+const PATISSERIE_MAPS_URL =
+  'https://www.google.com/maps/place/Patisserie+Dzung/@45.4714654,-73.4587648,17z/data=!3m1!4b1!4m6!3m5!1s0x4cc9054ca9b665f5:0x451da51af4413046!8m2!3d45.4714654!4d-73.4587648!16s%2Fg%2F11zx0_530d';
 const PATISSERIE_QR_URL = 'https://www.patisseriedzung.ca/goi-bo';
 const PATISSERIE_REPO_URL = 'https://github.com/lebachanhtruc/patisserie-dzung';
 
@@ -383,6 +385,14 @@ export default function AboutSection({ profileMode, onProfileModeChange }: About
                       className="agency-btn-primary builder-link-btn"
                     >
                       {builder.growthSpotlight.ctaLive}
+                    </a>
+                    <a
+                      href={PATISSERIE_MAPS_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="agency-btn-secondary builder-link-btn"
+                    >
+                      {builder.growthSpotlight.ctaMaps}
                     </a>
                     <a
                       href={PATISSERIE_QR_URL}

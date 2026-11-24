@@ -82,14 +82,15 @@
         }
       ],
       "growthSpotlight": {
-        "badge": "PHÒNG LAB TĂNG TRƯỞNG & CRO THỰC TẾ",
-        "title": "Pâtisserie Dzung — Web 4 Ngôn Ngữ & Hệ Đo Lường",
+        "badge": "TĂNG TRƯỞNG LOCAL SEO & CRO THỰC TẾ",
+        "title": "Pâtisserie Dzung — Hệ Sinh Thái 0→1 & Google 4.9★",
         "period": "2025 – Hiện tại",
-        "summary": "Website cửa hàng F&B đa ngôn ngữ (FR/EN/VI/ZH) với thực đơn tương tác 40+ món, trang QR dán bao bì (/goi-bo), thử nghiệm CRO chạy thật và tuân thủ chuẩn Luật 25 (Loi 25) Québec.",
+        "summary": "Xây dựng toàn bộ phễu tăng trưởng địa phương từ 0: Google Business Profile đạt 4.9★ (119 đánh giá, 93.3% 5★) kèm Native Menu 15 món & Local SEO, Instagram Business (@patisseriedzung), và web 4 ngôn ngữ (FR/EN/VI/ZH) có QR bao bì (/goi-bo), CRO & Luật 25 Québec.",
         "ctaLive": "Xem web thực tế: patisseriedzung.ca ↗",
+        "ctaMaps": "Google Maps 4.9★ (119) ↗",
         "ctaQr": "Xem trang QR bao bì (/goi-bo) ↗",
         "ctaRepo": "Mã nguồn GitHub ↗",
-        "demoHint": "Đo lường chạy thật: chọn đồng ý trên thanh Luật 25 để kích hoạt GA4 Consent Mode v2 & Clarity, hoặc thêm ?ab=A / ?ab=B để xem trước 2 phiên bản A/B Test Hero CTA.",
+        "demoHint": "Đo lường chạy thật: xem trực tiếp hồ sơ Google 4.9★ (119 đánh giá), đồng ý thanh Luật 25 để kích hoạt GA4 Consent Mode v2 & Clarity, hoặc thêm ?ab=A / ?ab=B để xem 2 phiên bản A/B Test.",
         "cards": [
           {
             "tag": "GA4 & Clarity",
@@ -102,9 +103,9 @@
             "desc": "Chia lưu lượng 50/50 phía trình duyệt (Gọi đặt hàng vs Xem menu) lưu qua localStorage, phân tách dữ liệu bằng thuộc tính GA4 ab_hero_cta & thẻ Clarity."
           },
           {
-            "tag": "O2O & SEO",
-            "title": "QR Bao Bì, Search Console & Link UTM Rút Gọn",
-            "desc": "Xây trang video hướng dẫn QR dán hộp (/goi-bo), xác minh Google Search Console + sitemap.xml + Schema.org, và triển khai 5 link UTM chính chủ (/ig, /fb, /maps, /qr, /qr-goibo)."
+            "tag": "Local SEO & O2O",
+            "title": "Google 4.9★ (119 Reviews), IG Business & UTM",
+            "desc": "Xây Google Maps từ 0 lên 4.9★ (119 đánh giá), dựng Native GBP Menu 15 món gỡ chênh giá 15% từ app giao đồ ăn, tối ưu IG Business, QR bao bì (/goi-bo), GSC & 5 link UTM (/maps, /ig, /fb, /qr)."
           },
           {
             "tag": "Luật 25 Québec",
@@ -230,15 +231,15 @@
       },
       "t2": {
         "role": "Nhà Sáng Lập — Growth Marketing, Truyền Thông & Hệ Thống Web (Bán thời gian)",
-        "desc": "Xây dựng lebachanhtruc.ca (studio 3 ngôn ngữ + link báo giá Vercel Blob) và patisseriedzung.ca (web 4 ngôn ngữ, QR bao bì /goi-bo, GA4 Consent Mode v2, Clarity, A/B Test 50/50, GSC, UTM rút gọn & Luật 25), cùng quảng cáo Reels song ngữ, menu 4K & quy trình Midjourney/VEO."
+        "desc": "Xây dựng lebachanhtruc.ca (studio 3 ngôn ngữ + Showreel 46s + link báo giá Vercel Blob) và hệ sinh thái 0→1 Pâtisserie Dzung (Google Business Profile 4.9★ / 119 đánh giá + Native Menu, IG Business, web 4 ngôn ngữ, QR /goi-bo, GA4 Consent Mode v2, Clarity, A/B Test 50/50, GSC, UTM & Luật 25), cùng Reels ads, menu 4K & Midjourney/VEO."
       },
       "t3": {
         "role": "Quản Lý Vận Hành — Tăng Trưởng Số & Tích Hợp POS",
         "desc": "Điều hành doanh thu ~$2.3M+ (20,500+ đơn hàng) & kênh UberEats (+12% đơn đặt trước YoY nhờ tối ưu ROI & ảnh menu); tích hợp API UberEats/ALCE vào Lightspeed K-Series, xử lý lỗi MEV-WEB Epson, tái cấu trúc KDS và tiết kiệm ~187h & $3,150+/năm."
       },
       "t4": {
-        "role": "Photography Lead – Bắc Mỹ (Thăng chức 01/2022) & Nhiếp Ảnh Gia E-commerce",
-        "desc": "Sản xuất hình ảnh catalog & chiến dịch cho túi xách hàng hiệu pre-owned chính hãng (Louis Vuitton, Chanel, Hermès, Gucci) trên lxrco.com và chuỗi bán lẻ Bắc Mỹ; điều phối từ xa nhiếp ảnh gia contractor tại Mỹ từ Montréal cùng quay BTS Ngày của Mẹ & kiểm soát chất lượng."
+        "role": "Photography Lead – Bắc Mỹ (01/2022–06/2022) & Photographer (10/2020–01/2022)",
+        "desc": "Báo cáo trực tiếp Giám đốc Vận hành (COO) và được thăng chức nội bộ lên Lead Bắc Mỹ chỉ sau 14 tháng (tăng lương +33% sau 6 tháng). Sản xuất catalog & chiến dịch cho túi xách hàng hiệu pre-owned chính hãng (Hermès, Chanel, Louis Vuitton) trên lxrco.com và chuỗi bán lẻ Bắc Mỹ; điều phối từ xa nhiếp ảnh gia contractor tại Mỹ, quay BTS Ngày của Mẹ & kiểm soát chất lượng."
       },
       "t5": {
         "role": "Thiết Kế Đồ Họa · Trưởng Nhóm Kinh Doanh · Chuyên Viên Marketing",
@@ -260,8 +261,9 @@
       "expand": "Phóng to",
       "ariaLabel": "Thanh kéo so sánh ảnh gốc và ảnh AI",
       "impactCulinary": "Nâng Cấp Hình Ảnh Menu → +12% Đơn Đặt Hàng Số YoY (Quy mô ~$2.3M/năm)",
-      "impactLuxury": "Photography Lead – Bắc Mỹ · Chuẩn QC Hàng Hiệu & Điều Phối Contractor Mỹ",
-      "impactCampaign": "Chụp Thực Tế + Ánh Sáng AI Tạo Sinh · Hình Ảnh Chuẩn Chiến Dịch"
+      "impactLuxury": "Báo Cáo Trực Tiếp COO · Thăng Chức Photography Lead Bắc Mỹ Sau 14 Tháng · QC Mỹ",
+      "impactCampaign": "Chụp Thực Tế + Ánh Sáng AI Tạo Sinh · Hình Ảnh Chuẩn Chiến Dịch",
+      "impactPrint": "Chế Bản In CMYK · Bleed & Khuôn Bế · Màn Hình 4K/55\" · Chứng Chỉ DEP In Ấn"
     },
     "titles": {
       "Sensory Experience": "Trải Nghiệm Đa Giác Quan",
@@ -278,16 +280,17 @@
       "Cinematic Motion": "Chuyển Động Điện Ảnh"
     },
     "websiteShowcase": {
-      "subtitle": "Gói Thiết Kế Website Thương Hiệu F&B Trọn Gói — Vận hành thực tế trên patisseriedzung.ca: đa ngôn ngữ FR/EN/VI/ZH, thực đơn tương tác 40+ món, QR dán hộp (/goi-bo), GA4 Consent Mode v2 + Clarity, A/B Test 50/50, SEO Google Search Console & chuẩn Luật 25 Québec.",
+      "subtitle": "Hệ Thống Web & Tăng Trưởng Địa Phương F&B — Xây từ 0→1 cho Pâtisserie Dzung: Google Business Profile 4.9★ (119 đánh giá) + Native GBP Menu 15 món, Instagram Business, web 4 ngôn ngữ FR/EN/VI/ZH, QR (/goi-bo), GA4 Consent Mode v2 + Clarity, A/B Test 50/50 & Luật 25 Québec.",
       "tags": [
+        "Google 4.9★ (119 Reviews)",
+        "Local SEO & IG Business",
         "4 Ngôn Ngữ & QR O2O",
         "GA4 + Clarity CRO",
         "A/B Test 50/50 & UTM",
-        "Chuẩn Luật 25 Québec",
-        "Menu 40+ Món & SEO",
-        "Triển Khai Trọn Gói"
+        "Chuẩn Luật 25 Québec"
       ],
       "liveCta": "🌐 Xem web mẫu thực tế: patisseriedzung.ca ↗",
+      "mapsCta": "⭐ Google Maps 4.9★ (119) ↗",
       "quoteCta": "Xem Chi Tiết Báo Giá Website ↓",
       "cardCategory": "Website & Tăng Trưởng Trọn Gói"
     },
