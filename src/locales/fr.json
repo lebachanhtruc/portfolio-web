@@ -46,15 +46,29 @@
   },
   "about": {
     "modes": {
-      "agency": "Studio & Services (TYM Production)",
-      "cv": "Profil, Compétences & Études de Cas (CV)",
-      "badgeAgency": "POUR RESTAURANTS & MARQUES CULINAIRES",
+      "agency": "Studio & Projets",
+      "cv": "Profil & CV",
+      "badgeAgency": "TYM PRODUCTION · MONTRÉAL & RIVE-SUD",
       "badgeCv": "MARKETING, OPÉRATIONS CRÉATIVES & IA",
-      "ctaViewQuote": "Voir le Devis Interactif ↓",
-      "ctaSwitchCv": "Voir le Profil, Compétences & Études de Cas →",
-      "ctaSwitchAgency": "← Voir le Studio TYM Production",
-      "agencyHeadline": "Transformez vos plats en histoires visuelles rentables",
-      "agencyLead": "TYM Production accompagne les restaurants et marques alimentaires à Montréal et sur la Rive-Sud : photo IA, sites web multilingues mesurés (GA4/Clarity/Loi 25), menus numériques 4K, publicités Reels, décalques et affichage TV.",
+      "ctaViewQuote": "Devis Interactif ↓",
+      "ctaSwitchCv": "Profil, Compétences & CV →",
+      "ctaSwitchAgency": "← Retour au Studio & Projets",
+      "agencyHeadline": "Un savoir-faire visuel pensé pour la croissance commerciale",
+      "agencyLead": "De la direction photo luxe en Amérique du Nord chez LXR aux marques culinaires de Montréal — combinant photographie studio, IA générative, sites web CRO multilingues, menus 4K et prépresse CMJN sous un même toit.",
+      "btsCaption": "EN STUDIO · MONTRÉAL",
+      "proofStats": [
+        { "value": "LXR", "label": "Photography Lead Am. du Nord" },
+        { "value": "+12%", "label": "Commandes YoY (2,3 M$+)" },
+        { "value": "4,9★", "label": "Google SEO Local (119)" },
+        { "value": "3 Lang", "label": "FR · EN · VI · DEP & PSPO I" }
+      ],
+      "scopeTags": [
+        "Studio Luxe & Culinaire",
+        "IA Générative & Motion 4K",
+        "Web CRO Multilingue",
+        "Prépresse CMJN & Pantone",
+        "TV Vitrine 55\" & Reels"
+      ],
       "pillars": [
         {
           "title": "Photographie Culinaire & IA Générative",
@@ -220,7 +234,7 @@
         },
         {
           "title": "DEP – Infographie / Design Graphique & Impression",
-          "org": "Centre de technologie Rosemont (EMSB) — Montréal, QC",
+          "org": "Centre de technologie Rosemont (EMSB) — Montréal, QC · Prépresse CMJN, séparation de films Pantone, sérigraphie textile & lettrage vinyle de vitrine",
           "date": "12/2019"
         },
         {
@@ -276,10 +290,36 @@
   },
   "projects": {
     "tabs": {
+      "Luxury": "01 Luxe",
+      "Culinary": "02 Culinaire",
+      "Web": "03 Web",
+      "Print": "04 Print",
       "AI x Photography": "Photographie IA",
       "Videography": "Vidéo IA & Motion",
       "Photography": "Photographie",
-      "Pricing & Services": "Tarifs & Services"
+      "Pricing & Services": "Devis"
+    },
+    "chapters": {
+      "Luxury": {
+        "index": "01",
+        "title": "Studio Luxe & Direction Artistique",
+        "subtitle": "Éclairage studio en caméra, campagnes éditoriales & contrôle qualité Amérique du Nord pour Dior, Céline, Gucci, LV & Hermès."
+      },
+      "Culinary": {
+        "index": "02",
+        "title": "Culinaire IA, Menus 4K & Motion",
+        "subtitle": "Séances photo gastronomiques sur place, éclairage IA générative, menus animés 4K, boucles TV vitrine & Reels."
+      },
+      "Web": {
+        "index": "03",
+        "title": "Web Croissance & Systèmes Digitaux",
+        "subtitle": "Sites multilingues 0→1 avec SEO local, GA4 Consent Mode v2, Clarity CRO, QR O2O & conformité Loi 25 Québec."
+      },
+      "Print": {
+        "index": "04",
+        "title": "Imprimerie, Prépresse & Signalétique",
+        "subtitle": "Prépresse CMJN à Montréal, emballage bilingue FR/EN, séparation films Pantone 101 C, sérigraphie & lettrage vitrine."
+      }
     },
     "slider": {
       "before": "Original",
@@ -291,7 +331,7 @@
       "impactLuxury": "Rattaché à la COO · Promu Photography Lead – Amérique du Nord en 14 mois · QC US",
       "impactCampaign": "Shooting sur Place + Éclairage IA Générative · Prêt pour Campagne",
       "impactPrint": "Prépresse CMJN · Fonds Perdus & Découpes · Écrans 4K/55\" · DEP Imprimerie",
-      "impactPrintShop": "Production Imprimerie Montréal · Emballage Bilingue FR/EN, Cahier 21 Pages InDesign & Imposition 12\"×18\"",
+      "impactPrintShop": "Production Imprimerie Montréal · Emballage FR/EN, Cahier 21p InDesign, Imposition 12\"×18\" & Films Pantone 101 C",
       "impactLuxuryStudio": "Direction Artistique & Éclairage Studio Luxe · Dior · Céline · Gucci · Louis Vuitton · Hermès"
     },
     "titles": {
@@ -320,9 +360,10 @@
         "Test A/B 50/50 & UTM",
         "Conformité Loi 25 QC"
       ],
-      "liveCta": "🌐 Voir le site réel : patisseriedzung.ca ↗",
-      "mapsCta": "⭐ Google Maps 4,9★ (119) ↗",
-      "quoteCta": "Voir le Devis Site Web ↓",
+      "liveCta": "Visiter patisseriedzung.ca ↗",
+      "mapsCta": "Google Maps 4,9★ (119) ↗",
+      "quoteCta": "Devis Site Web ↓",
+      "cvSystemsCta": "Voir le SaaS Paie IA (CV) →",
       "cardCategory": "Web & Croissance Clé en Main"
     },
     "cardTitles": {
@@ -392,6 +433,7 @@
         "print-bilingual-packaging-prepress": "Emballage Bilingue FR/EN (NPN) & Coupon Vectoriel",
         "print-pure-marketing-workbook": "Cahier de Formation 21 Pages (InDesign CMJN)",
         "print-prepress-imposition-bistro": "Imposition 12\"×18\" Numérotée & Menu Bistro 4 Pages",
+        "print-serigraphy-pantone-separation": "Séparation Films Pantone 101 C + Noir & Sérigraphie Textile (DEP)",
         "lxr-cny-dior-saddle": "Dior Saddle — Nouvel An",
         "lxr-cny-lady-dior-wallet": "Lady Dior — Rouge & Or",
         "lxr-cny-lv-murakami": "LV Multicolore — Studio",

@@ -13,7 +13,7 @@ interface KilnCardCopy {
 const KILN_CARDS = [
   {
     id: 'luxury',
-    targetId: 'project-CaseStudyLXRStudio',
+    targetId: 'section-Luxury',
     image: '/Media/lxr-editorial/lxr-cny-dior-saddle.webp',
     objectPosition: 'center 78%',
     width: 1067,
@@ -22,7 +22,7 @@ const KILN_CARDS = [
   },
   {
     id: 'culinary',
-    targetId: 'project-CaseStudyShushuGastronomy',
+    targetId: 'section-Culinary',
     image:
       '/Media/AI Graphic Design and Photo Shoot/Project 4 - food photography and ai poster create/2025 Nov 06 - SHUSHUTO Spring Menu Set0280.jpg',
     objectPosition: 'center 52%',
@@ -32,7 +32,7 @@ const KILN_CARDS = [
   },
   {
     id: 'web',
-    targetId: 'project-WebsiteDesignPatisserieDzung',
+    targetId: 'section-Web',
     image: '/Media/quote-showcase/patisserie-dzung-home.jpg',
     objectPosition: '82% 38%',
     width: 1280,
@@ -41,7 +41,7 @@ const KILN_CARDS = [
   },
   {
     id: 'print',
-    targetId: 'project-CommercialPrintPrePressArchive',
+    targetId: 'section-Print',
     image: '/Media/print-archive/print-taydo-trifold-mockup.webp',
     objectPosition: '26% 36%',
     width: 1800,

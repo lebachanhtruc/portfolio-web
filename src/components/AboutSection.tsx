@@ -30,14 +30,6 @@ const LinkIcon = () => (
   </svg>
 );
 
-const BatteryIcon = () => (
-  <svg aria-hidden="true" width="20" height="12" viewBox="0 0 24 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ verticalAlign: 'middle', marginRight: '4px' }}>
-    <rect x="1" y="1" width="20" height="12" rx="2" ry="2"></rect>
-    <line x1="23" y1="5" x2="23" y2="9"></line>
-    <rect x="3" y="3" width="12" height="8" fill="currentColor"></rect>
-  </svg>
-);
-
 interface ContactBlockProps {
   areaText: string;
   copiedPhone: boolean;
@@ -175,44 +167,17 @@ export default function AboutSection({ profileMode, onProfileModeChange }: About
     void scrollToElementById('section-Pricing & Services', 0);
   };
 
-  const agencyPillars = translations.about.modes.pillars;
+  const proofStats: { value: string; label: string }[] =
+    (translations as any)?.about?.modes?.proofStats || [];
+  const scopeTags: string[] = (translations as any)?.about?.modes?.scopeTags || [];
   const builder = translations.about.builder;
 
   const portraitSrc = '/Media/posters/IMG_4950_web.jpg';
 
   return (
-    <section className="about-viewfinder-section relative" id="about-studio">
-      <div className="section-transition-gradient"></div>
-
-      {/* Viewfinder Overlay Elements (Agency Studio Mode only) */}
-      {profileMode === 'agency' && (
-        <div className="viewfinder-overlay">
-          <div className="vf-top-left">
-            <span>ISO 400</span>
-            <span>F3.3</span>
-            <span className="battery-stat">
-              <BatteryIcon /> 65%
-            </span>
-            <span className="auto-mode">AUTO</span>
-          </div>
-          <div className="vf-top-right">
-            <span className="rec-dot"></span> REC
-          </div>
-
-          <div className="vf-corner vf-tl"></div>
-          <div className="vf-corner vf-tr"></div>
-          <div className="vf-corner vf-bl"></div>
-          <div className="vf-corner vf-br"></div>
-
-          <div className="vf-focus-center">
-            <div className="focus-bracket left"></div>
-            <div className="focus-bracket right"></div>
-          </div>
-        </div>
-      )}
-
+    <section className="about-editorial-section relative" id="about-studio">
       <div className="container relative z-10">
-        {/* Clean Separation Toggle between F&B Studio Agency and Product Builder Resume */}
+        {/* Obsidian Editorial Segmented Mode Switch (Agency Studio vs Profile/CV) */}
         <div className="profile-mode-bar">
           <div className="profile-mode-pills" role="tablist" aria-label="Profile mode">
             <button
@@ -226,7 +191,7 @@ export default function AboutSection({ profileMode, onProfileModeChange }: About
               onClick={() => onProfileModeChange('agency')}
               onKeyDown={handleTabKeyDown}
             >
-              🎬 {t('about.modes.agency')}
+              {t('about.modes.agency')}
             </button>
             <button
               ref={cvTabRef}
@@ -239,7 +204,7 @@ export default function AboutSection({ profileMode, onProfileModeChange }: About
               onClick={() => onProfileModeChange('cv')}
               onKeyDown={handleTabKeyDown}
             >
-              🛠️ {t('about.modes.cv')}
+              {t('about.modes.cv')}
             </button>
           </div>
         </div>
@@ -250,29 +215,40 @@ export default function AboutSection({ profileMode, onProfileModeChange }: About
             role="tabpanel"
             aria-labelledby="profile-tab-agency"
           >
-            <div className="agency-overview-grid" id="contact-section">
-              <div className="agency-hero-column">
-                <span className="agency-kicker">{t('about.modes.badgeAgency')}</span>
-                <h2 className="agency-headline">{t('about.modes.agencyHeadline')}</h2>
-                <p className="agency-lead">{t('about.modes.agencyLead')}</p>
+            <div className="studio-editorial-grid" id="contact-section">
+              <div className="studio-editorial-copy">
+                <span className="studio-editorial-kicker">{t('about.modes.badgeAgency')}</span>
+                <h2 className="studio-editorial-headline">{t('about.modes.agencyHeadline')}</h2>
+                <p className="studio-editorial-lead">{t('about.modes.agencyLead')}</p>
 
-                <div className="agency-pillars-grid">
-                  {agencyPillars.map((item, idx) => (
-                    <div key={idx} className="agency-pillar-card">
-                      <span className="pillar-num">0{idx + 1}</span>
-                      <h3>{item.title}</h3>
-                      <p>{item.desc}</p>
-                    </div>
-                  ))}
-                </div>
+                {proofStats.length > 0 && (
+                  <dl className="studio-proof-strip">
+                    {proofStats.map((stat, idx) => (
+                      <div key={idx} className="studio-proof-cell">
+                        <dt className="studio-proof-value">{stat.value}</dt>
+                        <dd className="studio-proof-label">{stat.label}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                )}
+
+                {scopeTags.length > 0 && (
+                  <ul className="studio-scope-tags" aria-label="Studio capabilities">
+                    {scopeTags.map((tag, idx) => (
+                      <li key={idx} className="studio-scope-tag">
+                        {tag}
+                      </li>
+                    ))}
+                  </ul>
+                )}
 
                 <div className="agency-cta-row">
-                  <button type="button" className="agency-btn-primary" onClick={scrollToQuote}>
+                  <button type="button" className="studio-btn-primary" onClick={scrollToQuote}>
                     {t('about.modes.ctaViewQuote')}
                   </button>
                   <button
                     type="button"
-                    className="agency-btn-secondary"
+                    className="studio-btn-ghost"
                     onClick={() => onProfileModeChange('cv')}
                   >
                     {t('about.modes.ctaSwitchCv')}
@@ -280,37 +256,48 @@ export default function AboutSection({ profileMode, onProfileModeChange }: About
                 </div>
               </div>
 
-              <div className="agency-contact-column">
-                <div className="creative-portrait-container agency-portrait-box">
-                  <div className="film-strip-decoration"></div>
+              <aside className="studio-editorial-aside">
+                <figure className="studio-bts-frame">
                   <img
                     src={portraitSrc}
                     alt="TYM Production Behind-the-Scenes Studio Shoot"
-                    className="film-portrait-new"
+                    className="studio-bts-img"
                     width={540}
-                    height={960}
+                    height={675}
                     loading="lazy"
                     decoding="async"
                   />
-                </div>
+                  <div className="studio-bts-scrim" aria-hidden="true" />
+                  <figcaption className="studio-bts-caption">
+                    <span>{t('about.modes.btsCaption')}</span>
+                  </figcaption>
+                </figure>
 
-                <div className="agency-direct-box">
-                  <h3 className="section-title" style={{ marginTop: '1.5rem' }}>
-                    {t('about.contact')}
-                  </h3>
-                  <DirectContactList
-                    areaText={t('about.modes.agencyAreasValue')}
-                    copiedPhone={copiedPhone}
-                    copiedEmail={copiedEmail}
-                    onCopyPhone={handleCopyPhone}
-                    onCopyEmail={handleCopyEmail}
-                    smsLabel={t('about.sendSms')}
-                    copiedPhoneLabel={t('about.copiedPhone')}
-                    emailLabel={t('about.sendEmail')}
-                    copiedEmailLabel={t('about.copiedEmail')}
-                  />
+                <div className="studio-contact-strip">
+                  <div className="studio-contact-actions">
+                    <a
+                      href="sms:+14389857846"
+                      onClick={handleCopyPhone}
+                      className="studio-contact-chip"
+                    >
+                      <PhoneIcon />
+                      <span>{copiedPhone ? t('about.copiedPhone') : t('about.sendSms')}</span>
+                    </a>
+                    <a
+                      href="mailto:lebachanhtruc@gmail.com"
+                      onClick={handleCopyEmail}
+                      className="studio-contact-chip"
+                    >
+                      <MailIcon />
+                      <span>{copiedEmail ? t('about.copiedEmail') : t('about.sendEmail')}</span>
+                    </a>
+                  </div>
+                  <p className="studio-contact-area">
+                    <LocationIcon />
+                    <span>{t('about.modes.agencyAreasValue')}</span>
+                  </p>
                 </div>
-              </div>
+              </aside>
             </div>
           </div>
         ) : (

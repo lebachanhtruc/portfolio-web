@@ -1,83 +1,45 @@
 [
   {
-    "id": "MenuDesignAndStorefrontBranding",
-    "title": "Menu Design & Signage",
-    "category": "AI x Photography",
-    "brand": "TYM Production",
-    "landscapeShowcase": true,
-    "containMedia": true,
+    "id": "CaseStudyLXRStudio",
+    "title": "LXR Studio Campaigns",
+    "category": "Luxury",
+    "brand": "LXR (LXRandCo)",
+    "portraitShowcase": true,
     "disableAnimation": true,
     "pairs": [],
     "standalone": [
-      "/Media/quote-showcase/somii-menu-matngoai.webp",
-      "/Media/quote-showcase/menu-tinh-demo.png",
-      "/Media/quote-showcase/menu-tinh-trong.png",
-      "/Media/quote-showcase/decal-kinh-demo.jpg"
+      "/Media/lxr-editorial/lxr-cny-dior-saddle.webp",
+      "/Media/lxr-editorial/lxr-cny-lady-dior-wallet.webp",
+      "/Media/lxr-editorial/lxr-cny-lv-murakami.webp",
+      "/Media/lxr-editorial/lxr-spring-celine-levitation.webp",
+      "/Media/lxr-editorial/lxr-spring-gucci-bamboo.webp",
+      "/Media/lxr-editorial/lxr-hand-lv-damier-hermes.webp",
+      "/Media/lxr-editorial/lxr-hand-gucci-dionysus.webp",
+      "/Media/lxr-editorial/lxr-hand-lv-graffiti.webp"
     ]
   },
   {
-    "id": "CommercialPrintPrePressArchive",
-    "title": "Commercial Print & Pre-Press",
-    "category": "AI x Photography",
-    "brand": "Imprimerie St Amand · De Feuilles en Feuilles",
-    "landscapeShowcase": true,
-    "containMedia": true,
+    "id": "CaseStudyLXRLuxury",
+    "title": "Product Elegance",
+    "category": "Luxury",
+    "brand": "LXR × TYM Production",
     "disableAnimation": true,
-    "pairs": [],
-    "standalone": [
-      "/Media/print-archive/print-taydo-trifold-mockup.webp",
-      "/Media/print-archive/print-bilingual-packaging-prepress.webp",
-      "/Media/print-archive/print-pure-marketing-workbook.webp",
-      "/Media/print-archive/print-prepress-imposition-bistro.webp"
-    ]
-  },
-  {
-    "id": "DigitalMenu4KAndCommercialAds",
-    "title": "Digital Menu 4K & Ad Reels",
-    "category": "Videography",
-    "brand": "TYM Production",
-    "featuredLandscapeFirst": true,
-    "disableAnimation": true,
-    "pairs": [],
-    "standalone": [
-      "/Media/quote-showcase/menu-dong-demo.mp4",
-      "/Media/quote-showcase/clip-influencer-demo.mp4",
-      "/Media/videography and editing/Project 9 - Ai generated Video for public Screen TV/Animated_Curry_Maison_720p.mp4",
-      "/Media/quote-showcase/sample-loop-clip.mp4"
-    ]
-  },
-  {
-    "id": "WebsiteDesignPatisserieDzung",
-    "title": "Website Design & Ordering",
-    "category": "Videography",
-    "brand": "Pâtisserie Dzung × TYM Production",
-    "websiteShowcase": true,
-    "containMedia": true,
-    "liveUrl": "https://www.patisseriedzung.ca/",
-    "pairs": [],
-    "standalone": [
-      "/Media/quote-showcase/patisserie-dzung-home.jpg",
-      "/Media/quote-showcase/patisserie-dzung-menu.jpg",
-      "/Media/quote-showcase/patisserie-dzung-catering.jpg"
+    "pairs": [
+      {
+        "original": "/Media/AI Graphic Design and Photo Shoot/Project 12 - product photography at LXR and ai poster create/1_goc_anh_cho_cong_ty_lxrco.jpg",
+        "edited": "/Media/AI Graphic Design and Photo Shoot/Project 12 - product photography at LXR and ai poster create/lxr_bag_editorial_4.jpeg"
+      }
     ],
-    "disableAnimation": true
-  },
-  {
-    "id": "Project9AigeneratedVideoforpublicScreenTV",
-    "title": "Broadcast Vision",
-    "category": "Videography",
-    "brand": "Lime × TYM Production",
-    "pairs": [],
     "standalone": [
-      "/Media/quote-showcase/real-tv-demo.mp4",
-      "/Media/videography and editing/Project 9 - Ai generated Video for public Screen TV/Pho_Soupe_720p.mp4",
-      "/Media/videography and editing/Project 9 - Ai generated Video for public Screen TV/House Grill Vermicelli Chicken 4k.mp4"
+      "/Media/AI Graphic Design and Photo Shoot/Project 12 - product photography at LXR and ai poster create/lxr_bag_editorial_1.jpeg",
+      "/Media/AI Graphic Design and Photo Shoot/Project 12 - product photography at LXR and ai poster create/lxr_bag_editorial_2.jpeg",
+      "/Media/AI Graphic Design and Photo Shoot/project 11 - videography and editing worked at LXR/a BTS for Mother day last year for lxrco montreal quebec.mp4"
     ]
   },
   {
     "id": "CaseStudyShushuGastronomy",
     "title": "Shushu Group Culinary & AI",
-    "category": "AI x Photography",
+    "category": "Culinary",
     "brand": "Shushu × TYM Production",
     "pairs": [
       {
@@ -108,7 +70,7 @@
   {
     "id": "CaseStudyLimeGriffintown",
     "title": "Lime Griffintown Shoot & AI",
-    "category": "AI x Photography",
+    "category": "Culinary",
     "brand": "Lime × TYM Production",
     "pairs": [
       {
@@ -129,8 +91,9 @@
   {
     "id": "CaseStudySeasonalFineDining",
     "title": "Seasonal & Fine-Dining Campaigns",
-    "category": "AI x Photography",
+    "category": "Culinary",
     "brand": "TYM Production",
+    "disableAnimation": true,
     "pairs": [
       {
         "original": "/Media/AI Graphic Design and Photo Shoot/Project 5 - food photography and ai poster create/VALENTINE 01.webp",
@@ -150,57 +113,80 @@
     ]
   },
   {
-    "id": "CaseStudyLXRLuxury",
-    "title": "Product Elegance",
-    "category": "AI x Photography",
-    "brand": "LXR × TYM Production",
-    "pairs": [
-      {
-        "original": "/Media/AI Graphic Design and Photo Shoot/Project 12 - product photography at LXR and ai poster create/1_goc_anh_cho_cong_ty_lxrco.jpg",
-        "edited": "/Media/AI Graphic Design and Photo Shoot/Project 12 - product photography at LXR and ai poster create/lxr_bag_editorial_4.jpeg"
-      }
-    ],
-    "standalone": [
-      "/Media/AI Graphic Design and Photo Shoot/Project 12 - product photography at LXR and ai poster create/lxr_bag_editorial_1.jpeg",
-      "/Media/AI Graphic Design and Photo Shoot/Project 12 - product photography at LXR and ai poster create/lxr_bag_editorial_2.jpeg",
-      "/Media/AI Graphic Design and Photo Shoot/project 11 - videography and editing worked at LXR/a BTS for Mother day last year for lxrco montreal quebec.mp4"
-    ]
-  },
-  {
-    "id": "CaseStudyLXRStudio",
-    "title": "LXR Studio Campaigns",
-    "category": "Photography",
-    "brand": "LXR (LXRandCo)",
-    "portraitShowcase": true,
+    "id": "DigitalMenu4KAndCommercialAds",
+    "title": "Digital Menu 4K & Ad Reels",
+    "category": "Culinary",
+    "brand": "TYM Production",
+    "featuredLandscapeFirst": true,
     "disableAnimation": true,
     "pairs": [],
     "standalone": [
-      "/Media/lxr-editorial/lxr-cny-dior-saddle.webp",
-      "/Media/lxr-editorial/lxr-cny-lady-dior-wallet.webp",
-      "/Media/lxr-editorial/lxr-cny-lv-murakami.webp",
-      "/Media/lxr-editorial/lxr-spring-celine-levitation.webp",
-      "/Media/lxr-editorial/lxr-spring-gucci-bamboo.webp",
-      "/Media/lxr-editorial/lxr-hand-lv-damier-hermes.webp",
-      "/Media/lxr-editorial/lxr-hand-gucci-dionysus.webp",
-      "/Media/lxr-editorial/lxr-hand-lv-graffiti.webp"
+      "/Media/quote-showcase/menu-dong-demo.mp4",
+      "/Media/quote-showcase/clip-influencer-demo.mp4",
+      "/Media/videography and editing/Project 9 - Ai generated Video for public Screen TV/Animated_Curry_Maison_720p.mp4",
+      "/Media/quote-showcase/sample-loop-clip.mp4"
     ]
   },
   {
-    "id": "project13stilllifephotography",
-    "title": "Still Life Essence",
-    "category": "Photography",
-    "brand": "TYM Production",
+    "id": "Project9AigeneratedVideoforpublicScreenTV",
+    "title": "Broadcast Vision",
+    "category": "Culinary",
+    "brand": "Lime × TYM Production",
+    "disableAnimation": true,
     "pairs": [],
     "standalone": [
-      "/Media/still life photography/project 13 - still life photography/616232145_18079208546351050_4571097287799180075_n..jpg",
-      "/Media/still life photography/project 13 - still life photography/618160554_18080144672242216_8158937170237072536_n..jpg",
-      "/Media/still life photography/project 13 - still life photography/618467938_18091368299294459_1519593724361607657_n..jpg",
-      "/Media/still life photography/project 13 - still life photography/619207114_18088478441098328_8248099719379686759_n..jpg",
-      "/Media/still life photography/project 13 - still life photography/619290412_18069994148423600_1941544957723230491_n..jpg",
-      "/Media/still life photography/project 13 - still life photography/619882357_18091751774005790_3841222104911925260_n..jpg",
-      "/Media/still life photography/project 13 - still life photography/620815822_18120592507604277_8875202579873361759_n..jpg",
-      "/Media/still life photography/project 13 - still life photography/637688407_18565730620015789_8102977794793220654_n..jpg"
+      "/Media/quote-showcase/real-tv-demo.mp4",
+      "/Media/videography and editing/Project 9 - Ai generated Video for public Screen TV/Pho_Soupe_720p.mp4",
+      "/Media/videography and editing/Project 9 - Ai generated Video for public Screen TV/House Grill Vermicelli Chicken 4k.mp4"
+    ]
+  },
+  {
+    "id": "WebsiteDesignPatisserieDzung",
+    "title": "Website Design & Ordering",
+    "category": "Web",
+    "brand": "Pâtisserie Dzung × TYM Production",
+    "websiteShowcase": true,
+    "containMedia": true,
+    "liveUrl": "https://www.patisseriedzung.ca/",
+    "pairs": [],
+    "standalone": [
+      "/Media/quote-showcase/patisserie-dzung-home.jpg",
+      "/Media/quote-showcase/patisserie-dzung-menu.jpg",
+      "/Media/quote-showcase/patisserie-dzung-catering.jpg"
     ],
     "disableAnimation": true
+  },
+  {
+    "id": "CommercialPrintPrePressArchive",
+    "title": "Commercial Print & Pre-Press",
+    "category": "Print",
+    "brand": "Imprimerie St Amand · De Feuilles en Feuilles · DEP Rosemont",
+    "landscapeShowcase": true,
+    "containMedia": true,
+    "disableAnimation": true,
+    "pairs": [],
+    "standalone": [
+      "/Media/print-archive/print-taydo-trifold-mockup.webp",
+      "/Media/print-archive/print-bilingual-packaging-prepress.webp",
+      "/Media/print-archive/print-pure-marketing-workbook.webp",
+      "/Media/print-archive/print-prepress-imposition-bistro.webp",
+      "/Media/print-archive/print-serigraphy-pantone-separation.webp"
+    ]
+  },
+  {
+    "id": "MenuDesignAndStorefrontBranding",
+    "title": "Menu Design & Signage",
+    "category": "Print",
+    "brand": "TYM Production",
+    "landscapeShowcase": true,
+    "containMedia": true,
+    "disableAnimation": true,
+    "pairs": [],
+    "standalone": [
+      "/Media/quote-showcase/somii-menu-matngoai.webp",
+      "/Media/quote-showcase/menu-tinh-demo.png",
+      "/Media/quote-showcase/menu-tinh-trong.png",
+      "/Media/quote-showcase/decal-kinh-demo.jpg"
+    ]
   }
 ]

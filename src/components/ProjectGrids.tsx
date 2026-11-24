@@ -52,11 +52,13 @@ const getObjectPosition = (src: string) => {
 function ProjectGroup({
   project,
   animClass,
-  onOpenLightbox
+  onOpenLightbox,
+  onOpenCvProfile
 }: {
   project: any;
   animClass: string;
   onOpenLightbox: (items: GalleryItem[], startIndex: number) => void;
+  onOpenCvProfile?: () => void;
 }) {
   const { t, translations } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
@@ -105,9 +107,9 @@ function ProjectGroup({
     }
 
     let list: string[] = cardTitlesObj?.photography || ['Captured Frame'];
-    if (project.brand?.includes('LXR') || project.title.toLowerCase().includes('product')) {
+    if (project.brand?.includes('LXR') || project.category === 'Luxury' || project.title.toLowerCase().includes('product')) {
       list = cardTitlesObj?.luxury || list;
-    } else if (project.category === 'AI x Photography' || project.title === 'The Culinary Art') {
+    } else if (project.category === 'Culinary' || project.category === 'AI x Photography' || project.title === 'The Culinary Art') {
       list = cardTitlesObj?.food || list;
     } else if (project.category === 'Videography') {
       list = cardTitlesObj?.videography || list;
@@ -237,10 +239,10 @@ function ProjectGroup({
 
   return (
     <div id={`project-${project.id}`} className="project-group" ref={containerRef}>
-      <h2 className="project-group-title">
-        {t(`projects.titles.${project.title}`)} -{' '}
+      <h3 className="project-group-title">
+        {t(`projects.titles.${project.title}`)} <span className="project-title-sep" aria-hidden="true">·</span>{' '}
         <span className="highlight-text">{project.brand}</span>
-      </h2>
+      </h3>
       {groupImpactBadge && (
         <div className="project-impact-banner">
           <span className="slider-impact-dot" aria-hidden="true" />
@@ -285,6 +287,15 @@ function ProjectGroup({
             >
               {showcaseData.quoteCta}
             </button>
+            {onOpenCvProfile && showcaseData.cvSystemsCta && (
+              <button
+                type="button"
+                className="website-showcase-quote-btn"
+                onClick={onOpenCvProfile}
+              >
+                {showcaseData.cvSystemsCta}
+              </button>
+            )}
           </div>
         </div>
       )}
@@ -333,11 +344,16 @@ function ProjectGroup({
             }
             const isEasterEggTarget = easterEggVideo !== undefined;
             const galleryIndex = pairCount + index;
+            const isLandscapeCenterpiece = Boolean(
+              project.landscapeShowcase &&
+                project.standalone.length % 2 === 1 &&
+                index === project.standalone.length - 1
+            );
 
             return (
               <div
                 key={`standalone-${index}`}
-                className={`project-card ${isEasterEggTarget ? 'easter-egg-desktop' : ''} ${project.featuredLandscapeFirst && index === 0 ? 'featured-landscape-card' : ''}`.trim()}
+                className={`project-card ${isEasterEggTarget ? 'easter-egg-desktop' : ''} ${project.featuredLandscapeFirst && index === 0 ? 'featured-landscape-card' : ''} ${isLandscapeCenterpiece ? 'landscape-centerpiece-card' : ''}`.trim()}
                 style={{ '--mobile-order': (index + 1) * 10 } as React.CSSProperties}
                 onMouseEnter={(e) => {
                   if (!isEasterEggTarget) return;
@@ -452,10 +468,14 @@ function ProjectGroup({
   );
 }
 
-export default function ProjectGrids() {
-  const { t } = useLanguage();
-  const tabs = ['Videography', 'AI x Photography', 'Photography'];
-  const [activeTab, setActiveTab] = useState('Videography');
+export default function ProjectGrids({
+  onOpenCvProfile
+}: {
+  onOpenCvProfile?: () => void;
+}) {
+  const { t, translations } = useLanguage();
+  const tabs = ['Luxury', 'Culinary', 'Web', 'Print'];
+  const [activeTab, setActiveTab] = useState('Luxury');
   const [isNavStuck, setIsNavStuck] = useState(false);
   const stickyShellRef = useRef<HTMLDivElement>(null);
   const stickySentinelRef = useRef<HTMLDivElement>(null);
@@ -484,7 +504,7 @@ export default function ProjectGrids() {
       stuckObserver.observe(sentinel);
     }
 
-    const sectionIds = ['Videography', 'AI x Photography', 'Photography', 'Pricing & Services'];
+    const sectionIds = ['Luxury', 'Culinary', 'Web', 'Print', 'Pricing & Services'];
     const handleScrollActive = () => {
       const probeY = 180;
       let current = sectionIds[0];
@@ -575,7 +595,11 @@ export default function ProjectGrids() {
     void scrollToElement(el, offset);
   };
 
-  const menuTabs = ['Videography', 'AI x Photography', 'Photography', 'Pricing & Services'];
+  const chapterTabs = ['Luxury', 'Culinary', 'Web', 'Print'];
+  const chaptersCopy = ((translations as any)?.projects?.chapters || {}) as Record<
+    string,
+    { index: string; title: string; subtitle: string }
+  >;
   const activeLightboxItem = lightboxState ? lightboxState.items[lightboxState.index] : null;
 
   return (
@@ -586,8 +610,8 @@ export default function ProjectGrids() {
         ref={stickyShellRef}
         className={`sticky-nav-shell ${isNavStuck ? 'is-stuck' : ''}`}
       >
-        <nav className="pill-menu sticky-pill-bar" aria-label="Portfolio categories">
-          {menuTabs.map((menuTab) => (
+        <nav className="pill-menu sticky-pill-bar" aria-label="Portfolio chapters">
+          {chapterTabs.map((menuTab) => (
             <button
               key={menuTab}
               type="button"
@@ -598,6 +622,15 @@ export default function ProjectGrids() {
               {t(`projects.tabs.${menuTab}`)}
             </button>
           ))}
+          <span className="sticky-pill-divider" aria-hidden="true" />
+          <button
+            type="button"
+            className={`pill-btn pill-btn-quote ${activeTab === 'Pricing & Services' ? 'active' : ''}`}
+            aria-current={activeTab === 'Pricing & Services' ? 'true' : undefined}
+            onClick={() => scrollToSection('Pricing & Services')}
+          >
+            {t('projects.tabs.Pricing & Services')}
+          </button>
         </nav>
       </div>
 
@@ -605,6 +638,7 @@ export default function ProjectGrids() {
         {tabs.map((tab) => {
           const tabProjects = projectsData.filter((p) => p.category === tab);
           if (tabProjects.length === 0) return null;
+          const chapter = chaptersCopy[tab];
 
           return (
             <div
@@ -615,6 +649,19 @@ export default function ProjectGrids() {
               }}
               className="category-section"
             >
+              {chapter && (
+                <header className="editorial-chapter-header">
+                  <div className="editorial-chapter-meta">
+                    <span className="editorial-chapter-index">{chapter.index}</span>
+                    <span className="editorial-chapter-rule" aria-hidden="true" />
+                  </div>
+                  <div className="editorial-chapter-copy">
+                    <h2 className="editorial-chapter-title">{chapter.title}</h2>
+                    <p className="editorial-chapter-subtitle">{chapter.subtitle}</p>
+                  </div>
+                </header>
+              )}
+
               {tabProjects.map((project: any) => {
                 const globalIndex = projectsData.findIndex((p) => p.id === project.id);
                 return (
@@ -623,6 +670,7 @@ export default function ProjectGrids() {
                     project={project}
                     animClass={project.disableAnimation ? '' : `scroll-anim-${(globalIndex % 13) + 1}`}
                     onOpenLightbox={openLightbox}
+                    onOpenCvProfile={onOpenCvProfile}
                   />
                 );
               })}

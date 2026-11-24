@@ -90,7 +90,13 @@ function App() {
   useEffect(() => {
     const hash = window.location.hash;
     if (hash && hash.length >= 2) {
-      const targetId = decodeURIComponent(hash.slice(1));
+      const rawTargetId = decodeURIComponent(hash.slice(1));
+      const legacyTargetMap: Record<string, string> = {
+        'section-Videography': 'section-Culinary',
+        'section-AI x Photography': 'section-Culinary',
+        'section-Photography': 'section-Luxury'
+      };
+      const targetId = legacyTargetMap[rawTargetId] || rawTargetId;
       const timer = window.setTimeout(() => {
         void scrollToElementById(
           targetId,
@@ -109,7 +115,14 @@ function App() {
   }, [isAdminEntry, isDedicatedClientQuote]);
 
   const scrollToPortfolio = () => {
-    void scrollToElementById('section-Videography');
+    void scrollToElementById('section-Luxury');
+  };
+
+  const openCvProfile = () => {
+    setProfileMode('cv');
+    window.setTimeout(() => {
+      void scrollToElementById('about-studio', 0);
+    }, 60);
   };
 
   const navigateToPillar = (targetId: string) => {
@@ -137,7 +150,7 @@ function App() {
           )}
           <HeroSection profileMode={profileMode} onNavigatePillar={navigateToPillar} />
           <AboutSection profileMode={profileMode} onProfileModeChange={setProfileMode} />
-          {profileMode === 'agency' && <ProjectGrids />}
+          {profileMode === 'agency' && <ProjectGrids onOpenCvProfile={openCvProfile} />}
           {!isDedicatedClientQuote && profileMode === 'agency' && (
             <InteractiveQuoteSection remoteQuoteState={remoteQuoteState} />
           )}

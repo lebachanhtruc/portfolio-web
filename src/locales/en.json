@@ -46,15 +46,29 @@
   },
   "about": {
     "modes": {
-      "agency": "Studio & Services (TYM Production)",
-      "cv": "Profile, Skills & Case Studies (CV)",
-      "badgeAgency": "FOR RESTAURANTS & F&B BRANDS",
+      "agency": "Studio & Work",
+      "cv": "Profile & CV",
+      "badgeAgency": "TYM PRODUCTION · MONTRÉAL & SOUTH SHORE",
       "badgeCv": "MARKETING, CREATIVE OPS & AI SYSTEMS",
-      "ctaViewQuote": "View Interactive Quotation ↓",
-      "ctaSwitchCv": "View Profile, Skills & Case Studies →",
-      "ctaSwitchAgency": "← Back to TYM Production Studio",
-      "agencyHeadline": "Turn dishes into high-converting visual stories",
-      "agencyLead": "TYM Production partners with restaurants, bakeries, and hospitality brands in Montréal & Rive-Sud—delivering AI photography, conversion-tracked multilingual websites (GA4/Clarity/Law 25), 4K animated menus, Reels ads, decals, and storefront TV signage.",
+      "ctaViewQuote": "Interactive Quotation ↓",
+      "ctaSwitchCv": "Profile, Skills & CV →",
+      "ctaSwitchAgency": "← Back to Studio & Work",
+      "agencyHeadline": "Visual craft built for measurable commercial growth",
+      "agencyLead": "From North American luxury e-commerce at LXR to Montréal hospitality brands — combining studio photography, generative AI direction, multilingual CRO websites, 4K animated menus, and print pre-press under one cohesive pipeline.",
+      "btsCaption": "ON-SET · MONTRÉAL STUDIO",
+      "proofStats": [
+        { "value": "LXR", "label": "North America Photo Lead" },
+        { "value": "+12%", "label": "YoY Digital Orders ($2.3M+)" },
+        { "value": "4.9★", "label": "Google Local SEO (119)" },
+        { "value": "3 Lang", "label": "EN · FR · VI · DEP & PSPO I" }
+      ],
+      "scopeTags": [
+        "Luxury & Culinary Studio",
+        "Generative AI & 4K Motion",
+        "Multilingual CRO Web",
+        "CMYK Pre-Press & Pantone",
+        "55\" Storefront TV & Reels"
+      ],
       "pillars": [
         {
           "title": "Culinary Shoot & Generative AI",
@@ -220,7 +234,7 @@
         },
         {
           "title": "DEP – Graphic Design & Printing",
-          "org": "Rosemont Technology Center (EMSB) — Montréal, QC",
+          "org": "Rosemont Technology Center (EMSB) — Montréal, QC · CMYK Pre-Press, Spot-Color Pantone Film Separations, Screen Printing & Cut-Vinyl Storefront Signage",
           "date": "12/2019"
         },
         {
@@ -276,10 +290,36 @@
   },
   "projects": {
     "tabs": {
+      "Luxury": "01 Luxury",
+      "Culinary": "02 Culinary",
+      "Web": "03 Web",
+      "Print": "04 Print",
       "AI x Photography": "AI x Photography",
       "Videography": "AI Video & Motion",
       "Photography": "Photography",
-      "Pricing & Services": "Pricing & Services"
+      "Pricing & Services": "Quote"
+    },
+    "chapters": {
+      "Luxury": {
+        "index": "01",
+        "title": "Luxury Studio & Brand Direction",
+        "subtitle": "In-camera studio lighting, editorial campaigns & remote North America QC for Dior, Céline, Gucci, LV & Hermès."
+      },
+      "Culinary": {
+        "index": "02",
+        "title": "Culinary AI, 4K Menus & Motion",
+        "subtitle": "On-site gastronomy shoots paired with generative AI lighting, 4K animated digital menus, storefront TV loops & Reels."
+      },
+      "Web": {
+        "index": "03",
+        "title": "Growth Web & Digital Systems",
+        "subtitle": "0→1 multilingual hospitality websites with Local SEO, GA4 Consent Mode v2, Clarity CRO, O2O QR & Québec Law 25."
+      },
+      "Print": {
+        "index": "04",
+        "title": "Commercial Print, Pre-Press & Signage",
+        "subtitle": "Montréal CMYK pre-press, bilingual FR/EN packaging, Pantone 101 C spot-color film separations, screen printing & decals."
+      }
     },
     "slider": {
       "before": "Original",
@@ -291,7 +331,7 @@
       "impactLuxury": "Reported to COO · Promoted to Photography Lead – North America in 14m · Remote US QC",
       "impactCampaign": "On-Set Shoot + Generative AI Lighting · Campaign-Ready Visuals",
       "impactPrint": "Pre-Press CMYK · Bleed & Die-Line Specs · 4K/55\" Storefront Signage · DEP Printing Certified",
-      "impactPrintShop": "Montréal Print Production · Bilingual FR/EN Packaging, 21-Page InDesign Editorial & 12\"×18\" Pre-Press Imposition",
+      "impactPrintShop": "Montréal Print Production · Bilingual Packaging, 21p InDesign, 12\"×18\" Imposition & Pantone 101 C Film Separations",
       "impactLuxuryStudio": "In-Camera Luxury Art Direction & Studio Lighting · Dior · Céline · Gucci · Louis Vuitton · Hermès"
     },
     "titles": {
@@ -320,9 +360,10 @@
         "50/50 A/B Test & UTMs",
         "Québec Law 25 Opt-In"
       ],
-      "liveCta": "🌐 Visit live showcase: patisseriedzung.ca ↗",
-      "mapsCta": "⭐ Google Maps 4.9★ (119) ↗",
-      "quoteCta": "View Website Package Quotation ↓",
+      "liveCta": "Visit patisseriedzung.ca ↗",
+      "mapsCta": "Google Maps 4.9★ (119) ↗",
+      "quoteCta": "Website Package Quote ↓",
+      "cvSystemsCta": "Inspect AI Payroll SaaS (CV) →",
       "cardCategory": "Turnkey Web & Growth"
     },
     "cardTitles": {
@@ -392,6 +433,7 @@
         "print-bilingual-packaging-prepress": "Bilingual FR/EN OTC Packaging (NPN) & Vector Voucher",
         "print-pure-marketing-workbook": "21-Page Corporate Training Workbook (InDesign CMYK)",
         "print-prepress-imposition-bistro": "12\"×18\" 8-Up Numbered Imposition & 4-Page Bistro Menu",
+        "print-serigraphy-pantone-separation": "Pantone 101 C + Black Film Separations & Textile Screen Printing (DEP)",
         "lxr-cny-dior-saddle": "Dior Saddle — Lunar New Year",
         "lxr-cny-lady-dior-wallet": "Lady Dior — Red & Gold",
         "lxr-cny-lv-murakami": "LV Multicolore — Studio Set",

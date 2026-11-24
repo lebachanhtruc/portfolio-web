@@ -46,15 +46,29 @@
   },
   "about": {
     "modes": {
-      "agency": "Studio & Dịch Vụ (TYM Production)",
-      "cv": "Hồ Sơ Năng Lực & Kỹ Năng (CV)",
-      "badgeAgency": "DÀNH CHO CHỦ NHÀ HÀNG & THƯƠNG HIỆU F&B",
+      "agency": "Studio & Dự Án",
+      "cv": "Hồ Sơ & CV",
+      "badgeAgency": "TYM PRODUCTION · MONTRÉAL & RIVE-SUD",
       "badgeCv": "MARKETING, CREATIVE OPS & HỆ THỐNG AI",
-      "ctaViewQuote": "Xem Bảng Báo Giá Tương Tác ↓",
-      "ctaSwitchCv": "Xem Hồ Sơ Năng Lực & Case Study →",
-      "ctaSwitchAgency": "← Xem Dịch Vụ Studio TYM Production",
-      "agencyHeadline": "Biến món ăn thành câu chuyện hút khách & tăng đơn",
-      "agencyLead": "TYM Production đồng hành cùng nhà hàng, tiệm bánh và thương hiệu F&B tại Montréal & Rive-Sud với giải pháp trọn gói từ chụp ảnh AI, Website chuyển đổi đo lường thật (GA4/Clarity/Law 25), Menu 4K đến lắp đặt TV Digital Signage.",
+      "ctaViewQuote": "Bảng Báo Giá Tương Tác ↓",
+      "ctaSwitchCv": "Hồ Sơ Năng Lực & CV →",
+      "ctaSwitchAgency": "← Quay Lại Studio & Dự Án",
+      "agencyHeadline": "Chất lượng thị giác tạo ra tăng trưởng kinh doanh thật",
+      "agencyLead": "Từ chỉ đạo nhiếp ảnh hàng hiệu Bắc Mỹ tại LXR đến các thương hiệu F&B tại Montréal — kết hợp chụp studio, AI tạo sinh, website CRO đa ngôn ngữ, menu động 4K và chế bản in CMYK trong cùng một quy trình đồng bộ.",
+      "btsCaption": "HẬU TRƯỜNG · STUDIO MONTRÉAL",
+      "proofStats": [
+        { "value": "LXR", "label": "Photography Lead Bắc Mỹ" },
+        { "value": "+12%", "label": "Đơn Số YoY ($2.3M+)" },
+        { "value": "4.9★", "label": "Google Local SEO (119)" },
+        { "value": "3 Ngữ", "label": "EN · FR · VI · DEP & PSPO I" }
+      ],
+      "scopeTags": [
+        "Studio Luxury & Ẩm Thực",
+        "AI Tạo Sinh & Motion 4K",
+        "Website CRO Đa Ngôn Ngữ",
+        "Chế Bản CMYK & Pantone",
+        "TV Mặt Tiền 55\" & Reels"
+      ],
       "pillars": [
         {
           "title": "Nhiếp Ảnh Ẩm Thực & AI Tạo Sinh",
@@ -220,7 +234,7 @@
         },
         {
           "title": "DEP – Thiết Kế Đồ Họa & In Ấn (Graphic Design & Printing)",
-          "org": "Rosemont Technology Center (EMSB) — Montréal, QC",
+          "org": "Rosemont Technology Center (EMSB) — Montréal, QC · Chế bản CMYK, tách phim màu Pantone, in lụa vải (Sérigraphie) & thi công decal kính mặt tiền",
           "date": "12/2019"
         },
         {
@@ -276,10 +290,36 @@
   },
   "projects": {
     "tabs": {
+      "Luxury": "01 Luxury",
+      "Culinary": "02 Ẩm Thực",
+      "Web": "03 Web",
+      "Print": "04 In Ấn",
       "AI x Photography": "Nhiếp Ảnh AI",
       "Videography": "Video AI & Quay Phim",
       "Photography": "Nhiếp Ảnh",
-      "Pricing & Services": "Báo Giá & Dịch Vụ"
+      "Pricing & Services": "Báo Giá"
+    },
+    "chapters": {
+      "Luxury": {
+        "index": "01",
+        "title": "Studio Hàng Hiệu & Chỉ Đạo Nghệ Thuật",
+        "subtitle": "Ánh sáng studio thực tế, chiến dịch thời trang cao cấp & kiểm soát chất lượng Bắc Mỹ cho Dior, Céline, Gucci, LV & Hermès."
+      },
+      "Culinary": {
+        "index": "02",
+        "title": "Ẩm Thực AI, Menu Động 4K & Reels",
+        "subtitle": "Chụp ảnh món ăn thực tế kết hợp ánh sáng AI tạo sinh, bảng menu TV 4K, chuỗi video mặt tiền & clip quảng cáo."
+      },
+      "Web": {
+        "index": "03",
+        "title": "Website Tăng Trưởng & Hệ Thống Số",
+        "subtitle": "Hệ sinh thái web đa ngôn ngữ 0→1 với Google Local SEO, GA4 Consent Mode v2, Clarity CRO, QR bao bì & Luật 25 Québec."
+      },
+      "Print": {
+        "index": "04",
+        "title": "In Ấn Thương Mại, Chế Bản & Decal",
+        "subtitle": "Chế bản CMYK tại Montréal, bao bì song ngữ FR/EN, tách phim màu Pantone 101 C, in lụa vải & thiết kế menu thực tế."
+      }
     },
     "slider": {
       "before": "Ảnh Gốc",
@@ -291,7 +331,7 @@
       "impactLuxury": "Báo Cáo Trực Tiếp COO · Thăng Chức Photography Lead Bắc Mỹ Sau 14 Tháng · QC Mỹ",
       "impactCampaign": "Chụp Thực Tế + Ánh Sáng AI Tạo Sinh · Hình Ảnh Chuẩn Chiến Dịch",
       "impactPrint": "Chế Bản In CMYK · Bleed & Khuôn Bế · Màn Hình 4K/55\" · Chứng Chỉ DEP In Ấn",
-      "impactPrintShop": "Sản Xuất In Ấn Montréal · Bao Bì Song Ngữ FR/EN, Sổ Tay 21 Trang InDesign & Bình Bản 12\"×18\"",
+      "impactPrintShop": "Sản Xuất In Ấn Montréal · Bao Bì FR/EN, Sổ Tay 21 Trang InDesign, Bình Bản 12\"×18\" & Tách Phim Pantone 101 C",
       "impactLuxuryStudio": "Chỉ Đạo Nghệ Thuật & Ánh Sáng Studio Hàng Hiệu · Dior · Céline · Gucci · Louis Vuitton · Hermès"
     },
     "titles": {
@@ -320,9 +360,10 @@
         "A/B Test 50/50 & UTM",
         "Chuẩn Luật 25 Québec"
       ],
-      "liveCta": "🌐 Xem web mẫu thực tế: patisseriedzung.ca ↗",
-      "mapsCta": "⭐ Google Maps 4.9★ (119) ↗",
-      "quoteCta": "Xem Chi Tiết Báo Giá Website ↓",
+      "liveCta": "Xem patisseriedzung.ca ↗",
+      "mapsCta": "Google Maps 4.9★ (119) ↗",
+      "quoteCta": "Báo Giá Gói Website ↓",
+      "cvSystemsCta": "Xem SaaS Lương AI (CV) →",
       "cardCategory": "Website & Tăng Trưởng Trọn Gói"
     },
     "cardTitles": {
@@ -392,6 +433,7 @@
         "print-bilingual-packaging-prepress": "Bao Bì Song Ngữ FR/EN (NPN) & Voucher Vector",
         "print-pure-marketing-workbook": "Tài Liệu Đào Tạo 21 Trang (InDesign CMYK)",
         "print-prepress-imposition-bistro": "Bình Bản 12\"×18\" Đánh Số Nhảy & Menu Bistro 4 Trang",
+        "print-serigraphy-pantone-separation": "Tách Phim Pantone 101 C + Đen & In Lụa Vải (DEP Rosemont)",
         "lxr-cny-dior-saddle": "Dior Saddle — Studio Tết",
         "lxr-cny-lady-dior-wallet": "Lady Dior — Sắc Đỏ & Vàng",
         "lxr-cny-lv-murakami": "LV Multicolore — Studio Tết",
