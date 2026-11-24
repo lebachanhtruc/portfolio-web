@@ -3,7 +3,19 @@
     "role": "MARKETING, CREATIVE OPS & HỆ THỐNG AI",
     "agencyRole": "TYM PRODUCTION • STUDIO SÁNG TẠO & TĂNG TRƯỞNG",
     "scrollCue": "CUỘN XUỐNG KHÁM PHÁ",
-    "scrollAria": "Cuộn xuống giới thiệu Studio & Dịch vụ"
+    "scrollAria": "Cuộn xuống giới thiệu Studio & Dịch vụ",
+    "showreelCta": "Xem Showreel Tổng Hợp (46s)",
+    "showreelBadge": "REEL 2026",
+    "showreelTitle": "Showreel Sáng Tạo & Hệ Thống AI 2026",
+    "showreelSubtitle": "LXRandCo Luxury BTS · Ẩm Thực AI (+12% YoY) · Menu Động 4K · TV Mặt Tiền 55\" · Web Chuyển Đổi & In Ấn",
+    "showreelClose": "Đóng",
+    "showreelChapters": [
+      "01 Hàng Hiệu (LXR)",
+      "02 Ẩm Thực AI (+12% YoY)",
+      "03 Menu Động 4K",
+      "04 TV Mặt Tiền & Reels",
+      "05 Web Chuyển Đổi & In Ấn"
+    ]
   },
   "about": {
     "modes": {
@@ -246,7 +258,10 @@
       "after": "Xử Lý (AI)",
       "retouch": "Kéo So Sánh Trước / Sau",
       "expand": "Phóng to",
-      "ariaLabel": "Thanh kéo so sánh ảnh gốc và ảnh AI"
+      "ariaLabel": "Thanh kéo so sánh ảnh gốc và ảnh AI",
+      "impactCulinary": "Nâng Cấp Hình Ảnh Menu → +12% Đơn Đặt Hàng Số YoY (Quy mô ~$2.3M/năm)",
+      "impactLuxury": "Photography Lead – Bắc Mỹ · Chuẩn QC Hàng Hiệu & Điều Phối Contractor Mỹ",
+      "impactCampaign": "Chụp Thực Tế + Ánh Sáng AI Tạo Sinh · Hình Ảnh Chuẩn Chiến Dịch"
     },
     "titles": {
       "Sensory Experience": "Trải Nghiệm Đa Giác Quan",

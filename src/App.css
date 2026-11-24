@@ -1088,21 +1088,39 @@ section {
   z-index: 3;
 }
 
-.slider-label {
+.slider-bottom-dock {
   position: absolute;
-  bottom: 0.85rem;
-  background: rgba(9, 9, 15, 0.78);
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  z-index: 6;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.slider-labels-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.slider-label {
+  position: static;
+  background: rgba(9, 9, 15, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.16);
   color: #f8fafc;
-  padding: 0.22rem 0.55rem;
+  padding: 0.2rem 0.52rem;
   border-radius: 6px;
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 700;
   pointer-events: none;
-  z-index: 5;
+  backdrop-filter: blur(6px);
 }
-.original-label { right: 0.75rem; }
-.edited-label { left: 0.75rem; color: #e9d5ff; border-color: rgba(192, 132, 252, 0.45); }
+.original-label { margin-left: auto; }
+.edited-label { color: #e9d5ff; border-color: rgba(192, 132, 252, 0.45); }
 
 .slider-expand-pill {
   position: absolute;
@@ -2456,6 +2474,16 @@ section {
 }
 
 /* Native <dialog> Modals (following light-dismiss-a-dialog guidance) */
+/* Mandatory native <dialog> scroll-chaining guard (prevent-page-scroll-under-modal-dialog) */
+dialog:modal {
+  overscroll-behavior: contain;
+}
+
+dialog::backdrop {
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+
 dialog.quote-native-dialog {
   margin: auto;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -3989,5 +4017,236 @@ label.generator-checkbox-row input[type='checkbox'] {
   .quote-summary-table tbody td {
     background: #ffffff !important;
     border-color: #e2e8f0 !important;
+  }
+}
+
+/* =========================================================
+   HERO 46S SHOWREEL CTA & NATIVE <dialog> PLAYER
+   ========================================================= */
+.hero-showreel-row {
+  margin-top: clamp(1.35rem, 2.6vw, 2.2rem);
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+
+.hero-showreel-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-block-size: 46px;
+  padding-block: 0.65rem;
+  padding-inline: 1.25rem 0.9rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.24) 0%, rgba(16, 185, 129, 0.18) 100%);
+  border: 1px solid rgba(192, 132, 252, 0.55);
+  color: #ffffff;
+  font-family: var(--font-primary);
+  font-size: clamp(0.84rem, 1.05vw, 0.96rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(88, 28, 135, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+}
+
+.hero-showreel-btn:hover {
+  transform: translateY(-2px);
+  border-color: #6ee7b7;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.36) 0%, rgba(16, 185, 129, 0.28) 100%);
+  box-shadow: 0 14px 36px rgba(124, 58, 237, 0.5), 0 0 0 1px rgba(110, 231, 183, 0.35);
+}
+
+.hero-showreel-btn:focus-visible {
+  outline: 2px solid #6ee7b7;
+  outline-offset: 4px;
+}
+
+.showreel-play-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #160a2b;
+  font-size: 0.68rem;
+  padding-inline-start: 2px;
+  flex-shrink: 0;
+}
+
+.showreel-pill-tag {
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #06281e;
+  background: #6ee7b7;
+  padding-block: 0.18rem;
+  padding-inline: 0.55rem;
+  border-radius: 999px;
+}
+
+dialog.showreel-dialog {
+  width: min(94vw, 1020px);
+  max-width: min(94vw, 1020px);
+  border-color: rgba(192, 132, 252, 0.36);
+}
+
+dialog.showreel-dialog[open] {
+  display: block;
+}
+
+.showreel-dialog-box {
+  padding: clamp(1rem, 2.2vw, 1.5rem);
+  gap: 0.9rem;
+}
+
+.showreel-header-meta {
+  min-inline-size: 0;
+}
+
+.showreel-dialog-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0;
+  text-transform: none;
+}
+
+.showreel-dialog-sub {
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+.showreel-video-stage {
+  background: #040308;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  max-height: 70dvh;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.showreel-video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  background: #040308;
+}
+
+.showreel-chapters-bar {
+  display: flex;
+  flex-wrap: wrap;
+  flex-wrap: balance;
+  gap: 0.45rem;
+  justify-content: center;
+}
+
+.showreel-chapter-chip {
+  font-family: var(--font-primary);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #e9d5ff;
+  background: rgba(168, 85, 247, 0.14);
+  border: 1px solid rgba(192, 132, 252, 0.3);
+  padding-block: 0.28rem;
+  padding-inline: 0.7rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+.showreel-chapter-chip:hover {
+  background: rgba(16, 185, 129, 0.22);
+  border-color: rgba(110, 231, 183, 0.65);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.showreel-chapter-chip:focus-visible {
+  outline: 2px solid #6ee7b7;
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   BEFORE / AFTER SLIDER & GROUP BUSINESS ROI PROOF BADGES
+   ========================================================= */
+.project-impact-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: -0.9rem auto 1.75rem;
+  padding-block: 0.48rem;
+  padding-inline: 1rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.16) 0%, rgba(168, 85, 247, 0.14) 100%);
+  border: 1px solid rgba(110, 231, 183, 0.42);
+  color: #ecfdf5;
+  font-size: clamp(0.78rem, 1vw, 0.88rem);
+  font-weight: 600;
+  line-height: 1.35;
+  max-inline-size: min(92vw, 720px);
+}
+
+.project-group:has(.project-impact-banner) {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-group:has(.project-impact-banner) .project-impact-banner {
+  align-self: center;
+}
+
+.slider-impact-badge {
+  width: 100%;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding-block: 0.36rem;
+  padding-inline: 0.65rem;
+  border-radius: 9px;
+  background: rgba(7, 10, 18, 0.88);
+  border: 1px solid rgba(110, 231, 183, 0.48);
+  backdrop-filter: blur(8px);
+  color: #ecfdf5;
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.3;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+}
+
+.slider-impact-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 8px rgba(52, 211, 153, 0.85);
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .hero-showreel-row {
+    margin-top: 1.15rem;
+  }
+  .hero-showreel-btn {
+    font-size: 0.82rem;
+    padding-inline: 1rem 0.75rem;
+  }
+  .project-impact-banner {
+    border-radius: 12px;
+    text-align: left;
+    margin-bottom: 1.25rem;
+  }
+  .slider-impact-badge {
+    font-size: 0.65rem;
+    padding-block: 0.3rem;
+    padding-inline: 0.55rem;
   }
 }

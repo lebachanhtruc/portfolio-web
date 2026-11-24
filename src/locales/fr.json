@@ -3,7 +3,19 @@
     "role": "MARKETING, OPÉRATIONS CRÉATIVES & IA",
     "agencyRole": "TYM PRODUCTION • STUDIO CRÉATIF & CROISSANCE",
     "scrollCue": "DÉFILER POUR EXPLORER",
-    "scrollAria": "Défiler vers Studio & Services"
+    "scrollAria": "Défiler vers Studio & Services",
+    "showreelCta": "Voir le Showreel (46s)",
+    "showreelBadge": "REEL 2026",
+    "showreelTitle": "Showreel Créatif & Systèmes IA 2026",
+    "showreelSubtitle": "LXRandCo Luxe BTS · Culinaire IA (+12 % YoY) · Menus 4K · TV Vitrine 55\" · Web Conversion & Print",
+    "showreelClose": "Fermer",
+    "showreelChapters": [
+      "01 E-Com Luxe (LXR)",
+      "02 Culinaire IA (+12 % YoY)",
+      "03 Menus Animés 4K",
+      "04 TV Vitrine & Reels",
+      "05 Web Conversion & Print"
+    ]
   },
   "about": {
     "modes": {
@@ -246,7 +258,10 @@
       "after": "Édité (IA)",
       "retouch": "Comparaison Avant / Après",
       "expand": "Agrandir",
-      "ariaLabel": "Curseur de comparaison avant et après"
+      "ariaLabel": "Curseur de comparaison avant et après",
+      "impactCulinary": "Refonte Visuelle Menu → +12 % Commandes Digitales YoY (~2,3 M$/an d'opérations)",
+      "impactLuxury": "Photography Lead – Amérique du Nord · QC Luxe & Coordination Pigistes US",
+      "impactCampaign": "Shooting sur Place + Éclairage IA Générative · Prêt pour Campagne"
     },
     "titles": {
       "Sensory Experience": "Expérience Sensorielle",

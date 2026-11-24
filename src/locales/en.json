@@ -3,7 +3,19 @@
     "role": "MARKETING, CREATIVE OPS & AI SYSTEMS",
     "agencyRole": "TYM PRODUCTION • CREATIVE & GROWTH STUDIO",
     "scrollCue": "SCROLL TO EXPLORE",
-    "scrollAria": "Scroll down to Studio & Services"
+    "scrollAria": "Scroll down to Studio & Services",
+    "showreelCta": "Watch 46s Showreel",
+    "showreelBadge": "2026 REEL",
+    "showreelTitle": "2026 Creative & AI Systems Showreel",
+    "showreelSubtitle": "LXRandCo Luxury BTS · Culinary AI (+12% YoY) · 4K Digital Menus · 55\" TV Signage · Conversion Web & Print",
+    "showreelClose": "Close",
+    "showreelChapters": [
+      "01 Luxury E-Com (LXR)",
+      "02 Culinary AI (+12% YoY)",
+      "03 4K Digital Menus",
+      "04 TV Signage & Reels",
+      "05 Conversion Web & Print"
+    ]
   },
   "about": {
     "modes": {
@@ -246,7 +258,10 @@
       "after": "Edited (AI)",
       "retouch": "Before & After Retouch",
       "expand": "Expand",
-      "ariaLabel": "Before and after comparison slider"
+      "ariaLabel": "Before and after comparison slider",
+      "impactCulinary": "Visual Merchandising Overhaul → +12% YoY Digital Booked Orders (~$2.3M/yr ops)",
+      "impactLuxury": "Photography Lead – North America · Luxury E-Commerce QC & Remote US Direction",
+      "impactCampaign": "On-Set Shoot + Generative AI Lighting · Campaign-Ready Visuals"
     },
     "titles": {
       "Sensory Experience": "Sensory Experience",

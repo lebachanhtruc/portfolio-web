@@ -8,6 +8,7 @@ interface BeforeAfterSliderProps {
   onExpand?: () => void;
   className?: string;
   priorityLoad?: boolean;
+  impactBadge?: string;
 }
 
 export default function BeforeAfterSlider({
@@ -15,7 +16,8 @@ export default function BeforeAfterSlider({
   edited,
   onExpand,
   className = '',
-  priorityLoad = false
+  priorityLoad = false,
+  impactBadge
 }: BeforeAfterSliderProps) {
   const { t } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
@@ -106,8 +108,19 @@ export default function BeforeAfterSlider({
         className="slider-a11y-range"
       />
 
-      <div className="slider-label original-label">{t('projects.slider.before')}</div>
-      <div className="slider-label edited-label">{t('projects.slider.after')}</div>
+      <div className="slider-bottom-dock">
+        <div className="slider-labels-row">
+          <span className="slider-label edited-label">{t('projects.slider.after')}</span>
+          <span className="slider-label original-label">{t('projects.slider.before')}</span>
+        </div>
+
+        {impactBadge && (
+          <div className="slider-impact-badge" aria-label={impactBadge}>
+            <span className="slider-impact-dot" aria-hidden="true" />
+            <span>{impactBadge}</span>
+          </div>
+        )}
+      </div>
 
       {onExpand && (
         <button

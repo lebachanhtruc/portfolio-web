@@ -12,6 +12,7 @@ export interface GalleryItem {
   original?: string;
   edited?: string;
   btsVideo?: string;
+  impactBadge?: string;
   title: string;
   subtitle: string;
   brand: string;
@@ -124,6 +125,15 @@ function ProjectGroup({
     ? t('projects.websiteShowcase.cardCategory')
     : t(`projects.tabs.${project.category}`);
 
+  const groupImpactBadge =
+    project.id === 'CaseStudyLimeGriffintown' || project.id === 'CaseStudyShushuGastronomy'
+      ? t('projects.slider.impactCulinary')
+      : project.id === 'CaseStudyLXRLuxury'
+        ? t('projects.slider.impactLuxury')
+        : project.id === 'CaseStudySeasonalFineDining'
+          ? t('projects.slider.impactCampaign')
+          : undefined;
+
   // Build ordered gallery items array for lightbox Next/Prev navigation inside this group
   const galleryItems: GalleryItem[] = [
     ...(project.pairs || []).map((pair: any) => ({
@@ -131,6 +141,7 @@ function ProjectGroup({
       src: encodeMediaPath(pair.edited),
       original: pair.original,
       edited: pair.edited,
+      impactBadge: groupImpactBadge,
       title: t('projects.slider.retouch'),
       subtitle: localizedCategory,
       brand: project.brand
@@ -219,6 +230,12 @@ function ProjectGroup({
         {t(`projects.titles.${project.title}`)} -{' '}
         <span className="highlight-text">{project.brand}</span>
       </h2>
+      {groupImpactBadge && (
+        <div className="project-impact-banner">
+          <span className="slider-impact-dot" aria-hidden="true" />
+          <span>{groupImpactBadge}</span>
+        </div>
+      )}
       {showcaseData && (
         <div className="website-showcase-intro">
           <p className="website-showcase-subtitle">{showcaseData.subtitle}</p>
@@ -266,6 +283,7 @@ function ProjectGroup({
                   <BeforeAfterSlider
                     original={pair.original}
                     edited={pair.edited}
+                    impactBadge={groupImpactBadge}
                     onExpand={() => onOpenLightbox(galleryItems, index)}
                   />
                 </div>
@@ -690,6 +708,7 @@ export default function ProjectGrids() {
                   <BeforeAfterSlider
                     original={activeLightboxItem.original}
                     edited={activeLightboxItem.edited}
+                    impactBadge={activeLightboxItem.impactBadge}
                     priorityLoad={true}
                   />
                 </div>
