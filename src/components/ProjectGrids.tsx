@@ -43,6 +43,9 @@ const getObjectPosition = (src: string) => {
   if (lowerSrc.includes('general tao chicken')) {
     return 'left bottom';
   }
+  if (lowerSrc.includes('lxr-cny-dior-saddle')) {
+    return 'center 88%';
+  }
   return undefined;
 };
 
@@ -134,7 +137,11 @@ function ProjectGroup({
           ? t('projects.slider.impactCampaign')
           : project.id === 'MenuDesignAndStorefrontBranding'
             ? t('projects.slider.impactPrint')
-            : undefined;
+            : project.id === 'CommercialPrintPrePressArchive'
+              ? t('projects.slider.impactPrintShop')
+              : project.id === 'CaseStudyLXRStudio'
+                ? t('projects.slider.impactLuxuryStudio')
+                : undefined;
 
   // Build ordered gallery items array for lightbox Next/Prev navigation inside this group
   const galleryItems: GalleryItem[] = [
@@ -177,6 +184,8 @@ function ProjectGroup({
     gridClass = 'featured-landscape-grid';
   } else if (project.landscapeShowcase) {
     gridClass = 'landscape-showcase-grid';
+  } else if (project.portraitShowcase) {
+    gridClass = 'portrait-showcase-grid';
   } else if (project.category === 'Photography') {
     gridClass = 'masonry-grid';
   } else if (itemCount === 10) {
@@ -218,8 +227,8 @@ function ProjectGroup({
         alt={getLocalizedCardTitle(src)}
         loading="lazy"
         decoding="async"
-        width={isWebsiteShowcase ? 1280 : isFeaturedVideo ? 1920 : project.landscapeShowcase ? 1200 : 540}
-        height={isWebsiteShowcase ? 800 : isFeaturedVideo ? 1080 : project.landscapeShowcase ? 800 : 960}
+        width={isWebsiteShowcase ? 1280 : isFeaturedVideo ? 1920 : project.landscapeShowcase ? 1200 : project.portraitShowcase ? 800 : 540}
+        height={isWebsiteShowcase ? 800 : isFeaturedVideo ? 1080 : project.landscapeShowcase ? 800 : project.portraitShowcase ? 1000 : 960}
         className={`project-media ${containClass}`.trim()}
         style={position ? { objectPosition: position } : undefined}
       />

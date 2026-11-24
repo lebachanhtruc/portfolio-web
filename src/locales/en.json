@@ -239,7 +239,7 @@
       },
       "t4": {
         "role": "Photography Lead – North America (01/2022–06/2022) & Photographer (10/2020–01/2022)",
-        "desc": "Reported directly to the COO and earned internal promotion to North America Lead within 14 months (+33% merit raise in 6 months). Produced luxury catalog & campaign visuals for authenticated pre-owned handbags (Hermès, Chanel, Louis Vuitton) across lxrco.com and North American retail; remotely directed US contractor photographers from Montréal alongside Mother's Day BTS film & QC."
+        "desc": "Reported directly to the COO and earned internal promotion to North America Lead within 14 months (+33% merit raise in 6 months). Produced luxury catalog & campaign visuals for authenticated pre-owned handbags (Dior, Céline, Gucci, Louis Vuitton, Hermès, Chanel) across lxrco.com and North American retail; remotely directed US contractor photographers from Montréal alongside Mother's Day BTS film & QC."
       },
       "t5": {
         "role": "Graphic Designer · Sales Supervisor · Marketing Specialist",
@@ -263,7 +263,9 @@
       "impactCulinary": "Visual Merchandising Overhaul → +12% YoY Digital Booked Orders (~$2.3M/yr ops)",
       "impactLuxury": "Reported to COO · Promoted to Photography Lead – North America in 14m · Remote US QC",
       "impactCampaign": "On-Set Shoot + Generative AI Lighting · Campaign-Ready Visuals",
-      "impactPrint": "Pre-Press CMYK · Bleed & Die-Line Specs · 4K/55\" Storefront Signage · DEP Printing Certified"
+      "impactPrint": "Pre-Press CMYK · Bleed & Die-Line Specs · 4K/55\" Storefront Signage · DEP Printing Certified",
+      "impactPrintShop": "Montréal Print Production · Bilingual FR/EN Packaging, 21-Page InDesign Editorial & 12\"×18\" Pre-Press Imposition",
+      "impactLuxuryStudio": "In-Camera Luxury Art Direction & Studio Lighting · Dior · Céline · Gucci · Louis Vuitton · Hermès"
     },
     "titles": {
       "Sensory Experience": "Sensory Experience",
@@ -271,11 +273,13 @@
       "Website Design & Ordering": "Custom Restaurant Website",
       "Digital Menu 4K & Ad Reels": "4K Animated Menus & AI Ad Reels",
       "Menu Design & Signage": "Menu Design & Window Decals",
+      "Commercial Print & Pre-Press": "Commercial Print, Packaging & Pre-Press",
       "Shushu Group Culinary & AI": "Culinary Shoot & AI Posters",
       "Lime Griffintown Shoot & AI": "Signature Gastronomy & AI",
       "Seasonal & Fine-Dining Campaigns": "Seasonal & Fine-Dining Campaigns",
       "The Culinary Art": "The Culinary Art",
       "Product Elegance": "Luxury Campaign & BTS Film",
+      "LXR Studio Campaigns": "Luxury Creative Studio Campaigns",
       "Still Life Essence": "Still Life & Street Study",
       "Cinematic Motion": "Cinematic Motion"
     },
@@ -356,7 +360,19 @@
         "decal-kinh-demo": "Storefront Window Decal Install",
         "patisserie-dzung-home": "Hero Cinema Video & 4-Language Switcher",
         "patisserie-dzung-menu": "44+ Dish Interactive Menu & Allergens",
-        "patisserie-dzung-catering": "Catering Inquiry & 1-Tap Order Flow"
+        "patisserie-dzung-catering": "Catering Inquiry & 1-Tap Order Flow",
+        "print-taydo-trifold-mockup": "6-Panel Tri-Fold Restaurant Menu Mockup (Montréal)",
+        "print-bilingual-packaging-prepress": "Bilingual FR/EN OTC Packaging (NPN) & Vector Voucher",
+        "print-pure-marketing-workbook": "21-Page Corporate Training Workbook (InDesign CMYK)",
+        "print-prepress-imposition-bistro": "12\"×18\" 8-Up Numbered Imposition & 4-Page Bistro Menu",
+        "lxr-cny-dior-saddle": "Dior Saddle — Lunar New Year",
+        "lxr-cny-lady-dior-wallet": "Lady Dior — Red & Gold",
+        "lxr-cny-lv-murakami": "LV Multicolore — Studio Set",
+        "lxr-spring-celine-levitation": "Céline Luggage — Levitation",
+        "lxr-spring-gucci-bamboo": "Gucci Bamboo — Cobalt Block",
+        "lxr-hand-lv-damier-hermes": "LV Damier & Hermès Cuff",
+        "lxr-hand-gucci-dionysus": "Gucci Dionysus — Hand Study",
+        "lxr-hand-lv-graffiti": "LV Sprouse Graffiti — Study"
       }
     },
     "lightbox": {

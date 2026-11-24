@@ -239,7 +239,7 @@
       },
       "t4": {
         "role": "Photography Lead – Bắc Mỹ (01/2022–06/2022) & Photographer (10/2020–01/2022)",
-        "desc": "Báo cáo trực tiếp Giám đốc Vận hành (COO) và được thăng chức nội bộ lên Lead Bắc Mỹ chỉ sau 14 tháng (tăng lương +33% sau 6 tháng). Sản xuất catalog & chiến dịch cho túi xách hàng hiệu pre-owned chính hãng (Hermès, Chanel, Louis Vuitton) trên lxrco.com và chuỗi bán lẻ Bắc Mỹ; điều phối từ xa nhiếp ảnh gia contractor tại Mỹ, quay BTS Ngày của Mẹ & kiểm soát chất lượng."
+        "desc": "Báo cáo trực tiếp Giám đốc Vận hành (COO) và được thăng chức nội bộ lên Lead Bắc Mỹ chỉ sau 14 tháng (tăng lương +33% sau 6 tháng). Sản xuất catalog & chiến dịch cho túi xách hàng hiệu pre-owned chính hãng (Dior, Céline, Gucci, Louis Vuitton, Hermès, Chanel) trên lxrco.com và chuỗi bán lẻ Bắc Mỹ; điều phối từ xa nhiếp ảnh gia contractor tại Mỹ, quay BTS Ngày của Mẹ & kiểm soát chất lượng."
       },
       "t5": {
         "role": "Thiết Kế Đồ Họa · Trưởng Nhóm Kinh Doanh · Chuyên Viên Marketing",
@@ -263,7 +263,9 @@
       "impactCulinary": "Nâng Cấp Hình Ảnh Menu → +12% Đơn Đặt Hàng Số YoY (Quy mô ~$2.3M/năm)",
       "impactLuxury": "Báo Cáo Trực Tiếp COO · Thăng Chức Photography Lead Bắc Mỹ Sau 14 Tháng · QC Mỹ",
       "impactCampaign": "Chụp Thực Tế + Ánh Sáng AI Tạo Sinh · Hình Ảnh Chuẩn Chiến Dịch",
-      "impactPrint": "Chế Bản In CMYK · Bleed & Khuôn Bế · Màn Hình 4K/55\" · Chứng Chỉ DEP In Ấn"
+      "impactPrint": "Chế Bản In CMYK · Bleed & Khuôn Bế · Màn Hình 4K/55\" · Chứng Chỉ DEP In Ấn",
+      "impactPrintShop": "Sản Xuất In Ấn Montréal · Bao Bì Song Ngữ FR/EN, Sổ Tay 21 Trang InDesign & Bình Bản 12\"×18\"",
+      "impactLuxuryStudio": "Chỉ Đạo Nghệ Thuật & Ánh Sáng Studio Hàng Hiệu · Dior · Céline · Gucci · Louis Vuitton · Hermès"
     },
     "titles": {
       "Sensory Experience": "Trải Nghiệm Đa Giác Quan",
@@ -271,11 +273,13 @@
       "Website Design & Ordering": "Thiết Kế Website Thương Hiệu",
       "Digital Menu 4K & Ad Reels": "Menu Động 4K & Video Quảng Cáo AI",
       "Menu Design & Signage": "Thiết Kế Menu & Decal Mặt Tiền",
+      "Commercial Print & Pre-Press": "In Ấn Thương Mại, Bao Bì & Chế Bản",
       "Shushu Group Culinary & AI": "Chiến Dịch Ẩm Thực & Poster AI",
       "Lime Griffintown Shoot & AI": "Ẩm Thực Việt & Poster Nhận Diện",
       "Seasonal & Fine-Dining Campaigns": "Chiến Dịch Mùa Lễ & Fine Dining",
       "The Culinary Art": "Nghệ Thuật Ẩm Thực",
       "Product Elegance": "Thương Hiệu & Thời Trang Luxury",
+      "LXR Studio Campaigns": "Bộ Ảnh Chiến Dịch Studio Hàng Hiệu",
       "Still Life Essence": "Tĩnh Vật & Nghệ Thuật Đô Thị",
       "Cinematic Motion": "Chuyển Động Điện Ảnh"
     },
@@ -356,7 +360,19 @@
         "decal-kinh-demo": "Thi Công Decal Kính Mặt Tiền",
         "patisserie-dzung-home": "Trang Chủ Hero Video & Đa Ngôn Ngữ",
         "patisserie-dzung-menu": "Thực Đơn 44+ Món & Bộ Lọc Dị Ứng",
-        "patisserie-dzung-catering": "Trang Đặt Tiệc Catering & Liên Hệ"
+        "patisserie-dzung-catering": "Trang Đặt Tiệc Catering & Liên Hệ",
+        "print-taydo-trifold-mockup": "Menu Gấp 3 / 6 Mặt — Mockup 3D In Ấn (Montréal)",
+        "print-bilingual-packaging-prepress": "Bao Bì Song Ngữ FR/EN (NPN) & Voucher Vector",
+        "print-pure-marketing-workbook": "Tài Liệu Đào Tạo 21 Trang (InDesign CMYK)",
+        "print-prepress-imposition-bistro": "Bình Bản 12\"×18\" Đánh Số Nhảy & Menu Bistro 4 Trang",
+        "lxr-cny-dior-saddle": "Dior Saddle — Studio Tết",
+        "lxr-cny-lady-dior-wallet": "Lady Dior — Sắc Đỏ & Vàng",
+        "lxr-cny-lv-murakami": "LV Multicolore — Studio Tết",
+        "lxr-spring-celine-levitation": "Céline — Không Trọng Lực",
+        "lxr-spring-gucci-bamboo": "Gucci Bamboo — Color-Block",
+        "lxr-hand-lv-damier-hermes": "LV Damier & Vòng Hermès",
+        "lxr-hand-gucci-dionysus": "Gucci Dionysus — Chụp Tay",
+        "lxr-hand-lv-graffiti": "LV Graffiti — Bóng Đổ"
       }
     },
     "lightbox": {

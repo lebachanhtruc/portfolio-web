@@ -731,6 +731,17 @@ section {
   aspect-ratio: 3 / 2;
 }
 
+/* 4-Column 4:5 Editorial Portrait Lookbook Grid (LXR Luxury Studio Campaigns) */
+.portrait-showcase-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+  padding-bottom: 1.25rem;
+}
+
+.portrait-showcase-grid .media-wrapper {
+  aspect-ratio: 4 / 5;
+}
+
 /* 5-Column (5x1, 5x2) */
 .grid-5-cols,
 .grid-5x2 {
@@ -1213,7 +1224,7 @@ section {
 
 /* Responsive */
 @media (max-width: 480px) {
-  .grid-3-cols, .vertical-grid, .masonry-grid, .grid-5x2, .grid-5-cols, .grid-3-cols-center-high, .grid-2-cols, .grid-1-col, .website-showcase-grid, .featured-landscape-grid, .landscape-showcase-grid {
+  .grid-3-cols, .vertical-grid, .masonry-grid, .grid-5x2, .grid-5-cols, .grid-3-cols-center-high, .grid-2-cols, .grid-1-col, .website-showcase-grid, .featured-landscape-grid, .landscape-showcase-grid, .portrait-showcase-grid {
     display: flex !important;
     flex-wrap: nowrap !important;
     align-items: center !important;
@@ -1229,7 +1240,7 @@ section {
     scrollbar-width: none;
   }
 
-  .grid-3-cols::-webkit-scrollbar, .vertical-grid::-webkit-scrollbar, .masonry-grid::-webkit-scrollbar, .grid-5x2::-webkit-scrollbar, .grid-5-cols::-webkit-scrollbar, .grid-3-cols-center-high::-webkit-scrollbar, .grid-2-cols::-webkit-scrollbar, .grid-1-col::-webkit-scrollbar, .featured-landscape-grid::-webkit-scrollbar, .landscape-showcase-grid::-webkit-scrollbar {
+  .grid-3-cols::-webkit-scrollbar, .vertical-grid::-webkit-scrollbar, .masonry-grid::-webkit-scrollbar, .grid-5x2::-webkit-scrollbar, .grid-5-cols::-webkit-scrollbar, .grid-3-cols-center-high::-webkit-scrollbar, .grid-2-cols::-webkit-scrollbar, .grid-1-col::-webkit-scrollbar, .featured-landscape-grid::-webkit-scrollbar, .landscape-showcase-grid::-webkit-scrollbar, .portrait-showcase-grid::-webkit-scrollbar {
     display: none;
   }
   
@@ -1321,6 +1332,10 @@ section {
     aspect-ratio: 4 / 3;
   }
 
+  .portrait-showcase-grid .media-wrapper {
+    aspect-ratio: 4 / 5;
+  }
+
   .website-showcase-grid .media-wrapper,
   .website-showcase-grid .media-wrapper.contain-media {
     aspect-ratio: 16 / 10;
@@ -1377,7 +1392,8 @@ section {
 @media (max-width: 1024px) {
   .vertical-grid,
   .masonry-grid,
-  .landscape-showcase-grid {
+  .landscape-showcase-grid,
+  .portrait-showcase-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   

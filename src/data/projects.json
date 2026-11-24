@@ -16,6 +16,22 @@
     ]
   },
   {
+    "id": "CommercialPrintPrePressArchive",
+    "title": "Commercial Print & Pre-Press",
+    "category": "AI x Photography",
+    "brand": "Imprimerie St Amand · De Feuilles en Feuilles",
+    "landscapeShowcase": true,
+    "containMedia": true,
+    "disableAnimation": true,
+    "pairs": [],
+    "standalone": [
+      "/Media/print-archive/print-taydo-trifold-mockup.webp",
+      "/Media/print-archive/print-bilingual-packaging-prepress.webp",
+      "/Media/print-archive/print-pure-marketing-workbook.webp",
+      "/Media/print-archive/print-prepress-imposition-bistro.webp"
+    ]
+  },
+  {
     "id": "DigitalMenu4KAndCommercialAds",
     "title": "Digital Menu 4K & Ad Reels",
     "category": "Videography",
@@ -148,6 +164,25 @@
       "/Media/AI Graphic Design and Photo Shoot/Project 12 - product photography at LXR and ai poster create/lxr_bag_editorial_1.jpeg",
       "/Media/AI Graphic Design and Photo Shoot/Project 12 - product photography at LXR and ai poster create/lxr_bag_editorial_2.jpeg",
       "/Media/AI Graphic Design and Photo Shoot/project 11 - videography and editing worked at LXR/a BTS for Mother day last year for lxrco montreal quebec.mp4"
+    ]
+  },
+  {
+    "id": "CaseStudyLXRStudio",
+    "title": "LXR Studio Campaigns",
+    "category": "Photography",
+    "brand": "LXR (LXRandCo)",
+    "portraitShowcase": true,
+    "disableAnimation": true,
+    "pairs": [],
+    "standalone": [
+      "/Media/lxr-editorial/lxr-cny-dior-saddle.webp",
+      "/Media/lxr-editorial/lxr-cny-lady-dior-wallet.webp",
+      "/Media/lxr-editorial/lxr-cny-lv-murakami.webp",
+      "/Media/lxr-editorial/lxr-spring-celine-levitation.webp",
+      "/Media/lxr-editorial/lxr-spring-gucci-bamboo.webp",
+      "/Media/lxr-editorial/lxr-hand-lv-damier-hermes.webp",
+      "/Media/lxr-editorial/lxr-hand-gucci-dionysus.webp",
+      "/Media/lxr-editorial/lxr-hand-lv-graffiti.webp"
     ]
   },
   {

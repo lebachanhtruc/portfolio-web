@@ -239,7 +239,7 @@
       },
       "t4": {
         "role": "Photography Lead – Amérique du Nord (01/2022–06/2022) & Photographe (10/2020–01/2022)",
-        "desc": "Rattaché directement à la COO et promu Lead Amérique du Nord en 14 mois (hausse de mérite +33 % en 6 mois). Production studio et campagnes pour sacs de luxe pré-aimés authentifiés (Hermès, Chanel, Louis Vuitton) sur lxrco.com et détaillants nord-américains ; coordination à distance de photographes contractuels aux É.-U., film BTS Fête des Mères & QC."
+        "desc": "Rattaché directement à la COO et promu Lead Amérique du Nord en 14 mois (hausse de mérite +33 % en 6 mois). Production studio et campagnes pour sacs de luxe pré-aimés authentifiés (Dior, Céline, Gucci, Louis Vuitton, Hermès, Chanel) sur lxrco.com et détaillants nord-américains ; coordination à distance de photographes contractuels aux É.-U., film BTS Fête des Mères & QC."
       },
       "t5": {
         "role": "Infographiste · Superviseur des Ventes · Spécialiste Marketing",
@@ -263,7 +263,9 @@
       "impactCulinary": "Refonte Visuelle Menu → +12 % Commandes Digitales YoY (~2,3 M$/an d'opérations)",
       "impactLuxury": "Rattaché à la COO · Promu Photography Lead – Amérique du Nord en 14 mois · QC US",
       "impactCampaign": "Shooting sur Place + Éclairage IA Générative · Prêt pour Campagne",
-      "impactPrint": "Prépresse CMJN · Fonds Perdus & Découpes · Écrans 4K/55\" · DEP Imprimerie"
+      "impactPrint": "Prépresse CMJN · Fonds Perdus & Découpes · Écrans 4K/55\" · DEP Imprimerie",
+      "impactPrintShop": "Production Imprimerie Montréal · Emballage Bilingue FR/EN, Cahier 21 Pages InDesign & Imposition 12\"×18\"",
+      "impactLuxuryStudio": "Direction Artistique & Éclairage Studio Luxe · Dior · Céline · Gucci · Louis Vuitton · Hermès"
     },
     "titles": {
       "Sensory Experience": "Expérience Sensorielle",
@@ -271,11 +273,13 @@
       "Website Design & Ordering": "Site Web Sur Mesure",
       "Digital Menu 4K & Ad Reels": "Menus Animés 4K & Vidéos Pub IA",
       "Menu Design & Signage": "Menus Imprimés & Décalques",
+      "Commercial Print & Pre-Press": "Imprimerie Commerciale, Emballage & Prépresse",
       "Shushu Group Culinary & AI": "Shooting Culinaire & Affiches IA",
       "Lime Griffintown Shoot & AI": "Gastronomie & Création IA",
       "Seasonal & Fine-Dining Campaigns": "Campagnes Saisonnières & Gastronomie",
       "The Culinary Art": "L'Art Culinaire",
       "Product Elegance": "Campagne Luxe & Coulisses",
+      "LXR Studio Campaigns": "Campagnes Studio Créatives Luxe",
       "Still Life Essence": "Nature Morte & Étude Urbaine",
       "Cinematic Motion": "Mouvement Cinématographique"
     },
@@ -356,7 +360,19 @@
         "decal-kinh-demo": "Pose de Décalque sur Vitrine",
         "patisserie-dzung-home": "Hero Vidéo & Changement de Langue",
         "patisserie-dzung-menu": "Menu Interactif 44+ Plats & Allergènes",
-        "patisserie-dzung-catering": "Devis Traiteur & Contact Direct"
+        "patisserie-dzung-catering": "Devis Traiteur & Contact Direct",
+        "print-taydo-trifold-mockup": "Menu Dépliant 6 Faces — Maquette 3D (Montréal)",
+        "print-bilingual-packaging-prepress": "Emballage Bilingue FR/EN (NPN) & Coupon Vectoriel",
+        "print-pure-marketing-workbook": "Cahier de Formation 21 Pages (InDesign CMJN)",
+        "print-prepress-imposition-bistro": "Imposition 12\"×18\" Numérotée & Menu Bistro 4 Pages",
+        "lxr-cny-dior-saddle": "Dior Saddle — Nouvel An",
+        "lxr-cny-lady-dior-wallet": "Lady Dior — Rouge & Or",
+        "lxr-cny-lv-murakami": "LV Multicolore — Studio",
+        "lxr-spring-celine-levitation": "Céline — Lévitation Studio",
+        "lxr-spring-gucci-bamboo": "Gucci Bamboo — Bleu Cobalt",
+        "lxr-hand-lv-damier-hermes": "LV Damier & Hermès Médor",
+        "lxr-hand-gucci-dionysus": "Gucci Dionysus — Éditorial",
+        "lxr-hand-lv-graffiti": "LV Sprouse Graffiti — Ombre"
       }
     },
     "lightbox": {
