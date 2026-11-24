@@ -122,8 +122,11 @@ function DirectContactList({
 
 const LIVE_DEMO_URL = 'https://enterprise-payroll.vercel.app/';
 const NOTION_CASE_URL =
-  'https://helix-saffron-268.notion.site/Ba-Chanh-Truc-Le-Product-Owner-Portfolio-3a59fce0d40680e3981bea63e19586e2';
+  'https://helix-saffron-268.notion.site/Ba-Chanh-Truc-Le-Operations-AI-Systems-Builder-3a59fce0d40680e3981bea63e19586e2';
 const LOOM_WALKTHROUGH_URL = 'https://www.loom.com/share/1e467bf8ae8043ccbd5027abcdcb82c0';
+const PATISSERIE_LIVE_URL = 'https://www.patisseriedzung.ca/';
+const PATISSERIE_QR_URL = 'https://www.patisseriedzung.ca/goi-bo';
+const PATISSERIE_REPO_URL = 'https://github.com/lebachanhtruc/patisserie-dzung';
 
 interface AboutSectionProps {
   profileMode: 'agency' | 'cv';
@@ -173,40 +176,38 @@ export default function AboutSection({ profileMode, onProfileModeChange }: About
   const agencyPillars = translations.about.modes.pillars;
   const builder = translations.about.builder;
 
-  const portraitSrc =
-    '/Media/AI Graphic Design and Photo Shoot/Project 10 - food photography and ai poster create/June_17_2023_-_SHUSHU_202607251246.jpeg'
-      .split('/')
-      .map((segment) => encodeURIComponent(segment))
-      .join('/');
+  const portraitSrc = '/Media/posters/IMG_4950_web.jpg';
 
   return (
     <section className="about-viewfinder-section relative" id="about-studio">
       <div className="section-transition-gradient"></div>
 
-      {/* Viewfinder Overlay Elements */}
-      <div className="viewfinder-overlay">
-        <div className="vf-top-left">
-          <span>ISO 400</span>
-          <span>F3.3</span>
-          <span className="battery-stat">
-            <BatteryIcon /> 65%
-          </span>
-          <span className="auto-mode">AUTO</span>
-        </div>
-        <div className="vf-top-right">
-          <span className="rec-dot"></span> REC
-        </div>
+      {/* Viewfinder Overlay Elements (Agency Studio Mode only) */}
+      {profileMode === 'agency' && (
+        <div className="viewfinder-overlay">
+          <div className="vf-top-left">
+            <span>ISO 400</span>
+            <span>F3.3</span>
+            <span className="battery-stat">
+              <BatteryIcon /> 65%
+            </span>
+            <span className="auto-mode">AUTO</span>
+          </div>
+          <div className="vf-top-right">
+            <span className="rec-dot"></span> REC
+          </div>
 
-        <div className="vf-corner vf-tl"></div>
-        <div className="vf-corner vf-tr"></div>
-        <div className="vf-corner vf-bl"></div>
-        <div className="vf-corner vf-br"></div>
+          <div className="vf-corner vf-tl"></div>
+          <div className="vf-corner vf-tr"></div>
+          <div className="vf-corner vf-bl"></div>
+          <div className="vf-corner vf-br"></div>
 
-        <div className="vf-focus-center">
-          <div className="focus-bracket left"></div>
-          <div className="focus-bracket right"></div>
+          <div className="vf-focus-center">
+            <div className="focus-bracket left"></div>
+            <div className="focus-bracket right"></div>
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="container relative z-10">
         {/* Clean Separation Toggle between F&B Studio Agency and Product Builder Resume */}
@@ -282,10 +283,10 @@ export default function AboutSection({ profileMode, onProfileModeChange }: About
                   <div className="film-strip-decoration"></div>
                   <img
                     src={portraitSrc}
-                    alt="TYM Production Showcase"
+                    alt="TYM Production Behind-the-Scenes Studio Shoot"
                     className="film-portrait-new"
-                    width={1071}
-                    height={1920}
+                    width={540}
+                    height={960}
                     loading="lazy"
                     decoding="async"
                   />
@@ -349,57 +350,112 @@ export default function AboutSection({ profileMode, onProfileModeChange }: About
               </ul>
             </div>
 
-            {/* 2. Flagship Work Sample Spotlight: Lime Payroll Enterprise */}
-            <article className="builder-flagship-card">
-              <header className="builder-flagship-header">
-                <div className="builder-flagship-title-wrap">
-                  <span className="builder-flagship-badge">{builder.spotlight.badge}</span>
-                  <h3>{builder.spotlight.title}</h3>
-                  <span className="builder-flagship-period">{builder.spotlight.period}</span>
-                </div>
-                <p className="builder-flagship-summary">{builder.spotlight.summary}</p>
-              </header>
+            {/* 2. Flagship Work Samples: Pâtisserie Dzung Growth/CRO Lab + Lime Payroll Enterprise */}
+            <div className="builder-spotlights-stack">
+              <article className="builder-flagship-card builder-flagship-card--growth">
+                <header className="builder-flagship-header">
+                  <div className="builder-flagship-title-wrap">
+                    <span className="builder-flagship-badge builder-flagship-badge--growth">
+                      {builder.growthSpotlight.badge}
+                    </span>
+                    <h3>{builder.growthSpotlight.title}</h3>
+                    <span className="builder-flagship-period">{builder.growthSpotlight.period}</span>
+                  </div>
+                  <p className="builder-flagship-summary">{builder.growthSpotlight.summary}</p>
+                </header>
 
-              <div className="builder-arch-grid">
-                {builder.spotlight.cards.map((card, idx) => (
-                  <article key={idx} className="builder-arch-card">
-                    <span className="builder-arch-tag">{card.tag}</span>
-                    <h4>{card.title}</h4>
-                    <p>{card.desc}</p>
-                  </article>
-                ))}
-              </div>
-
-              <footer className="builder-flagship-footer">
-                <div className="builder-flagship-actions">
-                  <a
-                    href={LIVE_DEMO_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="agency-btn-primary builder-link-btn"
-                  >
-                    {builder.spotlight.ctaDemo}
-                  </a>
-                  <a
-                    href={NOTION_CASE_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="agency-btn-secondary builder-link-btn"
-                  >
-                    {builder.spotlight.ctaNotion}
-                  </a>
-                  <a
-                    href={LOOM_WALKTHROUGH_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="agency-btn-secondary builder-link-btn"
-                  >
-                    {builder.spotlight.ctaLoom}
-                  </a>
+                <div className="builder-arch-grid">
+                  {builder.growthSpotlight.cards.map((card, idx) => (
+                    <article key={idx} className="builder-arch-card">
+                      <span className="builder-arch-tag">{card.tag}</span>
+                      <h4>{card.title}</h4>
+                      <p>{card.desc}</p>
+                    </article>
+                  ))}
                 </div>
-                <p className="builder-demo-hint">{builder.spotlight.demoHint}</p>
-              </footer>
-            </article>
+
+                <footer className="builder-flagship-footer">
+                  <div className="builder-flagship-actions">
+                    <a
+                      href={PATISSERIE_LIVE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="agency-btn-primary builder-link-btn"
+                    >
+                      {builder.growthSpotlight.ctaLive}
+                    </a>
+                    <a
+                      href={PATISSERIE_QR_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="agency-btn-secondary builder-link-btn"
+                    >
+                      {builder.growthSpotlight.ctaQr}
+                    </a>
+                    <a
+                      href={PATISSERIE_REPO_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="agency-btn-secondary builder-link-btn"
+                    >
+                      {builder.growthSpotlight.ctaRepo}
+                    </a>
+                  </div>
+                  <p className="builder-demo-hint">{builder.growthSpotlight.demoHint}</p>
+                </footer>
+              </article>
+
+              <article className="builder-flagship-card">
+                <header className="builder-flagship-header">
+                  <div className="builder-flagship-title-wrap">
+                    <span className="builder-flagship-badge">{builder.spotlight.badge}</span>
+                    <h3>{builder.spotlight.title}</h3>
+                    <span className="builder-flagship-period">{builder.spotlight.period}</span>
+                  </div>
+                  <p className="builder-flagship-summary">{builder.spotlight.summary}</p>
+                </header>
+
+                <div className="builder-arch-grid">
+                  {builder.spotlight.cards.map((card, idx) => (
+                    <article key={idx} className="builder-arch-card">
+                      <span className="builder-arch-tag">{card.tag}</span>
+                      <h4>{card.title}</h4>
+                      <p>{card.desc}</p>
+                    </article>
+                  ))}
+                </div>
+
+                <footer className="builder-flagship-footer">
+                  <div className="builder-flagship-actions">
+                    <a
+                      href={LIVE_DEMO_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="agency-btn-primary builder-link-btn"
+                    >
+                      {builder.spotlight.ctaDemo}
+                    </a>
+                    <a
+                      href={NOTION_CASE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="agency-btn-secondary builder-link-btn"
+                    >
+                      {builder.spotlight.ctaNotion}
+                    </a>
+                    <a
+                      href={LOOM_WALKTHROUGH_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="agency-btn-secondary builder-link-btn"
+                    >
+                      {builder.spotlight.ctaLoom}
+                    </a>
+                  </div>
+                  <p className="builder-demo-hint">{builder.spotlight.demoHint}</p>
+                </footer>
+              </article>
+            </div>
 
             {/* 3. Subgrid-aligned 3-Column Capabilities Matrix */}
             <div className="builder-capabilities-section">
@@ -446,12 +502,12 @@ export default function AboutSection({ profileMode, onProfileModeChange }: About
 
                   <div className="timeline-item">
                     <div className="timeline-year">
-                      <span>06/2022</span>
-                      <span>01/2026</span>
+                      <span>12/2019</span>
+                      <span>{t('about.present')}</span>
                     </div>
                     <div className="timeline-node"></div>
                     <div className="timeline-content">
-                      <h4>Lime Griffintown &amp; Shushu Group</h4>
+                      <h4>TYM Production</h4>
                       <p className="role">{t('about.timeline.t2.role')}</p>
                       <p className="desc">{t('about.timeline.t2.desc')}</p>
                     </div>
@@ -459,12 +515,12 @@ export default function AboutSection({ profileMode, onProfileModeChange }: About
 
                   <div className="timeline-item">
                     <div className="timeline-year">
-                      <span>10/2020</span>
-                      <span>{t('about.present')}</span>
+                      <span>06/2022</span>
+                      <span>01/2026</span>
                     </div>
                     <div className="timeline-node"></div>
                     <div className="timeline-content">
-                      <h4>TYM Production &amp; LXR</h4>
+                      <h4>Lime Griffintown &amp; Shushu Group</h4>
                       <p className="role">{t('about.timeline.t3.role')}</p>
                       <p className="desc">{t('about.timeline.t3.desc')}</p>
                     </div>
@@ -472,14 +528,27 @@ export default function AboutSection({ profileMode, onProfileModeChange }: About
 
                   <div className="timeline-item">
                     <div className="timeline-year">
-                      <span>08/2015</span>
-                      <span>03/2017</span>
+                      <span>10/2020</span>
+                      <span>06/2022</span>
                     </div>
                     <div className="timeline-node"></div>
                     <div className="timeline-content">
-                      <h4>Sakos LLC &amp; ARCHCAFÉ</h4>
+                      <h4>LXR (LXRandCo)</h4>
                       <p className="role">{t('about.timeline.t4.role')}</p>
                       <p className="desc">{t('about.timeline.t4.desc')}</p>
+                    </div>
+                  </div>
+
+                  <div className="timeline-item">
+                    <div className="timeline-year">
+                      <span>08/2015</span>
+                      <span>08/2019</span>
+                    </div>
+                    <div className="timeline-node"></div>
+                    <div className="timeline-content">
+                      <h4>Montréal Print · SaKos LLC · ARCHCAFÉ</h4>
+                      <p className="role">{t('about.timeline.t5.role')}</p>
+                      <p className="desc">{t('about.timeline.t5.desc')}</p>
                     </div>
                   </div>
                 </div>

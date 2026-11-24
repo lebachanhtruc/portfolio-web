@@ -1,18 +1,21 @@
 {
   "hero": {
-    "role": "PRODUCT BUILDER & PRODUCTEUR CRÉATIF"
+    "role": "MARKETING, OPÉRATIONS CRÉATIVES & IA",
+    "agencyRole": "TYM PRODUCTION • STUDIO CRÉATIF & CROISSANCE",
+    "scrollCue": "DÉFILER POUR EXPLORER",
+    "scrollAria": "Défiler vers Studio & Services"
   },
   "about": {
     "modes": {
       "agency": "Studio & Services (TYM Production)",
-      "cv": "Profil Product Builder (CV)",
+      "cv": "Profil, Compétences & Études de Cas (CV)",
       "badgeAgency": "POUR RESTAURANTS & MARQUES CULINAIRES",
-      "badgeCv": "PRODUCT BUILDER & OPÉRATIONS IA",
+      "badgeCv": "MARKETING, OPÉRATIONS CRÉATIVES & IA",
       "ctaViewQuote": "Voir le Devis Interactif ↓",
-      "ctaSwitchCv": "Voir le Profil Product Builder →",
+      "ctaSwitchCv": "Voir le Profil, Compétences & Études de Cas →",
       "ctaSwitchAgency": "← Voir le Studio TYM Production",
       "agencyHeadline": "Transformez vos plats en histoires visuelles rentables",
-      "agencyLead": "TYM Production accompagne les restaurants et marques alimentaires à Montréal et sur la Rive-Sud : photo IA, site web multilingue, menus numériques 4K, publicités Reels, décalques et affichage TV.",
+      "agencyLead": "TYM Production accompagne les restaurants et marques alimentaires à Montréal et sur la Rive-Sud : photo IA, sites web multilingues mesurés (GA4/Clarity/Loi 25), menus numériques 4K, publicités Reels, décalques et affichage TV.",
       "pillars": [
         {
           "title": "Photographie Culinaire & IA Générative",
@@ -20,7 +23,7 @@
         },
         {
           "title": "Site Web Sur Mesure & Menu (700 $)",
-          "desc": "Site multilingue rapide sur mobile tel que patisseriedzung.ca : menu interactif 40+ plats, filtres allergènes, SEO Google et code géré par TYM."
+          "desc": "Site multilingue rapide sur mobile tel que patisseriedzung.ca : menu 40+ plats, filtres allergènes, QR O2O (/goi-bo), GA4/Clarity CRO, SEO Google & Loi 25."
         },
         {
           "title": "Conception de Menus & Menus Animés 4K",
@@ -45,29 +48,61 @@
       "p3": "Transparence totale : je ne prétends pas écrire toute la syntaxe de mémoire—ma force réside dans la maîtrise des règles métier, de la sécurité des données et du débogage lorsque l'IA se trompe."
     },
     "builder": {
-      "headline": "D'Opérateur à Product Builder : transformer les goulots en logiciels réels",
-      "lead": "Ancien responsable des opérations multi-sites (2,3 M$+ de revenus, 20 500+ commandes). Je transforme les contraintes terrain en outils full-stack opérationnels en dirigeant des workflows IA (Google AI Studio & Google Antigravity) avec la rigueur Backlog, Critères d'Acceptation et DoD (PSPO I).",
+      "headline": "Marketing, Opérations Créatives & Systèmes IA — Ancrés dans le P&L",
+      "lead": "Diplômé en Marketing (B.A.), Infographiste formé à Montréal (DEP) et ex-Photography Lead chez LXRandCo, combinant la gestion d'opérations multi-sites (2,3 M$+, +12 % YoY) avec l'analytique de conversion (GA4, Clarity, tests A/B, Loi 25) et le développement IA (Google AI Studio & Google Antigravity · PSPO I).",
       "approachLabel": "Méthode IA Honnête (Sans Prétention)",
-      "approachText": "Pas un développeur traditionnel codant à la main de mémoire : je maîtrise l'architecture métier, l'isolation des données et les tests limites—en séparant l'interprétation LLM du calcul mathjs et en corrigeant l'IA dès qu'elle dévie.",
+      "approachText": "Pas un développeur traditionnel codant à la main de mémoire : je pilote la stratégie commerciale, la direction visuelle, la télémétrie CRO et les règles métier—en dirigeant Google AI Studio & Google Antigravity sous discipline Backlog/DoD, en séparant le LLM de mathjs et en déboguant chaque sortie.",
       "metrics": [
+        {
+          "value": "+12%",
+          "label": "Commandes digitales YoY",
+          "sub": "Optimisation pub ROI & refonte photo menu sur 2,3 M$+ de revenus"
+        },
         {
           "value": "85%",
           "label": "Temps de paie réduit",
-          "sub": "De plus de 4h manuelles à 30 min par cycle bi-hebdomadaire"
-        },
-        {
-          "value": "2,3 M$+",
-          "label": "Opérations F&B gérées",
-          "sub": "20 500+ commandes · +12 % YoY livraison · ~187h et 3 150 $+/an économisés"
+          "sub": "De plus de 4h de réconciliation POS CSV à 30 min via SaaS IA"
         },
         {
           "value": "91,3%",
           "label": "Rigueur PSPO I (Scrum.org)",
-          "sub": "Simulateur 400 questions conçu · Backlog & DoD pour valider l'IA"
+          "sub": "Certifié Scrum.org · ~187h et 3 150 $+/an économisés par modélisation"
         }
       ],
+      "growthSpotlight": {
+        "badge": "LABO CROISSANCE & CRO EN DIRECT",
+        "title": "Pâtisserie Dzung — Vitrine 4 Langues & Analytique",
+        "period": "2025 – Présent",
+        "summary": "Site vitrine F&B multilingue (FR/EN/VI/ZH) avec menu interactif 40+ plats, page QR sur emballage (/goi-bo), expérimentation CRO en production et conformité Loi 25 du Québec.",
+        "ctaLive": "Visiter patisseriedzung.ca ↗",
+        "ctaQr": "Voir la page QR O2O (/goi-bo) ↗",
+        "ctaRepo": "Code source GitHub ↗",
+        "demoHint": "Instrumentation en direct : acceptez la bannière Loi 25 pour activer GA4 Consent Mode v2 & Clarity, ou ajoutez ?ab=A / ?ab=B pour prévisualiser le test A/B Hero CTA 50/50.",
+        "cards": [
+          {
+            "tag": "GA4 & Clarity",
+            "title": "Entonnoir d'Événements & Heatmaps",
+            "desc": "Déploiement GA4 (G-W9FL83TS52) avec pages virtuelles SPA et événements clés (call_click, ubereats_click, order_dialog_open) relié en bidirectionnel à Microsoft Clarity."
+          },
+          {
+            "tag": "CRO en Direct",
+            "title": "Test A/B 50/50 du Hero CTA",
+            "desc": "Expérience client persistante (Appel en priorité vs Menu en priorité) via localStorage segmentée dans GA4 (propriété ab_hero_cta) et les balises Clarity."
+          },
+          {
+            "tag": "O2O & SEO",
+            "title": "QR Emballage, GSC & UTM Courts",
+            "desc": "Guide vidéo QR sur boîte (/goi-bo), Google Search Console vérifié avec sitemap.xml + Schema.org JSON-LD, et 5 redirections UTM courtes (/ig, /fb, /maps, /qr, /qr-goibo)."
+          },
+          {
+            "tag": "Loi 25",
+            "title": "Consentement Québec & Consent Mode v2",
+            "desc": "Blocage par défaut (analytics_storage: denied) suspendant le suivi et Clarity jusqu'au consentement explicite, avec politique de confidentialité native <dialog> en 4 langues."
+          }
+        ]
+      },
       "spotlight": {
-        "badge": "RÉALISATION PHARE (0 → 1)",
+        "badge": "SAAS OPÉRATIONS IA (0 → 1)",
         "title": "Lime Payroll Enterprise",
         "period": "02/2026 – Présent",
         "summary": "SaaS interne multi-locataires de gestion de paie et réconciliation POS livré pour 20+ employés via Google AI Studio & Google Antigravity.",
@@ -98,63 +133,63 @@
           }
         ]
       },
-      "capabilitiesTitle": "Compétences Clés & Écosystème Technique",
+      "capabilitiesTitle": "Compétences Clés & Pile Vérifiée",
       "capabilityCols": [
         {
-          "title": "Opérations & Précision Financière",
-          "badge": "Métier",
+          "title": "Croissance, Analytique & Direction Visuelle",
+          "badge": "Marketing & CRO",
           "items": [
-            "Analyse terrain des goulots opérationnels",
-            "Manuels SOP & Routage cuisine KDS",
-            "Diagnostic racine (MEV-WEB & encodage Epson)",
-            "Logique de paie, pourboires & répartition coûts",
-            "APIs POS & Livraison (Lightspeed, UberEats, ALCE)",
-            "Coût réel main-d'œuvre (DAS, CNESST) & ROI"
+            "Google Analytics 4 (GA4 · Consent Mode v2)",
+            "Microsoft Clarity Heatmaps & Enregistrements",
+            "Tests A/B 50/50 & Attribution UTM Courte",
+            "Google Search Console, Schémas SEO & Loi 25",
+            "ROI Publicitaire (+12 % YoY) & QR O2O",
+            "Suite Adobe (Ps, Ai, Id, Lr, Pr) · Photo & Vidéo"
           ]
         },
         {
-          "title": "Construction IA & Gouvernance",
-          "badge": "PSPO I",
+          "title": "Opérations Créatives, Leadership & Gouvernance",
+          "badge": "Opérations · PSPO I",
           "items": [
-            "Pilotage Google AI Studio & Antigravity",
-            "Vérification des sorties & débogage",
-            "Product Backlog & Critères d'Acceptation",
-            "Garde-fous Definition of Done (PSPO I — 91,3 %)",
-            "Tests cas limites & E2E (Puppeteer)",
-            "Arbitrage Déterministe vs. LLM"
+            "Direction Photo Amérique du Nord & Pigistes US à distance (LXR)",
+            "Opérations Multi-Sites F&B (2,3 M$+ · 20 500+ Commandes)",
+            "Pilotage Google AI Studio & Google Antigravity",
+            "Product Backlog, Critères d'Acceptation & DoD (PSPO I — 91,3 %)",
+            "APIs POS & Livraison (Lightspeed MEV-WEB, UberEats, ALCE)",
+            "Modélisation Coût Main-d'Œuvre (~187h & 3 150 $+/an)"
           ]
         },
         {
-          "title": "Écosystème Technique",
+          "title": "Pile Web, Données & Production IA",
           "badge": "Dirigé par IA",
           "items": [
-            "React 19, TypeScript, Tailwind CSS v4",
-            "Endpoints REST Node.js / Express v5",
-            "Supabase (Schéma PostgreSQL, RLS, Auth)",
-            "Google GenAI SDK (JSON Structuré)",
-            "Analyse CSV, mathjs AST & Export XLSX",
-            "Suite Adobe, Midjourney & Vidéo VEO"
+            "React 19, TypeScript, Vite & Tailwind CSS v4",
+            "Node.js / Express v5, Vercel Functions & Blob",
+            "Supabase (Schéma PostgreSQL, RLS & Auth)",
+            "Google GenAI SDK (Gemini JSON Structuré)",
+            "Pipelines Commerciaux Midjourney & Google VEO",
+            "QA Puppeteer E2E, mathjs AST & CSV/XLSX"
           ]
         }
       ],
       "educationItems": [
         {
           "title": "Professional Scrum Product Owner™ I (PSPO I)",
-          "org": "Scrum.org — Score : 91,3 % (Simulateur 400 questions Fisher-Yates conçu)",
+          "org": "Scrum.org — Score : 91,3 % · ID : 53016592-74ae-4203-a0ca-3bd0dc24e0ba",
           "date": "07/2026"
         },
         {
-          "title": "DEP – Infographie / Design Graphique",
+          "title": "DEP – Infographie / Design Graphique & Impression",
           "org": "Centre de technologie Rosemont (EMSB) — Montréal, QC",
           "date": "12/2019"
         },
         {
           "title": "Baccalauréat en Marketing",
-          "org": "Université Internationale (VNU HCMC) — Vietnam",
+          "org": "Université Internationale (VNU-HCMC) — Vietnam",
           "date": "05/2015"
         }
       ],
-      "locationValue": "Longueuil, Québec, Canada (Télétravail Canada / Montréal)",
+      "locationValue": "Longueuil / Montréal, QC · Citoyen canadien (Télétravail CA / Hybride MTL)",
       "linkedinLabel": "Profil LinkedIn ↗",
       "githubLabel": "GitHub ↗"
     },
@@ -178,20 +213,24 @@
     },
     "timeline": {
       "t1": {
-        "role": "Product Builder & Systèmes Opérationnels IA (SaaS Interne)",
-        "desc": "Pilotage des workflows IA (Google AI Studio & Antigravity) sur React, TypeScript, Express & Supabase PostgreSQL sous rigueur Backlog/DoD ; séparation intention LLM et calculs mathjs avec alertes >9h réduisant le temps de paie de 85 %."
+        "role": "Product Builder & Opérations IA (SaaS Interne)",
+        "desc": "Pilotage Google AI Studio & Google Antigravity sur React 19, TypeScript, Express & Supabase PostgreSQL sous rigueur Backlog/DoD (PSPO I) ; séparation intention Gemini JSON et calculs mathjs avec alertes >9h réduisant le temps de paie de 85 %."
       },
       "t2": {
-        "role": "Responsable Opérations & Intégration POS",
-        "desc": "Gestion de 2,3 M$+ de revenus (20 500+ commandes) ; intégration API UberEats/ALCE vers Lightspeed POS, migration MEV-WEB K-Series et résolution d'un bug d'encodage Epson, refonte KDS, économie ~187h & 3 150 $+/an, +12 % de commandes YoY."
+        "role": "Fondateur — Marketing de Croissance, Médias & Systèmes Web (Temps partiel)",
+        "desc": "Création de lebachanhtruc.ca (studio trilingue + devis serverless Vercel Blob) et patisseriedzung.ca (vitrine 4 langues, QR emballage /goi-bo, GA4 Consent Mode v2, Clarity, test A/B 50/50, GSC, UTM courts & Loi 25), plus campagnes Reels bilingues, menus 4K & pipelines Midjourney/VEO."
       },
       "t3": {
-        "role": "Producteur de Médias Créatifs & Workflow IA",
-        "desc": "Gestion des propositions, budgets et production multi-clients pour le commerce et la restauration ; intégration Midjourney & VEO pour optimiser la conversion e-commerce."
+        "role": "Responsable Opérations — Croissance Digitale & Systèmes POS",
+        "desc": "Gestion de ~2,3 M$+ de revenus (20 500+ commandes) & performance UberEats (+12 % YoY via ROI pub & photo menu) ; intégration API UberEats/ALCE vers Lightspeed K-Series, résolution MEV-WEB Epson, refonte KDS et économie ~187h & 3 150 $+/an."
       },
       "t4": {
-        "role": "Superviseur des Ventes & Marketing",
-        "desc": "Supervision des équipes commerciales et campagnes marketing B2B axées données à Hô Chi Minh-Ville."
+        "role": "Photography Lead – Amérique du Nord (Promu 01/2022) & Photographe E-commerce",
+        "desc": "Production studio e-commerce et campagnes pour sacs de luxe pré-aimés authentifiés (Louis Vuitton, Chanel, Hermès, Gucci) sur lxrco.com et détaillants nord-américains ; coordination à distance de photographes contractuels aux États-Unis depuis Montréal, vidéos BTS Fête des Mères & contrôle qualité."
+      },
+      "t5": {
+        "role": "Infographiste · Superviseur des Ventes · Spécialiste Marketing",
+        "desc": "Production imprimée et emballage à Montréal (Imprimerie St Amand & Fils Ltée, De Feuilles en Feuilles), supervision commerciale B2B (SaKos LLC) et campagnes marketing de marque (ARCHCAFÉ)."
       }
     }
   },
@@ -211,27 +250,31 @@
     },
     "titles": {
       "Sensory Experience": "Expérience Sensorielle",
-      "Broadcast Vision": "Vision Télévisuelle",
+      "Broadcast Vision": "TV Vitrine & Boucles Vidéo",
       "Website Design & Ordering": "Site Web Sur Mesure",
-      "Digital Menu 4K & Ad Reels": "Vidéos Pub IA & Menus Animés 4K",
+      "Digital Menu 4K & Ad Reels": "Menus Animés 4K & Vidéos Pub IA",
       "Menu Design & Signage": "Menus Imprimés & Décalques",
+      "Shushu Group Culinary & AI": "Shooting Culinaire & Affiches IA",
+      "Lime Griffintown Shoot & AI": "Gastronomie & Création IA",
+      "Seasonal & Fine-Dining Campaigns": "Campagnes Saisonnières & Gastronomie",
       "The Culinary Art": "L'Art Culinaire",
-      "Product Elegance": "L'Élégance du Produit",
-      "Still Life Essence": "L'Essence de la Nature Morte",
+      "Product Elegance": "Campagne Luxe & Coulisses",
+      "Still Life Essence": "Nature Morte & Étude Urbaine",
       "Cinematic Motion": "Mouvement Cinématographique"
     },
     "websiteShowcase": {
-      "subtitle": "Forfait Site Web F&B Clé en Main (700 $) — Déployé en direct sur patisseriedzung.ca : changement de langue FR/EN/VI/ZH instantané, menu interactif 40+ plats, filtres allergènes, Traiteur & SEO Google.",
+      "subtitle": "Forfait Site Web F&B Clé en Main (700 $) — En ligne sur patisseriedzung.ca : changement FR/EN/VI/ZH instantané, menu interactif 40+ plats, QR emballage (/goi-bo), GA4 Consent Mode v2 + Clarity, test A/B 50/50, SEO Google Search Console & conformité Loi 25.",
       "tags": [
-        "4 Langues Instantanées",
-        "Menu 40+ Plats & Filtres",
-        "Statut Ouvert / Fermé",
-        "SEO Google & Schémas",
+        "4 Langues & QR O2O",
+        "GA4 + Clarity CRO",
+        "Test A/B 50/50 & UTM",
+        "Conformité Loi 25 QC",
+        "Menu 40+ Plats & SEO",
         "Forfait Clé en Main 700 $"
       ],
       "liveCta": "🌐 Voir le site réel : patisseriedzung.ca ↗",
       "quoteCta": "Voir le Devis Site Web (700 $) ↓",
-      "cardCategory": "Conception Site Web"
+      "cardCategory": "Web & Croissance Clé en Main"
     },
     "cardTitles": {
       "food": [
@@ -282,7 +325,12 @@
       "showcaseMap": {
         "menu-dong-demo": "Menu Numérique TV 4K Animé",
         "clip-influencer-demo": "Vidéo Influenceur / Dégustation",
-        "clip-co-ban-demo": "Clip Promotionnel 20s",
+        "Animated_Curry_Maison_720p": "Clip Promotionnel 20s (Curry Maison)",
+        "Pho_Soupe_720p": "Boucle TV Vitrine : Soupe Phở",
+        "House Grill Vermicelli Chicken 4k": "Boucle TV Vitrine : Grillade Maison",
+        "real-tv-demo": "TV 55\" Installée en Vitrine",
+        "a BTS for Mother day last year for lxrco montreal quebec": "Film Campagne & Coulisses LXR",
+        "Fine_dining_advertisement_tastin…_4K_202607251056": "Affiche Menu Dégustation",
         "sample-loop-clip": "Boucle Vidéo TV Vitrine",
         "somii-menu-matngoai": "Menu Dépliant 6 Faces (Somii Sushi)",
         "menu-tinh-demo": "Maquette Menu Extérieur",

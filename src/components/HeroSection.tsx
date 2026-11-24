@@ -1,7 +1,12 @@
 import { useLanguage } from '../contexts/LanguageContext';
 import { useEffect, useRef, useState } from 'react';
+import { scrollToElementById } from '../utils/scroll';
 
-export default function HeroSection() {
+export default function HeroSection({
+  profileMode = 'agency'
+}: {
+  profileMode?: 'agency' | 'cv';
+}) {
   const { t } = useLanguage();
   const [isInView, setIsInView] = useState(false);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -38,6 +43,8 @@ export default function HeroSection() {
     reducedMotionQuery.addEventListener('change', handler);
     return () => reducedMotionQuery.removeEventListener('change', handler);
   }, []);
+
+  const roleText = profileMode === 'agency' ? t('hero.agencyRole') : t('hero.role');
 
   return (
     <section className="hero-masterpiece">
@@ -78,9 +85,21 @@ export default function HeroSection() {
           }}
         >
           <div className="hero-left-label">TRUC LE</div>
-          <div className="hero-right-label">{t('hero.role')}</div>
+          <div className="hero-right-label">{roleText}</div>
         </div>
       </div>
+
+      <button
+        type="button"
+        className="hero-scroll-cue"
+        onClick={() => void scrollToElementById('about-studio', 0)}
+        aria-label={t('hero.scrollAria')}
+      >
+        <span className="hero-scroll-label">{t('hero.scrollCue')}</span>
+        <span className="hero-scroll-track" aria-hidden="true">
+          <span className="hero-scroll-thumb" />
+        </span>
+      </button>
     </section>
   );
 }

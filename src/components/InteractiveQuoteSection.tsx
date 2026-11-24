@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useId } from 'react';
 import quotesData from '../data/quotes.json';
 import { useLanguage } from '../contexts/LanguageContext';
+import { encodeMediaPath } from '../utils/media';
 import ViewportVideo from './ViewportVideo';
 import {
   decodeQuoteToken,
@@ -144,7 +145,7 @@ const copyText = {
       'Thiết kế đồ họa chữ động thu hút: tiêu đề lớn đầu clip, tag nhấn mạnh thành phần đặc trưng của món, phụ đề song ngữ đồng bộ khớp lời thoại cùng hiệu ứng sticker & âm thanh ASMR + nhạc nền.',
       'Chèn thanh thông tin chốt đơn & kêu gọi ghé quán (tên tiệm, giá món, địa chỉ, số điện thoại, giờ mở cửa). Bàn giao file dọc Full HD 9:16, thời lượng chuẩn 30–35 giây/clip (kèm tối đa 02 lần chỉnh sửa; video bên cạnh là mẫu 20s minh họa phong cách thực tế).'
     ],
-    item4CtrlClips: 'Số lượng Video Influencer / Review 30–35s ($200/clip)',
+    item4CtrlClips: 'Số lượng Video Influencer / Review 30–35s ($150/clip)',
     item5Title: '6. Thi công Decal Kính',
     item5Subtitle: 'Đo đạc & thi công dán hoàn thiện tại mặt bằng (Tối thiểu 02 mặt kính)',
     item5Bullets: [
@@ -165,7 +166,7 @@ const copyText = {
       'Hệ thống đa ngôn ngữ tức thì (tối đa 3–4 ngôn ngữ: Việt / Pháp / Anh / Hoa): tự động nhận diện ngôn ngữ và chuyển đổi mượt toàn bộ tên món, mô tả, bộ lọc & nút đặt hàng không cần tải lại trang.',
       'Thực đơn tương tác thông minh (hỗ trợ 40+ món): song song 2 chế độ xem (Bảng Deli nhanh & Thẻ ảnh món ăn), tùy biến option từng món, bộ lọc dị ứng / chế độ ăn (Không đậu phộng, Thuần chay, Không thịt heo, Không sữa, Không gluten) và Giỏ gọi món tự cộng tổng tiền.',
       'Tích hợp vận hành thực tế tại quán: tự động hiển thị trạng thái Đang mở cửa / Đã đóng cửa theo giờ Montréal, thẻ giới thiệu món sắp ra mắt (Coming Soon Reel), nút gọi điện / chỉ đường Google Maps 1 chạm.',
-      'Tối ưu SEO Google & Tốc độ tải (Core Web Vitals): cài đặt sẵn Schema.org (Restaurant/Bakery, giờ mở cửa, menu & đánh giá), hreflang đa ngôn ngữ, đường dẫn sạch (/menu, /thuc-don, /traiteur), sitemap hình ảnh và Google Analytics 4.',
+      'Tối ưu SEO Google, Đo Lường & Luật 25 Québec: cài đặt sẵn Schema.org (Restaurant/Bakery, giờ mở cửa, menu & đánh giá), Google Search Console, Google Analytics 4 (Consent Mode v2), tùy chọn bản đồ nhiệt Microsoft Clarity, link UTM rút gọn theo tên miền (/ig, /fb, /maps, /qr) và thanh chấp thuận Cookie Luật 25.',
       'Triển khai & bàn giao vận hành ($700.00): đưa web lên chạy ổn định trên tên miền riêng .ca/.com của quán (miễn phí duy trì server tiêu chuẩn) kèm tối đa 02 vòng tinh chỉnh trong lúc xây dựng. TYM Production lưu trữ & quản lý mã nguồn gốc — sau này khi tiệm cần đổi giá, thêm món hoặc chỉnh sửa nội dung, chỉ cần liên hệ TYM thực hiện (tính phí riêng theo thời điểm/khối lượng; chưa gồm phí mua tên miền ~$15–$25/năm & cổng thanh toán online/POS).'
     ],
     item6CtrlPackage: 'Chọn Gói Thiết kế Website Trọn Gói ($700)',
@@ -219,7 +220,37 @@ const copyText = {
     fieldFocusNote: 'Ghi chú nhu cầu riêng (hiển thị nổi bật cho khách)',
     adminTvContentFocus: 'Tập trung Nội dung TV (chỉ hiện Menu TV & Clip 16:9, ẩn Lắp TV / TikTok / Decal)',
     yesSelected: 'Đã chọn (1 gói)',
-    notSelected: 'Chưa chọn'
+    notSelected: 'Chưa chọn',
+    unitStaticPage: '/ mặt tĩnh',
+    unitAnimatedScreen: '/ mặt động 4K',
+    unitTvCombo55: '/ Combo TV 55"',
+    unitTvUpgrade65: '/ nâng cấp TV 65"',
+    unitExtraClip: '/ extra clip 20s',
+    unitTurnkeySite: '/ trọn gói',
+    unitBasicClip: '/ clip (20 giây)',
+    unitInfluencerClip: '/ clip (30–35s)',
+    unitDecalPanel: '/ mặt kính (tối thiểu 2)',
+    rateStaticMenu: '$200.00 / mặt',
+    rateAnimatedMenu: '$350.00 / mặt màn hình',
+    row2TitlePrefix: '2. Gói Combo: Lắp đặt TV',
+    row2TitleSuffix: '& Loop 3 Clip (1 phút)',
+    rateTvCombo: '$450.00 / gói (TV 65": +$150 | Extra clip: +$100)',
+    qtyCombo55: '1 gói Combo TV 55"',
+    qtyCombo65: '1 gói Combo TV 65" (+$150)',
+    extraClipUnit: 'extra clip',
+    rateBasicClip: '$100.00 / clip',
+    rateClipSuffix: '/ clip',
+    rateDecal: '$100.00 / mặt kính',
+    unitPageWord: 'mặt',
+    unitScreenWord: 'mặt',
+    unitClipWord: 'clip',
+    unitDecalWord: 'mặt kính',
+    decalDesignWord: 'mẫu thiết kế',
+    confirmHeader: 'TYM Production - Xác nhận Báo Giá',
+    confirmClientLabel: 'Khách hàng',
+    confirmTotalLabel: 'Tổng dự kiến',
+    confirmDepositWord: 'Tạm ứng',
+    confirmSubjectPrefix: 'Xác nhận Báo Giá'
   },
   en: {
     badge: 'TYM PRODUCTION • INTERACTIVE VISUAL QUOTATION',
@@ -297,7 +328,7 @@ const copyText = {
       'Animated motion-graphics typography: bold dish headline & price callouts, floating ingredient tags, synchronized bilingual subtitles, expressive effects, ASMR audio cues, and background soundtrack.',
       'Branded storefront closing CTA bar (shop name, dish price, street address, phone, opening hours). Delivered in 9:16 Full HD, 30–35 seconds/clip (includes up to 02 revisions; preview shows a 20s format demo).'
     ],
-    item4CtrlClips: 'Influencer / Review Ad Clips 30–35s ($200/clip)',
+    item4CtrlClips: 'Influencer / Review Ad Clips 30–35s ($150/clip)',
     item5Title: '6. Storefront Window Decal Installation',
     item5Subtitle: 'On-site measurement, surface prep & installation (Minimum 02 glass panels)',
     item5Bullets: [
@@ -318,7 +349,7 @@ const copyText = {
       'Instant multilingual switching (up to 3–4 languages: FR / EN / VI / ZH): translates full menus, descriptions, allergen notices, and booking prompts cleanly with zero page reload.',
       'Smart Interactive Menu (supports 40+ dishes): dual Deli Board & Photo Card layouts, dish option pickers, live allergen/dietary filters (Peanut-Free, Vegan, Pork-Free option, Dairy-Free, Gluten-Free) + auto-calculating Quick Order Cart.',
       'Built for real store operations: automated Montréal live Open/Closed & holiday banner status, Coming Soon dish teaser reel card, 1-tap phone call & Google Maps directions.',
-      'Technical SEO & performance setup: Schema.org Restaurant/Bakery structured data (GPS, hours, reviews & full hasMenu), hreflang alternates, clean URL slugs (/menu, /catering), image sitemap.xml & Google Analytics 4.',
+      'Technical SEO, Analytics & Québec Law 25: Schema.org Restaurant/Bakery structured data (GPS, hours, reviews & full hasMenu), Google Search Console, Google Analytics 4 (Consent Mode v2), optional Microsoft Clarity heatmaps, branded short UTM links (/ig, /fb, /maps, /qr) & Law 25 opt-in privacy banner.',
       'Live launch & managed operations ($700.00): deployed on your custom .ca/.com domain (free standard server hosting) with up to 02 revision rounds during the build. TYM Production retains and manages the original source code — whenever you need future price updates, new items, or content edits, simply reach out to TYM (billed per request/scope; excludes ~$15–$25/yr domain registration & paid POS/online payment gateways).'
     ],
     item6CtrlPackage: 'Select Turnkey Website Package ($700)',
@@ -372,7 +403,37 @@ const copyText = {
     fieldFocusNote: 'Client scope highlight note (optional)',
     adminTvContentFocus: 'Focus on TV Content only (Menu & 16:9 Clips; hide TV Install / TikTok / Decal)',
     yesSelected: 'Selected (1 pkg)',
-    notSelected: 'Not selected'
+    notSelected: 'Not selected',
+    unitStaticPage: '/ static page',
+    unitAnimatedScreen: '/ 4K screen',
+    unitTvCombo55: '/ 55" TV Combo',
+    unitTvUpgrade65: '/ 65" TV upgrade',
+    unitExtraClip: '/ extra 20s clip',
+    unitTurnkeySite: '/ turnkey site',
+    unitBasicClip: '/ clip (20s)',
+    unitInfluencerClip: '/ clip (30–35s)',
+    unitDecalPanel: '/ glass panel (min. 2)',
+    rateStaticMenu: '$200.00 / page',
+    rateAnimatedMenu: '$350.00 / screen',
+    row2TitlePrefix: '2. Combo Package: Storefront TV',
+    row2TitleSuffix: '& 3-Clip Loop (1 min)',
+    rateTvCombo: '$450.00 / pkg (65" TV: +$150 | Extra clip: +$100)',
+    qtyCombo55: '1x 55" TV Combo',
+    qtyCombo65: '1x 65" TV Combo (+$150)',
+    extraClipUnit: 'extra clip',
+    rateBasicClip: '$100.00 / clip',
+    rateClipSuffix: '/ clip',
+    rateDecal: '$100.00 / glass panel',
+    unitPageWord: 'pages',
+    unitScreenWord: 'screens',
+    unitClipWord: 'clip(s)',
+    unitDecalWord: 'glass panel(s)',
+    decalDesignWord: 'design layout(s)',
+    confirmHeader: 'TYM Production - Quotation Confirmation',
+    confirmClientLabel: 'Client',
+    confirmTotalLabel: 'Estimated Total',
+    confirmDepositWord: 'Deposit',
+    confirmSubjectPrefix: 'Quotation Confirmation'
   },
   fr: {
     badge: 'TYM PRODUCTION • DEVIS VISUEL INTERACTIF',
@@ -450,7 +511,7 @@ const copyText = {
       'Habillage graphique animé : titres d’accroche et prix, étiquettes flottantes des ingrédients, sous-titres bilingues synchronisés, effets visuels, bruitages ASMR et musique rythmée.',
       'Bandeau final complet du commerce (nom, tarif du plat, adresse, téléphone, heures d’ouverture). Format vertical 9:16 Full HD, durée standard 30–35 secondes/clip (jusqu’à 02 révisions incluses ; l’aperçu montre une démo de 20s).'
     ],
-    item4CtrlClips: 'Nombre de Vidéos Influenceur 30–35s (200 $/clip)',
+    item4CtrlClips: 'Nombre de Vidéos Influenceur 30–35s (150 $/clip)',
     item5Title: '6. Pose de Décalque sur Vitrine',
     item5Subtitle: 'Prise de mesures, nettoyage et pose sur vitrine (Minimum 02 panneaux)',
     item5Bullets: [
@@ -471,7 +532,7 @@ const copyText = {
       'Changement de langue instantané (jusqu’à 3–4 langues : FR / EN / VI / ZH) : traduit menus, descriptions, filtres et appels à l’action sans rechargement.',
       'Menu interactif 40+ plats : double affichage (Tableau Deli rapide & Cartes photo), sélecteur d’options, filtres allergènes/régimes (Sans arachides, Végétal, Sans porc, Sans lactose, Sans gluten) et panier d’estimation rapide.',
       'Fonctionnalités métier réelles : statut Ouvert / Fermé automatique selon l’heure de Montréal (et avis de congé), carte teaser vidéo de nouveauté, appel et itinéraire Google Maps en 1 clic.',
-      'SEO technique & vitesse : données structurées Schema.org Restaurant/Bakery (horaires, GPS, avis, hasMenu), balises hreflang, URLs propres (/menu, /traiteur), sitemap images et Google Analytics 4.',
+      'SEO technique, analytique & Loi 25 : données structurées Schema.org Restaurant/Bakery, Google Search Console, Google Analytics 4 (Consent Mode v2), option heatmaps Microsoft Clarity, liens UTM courts sur votre domaine (/ig, /fb, /maps, /qr) et bannière de consentement Loi 25 du Québec.',
       'Mise en ligne & gestion opérationnelle (700,00 $) : déploiement sous votre domaine .ca/.com (hébergement serveur standard gratuit) avec jusqu’à 02 séries d’ajustements en cours de création. TYM Production conserve et gère le code source d’origine — pour toute future mise à jour de prix, ajout de plats ou retouche de contenu, il suffit de contacter TYM (facturé à la demande selon l’ampleur ; hors achat du domaine ~15–25 $/an et passerelle POS/paiement en ligne).'
     ],
     item6CtrlPackage: 'Choisir le Forfait Site Web Clé en Main (700 $)',
@@ -525,7 +586,37 @@ const copyText = {
     fieldFocusNote: 'Note de besoin client (optionnel)',
     adminTvContentFocus: 'Centré Contenu TV uniquement (Menu & Clips 16:9)',
     yesSelected: 'Inclus (1 forfait)',
-    notSelected: 'Non sélectionné'
+    notSelected: 'Non sélectionné',
+    unitStaticPage: '/ face statique',
+    unitAnimatedScreen: '/ écran 4K',
+    unitTvCombo55: '/ Combo TV 55"',
+    unitTvUpgrade65: '/ option TV 65"',
+    unitExtraClip: '/ clip supp. 20s',
+    unitTurnkeySite: '/ site clé en main',
+    unitBasicClip: '/ clip (20s)',
+    unitInfluencerClip: '/ clip (30–35 s)',
+    unitDecalPanel: '/ vitre (min. 2)',
+    rateStaticMenu: '200,00 $ / face',
+    rateAnimatedMenu: '350,00 $ / écran',
+    row2TitlePrefix: '2. Forfait Combo : Pose TV',
+    row2TitleSuffix: '& Boucle 3 Clips (1 min)',
+    rateTvCombo: '450,00 $ / forfait (TV 65" : +150 $ | Clip supp. : +100 $)',
+    qtyCombo55: '1 forfait Combo TV 55"',
+    qtyCombo65: '1 forfait Combo TV 65" (+150 $)',
+    extraClipUnit: 'clip supp.',
+    rateBasicClip: '100,00 $ / clip',
+    rateClipSuffix: '/ clip',
+    rateDecal: '100,00 $ / vitre',
+    unitPageWord: 'face(s)',
+    unitScreenWord: 'écran(s)',
+    unitClipWord: 'clip(s)',
+    unitDecalWord: 'vitre(s)',
+    decalDesignWord: 'maquette(s)',
+    confirmHeader: 'TYM Production - Confirmation de Devis',
+    confirmClientLabel: 'Client',
+    confirmTotalLabel: 'Total estimé',
+    confirmDepositWord: 'Acompte',
+    confirmSubjectPrefix: 'Confirmation de Devis'
   }
 };
 
@@ -1109,9 +1200,9 @@ export default function InteractiveQuoteSection({
   // Pre-filled SMS / Email body for quick client confirmation
   const buildConfirmationBody = () => {
     const lines = [
-      `TYM Production - Xác nhận Báo Giá (${clientProfile.quoteNumber})`,
-      `Khách hàng: ${clientProfile.clientName}`,
-      `Tổng dự kiến: $${grandTotal.toFixed(2)} (Tạm ứng ${clientProfile.depositPercent}%: $${depositAmount.toFixed(2)})`
+      `${c.confirmHeader} (${clientProfile.quoteNumber})`,
+      `${c.confirmClientLabel}: ${clientProfile.clientName}`,
+      `${c.confirmTotalLabel}: $${grandTotal.toFixed(2)} (${c.confirmDepositWord} ${clientProfile.depositPercent}%: $${depositAmount.toFixed(2)})`
     ];
     return encodeURIComponent(lines.join('\n'));
   };
@@ -1122,7 +1213,10 @@ export default function InteractiveQuoteSection({
   const mediaDecalStorefront = '/Media/quote-showcase/decal-kinh-demo.jpg';
   const mediaRealTV = '/Media/quote-showcase/real-tv-demo.mp4';
   const mediaSampleLoopClip = '/Media/quote-showcase/sample-loop-clip.mp4';
-  const mediaBasicClip = '/Media/quote-showcase/clip-co-ban-demo.mp4';
+  const mediaBasicClip = encodeMediaPath(
+    '/Media/videography and editing/Project 9 - Ai generated Video for public Screen TV/Animated_Curry_Maison_720p.mp4'
+  );
+  const mediaBasicClipPoster = encodeMediaPath('/Media/posters/Animated_Curry_Maison_720p.jpg');
   const mediaInfluencerClip = '/Media/quote-showcase/clip-influencer-demo.mp4';
   const mediaWebsiteHome = '/Media/quote-showcase/patisserie-dzung-home.jpg';
   const mediaWebsiteMenu = '/Media/quote-showcase/patisserie-dzung-menu.jpg';
@@ -1406,11 +1500,11 @@ export default function InteractiveQuoteSection({
                 <div className="service-price-badges">
                   <div className="price-pill">
                     <span className="price-amount">$200.00</span>
-                    <span className="price-unit">/ mặt tĩnh</span>
+                    <span className="price-unit">{c.unitStaticPage}</span>
                   </div>
                   <div className="price-pill accent">
                     <span className="price-amount">$350.00</span>
-                    <span className="price-unit">/ mặt động 4K</span>
+                    <span className="price-unit">{c.unitAnimatedScreen}</span>
                   </div>
                 </div>
               </div>
@@ -1544,15 +1638,15 @@ export default function InteractiveQuoteSection({
                 <div className="service-price-badges">
                   <div className="price-pill accent">
                     <span className="price-amount">$450.00</span>
-                    <span className="price-unit">/ Combo TV 55"</span>
+                    <span className="price-unit">{c.unitTvCombo55}</span>
                   </div>
                   <div className="price-pill">
                     <span className="price-amount">+$150.00</span>
-                    <span className="price-unit">/ nâng cấp TV 65"</span>
+                    <span className="price-unit">{c.unitTvUpgrade65}</span>
                   </div>
                   <div className="price-pill">
                     <span className="price-amount">+$100.00</span>
-                    <span className="price-unit">/ extra clip 20s</span>
+                    <span className="price-unit">{c.unitExtraClip}</span>
                   </div>
                 </div>
               </div>
@@ -1713,13 +1807,7 @@ export default function InteractiveQuoteSection({
                 <div className="service-price-badges">
                   <div className="price-pill accent">
                     <span className="price-amount">$700.00</span>
-                    <span className="price-unit">
-                      {language === 'en'
-                        ? '/ turnkey site'
-                        : language === 'fr'
-                          ? '/ site clé en main'
-                          : '/ trọn gói'}
-                    </span>
+                    <span className="price-unit">{c.unitTurnkeySite}</span>
                   </div>
                 </div>
               </div>
@@ -1766,9 +1854,9 @@ export default function InteractiveQuoteSection({
               <div className="service-media-frame">
                 <ViewportVideo
                   src={mediaBasicClip}
-                  poster="/Media/posters/clip-co-ban-demo.jpg"
-                  width={640}
-                  height={400}
+                  poster={mediaBasicClipPoster}
+                  width={540}
+                  height={960}
                   className="service-preview-video"
                 />
                 <button
@@ -1790,7 +1878,7 @@ export default function InteractiveQuoteSection({
                 <div className="service-price-badges">
                   <div className="price-pill">
                     <span className="price-amount">$100.00</span>
-                    <span className="price-unit">/ clip (20 giây)</span>
+                    <span className="price-unit">{c.unitBasicClip}</span>
                   </div>
                 </div>
               </div>
@@ -1864,8 +1952,8 @@ export default function InteractiveQuoteSection({
                 </div>
                 <div className="service-price-badges">
                   <div className="price-pill accent">
-                    <span className="price-amount">$200.00</span>
-                    <span className="price-unit">/ clip (30–35s)</span>
+                    <span className="price-amount">${rates.influencerClipPerVideo.toFixed(2)}</span>
+                    <span className="price-unit">{c.unitInfluencerClip}</span>
                   </div>
                 </div>
               </div>
@@ -1946,7 +2034,7 @@ export default function InteractiveQuoteSection({
                 <div className="service-price-badges">
                   <div className="price-pill">
                     <span className="price-amount">$100.00</span>
-                    <span className="price-unit">/ mặt kính (tối thiểu 2)</span>
+                    <span className="price-unit">{c.unitDecalPanel}</span>
                   </div>
                 </div>
               </div>
@@ -2057,14 +2145,14 @@ export default function InteractiveQuoteSection({
                 <>
                   <tr>
                     <th scope="row">{c.row1aTitle}</th>
-                    <td>$200.00 / mặt</td>
-                    <td>{selections.staticMenuPages} mặt</td>
+                    <td>{c.rateStaticMenu}</td>
+                    <td>{selections.staticMenuPages} {c.unitPageWord}</td>
                     <td>${staticMenuSubtotal.toFixed(2)}</td>
                   </tr>
                   <tr>
                     <th scope="row">{c.row1bTitle}</th>
-                    <td>$350.00 / mặt màn hình</td>
-                    <td>{selections.animatedMenuScreens} mặt</td>
+                    <td>{c.rateAnimatedMenu}</td>
+                    <td>{selections.animatedMenuScreens} {c.unitScreenWord}</td>
                     <td>${animatedMenuSubtotal.toFixed(2)}</td>
                   </tr>
                 </>
@@ -2072,16 +2160,16 @@ export default function InteractiveQuoteSection({
               {isItemVisible('tvCombo') && (
                 <tr>
                   <th scope="row">
-                    2. Gói Combo: Lắp đặt TV {selections.tvSize === '65' ? '65"' : '55"'} &amp; Loop 3 Clip (1 phút)
+                    {c.row2TitlePrefix} {selections.tvSize === '65' ? '65"' : '55"'} {c.row2TitleSuffix}
                   </th>
-                  <td>$450.00 / gói (TV 65": +$150 | Extra clip: +$100)</td>
+                  <td>{c.rateTvCombo}</td>
                   <td>
                     {selections.tvComboSelected
                       ? selections.tvSize === '65'
-                        ? '1 gói Combo TV 65" (+$150)'
-                        : '1 gói Combo TV 55"'
+                        ? c.qtyCombo65
+                        : c.qtyCombo55
                       : '0'}
-                    {selections.tvExtraClips > 0 ? ` (+${selections.tvExtraClips} extra clip)` : ''}
+                    {selections.tvExtraClips > 0 ? ` (+${selections.tvExtraClips} ${c.extraClipUnit})` : ''}
                   </td>
                   <td>${item2Subtotal.toFixed(2)}</td>
                 </tr>
@@ -2097,27 +2185,27 @@ export default function InteractiveQuoteSection({
               {isItemVisible('basicClip') && (
                 <tr>
                   <th scope="row">{c.row3Title}</th>
-                  <td>$100.00 / clip</td>
-                  <td>{selections.basicClips} clip</td>
+                  <td>{c.rateBasicClip}</td>
+                  <td>{selections.basicClips} {c.unitClipWord}</td>
                   <td>${item3Subtotal.toFixed(2)}</td>
                 </tr>
               )}
               {isItemVisible('influencer') && (
                 <tr>
                   <th scope="row">{c.row4Title}</th>
-                  <td>$200.00 / clip</td>
-                  <td>{selections.influencerClips} clip</td>
+                  <td>${rates.influencerClipPerVideo.toFixed(2)} {c.rateClipSuffix}</td>
+                  <td>{selections.influencerClips} {c.unitClipWord}</td>
                   <td>${item4Subtotal.toFixed(2)}</td>
                 </tr>
               )}
               {isItemVisible('decal') && (
                 <tr>
                   <th scope="row">{c.row5Title}</th>
-                  <td>$100.00 / mặt kính</td>
+                  <td>{c.rateDecal}</td>
                   <td>
-                    {selections.decalPanels} mặt kính
+                    {selections.decalPanels} {c.unitDecalWord}
                     {selections.decalDesignCount > 0
-                      ? ` (+${selections.decalDesignCount} mẫu thiết kế)`
+                      ? ` (+${selections.decalDesignCount} ${c.decalDesignWord})`
                       : ''}
                   </td>
                   <td>${item5Subtotal.toFixed(2)}</td>
@@ -2174,7 +2262,7 @@ export default function InteractiveQuoteSection({
           </a>
           <a
             href={`mailto:lebachanhtruc@gmail.com?subject=${encodeURIComponent(
-              `Xác nhận Báo Giá ${clientProfile.quoteNumber} - ${clientProfile.clientName}`
+              `${c.confirmSubjectPrefix} ${clientProfile.quoteNumber} - ${clientProfile.clientName}`
             )}&body=${buildConfirmationBody()}`}
             className="quote-cta-btn secondary"
           >

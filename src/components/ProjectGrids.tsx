@@ -101,9 +101,9 @@ function ProjectGroup({
     }
 
     let list: string[] = cardTitlesObj?.photography || ['Captured Frame'];
-    if (project.brand === 'LXR' || project.title.toLowerCase().includes('product')) {
+    if (project.brand?.includes('LXR') || project.title.toLowerCase().includes('product')) {
       list = cardTitlesObj?.luxury || list;
-    } else if (project.title === 'The Culinary Art' || project.title.toLowerCase().includes('food')) {
+    } else if (project.category === 'AI x Photography' || project.title === 'The Culinary Art') {
       list = cardTitlesObj?.food || list;
     } else if (project.category === 'Videography') {
       list = cardTitlesObj?.videography || list;
@@ -160,6 +160,10 @@ function ProjectGroup({
   let gridClass = 'vertical-grid';
   if (isWebsiteShowcase) {
     gridClass = 'website-showcase-grid';
+  } else if (project.featuredLandscapeFirst) {
+    gridClass = 'featured-landscape-grid';
+  } else if (project.landscapeShowcase) {
+    gridClass = 'landscape-showcase-grid';
   } else if (project.category === 'Photography') {
     gridClass = 'masonry-grid';
   } else if (itemCount === 10) {
@@ -168,6 +172,8 @@ function ProjectGroup({
     gridClass = 'grid-5-cols';
   } else if (itemCount === 3) {
     gridClass = 'grid-3-cols-center-high';
+  } else if (itemCount === 4 || itemCount === 8) {
+    gridClass = 'vertical-grid';
   } else if (itemCount % 3 === 0) {
     gridClass = 'grid-3-cols';
   } else if (itemCount === 2) {
@@ -176,11 +182,12 @@ function ProjectGroup({
     gridClass = 'grid-1-col';
   }
 
-  const isContainItem = (src: string) => Boolean(project.containMedia || src.includes('menu-dong-demo'));
+  const isContainItem = () => Boolean(project.containMedia);
 
-  const renderMedia = (src: string) => {
+  const renderMedia = (src: string, index = 0) => {
     const safeSrc = encodeMediaPath(src);
-    const containClass = isContainItem(src) ? 'contain-fit' : '';
+    const isFeaturedVideo = Boolean(project.featuredLandscapeFirst && index === 0);
+    const containClass = isContainItem() ? 'contain-fit' : '';
     if (src.toLowerCase().endsWith('.mp4') || src.toLowerCase().endsWith('.mov')) {
       const rawPoster = getPosterPath(src);
       return (
@@ -198,8 +205,8 @@ function ProjectGroup({
         alt={getLocalizedCardTitle(src)}
         loading="lazy"
         decoding="async"
-        width={isWebsiteShowcase ? 1280 : 540}
-        height={isWebsiteShowcase ? 800 : 960}
+        width={isWebsiteShowcase ? 1280 : isFeaturedVideo ? 1920 : project.landscapeShowcase ? 1200 : 540}
+        height={isWebsiteShowcase ? 800 : isFeaturedVideo ? 1080 : project.landscapeShowcase ? 800 : 960}
         className={`project-media ${containClass}`.trim()}
         style={position ? { objectPosition: position } : undefined}
       />
@@ -291,7 +298,7 @@ function ProjectGroup({
             return (
               <div
                 key={`standalone-${index}`}
-                className={`project-card ${isEasterEggTarget ? 'easter-egg-desktop' : ''}`}
+                className={`project-card ${isEasterEggTarget ? 'easter-egg-desktop' : ''} ${project.featuredLandscapeFirst && index === 0 ? 'featured-landscape-card' : ''}`.trim()}
                 style={{ '--mobile-order': (index + 1) * 10 } as React.CSSProperties}
                 onMouseEnter={(e) => {
                   if (!isEasterEggTarget) return;
@@ -309,11 +316,11 @@ function ProjectGroup({
                 <div className="card-inner">
                   <button
                     type="button"
-                    className={`media-wrapper project-media-trigger ${isContainItem(src) ? 'contain-media' : ''}`}
+                    className={`media-wrapper project-media-trigger ${isContainItem() ? 'contain-media' : ''}`}
                     onClick={() => onOpenLightbox(galleryItems, galleryIndex)}
                     aria-label={`${getLocalizedCardTitle(src)} — ${t('projects.slider.expand')}`}
                   >
-                    {renderMedia(src)}
+                    {renderMedia(src, index)}
                     <span className="card-zoom-hint" aria-hidden="true">
                       ⤢
                     </span>
@@ -409,8 +416,10 @@ function ProjectGroup({
 export default function ProjectGrids() {
   const { t } = useLanguage();
   const tabs = ['Videography', 'AI x Photography', 'Photography'];
-  const [showBackToTop, setShowBackToTop] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
+  const [activeTab, setActiveTab] = useState('Videography');
+  const [isNavStuck, setIsNavStuck] = useState(false);
+  const stickyShellRef = useRef<HTMLDivElement>(null);
+  const stickySentinelRef = useRef<HTMLDivElement>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   // Lightbox <dialog closedby="any"> state
@@ -422,21 +431,49 @@ export default function ProjectGrids() {
     showingBts: boolean;
   } | null>(null);
 
+  // Track sticky state (progressive fallback alongside @container scroll-state) & active section highlight
   useEffect(() => {
+    const sentinel = stickySentinelRef.current;
+    let stuckObserver: IntersectionObserver | null = null;
+    if (sentinel) {
+      stuckObserver = new IntersectionObserver(
+        ([entry]) => {
+          setIsNavStuck(!entry.isIntersecting && entry.boundingClientRect.top < 20);
+        },
+        { threshold: [0, 1] }
+      );
+      stuckObserver.observe(sentinel);
+    }
+
+    const sectionIds = ['Videography', 'AI x Photography', 'Photography', 'Pricing & Services'];
+    const handleScrollActive = () => {
+      const probeY = 180;
+      let current = sectionIds[0];
+      for (const id of sectionIds) {
+        const el = document.getElementById(`section-${id}`);
+        if (!el) continue;
+        if (el.getBoundingClientRect().top <= probeY) {
+          current = id;
+        }
+      }
+      setActiveTab((prev) => (prev !== current ? current : prev));
+    };
+
     let rafId = 0;
-    const handleScroll = () => {
+    const onScroll = () => {
       if (rafId) return;
       rafId = window.requestAnimationFrame(() => {
         rafId = 0;
-        const shouldShow = window.scrollY > 1000;
-        setShowBackToTop((prev) => (prev !== shouldShow ? shouldShow : prev));
+        handleScrollActive();
       });
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScrollActive();
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => {
+      stuckObserver?.disconnect();
       if (rafId) window.cancelAnimationFrame(rafId);
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', onScroll);
     };
   }, []);
 
@@ -493,13 +530,10 @@ export default function ProjectGrids() {
   };
 
   const scrollToSection = (tab: string) => {
+    setActiveTab(tab);
     const el = sectionRefs.current[tab] || document.getElementById(`section-${tab}`);
-    const offset = tab === 'Pricing & Services' ? 0 : undefined;
+    const offset = tab === 'Pricing & Services' ? 20 : undefined;
     void scrollToElement(el, offset);
-  };
-
-  const scrollToMenu = () => {
-    void scrollToElement(menuRef.current, 48);
   };
 
   const menuTabs = ['Videography', 'AI x Photography', 'Photography', 'Pricing & Services'];
@@ -507,7 +541,28 @@ export default function ProjectGrids() {
 
   return (
     <section className="projects-masterpiece container" style={{ position: 'relative' }}>
-      <div className="projects-container" ref={menuRef}>
+      <div ref={stickySentinelRef} className="sticky-nav-sentinel" aria-hidden="true" />
+      <div
+        id="portfolio-nav-dock"
+        ref={stickyShellRef}
+        className={`sticky-nav-shell ${isNavStuck ? 'is-stuck' : ''}`}
+      >
+        <nav className="pill-menu sticky-pill-bar" aria-label="Portfolio categories">
+          {menuTabs.map((menuTab) => (
+            <button
+              key={menuTab}
+              type="button"
+              className={`pill-btn ${activeTab === menuTab ? 'active' : ''}`}
+              aria-current={activeTab === menuTab ? 'true' : undefined}
+              onClick={() => scrollToSection(menuTab)}
+            >
+              {t(`projects.tabs.${menuTab}`)}
+            </button>
+          ))}
+        </nav>
+      </div>
+
+      <div className="projects-container">
         {tabs.map((tab) => {
           const tabProjects = projectsData.filter((p) => p.category === tab);
           if (tabProjects.length === 0) return null;
@@ -521,21 +576,6 @@ export default function ProjectGrids() {
               }}
               className="category-section"
             >
-              <div className="filter-menu-wrapper">
-                <div className="pill-menu">
-                  {menuTabs.map((menuTab) => (
-                    <button
-                      key={menuTab}
-                      type="button"
-                      className={`pill-btn ${tab === menuTab ? 'active' : ''}`}
-                      onClick={() => scrollToSection(menuTab)}
-                    >
-                      {t(`projects.tabs.${menuTab}`)}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
               {tabProjects.map((project: any) => {
                 const globalIndex = projectsData.findIndex((p) => p.id === project.id);
                 return (
@@ -551,18 +591,6 @@ export default function ProjectGrids() {
           );
         })}
       </div>
-
-      {/* Floating Back to Top Button */}
-      <button
-        type="button"
-        className={`back-to-top-btn ${showBackToTop ? 'visible' : ''}`}
-        onClick={scrollToMenu}
-        aria-label="Back to filters"
-      >
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 19V5M5 12l7-7 7 7" />
-        </svg>
-      </button>
 
       {/* Portfolio Fullscreen Lightbox Dialog (following light-dismiss-a-dialog guidance) */}
       <dialog

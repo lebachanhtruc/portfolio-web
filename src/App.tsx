@@ -124,7 +124,7 @@ function App() {
               onScrollToPortfolio={scrollToPortfolio}
             />
           )}
-          <HeroSection />
+          <HeroSection profileMode={profileMode} />
           <AboutSection profileMode={profileMode} onProfileModeChange={setProfileMode} />
           {profileMode === 'agency' && <ProjectGrids />}
           {!isDedicatedClientQuote && profileMode === 'agency' && (
@@ -132,7 +132,10 @@ function App() {
           )}
           <Footer />
         </main>
-        <LanguageSwitcher showQuoteButton={profileMode === 'agency' || isDedicatedClientQuote} />
+        <LanguageSwitcher
+          showQuoteButton={profileMode === 'agency' || isDedicatedClientQuote}
+          backToTopTargetId={profileMode === 'agency' ? 'portfolio-nav-dock' : 'about-studio'}
+        />
       </div>
     </LanguageProvider>
   )

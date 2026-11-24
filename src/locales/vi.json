@@ -1,18 +1,21 @@
 {
   "hero": {
-    "role": "PRODUCT BUILDER & NHÀ SẢN XUẤT SÁNG TẠO"
+    "role": "MARKETING, CREATIVE OPS & HỆ THỐNG AI",
+    "agencyRole": "TYM PRODUCTION • STUDIO SÁNG TẠO & TĂNG TRƯỞNG",
+    "scrollCue": "CUỘN XUỐNG KHÁM PHÁ",
+    "scrollAria": "Cuộn xuống giới thiệu Studio & Dịch vụ"
   },
   "about": {
     "modes": {
       "agency": "Studio & Dịch Vụ (TYM Production)",
-      "cv": "Hồ Sơ Product Builder (CV)",
+      "cv": "Hồ Sơ Năng Lực & Kỹ Năng (CV)",
       "badgeAgency": "DÀNH CHO CHỦ NHÀ HÀNG & THƯƠNG HIỆU F&B",
-      "badgeCv": "PRODUCT BUILDER & TỰ ĐỘNG HÓA VẬN HÀNH (AI)",
+      "badgeCv": "MARKETING, CREATIVE OPS & HỆ THỐNG AI",
       "ctaViewQuote": "Xem Bảng Báo Giá Tương Tác ↓",
-      "ctaSwitchCv": "Xem Hồ Sơ Product Builder →",
+      "ctaSwitchCv": "Xem Hồ Sơ Năng Lực & Case Study →",
       "ctaSwitchAgency": "← Xem Dịch Vụ Studio TYM Production",
       "agencyHeadline": "Biến món ăn thành câu chuyện hút khách & tăng đơn",
-      "agencyLead": "TYM Production đồng hành cùng nhà hàng, tiệm bánh và thương hiệu F&B tại Montréal & Rive-Sud với giải pháp trọn gói từ chụp ảnh AI, thiết kế Website đặt món, Menu 4K đến lắp đặt TV Digital Signage.",
+      "agencyLead": "TYM Production đồng hành cùng nhà hàng, tiệm bánh và thương hiệu F&B tại Montréal & Rive-Sud với giải pháp trọn gói từ chụp ảnh AI, Website chuyển đổi đo lường thật (GA4/Clarity/Law 25), Menu 4K đến lắp đặt TV Digital Signage.",
       "pillars": [
         {
           "title": "Nhiếp Ảnh Ẩm Thực & AI Tạo Sinh",
@@ -20,7 +23,7 @@
         },
         {
           "title": "Thiết Kế Website Thương Hiệu & Menu ($700)",
-          "desc": "Web đa ngôn ngữ (FR/EN/VI/ZH) tối ưu Mobile & SEO Google như patisseriedzung.ca: thực đơn tương tác 40+ món, lọc dị ứng, giỏ ước tính & TYM quản lý vận hành."
+          "desc": "Web đa ngôn ngữ (FR/EN/VI/ZH) như patisseriedzung.ca: thực đơn 40+ món, lọc dị ứng, QR bao bì (/goi-bo), GA4/Clarity CRO, SEO Google & chuẩn Luật 25 Québec."
         },
         {
           "title": "Thiết Kế Menu Tĩnh & Menu Động 4K",
@@ -45,29 +48,61 @@
       "p3": "Minh bạch về năng lực: tôi không phải lập trình viên viết cú pháp tay từ trí nhớ—thế mạnh của tôi là nắm chắc logic vận hành, ranh giới bảo mật/tài chính và trực tiếp phát hiện, sửa lỗi khi đầu ra AI sai."
     },
     "builder": {
-      "headline": "Từ Quản Lý Vận Hành đến Product Builder: Tự xây công cụ chạy thật",
-      "lead": "Xuất thân Quản lý Vận hành ($2.3M+ doanh thu/năm, 20,500+ đơn hàng). Tôi biến nỗi đau quy trình thực địa thành công cụ nội bộ hoàn chỉnh bằng cách điều phối AI coding (Google AI Studio & Google Antigravity) dưới kỷ luật Product Backlog, Acceptance Criteria & DoD (PSPO I).",
-      "approachLabel": "Cách Tôi Build Cùng AI (Trung Thực 100%)",
-      "approachText": "Không nhận vơ tự gõ code thuần: Tôi nắm trọn bài toán nghiệp vụ, kiến trúc dữ liệu, kiểm thử biên (edge-case) — tách bạch LLM dịch ngôn ngữ với mathjs tính toán xác định và trực tiếp debug khi AI sinh sai logic.",
+      "headline": "Marketing, Creative Operations & Hệ Thống AI — Xuất Thân Từ P&L Thực Chiến",
+      "lead": "Cử nhân Marketing, tốt nghiệp DEP Thiết Kế Đồ Họa & In Ấn tại Montréal và cựu Photography Lead tại LXRandCo, kết hợp năng lực điều hành đa chi nhánh ($2.3M+, +12% YoY) với hệ đo lường tăng trưởng thực tế (GA4, Clarity, A/B Testing, Luật 25) và xây dựng hệ thống AI (Google AI Studio & Google Antigravity · PSPO I).",
+      "approachLabel": "Cách Tôi Vận Hành & Build Cùng AI (Trung Thực 100%)",
+      "approachText": "Không nhận vơ tự gõ code thuần từ trí nhớ: Tôi làm chủ chiến lược thương mại, định hướng hình ảnh, phễu đo lường CRO và logic nghiệp vụ — điều phối Google AI Studio & Google Antigravity theo chuẩn Backlog/DoD, tách bạch LLM với mathjs và trực tiếp debug khi đầu ra AI sai.",
       "metrics": [
+        {
+          "value": "+12%",
+          "label": "Đơn hàng số YoY",
+          "sub": "Tối ưu ROI quảng cáo & làm mới ảnh menu trên quy mô $2.3M+"
+        },
         {
           "value": "85%",
           "label": "Giảm thời gian làm lương",
-          "sub": "Từ hơn 4 giờ đối soát CSV thủ công còn 30 phút mỗi kỳ 2 tuần"
-        },
-        {
-          "value": "$2.3M+",
-          "label": "Quy mô vận hành thực chiến",
-          "sub": "20,500+ đơn hàng · +12% đơn đặt trước YoY · tiết kiệm ~187h & $3,150+/năm"
+          "sub": "Từ hơn 4 giờ đối soát POS CSV thủ công còn 30 phút nhờ SaaS AI"
         },
         {
           "value": "91.3%",
           "label": "Kỷ luật PSPO I (Scrum.org)",
-          "sub": "Tự build app 400 câu ôn thi · áp Backlog & DoD kiểm duyệt code AI"
+          "sub": "Chứng chỉ Scrum.org · tiết kiệm ~187h & $3,150+/năm nhờ mô hình chi phí"
         }
       ],
+      "growthSpotlight": {
+        "badge": "PHÒNG LAB TĂNG TRƯỞNG & CRO THỰC TẾ",
+        "title": "Pâtisserie Dzung — Web 4 Ngôn Ngữ & Hệ Đo Lường",
+        "period": "2025 – Hiện tại",
+        "summary": "Website cửa hàng F&B đa ngôn ngữ (FR/EN/VI/ZH) với thực đơn tương tác 40+ món, trang QR dán bao bì (/goi-bo), thử nghiệm CRO chạy thật và tuân thủ chuẩn Luật 25 (Loi 25) Québec.",
+        "ctaLive": "Xem web thực tế: patisseriedzung.ca ↗",
+        "ctaQr": "Xem trang QR bao bì (/goi-bo) ↗",
+        "ctaRepo": "Mã nguồn GitHub ↗",
+        "demoHint": "Đo lường chạy thật: chọn đồng ý trên thanh Luật 25 để kích hoạt GA4 Consent Mode v2 & Clarity, hoặc thêm ?ab=A / ?ab=B để xem trước 2 phiên bản A/B Test Hero CTA.",
+        "cards": [
+          {
+            "tag": "GA4 & Clarity",
+            "title": "Phễu Sự Kiện & Bản Đồ Nhiệt (Heatmaps)",
+            "desc": "Cài đặt GA4 (G-W9FL83TS52) đo virtual pageview SPA và hành động chuyển đổi (call_click, ubereats_click, order_dialog_open), kết nối 2 chiều Microsoft Clarity."
+          },
+          {
+            "tag": "CRO Thực Chiến",
+            "title": "A/B Testing 50/50 Nút CTA Trang Chủ",
+            "desc": "Chia lưu lượng 50/50 phía trình duyệt (Gọi đặt hàng vs Xem menu) lưu qua localStorage, phân tách dữ liệu bằng thuộc tính GA4 ab_hero_cta & thẻ Clarity."
+          },
+          {
+            "tag": "O2O & SEO",
+            "title": "QR Bao Bì, Search Console & Link UTM Rút Gọn",
+            "desc": "Xây trang video hướng dẫn QR dán hộp (/goi-bo), xác minh Google Search Console + sitemap.xml + Schema.org, và triển khai 5 link UTM chính chủ (/ig, /fb, /maps, /qr, /qr-goibo)."
+          },
+          {
+            "tag": "Luật 25 Québec",
+            "title": "Opt-in Cookie & Google Consent Mode v2",
+            "desc": "Khóa mặc định analytics_storage ở trạng thái denied — chặn theo dõi & Clarity đến khi khách đồng ý — kèm hộp thoại Chính sách Bảo mật native <dialog> 4 ngôn ngữ."
+          }
+        ]
+      },
       "spotlight": {
-        "badge": "SẢN PHẨM TIÊU BIỂU (0 → 1)",
+        "badge": "SAAS VẬN HÀNH AI (0 → 1)",
         "title": "Lime Payroll Enterprise",
         "period": "02/2026 – Hiện tại",
         "summary": "Hệ thống SaaS nội bộ đa chi nhánh quản lý bảng lương & đối soát POS cho hơn 20 nhân viên xoay ca, kiến trúc & phát hành qua Google AI Studio và Antigravity.",
@@ -98,53 +133,53 @@
           }
         ]
       },
-      "capabilitiesTitle": "Năng Lực Cốt Lõi & Hệ Sinh Thái Công Nghệ",
+      "capabilitiesTitle": "Năng Lực Cốt Lõi & Kỹ Năng Đã Kiểm Chứng",
       "capabilityCols": [
         {
-          "title": "Vận Hành & Độ Chính Xác Tài Chính",
-          "badge": "Nghiệp vụ",
+          "title": "Tăng Trưởng, Phân Tích & Định Hướng Hình Ảnh",
+          "badge": "Marketing & CRO",
           "items": [
-            "Khám phá điểm nghẽn vận hành từ thực địa",
-            "Thiết kế SOP & Tối ưu luồng KDS / quầy bếp",
-            "Điều tra nguyên nhân gốc rễ (MEV-WEB & Epson API)",
-            "Logic chia tip, lương bảo đảm & phân bổ chi phí",
-            "Tích hợp API POS & Giao hàng (Lightspeed, UberEats, ALCE)",
-            "Tính chi phí nhân công gộp (DAS, CNESST) & Supply ROI"
+            "Google Analytics 4 (GA4 · Consent Mode v2)",
+            "Microsoft Clarity Heatmaps & Session Replays",
+            "A/B Testing 50/50 & Link UTM Rút Gọn Chính Chủ",
+            "Google Search Console, Schema SEO & Luật 25",
+            "Tối Ưu ROI Quảng Cáo (+12% YoY) & QR O2O",
+            "Adobe Suite (Ps, Ai, Id, Lr, Pr) · Nhiếp Ảnh & Video"
           ]
         },
         {
-          "title": "Build Cùng AI & Kiểm Định Chất Lượng",
-          "badge": "PSPO I",
+          "title": "Vận Hành Sáng Tạo, Lãnh Đạo & Kỷ Luật Giao Hàng",
+          "badge": "Operations · PSPO I",
           "items": [
-            "Điều phối Google AI Studio & Antigravity",
-            "Nghiệm thu, bắt lỗi & debug đầu ra AI",
-            "Product Backlog & Tiêu chí chấp nhận (AC)",
-            "Kiểm soát Definition of Done (PSPO I — 91.3%)",
-            "Kiểm thử biên & E2E tự động (Puppeteer)",
-            "Đánh đổi kiến trúc Deterministic vs. LLM"
+            "Chỉ Đạo Nhiếp Ảnh Bắc Mỹ & Điều Phối Contractor Mỹ (LXR)",
+            "Quản Lý Vận Hành Đa Chi Nhánh ($2.3M+ · 20,500+ Đơn)",
+            "Điều Phối Google AI Studio & Google Antigravity",
+            "Product Backlog, Acceptance Criteria & DoD (PSPO I — 91.3%)",
+            "Tích Hợp API POS & Giao Hàng (Lightspeed MEV-WEB, UberEats)",
+            "Mô Hình Hóa Chi Phí Nhân Công (~187h & $3,150+/năm)"
           ]
         },
         {
-          "title": "Hệ Sinh Thái Kỹ Thuật",
+          "title": "Hệ Sinh Thái Web, Dữ Liệu & Sản Xuất AI",
           "badge": "AI-Directed",
           "items": [
-            "React 19, TypeScript, Tailwind CSS v4",
-            "Node.js / Express v5 REST Endpoints",
-            "Supabase (PostgreSQL Schema, RLS, Auth)",
-            "Google GenAI SDK (Structured JSON)",
-            "CSV Ingestion, mathjs AST & Xuất XLSX",
-            "Adobe Suite, Midjourney & Quy trình VEO"
+            "React 19, TypeScript, Vite & Tailwind CSS v4",
+            "Node.js / Express v5, Vercel Functions & Blob",
+            "Supabase (PostgreSQL Schema, RLS & Auth)",
+            "Google GenAI SDK (Gemini Structured JSON)",
+            "Quy Trình Nội Dung Thương Mại Midjourney & Google VEO",
+            "Kiểm Thử Puppeteer E2E, mathjs AST & CSV/XLSX"
           ]
         }
       ],
       "educationItems": [
         {
           "title": "Professional Scrum Product Owner™ I (PSPO I)",
-          "org": "Scrum.org — Điểm: 91.3% (Tự build hệ thống luyện thi 400 câu Fisher-Yates)",
+          "org": "Scrum.org — Điểm: 91.3% · ID: 53016592-74ae-4203-a0ca-3bd0dc24e0ba",
           "date": "07/2026"
         },
         {
-          "title": "DEP – Thiết Kế Đồ Họa (Graphic Design)",
+          "title": "DEP – Thiết Kế Đồ Họa & In Ấn (Graphic Design & Printing)",
           "org": "Rosemont Technology Center (EMSB) — Montréal, QC",
           "date": "12/2019"
         },
@@ -154,7 +189,7 @@
           "date": "05/2015"
         }
       ],
-      "locationValue": "Longueuil, Quebec, Canada (Remote Canada / Montréal)",
+      "locationValue": "Longueuil / Montréal, QC · Công dân Canada (Remote CA / Hybrid MTL)",
       "linkedinLabel": "Hồ Sơ LinkedIn ↗",
       "githubLabel": "GitHub ↗"
     },
@@ -178,20 +213,24 @@
     },
     "timeline": {
       "t1": {
-        "role": "Product Builder & Hệ Thống Vận Hành AI (Internal SaaS)",
-        "desc": "Điều phối AI coding (Google AI Studio & Antigravity) trên nền React, TypeScript, Express & Supabase PostgreSQL theo kỷ luật Backlog/DoD; tách bạch Gemini JSON với mathjs AST và theo dõi ca lỗi >9h giúp giảm 85% thời gian làm lương."
+        "role": "AI Operations Builder & Product Owner (SaaS Nội Bộ)",
+        "desc": "Điều phối Google AI Studio & Google Antigravity trên React 19, TypeScript, Express & Supabase PostgreSQL theo kỷ luật Backlog/DoD (PSPO I); tách bạch Gemini JSON với mathjs AST và cảnh báo ca >9h giúp giảm 85% thời gian làm lương."
       },
       "t2": {
-        "role": "Quản Lý Vận Hành & Tích Hợp Hệ Thống POS",
-        "desc": "Điều hành doanh thu ~$2.3M+ (20,500+ đơn hàng); tích hợp API UberEats/ALCE thẳng vào Lightspeed POS, dẫn dắt nâng cấp MEV-WEB K-Series và tìm ra tận gốc lỗi mã hóa ký tự máy in Epson, tái cấu trúc luồng KDS, tiết kiệm ~187h & $3,150+/năm, tăng +12% đơn đặt trước YoY."
+        "role": "Nhà Sáng Lập — Growth Marketing, Truyền Thông & Hệ Thống Web (Bán thời gian)",
+        "desc": "Xây dựng lebachanhtruc.ca (studio 3 ngôn ngữ + link báo giá Vercel Blob) và patisseriedzung.ca (web 4 ngôn ngữ, QR bao bì /goi-bo, GA4 Consent Mode v2, Clarity, A/B Test 50/50, GSC, UTM rút gọn & Luật 25), cùng quảng cáo Reels song ngữ, menu 4K & quy trình Midjourney/VEO."
       },
       "t3": {
-        "role": "Nhà Sản Xuất Truyền Thông & Quy Trình AI",
-        "desc": "Quản lý báo giá, ngân sách và tiến độ sản xuất đa khách hàng ngành bán lẻ cao cấp & F&B; tích hợp Midjourney và VEO tăng tốc sản xuất nội dung thúc đẩy chuyển đổi e-commerce."
+        "role": "Quản Lý Vận Hành — Tăng Trưởng Số & Tích Hợp POS",
+        "desc": "Điều hành doanh thu ~$2.3M+ (20,500+ đơn hàng) & kênh UberEats (+12% đơn đặt trước YoY nhờ tối ưu ROI & ảnh menu); tích hợp API UberEats/ALCE vào Lightspeed K-Series, xử lý lỗi MEV-WEB Epson, tái cấu trúc KDS và tiết kiệm ~187h & $3,150+/năm."
       },
       "t4": {
-        "role": "Trưởng Nhóm Kinh Doanh & Chuyên Viên Marketing",
-        "desc": "Giám sát đội ngũ kinh doanh thực địa và triển khai các chiến dịch marketing B2B dựa trên dữ liệu tại TP.HCM."
+        "role": "Photography Lead – Bắc Mỹ (Thăng chức 01/2022) & Nhiếp Ảnh Gia E-commerce",
+        "desc": "Sản xuất hình ảnh catalog & chiến dịch cho túi xách hàng hiệu pre-owned chính hãng (Louis Vuitton, Chanel, Hermès, Gucci) trên lxrco.com và chuỗi bán lẻ Bắc Mỹ; điều phối từ xa nhiếp ảnh gia contractor tại Mỹ từ Montréal cùng quay BTS Ngày của Mẹ & kiểm soát chất lượng."
+      },
+      "t5": {
+        "role": "Thiết Kế Đồ Họa · Trưởng Nhóm Kinh Doanh · Chuyên Viên Marketing",
+        "desc": "Thiết kế ấn phẩm in ấn & bao bì thương mại tại Montréal (Imprimerie St Amand & Fils Ltée, De Feuilles en Feuilles), giám sát đội ngũ kinh doanh B2B (SaKos LLC) và chạy chiến dịch marketing thương hiệu (ARCHCAFÉ)."
       }
     }
   },
@@ -211,27 +250,31 @@
     },
     "titles": {
       "Sensory Experience": "Trải Nghiệm Đa Giác Quan",
-      "Broadcast Vision": "Tầm Nhìn Truyền Hình",
+      "Broadcast Vision": "TV Mặt Tiền & Chuỗi Video Món Ăn",
       "Website Design & Ordering": "Thiết Kế Website Thương Hiệu",
-      "Digital Menu 4K & Ad Reels": "Video Quảng Cáo AI & Menu Động 4K",
+      "Digital Menu 4K & Ad Reels": "Menu Động 4K & Video Quảng Cáo AI",
       "Menu Design & Signage": "Thiết Kế Menu & Decal Mặt Tiền",
+      "Shushu Group Culinary & AI": "Chiến Dịch Ẩm Thực & Poster AI",
+      "Lime Griffintown Shoot & AI": "Ẩm Thực Việt & Poster Nhận Diện",
+      "Seasonal & Fine-Dining Campaigns": "Chiến Dịch Mùa Lễ & Fine Dining",
       "The Culinary Art": "Nghệ Thuật Ẩm Thực",
-      "Product Elegance": "Sự Tinh Tế Của Sản Phẩm",
-      "Still Life Essence": "Tinh Hoa Tĩnh Vật",
+      "Product Elegance": "Thương Hiệu & Thời Trang Luxury",
+      "Still Life Essence": "Tĩnh Vật & Nghệ Thuật Đô Thị",
       "Cinematic Motion": "Chuyển Động Điện Ảnh"
     },
     "websiteShowcase": {
-      "subtitle": "Gói Thiết Kế Website Thương Hiệu F&B Trọn Gói ($700) — Thực tế vận hành trên patisseriedzung.ca: đa ngôn ngữ FR/EN/VI/ZH, thực đơn tương tác 40+ món, lọc dị ứng, Catering & SEO Google.",
+      "subtitle": "Gói Thiết Kế Website Thương Hiệu F&B Trọn Gói ($700) — Vận hành thực tế trên patisseriedzung.ca: đa ngôn ngữ FR/EN/VI/ZH, thực đơn tương tác 40+ món, QR dán hộp (/goi-bo), GA4 Consent Mode v2 + Clarity, A/B Test 50/50, SEO Google Search Console & chuẩn Luật 25 Québec.",
       "tags": [
-        "4 Ngôn Ngữ Tức Thì",
-        "Menu 40+ Món & Bộ Lọc",
-        "Trạng Thái Mở / Đóng Cửa",
-        "Schema SEO & Google Maps",
+        "4 Ngôn Ngữ & QR O2O",
+        "GA4 + Clarity CRO",
+        "A/B Test 50/50 & UTM",
+        "Chuẩn Luật 25 Québec",
+        "Menu 40+ Món & SEO",
         "Gói Trọn Gói $700"
       ],
       "liveCta": "🌐 Xem web mẫu thực tế: patisseriedzung.ca ↗",
       "quoteCta": "Xem Chi Tiết Báo Giá Website ($700) ↓",
-      "cardCategory": "Thiết Kế Website Trọn Gói"
+      "cardCategory": "Website & Tăng Trưởng Trọn Gói"
     },
     "cardTitles": {
       "food": [
@@ -282,7 +325,12 @@
       "showcaseMap": {
         "menu-dong-demo": "Menu TV Động 4K (Animation)",
         "clip-influencer-demo": "Clip Influencer / Review Món",
-        "clip-co-ban-demo": "Clip Quảng Cáo Món 20s",
+        "Animated_Curry_Maison_720p": "Clip Quảng Cáo Món 20s (Curry Maison)",
+        "Pho_Soupe_720p": "Loop TV Mặt Tiền: Phở Bò",
+        "House Grill Vermicelli Chicken 4k": "Loop TV Mặt Tiền: Bún Thịt Nướng",
+        "real-tv-demo": "TV 55\" Thực Tế Tại Mặt Tiền",
+        "a BTS for Mother day last year for lxrco montreal quebec": "Thước Phim Hậu Trường Chiến Dịch LXR",
+        "Fine_dining_advertisement_tastin…_4K_202607251056": "Poster Tasting Menu Cao Cấp",
         "sample-loop-clip": "Clip Món Lẻ Phát Loop TV",
         "somii-menu-matngoai": "Menu Gấp 3 / 6 Mặt (Somii Sushi)",
         "menu-tinh-demo": "Menu Mặt Ngoài & Bảng Giá",

@@ -141,6 +141,71 @@ section {
   object-fit: cover;
 }
 
+.hero-scroll-cue {
+  position: absolute;
+  bottom: max(1.25rem, env(safe-area-inset-bottom, 0px));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 12;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  background: transparent;
+  border: none;
+  padding: 0.45rem 1rem;
+  min-block-size: 44px;
+  min-inline-size: 44px;
+  color: rgba(233, 213, 255, 0.85);
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.hero-scroll-cue:hover,
+.hero-scroll-cue:focus-visible {
+  color: #ffffff;
+  transform: translateX(-50%) translateY(2px);
+}
+
+.hero-scroll-cue:focus-visible {
+  outline: 2px solid #c084fc;
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+.hero-scroll-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.hero-scroll-track {
+  position: relative;
+  width: 2px;
+  height: 28px;
+  border-radius: 999px;
+  background: rgba(192, 132, 252, 0.25);
+  overflow: hidden;
+}
+
+.hero-scroll-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #e9d5ff 0%, #a855f7 100%);
+  animation: heroScrollDrop 1.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@keyframes heroScrollDrop {
+  0% { transform: translateY(-100%); opacity: 0.2; }
+  45% { opacity: 1; }
+  100% { transform: translateY(240%); opacity: 0.15; }
+}
+
 /* ============================
    ABOUT SECTION (VIEWFINDER)
    ============================ */
@@ -287,7 +352,8 @@ section {
   display: block;
   inline-size: 100%;
   block-size: auto;
-  aspect-ratio: 1071 / 1920;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
   border-radius: 8px;
   position: relative;
   z-index: 2;
@@ -490,35 +556,68 @@ section {
 /* ============================
    FILTER MENU & GRIDS
    ============================ */
-.filter-menu-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 4rem;
+.projects-masterpiece {
+  padding-top: 1.5rem;
+  padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
 }
 
-.sticky-menu {
+.sticky-nav-sentinel {
+  height: 1px;
+  width: 100%;
+  pointer-events: none;
+}
+
+.sticky-nav-shell {
   position: sticky;
-  top: 20px;
+  top: max(12px, env(safe-area-inset-top, 0px));
   z-index: 100;
-  padding: 10px 0; /* Add some padding so the blur extends nicely */
+  display: flex;
+  justify-content: center;
+  padding: 0.35rem 0;
+  margin-bottom: 2.75rem;
+  container-type: scroll-state;
+  container-name: portfolio-nav;
+  pointer-events: none;
+}
+
+.sticky-pill-bar {
+  pointer-events: auto;
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sticky-nav-shell.is-stuck .sticky-pill-bar {
+  background: rgba(12, 10, 22, 0.9);
+  border-color: rgba(192, 132, 252, 0.36);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+}
+
+@container portfolio-nav scroll-state(stuck: top) {
+  .sticky-pill-bar {
+    background: rgba(12, 10, 22, 0.9);
+    border-color: rgba(192, 132, 252, 0.36);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+  }
 }
 
 .category-section {
-  margin-bottom: 4rem; /* Reduced from 8rem to halve the distance between major categories */
-  scroll-margin-top: 48px; /* Offset for smooth scrolling */
+  margin-bottom: 3.25rem;
+  scroll-margin-top: 84px;
 }
 
 .pill-menu {
-  display: flex;
-  gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 0.5rem;
-  border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(18, 14, 30, 0.72);
+  padding: 0.35rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   max-width: 100%;
   overflow-x: auto;
   white-space: nowrap;
+  scrollbar-width: none;
 }
 
 .pill-menu::-webkit-scrollbar {
@@ -528,41 +627,43 @@ section {
 .pill-btn {
   background: transparent;
   border: none;
-  color: #fff;
-  padding: 0.8rem 3.5rem; /* Increased padding to make buttons much wider */
-  border-radius: 40px;
+  color: #cbd5e1;
+  padding: 0.58rem 1.65rem;
+  border-radius: 999px;
   font-family: var(--font-primary);
-  font-size: 1rem;
+  font-size: 0.88rem;
   font-weight: 600;
   cursor: none;
-  transition: all 0.3s ease;
+  transition: background 0.22s ease, color 0.22s ease;
 }
 
 .pill-btn:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }
 
 .pill-btn.active {
-  background: rgba(255,255,255,0.2);
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.85) 0%, rgba(99, 102, 241, 0.85) 100%);
+  color: #ffffff;
 }
 
 /* Grids */
 .projects-container {
   display: flex;
   flex-direction: column;
-  gap: 6rem; /* Increased slightly to give a bit more breathing room */
-  min-height: 100vh;
+  gap: 3.75rem;
 }
 
 .project-group {
   min-height: 200px;
-  margin-bottom: 5rem; /* Consistent base gap between project groups */
+  margin-bottom: 3.25rem;
 }
 
 .project-group-title {
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
+  font-size: clamp(1.6rem, 2.8vw, 2.35rem);
+  margin-bottom: 2rem;
   text-align: center;
+  text-wrap: balance;
 }
 
 .fade-in-up {
@@ -589,17 +690,45 @@ section {
   justify-content: center; /* Center the grid tracks themselves */
 }
 
-/* Clear the exactly 120px stagger overhang so the visual margin remains consistent */
+/* Clear the refined 48px stagger overhang so section pacing stays tight */
 .vertical-grid,
 .grid-5-cols,
 .grid-3-cols,
 .grid-3-cols-center-high {
-  padding-bottom: 120px;
+  padding-bottom: 48px;
 }
 
 /* 4-Column (Default) */
 .vertical-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* Featured 16:9 Landscape Card + 3 Vertical 9:16 Reels below */
+.featured-landscape-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.75rem;
+  padding-bottom: 1rem;
+}
+
+.featured-landscape-grid .featured-landscape-card {
+  grid-column: 1 / -1;
+  width: min(100%, 860px);
+  justify-self: center;
+}
+
+.featured-landscape-grid .featured-landscape-card .media-wrapper {
+  aspect-ratio: 16 / 9;
+}
+
+/* 2-Column 3:2 Landscape Showcase Grid (Menus & Storefront Decals) */
+.landscape-showcase-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem;
+  padding-bottom: 1rem;
+}
+
+.landscape-showcase-grid .media-wrapper {
+  aspect-ratio: 3 / 2;
 }
 
 /* 5-Column (5x1, 5x2) */
@@ -625,37 +754,33 @@ section {
 }
 
 /* ============================
-   STAGGERED EDITORIAL LAYOUT (Thụt lên thụt xuống)
-   Mimicking the precise Behance portfolio layout
+   STAGGERED EDITORIAL LAYOUT (Refined 48px cadence)
    ============================ */
 
 /* 4-Column Grid: Stagger Column 2 and Column 4 */
 .vertical-grid .project-card:nth-child(4n + 2),
 .vertical-grid .project-card:nth-child(4n + 4) {
-  transform: translateY(120px);
+  transform: translateY(48px);
 }
 
-/* 3-Column Grid: Stagger Column 2 (Middle Lower - Default for 6, 9 items) */
+/* 3-Column Grid: Stagger Column 2 */
 .grid-3-cols .project-card:nth-child(3n + 2) {
-  transform: translateY(120px);
+  transform: translateY(48px);
 }
 
-/* 3-Column Pyramid: Stagger Columns 1 and 3 (Middle Higher - For 3 items) */
+/* 3-Column Pyramid: Stagger Columns 1 and 3 */
 .grid-3-cols-center-high .project-card:nth-child(3n + 1),
 .grid-3-cols-center-high .project-card:nth-child(3n + 3) {
-  transform: translateY(120px);
+  transform: translateY(48px);
 }
 
 /* 5-Column Grid: Stagger EVEN columns */
 .grid-5-cols .project-card:nth-child(even) {
-  transform: translateY(120px);
+  transform: translateY(48px);
 }
 
-/* Note: 2-Column Grid stagger removed as requested */
-
 /* ============================
-   REFINED GHOST FRAMES (Khung Kính Ẩn)
-   Completes the grid block visually
+   REFINED GHOST FRAMES
    ============================ */
 .vertical-grid .project-card::after,
 .grid-5-cols .project-card::after,
@@ -665,10 +790,10 @@ section {
   position: absolute;
   left: 0;
   width: 100%;
-  height: 100px; /* 120px stagger - 20px gap */
+  height: 36px;
   background: rgba(255, 255, 255, 0.015);
   border: 1px dashed rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
+  border-radius: 16px;
   pointer-events: none;
   transition: all 0.4s ease;
 }
@@ -680,7 +805,7 @@ section {
 .grid-3-cols .project-card:nth-child(3n + 1)::after,
 .grid-3-cols .project-card:nth-child(3n + 3)::after,
 .grid-3-cols-center-high .project-card:nth-child(3n + 2)::after {
-  bottom: -120px;
+  bottom: -48px;
 }
 
 /* EVEN columns (shifted down) get ghost frame ABOVE */
@@ -690,7 +815,7 @@ section {
 .grid-3-cols .project-card:nth-child(3n + 2)::after,
 .grid-3-cols-center-high .project-card:nth-child(3n + 1)::after,
 .grid-3-cols-center-high .project-card:nth-child(3n + 3)::after {
-  top: -120px;
+  top: -48px;
 }
 
 .project-card:hover::after {
@@ -699,7 +824,9 @@ section {
 }
 
 .masonry-grid {
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+  padding-bottom: 1rem;
 }
 
 /* Project Card Base */
@@ -1050,43 +1177,6 @@ section {
   gap: 1rem;
 }
 
-/* Back to Top / Filter Button */
-.back-to-top-btn {
-  position: fixed;
-  bottom: max(1.25rem, env(safe-area-inset-bottom, 0px));
-  right: 1.5rem;
-  width: 50px;
-  height: 50px;
-  background: rgba(15, 13, 28, 0.86);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(192, 132, 252, 0.3);
-  border-radius: 50%;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: none; /* using custom cursor */
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(20px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
-}
-
-.back-to-top-btn.visible {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.back-to-top-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-}
-
 /* Global hidden elements */
 .mobile-swipe-indicator {
   display: none;
@@ -1105,22 +1195,23 @@ section {
 
 /* Responsive */
 @media (max-width: 480px) {
-  .grid-3-cols, .vertical-grid, .masonry-grid, .grid-5x2, .grid-5-cols, .grid-3-cols-center-high, .grid-2-cols, .grid-1-col, .website-showcase-grid {
+  .grid-3-cols, .vertical-grid, .masonry-grid, .grid-5x2, .grid-5-cols, .grid-3-cols-center-high, .grid-2-cols, .grid-1-col, .website-showcase-grid, .featured-landscape-grid, .landscape-showcase-grid {
     display: flex !important;
     flex-wrap: nowrap !important;
+    align-items: center !important;
     overflow-x: auto !important;
     overflow-y: hidden !important;
     scroll-snap-type: x proximity;
     overscroll-behavior-x: contain;
     touch-action: pan-x pan-y pinch-zoom;
-    gap: 1.5rem !important;
-    padding-bottom: 2rem !important;
+    gap: 1.25rem !important;
+    padding-bottom: 1.5rem !important;
     justify-content: flex-start !important;
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
 
-  .grid-3-cols::-webkit-scrollbar, .vertical-grid::-webkit-scrollbar, .masonry-grid::-webkit-scrollbar, .grid-5x2::-webkit-scrollbar, .grid-5-cols::-webkit-scrollbar, .grid-3-cols-center-high::-webkit-scrollbar, .grid-2-cols::-webkit-scrollbar, .grid-1-col::-webkit-scrollbar {
+  .grid-3-cols::-webkit-scrollbar, .vertical-grid::-webkit-scrollbar, .masonry-grid::-webkit-scrollbar, .grid-5x2::-webkit-scrollbar, .grid-5-cols::-webkit-scrollbar, .grid-3-cols-center-high::-webkit-scrollbar, .grid-2-cols::-webkit-scrollbar, .grid-1-col::-webkit-scrollbar, .featured-landscape-grid::-webkit-scrollbar, .landscape-showcase-grid::-webkit-scrollbar {
     display: none;
   }
   
@@ -1136,7 +1227,7 @@ section {
     font-size: 0.8rem;
     color: var(--accent-color);
     font-weight: 600;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     font-style: italic;
     font-family: var(--font-primary);
     text-transform: uppercase;
@@ -1167,7 +1258,7 @@ section {
   }
 
   .project-group-title {
-    font-size: 1.5rem !important;
+    font-size: 1.45rem !important;
   }
 
   .filter-menu-wrapper {
@@ -1203,6 +1294,11 @@ section {
     aspect-ratio: 3 / 4;
   }
 
+  .featured-landscape-grid .featured-landscape-card .media-wrapper {
+    aspect-ratio: 16 / 9;
+  }
+
+  .landscape-showcase-grid .media-wrapper,
   .media-wrapper.contain-media {
     aspect-ratio: 4 / 3;
   }
@@ -1255,23 +1351,25 @@ section {
     scroll-snap-align: center;
   }
   
-  .bottom-floating-controls {
-    bottom: max(0.85rem, env(safe-area-inset-bottom, 0px));
-    right: calc(0.85rem + 44px + 0.45rem);
-    gap: 0.45rem;
-  }
   .floating-contact-btn, .lang-toggle-btn {
     font-size: 0.8rem;
   }
 }
 
 @media (max-width: 1024px) {
-  .vertical-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .vertical-grid,
+  .masonry-grid,
+  .landscape-showcase-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   
   .grid-3-cols {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .featured-landscape-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
   }
 
   .hero-text-container {
@@ -1294,44 +1392,58 @@ section {
   }
 }
 
+/* Unified Compact Floating Utility Dock */
 .bottom-floating-controls {
+  --dock-btn-size: 38px;
   position: fixed;
-  bottom: max(1.25rem, env(safe-area-inset-bottom, 0px));
-  right: calc(1.5rem + 50px + 0.5rem);
+  bottom: max(0.9rem, env(safe-area-inset-bottom, 0px));
+  right: max(0.9rem, env(safe-area-inset-right, 0px));
   z-index: 1000;
-  display: flex;
+}
+
+.floating-utility-dock {
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border-radius: 999px;
+  background: rgba(13, 11, 24, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(192, 132, 252, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
 .floating-contact-btn {
-  background: rgba(15, 13, 28, 0.86);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(192, 132, 252, 0.3);
-  color: white;
-  height: 50px;
-  padding: 0 1.5rem;
-  border-radius: 25px;
-  font-size: 0.9rem;
+  background: transparent;
+  border: none;
+  color: #e2e8f0;
+  height: var(--dock-btn-size);
+  padding: 0 1rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   white-space: nowrap;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .floating-contact-btn:hover {
-  background: rgba(34, 24, 62, 0.94);
-  border-color: rgba(192, 132, 252, 0.65);
-  transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+  background: rgba(192, 132, 252, 0.22);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.floating-contact-btn.quote-float-btn {
+  color: #e9d5ff;
+  background: rgba(168, 85, 247, 0.22);
 }
 
 .floating-contact-btn.icon-btn {
   padding: 0;
-  width: 50px;
+  width: var(--dock-btn-size);
+  height: var(--dock-btn-size);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1346,50 +1458,48 @@ section {
 }
 
 .lang-toggle-btn {
-  background: rgba(15, 13, 28, 0.86);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(192, 132, 252, 0.3);
-  color: white;
-  height: 50px;
-  width: 50px;
+  background: transparent;
+  border: none;
+  color: #f8fafc;
+  height: var(--dock-btn-size);
+  width: var(--dock-btn-size);
   padding: 0;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .lang-toggle-btn span {
-  font-size: 0.9rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   display: block;
 }
 
 .lang-toggle-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: scale(1.05);
+  background: rgba(192, 132, 252, 0.22);
+  transform: translateY(-1px);
 }
 
 .lang-menu {
   position: absolute;
-  bottom: 110%; /* Display above the button */
+  bottom: calc(100% + 0.65rem);
+  right: 0;
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(12, 10, 22, 0.94);
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(192, 132, 252, 0.3);
   border-radius: 20px;
-  padding: 0.5rem;
+  padding: 0.45rem;
   opacity: 0;
   pointer-events: none;
   transform: translateY(10px);
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .lang-switcher-container.open .lang-menu {
@@ -1495,7 +1605,8 @@ section {
    INTERACTIVE VISUAL QUOTATION SECTION (TYM PRODUCTION)
    ======================================================== */
 .interactive-quote-section {
-  padding: 5rem 0 6rem;
+  padding: 4.5rem 0 6.5rem;
+  scroll-margin-top: 24px;
   position: relative;
   z-index: 10;
 }
@@ -2469,26 +2580,24 @@ dialog.quote-native-dialog::backdrop {
 
 @media (max-width: 768px) {
   .pill-menu {
-    display: flex;
-    flex-wrap: wrap;
-    flex-wrap: balance;
-    justify-content: center;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
     max-width: 100%;
-    width: 100%;
-    overflow-x: visible;
-    white-space: normal;
-    border-radius: 18px;
-    padding: 0.38rem;
-    gap: 0.35rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    border-radius: 999px;
+    padding: 0.28rem;
+    gap: 0.25rem;
+    -webkit-overflow-scrolling: touch;
   }
 
   .pill-btn {
-    flex: 1 1 calc(50% - 0.35rem);
-    min-width: 130px;
+    flex: 0 0 auto;
     text-align: center;
-    padding: 0.55rem 0.65rem;
+    padding: 0.48rem 0.95rem;
     font-size: 0.78rem;
-    border-radius: 12px;
+    border-radius: 999px;
   }
 }
 
@@ -2521,37 +2630,26 @@ dialog.quote-native-dialog::backdrop {
     height: 9px;
   }
 
-  /* Portfolio spacing & 2x2 pill wrap */
+  /* Portfolio spacing & sticky compact nav */
   .projects-masterpiece {
-    padding-top: 2.5rem;
-    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+    padding-top: 1.5rem;
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+  }
+  .sticky-nav-shell {
+    margin-bottom: 1.75rem;
   }
   .projects-container {
-    gap: 3rem;
+    gap: 2.5rem;
   }
   .project-group {
-    margin-bottom: 2rem;
-  }
-  .filter-menu-wrapper {
-    margin-bottom: 2rem;
+    margin-bottom: 1.75rem;
   }
 
-  /* Floating dock compact 44px touch bar */
-  .back-to-top-btn {
-    bottom: max(0.85rem, env(safe-area-inset-bottom, 0px));
-    right: max(0.85rem, env(safe-area-inset-right, 0px));
-    width: 44px;
-    height: 44px;
-  }
-  .floating-contact-btn.icon-btn,
-  .lang-toggle-btn {
-    width: 44px;
-    height: 44px;
-  }
+  /* Compact 44px touch utility dock on small viewports */
   .bottom-floating-controls {
-    bottom: max(0.85rem, env(safe-area-inset-bottom, 0px));
-    right: calc(max(0.85rem, env(safe-area-inset-right, 0px)) + 44px + 0.45rem);
-    gap: 0.45rem;
+    --dock-btn-size: 44px;
+    bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));
+    right: max(0.75rem, env(safe-area-inset-right, 0px));
   }
 
   /* Interactive Quotation mobile ergonomics */
@@ -2742,6 +2840,9 @@ dialog.quote-native-dialog::backdrop {
 }
 
 @media (pointer: coarse), (max-width: 768px) {
+  .bottom-floating-controls {
+    --dock-btn-size: 44px;
+  }
   .qty-stepper button,
   .media-tab-btn,
   .pill-btn,
@@ -2754,7 +2855,6 @@ dialog.quote-native-dialog::backdrop {
   .dialog-close-btn,
   .floating-contact-btn.icon-btn,
   .lang-toggle-btn,
-  .back-to-top-btn,
   .profile-mode-btn,
   .agency-btn-primary,
   .agency-btn-secondary,
@@ -3072,7 +3172,13 @@ dialog.quote-native-dialog::backdrop {
   text-wrap: pretty;
 }
 
-/* Flagship Work Sample Card with Container Queries */
+/* Flagship Work Sample Cards with Container Queries */
+.builder-spotlights-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .builder-flagship-card {
   container: flagship / inline-size;
   background: linear-gradient(155deg, rgba(26, 20, 44, 0.9) 0%, rgba(12, 16, 28, 0.92) 100%);
@@ -3083,6 +3189,12 @@ dialog.quote-native-dialog::backdrop {
   display: flex;
   flex-direction: column;
   gap: 1.35rem;
+  min-inline-size: 0;
+}
+
+.builder-flagship-card--growth {
+  background: linear-gradient(155deg, rgba(36, 24, 18, 0.9) 0%, rgba(14, 16, 28, 0.92) 100%);
+  border-color: rgba(251, 191, 36, 0.34);
 }
 
 .builder-flagship-header {
@@ -3107,6 +3219,11 @@ dialog.quote-native-dialog::backdrop {
   padding-block: 0.24rem;
   padding-inline: 0.65rem;
   border-radius: 999px;
+}
+
+.builder-flagship-badge--growth {
+  color: #1c1202;
+  background: #fbbf24;
 }
 
 .builder-flagship-title-wrap h3 {
