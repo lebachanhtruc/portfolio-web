@@ -148,8 +148,10 @@
     "websiteShowcase": true,
     "containMedia": true,
     "liveUrl": "https://www.patisseriedzung.ca/",
+    "figmaUrl": "https://www.figma.com/design/9UvKtvpz1mI8no9taz9pFj",
     "pairs": [],
     "standalone": [
+      "/Media/quote-showcase/patisserie-dzung-figma-uxui.jpg",
       "/Media/quote-showcase/patisserie-dzung-home.jpg",
       "/Media/quote-showcase/patisserie-dzung-menu.jpg",
       "/Media/quote-showcase/patisserie-dzung-catering.jpg",

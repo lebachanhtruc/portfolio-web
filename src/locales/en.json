@@ -126,11 +126,12 @@
         }
       ],
       "growthSpotlight": {
-        "badge": "LIVE GROWTH, LOCAL SEO & CRO LAB",
-        "title": "Pâtisserie Dzung — 0→1 Local Ecosystem & 4.9★ Google Profile",
+        "badge": "LIVE GROWTH, FIGMA DESIGN SYSTEM & CRO LAB",
+        "title": "Pâtisserie Dzung — 0→1 Local Ecosystem, Figma System & 4.9★ Google Profile",
         "period": "2025 – Present",
-        "summary": "Built the full local digital funnel from zero: 4.9★ Google Business Profile (119 reviews, 93.3% 5★) with 15-item Native GBP Menu & Local SEO, Instagram Business (@patisseriedzung), and a 4-language storefront (FR/EN/VI/ZH) with O2O packaging QR (/goi-bo), live CRO & Québec Law 25.",
+        "summary": "Built the full local digital funnel from zero: 4.9★ Google Business Profile (119 reviews, 93.3% 5★) with 15-item Native GBP Menu & Local SEO, Instagram Business (@patisseriedzung), a tokenized Figma Design System (49 variables, 9 Auto-Layout families), and a 4-language storefront (FR/EN/VI/ZH) with O2O packaging QR (/goi-bo), live CRO & Québec Law 25.",
         "ctaLive": "Visit patisseriedzung.ca ↗",
+        "ctaFigma": "Figma Design System ↗",
         "ctaMaps": "Google Maps 4.9★ (119) ↗",
         "ctaIg": "Instagram @patisseriedzung ↗",
         "ctaQr": "Inspect O2O QR (/goi-bo) ↗",
@@ -202,7 +203,7 @@
             "50/50 A/B Testing & Branded UTM Attribution",
             "Google Search Console, SEO Schema & Law 25",
             "Marketplace Ad ROI (+12% YoY) & O2O QR",
-            "Adobe Suite (Ps, Ai, Id, Lr, Pr) · Photo & Video"
+            "Figma (Variables, Auto-Layout, Design Systems) & Adobe Suite (Ps, Ai, Id, Lr, Pr)"
           ]
         },
         {
@@ -276,7 +277,7 @@
       },
       "t2": {
         "role": "Founder — Growth Marketing, Creative Media & Web Systems (Part-time)",
-        "desc": "Shipped lebachanhtruc.ca (trilingual studio + 46s showreel + Vercel Blob quote links) and Pâtisserie Dzung's 0-to-1 ecosystem (4.9★ / 119-review Google Business Profile + Native GBP Menu, IG Business, 4-language web, O2O QR /goi-bo, GA4 Consent Mode v2, Clarity, 50/50 A/B test, GSC, UTMs & Law 25), plus Reels ads, 4K menus & Midjourney/VEO."
+        "desc": "Shipped lebachanhtruc.ca (trilingual studio + 46s showreel + Vercel Blob quote links) and Pâtisserie Dzung's 0-to-1 ecosystem (4.9★ / 119-review Google Business Profile + Native GBP Menu, IG Business, tokenized Figma UX/UI Design System, 4-language web, O2O QR /goi-bo, GA4 Consent Mode v2, Clarity, 50/50 A/B test, GSC, UTMs & Law 25), plus Reels ads, 4K menus & Midjourney/VEO."
       },
       "t3": {
         "role": "Operations Manager — Digital Growth & Systems Lead",
@@ -355,21 +356,22 @@
       "Cinematic Motion": "Cinematic Motion"
     },
     "websiteShowcase": {
-      "subtitle": "Built 0→1 for Pâtisserie Dzung: 4.9★ Google profile (119 reviews), 4-language menu storefront, O2O packaging QR, GA4 + Clarity A/B testing & Québec Law 25.",
+      "subtitle": "Built 0→1 for Pâtisserie Dzung: tokenized Figma UX/UI Design System (49 variables, 9 Auto-Layout families), 4.9★ Google profile (119 reviews), 4-language storefront, O2O QR, GA4 + Clarity A/B testing & Québec Law 25.",
       "tags": [
+        "Figma Design System (49 Vars)",
         "4.9★ Google (119 Reviews)",
         "Local SEO & IG Business",
         "4 Languages & O2O QR",
         "GA4 + Clarity CRO",
-        "50/50 A/B Test & UTMs",
-        "Québec Law 25 Opt-In"
+        "50/50 A/B Test & Law 25"
       ],
       "liveCta": "Visit patisseriedzung.ca ↗",
+      "figmaCta": "Figma Design System ↗",
       "mapsCta": "Google Maps 4.9★ (119) ↗",
       "igCta": "Instagram @patisseriedzung ↗",
       "quoteCta": "Website Package Quote ↓",
       "cvSystemsCta": "Inspect AI Payroll SaaS (CV) →",
-      "cardCategory": "Turnkey Web & Growth"
+      "cardCategory": "Turnkey Web & UX/UI"
     },
     "cardTitles": {
       "food": [
@@ -431,6 +433,7 @@
         "menu-tinh-demo": "Printed & TV Menu Front Layout",
         "menu-tinh-trong": "Printed & TV Menu Inside Layout",
         "decal-kinh-demo": "Storefront Window Decal Install",
+        "patisserie-dzung-figma-uxui": "Figma UX/UI Design System (49 Variables, 9 Components) & O2O QR",
         "patisserie-dzung-home": "Hero Cinema Video & 4-Language Switcher",
         "patisserie-dzung-menu": "44+ Dish Interactive Menu & Allergens",
         "patisserie-dzung-catering": "Catering Inquiry & 1-Tap Order Flow",

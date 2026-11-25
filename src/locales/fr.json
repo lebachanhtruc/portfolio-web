@@ -126,11 +126,12 @@
         }
       ],
       "growthSpotlight": {
-        "badge": "LABO CROISSANCE, SEO LOCAL & CRO",
-        "title": "Pâtisserie Dzung — Écosystème Local 0→1 & Google 4,9★",
+        "badge": "LABO CROISSANCE, DESIGN SYSTEM FIGMA & CRO",
+        "title": "Pâtisserie Dzung — Écosystème Local 0→1, Figma & Google 4,9★",
         "period": "2025 – Présent",
-        "summary": "Entonnoir digital local bâti de zéro : Fiche Google Business 4,9★ (119 avis, 93,3 % 5★) avec Menu Natif 15 plats & SEO Local, Instagram Business (@patisseriedzung), et site vitrine 4 langues (FR/EN/VI/ZH) avec QR emballage (/goi-bo), CRO & Loi 25.",
+        "summary": "Entonnoir digital local bâti de zéro : Fiche Google Business 4,9★ (119 avis, 93,3 % 5★) avec Menu Natif 15 plats & SEO Local, Instagram Business (@patisseriedzung), Design System Figma tokenisé (49 variables, 9 familles Auto-Layout), et site vitrine 4 langues (FR/EN/VI/ZH) avec QR emballage (/goi-bo), CRO & Loi 25.",
         "ctaLive": "Visiter patisseriedzung.ca ↗",
+        "ctaFigma": "Design System Figma ↗",
         "ctaMaps": "Google Maps 4,9★ (119) ↗",
         "ctaIg": "Instagram @patisseriedzung ↗",
         "ctaQr": "Voir la page QR O2O (/goi-bo) ↗",
@@ -202,7 +203,7 @@
             "Tests A/B 50/50 & Attribution UTM Courte",
             "Google Search Console, Schémas SEO & Loi 25",
             "ROI Publicitaire (+12 % YoY) & QR O2O",
-            "Suite Adobe (Ps, Ai, Id, Lr, Pr) · Photo & Vidéo"
+            "Figma (Variables, Auto-Layout, Design Systems) & Suite Adobe (Ps, Ai, Id, Lr, Pr)"
           ]
         },
         {
@@ -276,7 +277,7 @@
       },
       "t2": {
         "role": "Fondateur — Marketing de Croissance, Médias & Systèmes Web (Temps partiel)",
-        "desc": "Création de lebachanhtruc.ca (studio trilingue + showreel 46s + devis Vercel Blob) et écosystème 0→1 Pâtisserie Dzung (Google Business 4,9★ / 119 avis + Menu Natif GBP, IG Business, vitrine 4 langues, QR /goi-bo, GA4 Consent Mode v2, Clarity, A/B 50/50, GSC, UTM & Loi 25), plus Reels bilingues, menus 4K & Midjourney/VEO."
+        "desc": "Création de lebachanhtruc.ca (studio trilingue + showreel 46s + devis Vercel Blob) et écosystème 0→1 Pâtisserie Dzung (Google Business 4,9★ / 119 avis + Menu Natif GBP, IG Business, Design System UX/UI Figma, vitrine 4 langues, QR /goi-bo, GA4 Consent Mode v2, Clarity, A/B 50/50, GSC, UTM & Loi 25), plus Reels bilingues, menus 4K & Midjourney/VEO."
       },
       "t3": {
         "role": "Responsable Opérations — Croissance Digitale & Systèmes POS",
@@ -355,21 +356,22 @@
       "Cinematic Motion": "Mouvement Cinématographique"
     },
     "websiteShowcase": {
-      "subtitle": "Bâti de 0→1 pour Pâtisserie Dzung : fiche Google 4,9★ (119 avis), site vitrine 4 langues, QR emballage O2O, tests A/B GA4 + Clarity & conformité Loi 25.",
+      "subtitle": "Bâti de 0→1 pour Pâtisserie Dzung : Design System UX/UI Figma (49 variables, 9 familles Auto-Layout), fiche Google 4,9★ (119 avis), site vitrine 4 langues, QR O2O, tests A/B GA4 + Clarity & conformité Loi 25.",
       "tags": [
+        "Design System Figma (49 Vars)",
         "Google 4,9★ (119 Avis)",
         "SEO Local & IG Business",
         "4 Langues & QR O2O",
         "GA4 + Clarity CRO",
-        "Test A/B 50/50 & UTM",
-        "Conformité Loi 25 QC"
+        "Test A/B 50/50 & Loi 25"
       ],
       "liveCta": "Visiter patisseriedzung.ca ↗",
+      "figmaCta": "Design System Figma ↗",
       "mapsCta": "Google Maps 4,9★ (119) ↗",
       "igCta": "Instagram @patisseriedzung ↗",
       "quoteCta": "Devis Site Web ↓",
       "cvSystemsCta": "Voir le SaaS Paie IA (CV) →",
-      "cardCategory": "Web & Croissance Clé en Main"
+      "cardCategory": "Web & UX/UI Clé en Main"
     },
     "cardTitles": {
       "food": [
@@ -431,6 +433,7 @@
         "menu-tinh-demo": "Maquette Menu Extérieur",
         "menu-tinh-trong": "Maquette Menu Intérieur",
         "decal-kinh-demo": "Pose de Décalque sur Vitrine",
+        "patisserie-dzung-figma-uxui": "Design System Figma (49 Variables, 9 Composants) & UX/UI Responsive",
         "patisserie-dzung-home": "Hero Vidéo & Changement de Langue",
         "patisserie-dzung-menu": "Menu Interactif 44+ Plats & Allergènes",
         "patisserie-dzung-catering": "Devis Traiteur & Contact Direct",

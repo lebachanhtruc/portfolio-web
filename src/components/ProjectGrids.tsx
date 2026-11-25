@@ -272,6 +272,16 @@ function ProjectGroup({
                 {showcaseData.liveCta}
               </a>
             )}
+            {project.figmaUrl && showcaseData.figmaCta && (
+              <a
+                href={project.figmaUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="website-showcase-quote-btn website-showcase-figma-btn"
+              >
+                {showcaseData.figmaCta}
+              </a>
+            )}
             {showcaseData.mapsCta && (
               <a
                 href="https://www.google.com/maps/place/Patisserie+Dzung/@45.4714654,-73.4587648,17z/data=!3m1!4b1!4m6!3m5!1s0x4cc9054ca9b665f5:0x451da51af4413046!8m2!3d45.4714654!4d-73.4587648!16s%2Fg%2F11zx0_530d"
@@ -366,11 +376,16 @@ function ProjectGroup({
                 project.standalone.length % 2 === 1 &&
                 index === project.standalone.length - 1
             );
+            const isWebsiteHeroCenterpiece = Boolean(
+              isWebsiteShowcase &&
+                project.standalone.length % 2 === 1 &&
+                index === 0
+            );
 
             return (
               <div
                 key={`standalone-${index}`}
-                className={`project-card ${isEasterEggTarget ? 'easter-egg-desktop' : ''} ${project.featuredLandscapeFirst && index === 0 ? 'featured-landscape-card' : ''} ${isLandscapeCenterpiece ? 'landscape-centerpiece-card' : ''}`.trim()}
+                className={`project-card ${isEasterEggTarget ? 'easter-egg-desktop' : ''} ${project.featuredLandscapeFirst && index === 0 ? 'featured-landscape-card' : ''} ${isLandscapeCenterpiece ? 'landscape-centerpiece-card' : ''} ${isWebsiteHeroCenterpiece ? 'website-showcase-hero-card' : ''}`.trim()}
                 style={{ '--mobile-order': (index + 1) * 10 } as React.CSSProperties}
                 onMouseEnter={(e) => {
                   if (!isEasterEggTarget) return;

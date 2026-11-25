@@ -126,11 +126,12 @@
         }
       ],
       "growthSpotlight": {
-        "badge": "TĂNG TRƯỞNG LOCAL SEO & CRO THỰC TẾ",
-        "title": "Pâtisserie Dzung — Hệ Sinh Thái 0→1 & Google 4.9★",
+        "badge": "TĂNG TRƯỞNG LOCAL SEO, FIGMA DESIGN SYSTEM & CRO",
+        "title": "Pâtisserie Dzung — Hệ Sinh Thái 0→1, Figma System & Google 4.9★",
         "period": "2025 – Hiện tại",
-        "summary": "Xây dựng toàn bộ phễu tăng trưởng địa phương từ 0: Google Business Profile đạt 4.9★ (119 đánh giá, 93.3% 5★) kèm Native Menu 15 món & Local SEO, Instagram Business (@patisseriedzung), và web 4 ngôn ngữ (FR/EN/VI/ZH) có QR bao bì (/goi-bo), CRO & Luật 25 Québec.",
+        "summary": "Xây dựng toàn bộ phễu tăng trưởng địa phương từ 0: Google Business Profile đạt 4.9★ (119 đánh giá, 93.3% 5★) kèm Native Menu 15 món & Local SEO, Instagram Business (@patisseriedzung), Figma UX/UI Design System chuẩn hóa (49 biến token, 9 họ Auto-Layout), và web 4 ngôn ngữ (FR/EN/VI/ZH) có QR bao bì (/goi-bo), CRO & Luật 25 Québec.",
         "ctaLive": "Xem web thực tế: patisseriedzung.ca ↗",
+        "ctaFigma": "Figma Design System ↗",
         "ctaMaps": "Google Maps 4.9★ (119) ↗",
         "ctaIg": "Instagram @patisseriedzung ↗",
         "ctaQr": "Xem trang QR bao bì (/goi-bo) ↗",
@@ -202,7 +203,7 @@
             "A/B Testing 50/50 & Link UTM Rút Gọn Chính Chủ",
             "Google Search Console, Schema SEO & Luật 25",
             "Tối Ưu ROI Quảng Cáo (+12% YoY) & QR O2O",
-            "Adobe Suite (Ps, Ai, Id, Lr, Pr) · Nhiếp Ảnh & Video"
+            "Figma (Variables, Auto-Layout, Design Systems) & Adobe Suite (Ps, Ai, Id, Lr, Pr)"
           ]
         },
         {
@@ -276,7 +277,7 @@
       },
       "t2": {
         "role": "Nhà Sáng Lập — Growth Marketing, Truyền Thông & Hệ Thống Web (Bán thời gian)",
-        "desc": "Xây dựng lebachanhtruc.ca (studio 3 ngôn ngữ + Showreel 46s + link báo giá Vercel Blob) và hệ sinh thái 0→1 Pâtisserie Dzung (Google Business Profile 4.9★ / 119 đánh giá + Native Menu, IG Business, web 4 ngôn ngữ, QR /goi-bo, GA4 Consent Mode v2, Clarity, A/B Test 50/50, GSC, UTM & Luật 25), cùng Reels ads, menu 4K & Midjourney/VEO."
+        "desc": "Xây dựng lebachanhtruc.ca (studio 3 ngôn ngữ + Showreel 46s + link báo giá Vercel Blob) và hệ sinh thái 0→1 Pâtisserie Dzung (Google Business Profile 4.9★ / 119 đánh giá + Native Menu, IG Business, Figma UX/UI Design System, web 4 ngôn ngữ, QR /goi-bo, GA4 Consent Mode v2, Clarity, A/B Test 50/50, GSC, UTM & Luật 25), cùng Reels ads, menu 4K & Midjourney/VEO."
       },
       "t3": {
         "role": "Quản Lý Vận Hành — Tăng Trưởng Số & Tích Hợp POS",
@@ -355,21 +356,22 @@
       "Cinematic Motion": "Chuyển Động Điện Ảnh"
     },
     "websiteShowcase": {
-      "subtitle": "Xây từ 0→1 cho Pâtisserie Dzung: Google Business 4.9★ (119 đánh giá), web 4 ngôn ngữ, QR bao bì O2O, A/B Test GA4 + Clarity & chuẩn Luật 25 Québec.",
+      "subtitle": "Xây từ 0→1 cho Pâtisserie Dzung: Figma UX/UI Design System (49 biến, 9 họ Auto-Layout), Google Business 4.9★ (119 đánh giá), web 4 ngôn ngữ, QR bao bì O2O, A/B Test GA4 + Clarity & chuẩn Luật 25 Québec.",
       "tags": [
+        "Figma Design System (49 Vars)",
         "Google 4.9★ (119 Reviews)",
         "Local SEO & IG Business",
         "4 Ngôn Ngữ & QR O2O",
         "GA4 + Clarity CRO",
-        "A/B Test 50/50 & UTM",
-        "Chuẩn Luật 25 Québec"
+        "A/B Test 50/50 & Luật 25"
       ],
       "liveCta": "Xem patisseriedzung.ca ↗",
+      "figmaCta": "Figma Design System ↗",
       "mapsCta": "Google Maps 4.9★ (119) ↗",
       "igCta": "Instagram @patisseriedzung ↗",
       "quoteCta": "Báo Giá Gói Website ↓",
       "cvSystemsCta": "Xem SaaS Lương AI (CV) →",
-      "cardCategory": "Website & Tăng Trưởng Trọn Gói"
+      "cardCategory": "Website & UX/UI Trọn Gói"
     },
     "cardTitles": {
       "food": [
@@ -431,6 +433,7 @@
         "menu-tinh-demo": "Menu Mặt Ngoài & Bảng Giá",
         "menu-tinh-trong": "Menu Mặt Trong Chi Tiết",
         "decal-kinh-demo": "Thi Công Decal Kính Mặt Tiền",
+        "patisserie-dzung-figma-uxui": "Figma UX/UI Design System (49 Biến, 9 Họ Component) & O2O QR",
         "patisserie-dzung-home": "Trang Chủ Hero Video & Đa Ngôn Ngữ",
         "patisserie-dzung-menu": "Thực Đơn 44+ Món & Bộ Lọc Dị Ứng",
         "patisserie-dzung-catering": "Trang Đặt Tiệc Catering & Liên Hệ",
