@@ -21,45 +21,89 @@ export default function BeforeAfterSlider({
 }: BeforeAfterSliderProps) {
   const { t } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
+  const posRef = useRef(50);
+  const activePointerIdRef = useRef<number | null>(null);
+  const grabOffsetXRef = useRef(0);
   const [sliderValue, setSliderValue] = useState(50);
 
-  const updateSliderPosition = (clientX: number) => {
+  const applyPercentage = (rawPct: number) => {
+    const el = containerRef.current;
+    if (!el) return;
+    const clamped = Math.max(0, Math.min(100, rawPct));
+    const rounded = Math.round(clamped * 10) / 10;
+    posRef.current = rounded;
+    el.style.setProperty('--slider-pos', `${rounded}%`);
+  };
+
+  const updateFromClientX = (clientX: number) => {
     const el = containerRef.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
     if (rect.width <= 0) return;
     const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
-    const percentage = Math.round((x / rect.width) * 1000) / 10;
-    el.style.setProperty('--slider-pos', `${percentage}%`);
+    applyPercentage((x / rect.width) * 100);
   };
 
   const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     if ((e.target as HTMLElement).closest('button')) return;
-    e.currentTarget.setPointerCapture(e.pointerId);
-    updateSliderPosition(e.clientX);
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+
+    const el = containerRef.current;
+    if (!el) return;
+
+    activePointerIdRef.current = e.pointerId;
+    el.classList.add('is-dragging');
+    try {
+      el.setPointerCapture(e.pointerId);
+    } catch {
+      // Fallback safely if capture is unavailable
+    }
+
+    const grabbedRail = Boolean((e.target as HTMLElement).closest('.slider-rail'));
+    if (grabbedRail) {
+      // Preserve grab offset along the full-height divider rail so the line never jumps under the thumb
+      const rect = el.getBoundingClientRect();
+      const dividerX = rect.left + (posRef.current / 100) * rect.width;
+      grabOffsetXRef.current = e.clientX - dividerX;
+    } else {
+      grabOffsetXRef.current = 0;
+      updateFromClientX(e.clientX);
+    }
   };
 
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    // Slide smoothly on pointer drag (touch & mouse) or fine-pointer hover
-    if (e.buttons > 0 || e.pointerType === 'mouse') {
-      updateSliderPosition(e.clientX);
+    if (activePointerIdRef.current === e.pointerId) {
+      updateFromClientX(e.clientX - grabOffsetXRef.current);
+      return;
+    }
+    // Fine-pointer desktop hover scrub when not actively dragging
+    if (e.pointerType === 'mouse' && activePointerIdRef.current === null) {
+      updateFromClientX(e.clientX);
     }
   };
 
-  const handlePointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (e.currentTarget.hasPointerCapture(e.pointerId)) {
-      e.currentTarget.releasePointerCapture(e.pointerId);
-    }
+  const endDrag = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (activePointerIdRef.current !== null && e.pointerId !== activePointerIdRef.current) return;
     const el = containerRef.current;
-    if (!el) return;
-    const current = parseFloat(el.style.getPropertyValue('--slider-pos') || '50');
-    if (!Number.isNaN(current)) setSliderValue(Math.round(current));
+    if (el) {
+      el.classList.remove('is-dragging');
+      if (el.hasPointerCapture(e.pointerId)) {
+        try {
+          el.releasePointerCapture(e.pointerId);
+        } catch {
+          // Ignore if already released
+        }
+      }
+    }
+    activePointerIdRef.current = null;
+    grabOffsetXRef.current = 0;
+    setSliderValue(Math.round(posRef.current));
   };
 
   const handleRangeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = Number(e.target.value);
     setSliderValue(val);
-    containerRef.current?.style.setProperty('--slider-pos', `${val}%`);
+    applyPercentage(val);
   };
 
   const originalSrc = encodeMediaPath(original);
@@ -69,10 +113,11 @@ export default function BeforeAfterSlider({
     <div
       className={`before-after-container ${className}`}
       ref={containerRef}
-      style={{ '--slider-pos': `${sliderValue}%` } as React.CSSProperties}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
-      onPointerUp={handlePointerUp}
+      onPointerUp={endDrag}
+      onPointerCancel={endDrag}
+      onLostPointerCapture={endDrag}
     >
       <img
         src={originalSrc}
@@ -82,6 +127,7 @@ export default function BeforeAfterSlider({
         height={960}
         loading={priorityLoad ? undefined : 'lazy'}
         decoding="async"
+        draggable={false}
       />
       <img
         src={editedSrc}
@@ -91,13 +137,16 @@ export default function BeforeAfterSlider({
         height={960}
         loading={priorityLoad ? undefined : 'lazy'}
         decoding="async"
+        draggable={false}
       />
 
-      <div className="slider-line" aria-hidden="true">
+      {/* Full-height 48px touch rail centered on the divider line so dragging works seamlessly anywhere top-to-bottom */}
+      <div className="slider-rail" aria-hidden="true">
+        <div className="slider-line" />
         <div className="slider-handle">↔</div>
       </div>
 
-      {/* Keyboard-accessible range control overlay */}
+      {/* Keyboard & screen-reader native range control (pointer-events: none prevents iOS Safari center-thumb touch conflicts) */}
       <input
         type="range"
         min={0}
@@ -105,6 +154,7 @@ export default function BeforeAfterSlider({
         value={sliderValue}
         onChange={handleRangeChange}
         aria-label={t('projects.slider.ariaLabel')}
+        aria-valuetext={`${sliderValue}%`}
         className="slider-a11y-range"
       />
 
