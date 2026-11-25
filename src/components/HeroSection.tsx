@@ -48,7 +48,7 @@ const KILN_CARDS: readonly KilnCardSpec[] = [
     image: '/Media/quote-showcase/patisserie-dzung-home.jpg',
     objectPosition: '4% top',
     collapsedImage: '/Media/quote-showcase/patisserie-dzung-mobile-hero.webp',
-    collapsedObjectPosition: 'center top',
+    collapsedObjectPosition: 'center center',
     width: 1280,
     height: 800,
     priority: false

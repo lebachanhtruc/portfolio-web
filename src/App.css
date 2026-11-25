@@ -5419,10 +5419,13 @@ dialog.showreel-dialog[open] {
   margin: -0.2rem 0 1.65rem;
 }
 
-/* Clean collapsed crop on Hero card 03 / WEB: frame bakery hero photo cleanly without sliced French top nav */
-.kiln-card[data-pillar='web']:not(.is-active) .kiln-card-img {
-  transform: scale(1.28);
-  transform-origin: 86% 62%;
+/* Collapsed 03 / WEB mobile mockup: keep entire iPhone centered & uncropped across all laptop aspect ratios */
+.kiln-card[data-pillar='web']:not(.is-active) .kiln-card-img--collapsed {
+  object-fit: contain;
+  object-position: center center;
+  background: #0b0d13;
+  transform: scale(1);
+  filter: brightness(0.92) saturate(1.04);
 }
 
 .kiln-card[data-pillar='web'].is-active .kiln-card-img {
