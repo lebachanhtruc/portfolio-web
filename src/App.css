@@ -4447,29 +4447,30 @@ dialog.showreel-dialog[open] {
   filter: brightness(0.94) saturate(1.06);
 }
 
-.kiln-card[data-pillar='print'] .kiln-card-img {
-  transform: scale(1.18);
+.kiln-card-img--expanded {
+  opacity: 0;
+}
+
+.kiln-card.is-active .kiln-card-img--expanded {
+  opacity: 1;
+}
+
+.kiln-card-img--collapsed {
+  opacity: 1;
   filter: brightness(0.84) saturate(1.02);
 }
 
-.kiln-card[data-pillar='print'].is-active .kiln-card-img {
-  transform: scale(1.12);
-  filter: brightness(0.96) saturate(1.06);
+.kiln-card.is-active .kiln-card-img--collapsed {
+  opacity: 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .kiln-card-img {
     transform: scale(1.04);
-    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease-out;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease-out, opacity 0.38s ease-out;
   }
   .kiln-card.is-active .kiln-card-img {
     transform: scale(1);
-  }
-  .kiln-card[data-pillar='print'] .kiln-card-img {
-    transform: scale(1.22);
-  }
-  .kiln-card[data-pillar='print'].is-active .kiln-card-img {
-    transform: scale(1.14);
   }
 }
 

@@ -10,7 +10,19 @@ interface KilnCardCopy {
   cta: string;
 }
 
-const KILN_CARDS = [
+interface KilnCardSpec {
+  id: string;
+  targetId: string;
+  image: string;
+  objectPosition: string;
+  collapsedImage?: string;
+  collapsedObjectPosition?: string;
+  width: number;
+  height: number;
+  priority: boolean;
+}
+
+const KILN_CARDS: readonly KilnCardSpec[] = [
   {
     id: 'luxury',
     targetId: 'section-Luxury',
@@ -34,7 +46,9 @@ const KILN_CARDS = [
     id: 'web',
     targetId: 'section-Web',
     image: '/Media/quote-showcase/patisserie-dzung-home.jpg',
-    objectPosition: '84% 58%',
+    objectPosition: '4% top',
+    collapsedImage: '/Media/quote-showcase/patisserie-dzung-mobile-hero.webp',
+    collapsedObjectPosition: 'center top',
     width: 1280,
     height: 800,
     priority: false
@@ -42,13 +56,13 @@ const KILN_CARDS = [
   {
     id: 'print',
     targetId: 'section-Print',
-    image: '/Media/print-archive/print-taydo-trifold-mockup.webp',
-    objectPosition: '26% 36%',
-    width: 1800,
-    height: 1200,
+    image: '/Media/print-archive/hero-print-pantone-press.webp',
+    objectPosition: 'center 52%',
+    width: 1080,
+    height: 1440,
     priority: false
   }
-] as const;
+];
 
 export default function HeroSection({
   profileMode = 'agency',
@@ -247,9 +261,21 @@ export default function HeroSection({
                   width={card.width}
                   height={card.height}
                   {...(card.priority ? { fetchPriority: 'high' as const, decoding: 'sync' as const } : {})}
-                  className="kiln-card-img"
+                  className={`kiln-card-img ${card.collapsedImage ? 'kiln-card-img--expanded' : ''}`.trim()}
                   style={{ objectPosition: card.objectPosition }}
                 />
+                {card.collapsedImage && (
+                  <img
+                    src={encodeMediaPath(card.collapsedImage)}
+                    alt=""
+                    aria-hidden="true"
+                    width={780}
+                    height={1520}
+                    decoding="async"
+                    className="kiln-card-img kiln-card-img--collapsed"
+                    style={{ objectPosition: card.collapsedObjectPosition || 'center top' }}
+                  />
+                )}
                 <div className="kiln-card-scrim" aria-hidden="true" />
 
                 <button
