@@ -140,10 +140,25 @@ export default function BeforeAfterSlider({
         draggable={false}
       />
 
-      {/* Full-height 48px touch rail centered on the divider line so dragging works seamlessly anywhere top-to-bottom */}
+      {/* Full-height 56px touch rail centered on the divider line so dragging works seamlessly anywhere top-to-bottom */}
       <div className="slider-rail" aria-hidden="true">
-        <div className="slider-line" />
-        <div className="slider-handle">↔</div>
+        <span className="slider-line slider-line-top" />
+        <span className="slider-line slider-line-bottom" />
+        <div className="slider-handle">
+          <svg
+            className="slider-handle-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.1"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M9 7l-5 5 5 5" />
+            <path d="M15 7l5 5-5 5" />
+          </svg>
+        </div>
       </div>
 
       {/* Keyboard & screen-reader native range control (pointer-events: none prevents iOS Safari center-thumb touch conflicts) */}

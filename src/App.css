@@ -1045,14 +1045,22 @@ section {
 
 .slider-line {
   position: absolute;
-  top: 0;
-  bottom: 0;
   left: 50%;
-  width: 2px;
-  background: #ffffff;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.65);
+  width: 1.5px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.72);
   transform: translateX(-50%);
   pointer-events: none;
+}
+
+.slider-line-top {
+  top: 0;
+  bottom: calc(50% + 17px);
+}
+
+.slider-line-bottom {
+  top: calc(50% + 17px);
+  bottom: 0;
 }
 
 .slider-handle {
@@ -1060,25 +1068,38 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 36px;
-  height: 36px;
-  background: #c4d08b;
-  border: 2px solid #ffffff;
+  width: 34px;
+  height: 34px;
+  background: rgba(11, 10, 18, 0.54);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  backdrop-filter: blur(12px) saturate(150%);
+  border: 1.5px solid rgba(255, 255, 255, 0.88);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #09090f;
-  font-size: 0.9rem;
-  font-weight: 800;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.55);
+  color: #ffffff;
+  box-shadow:
+    0 4px 18px rgba(0, 0, 0, 0.48),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
   pointer-events: none;
-  transition: transform 0.14s ease, box-shadow 0.14s ease;
+  transition: transform 0.16s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+}
+
+.slider-handle-icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
 }
 
 .before-after-container.is-dragging .slider-handle {
   transform: translate(-50%, -50%) scale(1.08);
-  box-shadow: 0 6px 22px rgba(196, 208, 139, 0.45), 0 4px 16px rgba(0, 0, 0, 0.65);
+  background: rgba(17, 13, 30, 0.76);
+  border-color: #ffffff;
+  box-shadow:
+    0 0 0 4px rgba(255, 255, 255, 0.16),
+    0 8px 24px rgba(0, 0, 0, 0.6);
 }
 
 @media (pointer: coarse) {
@@ -1086,9 +1107,8 @@ section {
     width: 56px;
   }
   .slider-handle {
-    width: 44px;
-    height: 44px;
-    font-size: 1rem;
+    width: 34px;
+    height: 34px;
   }
 }
 
