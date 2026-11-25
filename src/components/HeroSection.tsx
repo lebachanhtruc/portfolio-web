@@ -19,6 +19,8 @@ interface KilnCardSpec {
   collapsedObjectPosition?: string;
   width: number;
   height: number;
+  collapsedWidth?: number;
+  collapsedHeight?: number;
   priority: boolean;
 }
 
@@ -51,15 +53,21 @@ const KILN_CARDS: readonly KilnCardSpec[] = [
     collapsedObjectPosition: 'center top',
     width: 1280,
     height: 800,
+    collapsedWidth: 720,
+    collapsedHeight: 1580,
     priority: false
   },
   {
     id: 'print',
     targetId: 'section-Print',
-    image: '/Media/print-archive/hero-print-pantone-press.webp',
-    objectPosition: 'center 52%',
-    width: 1080,
-    height: 1440,
+    image: '/Media/print-archive/hero-print-film-separations.webp',
+    objectPosition: 'center center',
+    collapsedImage: '/Media/print-archive/hero-print-pantone-press.webp',
+    collapsedObjectPosition: 'center 52%',
+    width: 1500,
+    height: 1080,
+    collapsedWidth: 1080,
+    collapsedHeight: 1440,
     priority: false
   }
 ];
@@ -269,8 +277,8 @@ export default function HeroSection({
                     src={encodeMediaPath(card.collapsedImage)}
                     alt=""
                     aria-hidden="true"
-                    width={780}
-                    height={1520}
+                    width={card.collapsedWidth ?? card.width}
+                    height={card.collapsedHeight ?? card.height}
                     decoding="async"
                     className="kiln-card-img kiln-card-img--collapsed"
                     style={{ objectPosition: card.collapsedObjectPosition || 'center top' }}

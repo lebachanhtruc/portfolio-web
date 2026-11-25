@@ -3938,6 +3938,18 @@ label.generator-checkbox-row input[type='checkbox'] {
   transform: translateY(-1px);
 }
 
+.website-showcase-figma-btn {
+  background: rgba(232, 168, 56, 0.11);
+  border: 1px solid rgba(232, 168, 56, 0.36);
+  color: #f6d58c;
+}
+
+.website-showcase-figma-btn:hover {
+  background: rgba(232, 168, 56, 0.2);
+  border-color: rgba(232, 168, 56, 0.62);
+  color: #fff6dc;
+}
+
 .website-showcase-live-btn:focus-visible,
 .website-showcase-quote-btn:focus-visible {
   outline: 2px solid #c084fc;
@@ -3948,6 +3960,11 @@ label.generator-checkbox-row input[type='checkbox'] {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+.website-showcase-grid .website-showcase-hero-card {
+  grid-column: 1 / -1;
+  width: 100%;
 }
 
 .website-showcase-grid .media-wrapper,
@@ -4516,6 +4533,25 @@ dialog.showreel-dialog[open] {
     rgba(6, 4, 14, 0.98) 92%,
     rgba(6, 4, 14, 1) 100%
   );
+}
+
+/* Asymmetric bottom-left pocket scrim on expanded film-separation diptych so copy stays AAA contrast while right PANTONE 101 C plate stays luminous */
+.kiln-card[data-pillar='print'].is-active .kiln-card-scrim {
+  background:
+    radial-gradient(
+      ellipse 92% 76% at 18% 96%,
+      rgba(6, 4, 14, 0.96) 0%,
+      rgba(6, 4, 14, 0.88) 46%,
+      rgba(6, 4, 14, 0.42) 74%,
+      rgba(6, 4, 14, 0) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(6, 4, 14, 0.44) 0%,
+      rgba(6, 4, 14, 0.04) 24%,
+      rgba(6, 4, 14, 0.08) 68%,
+      rgba(6, 4, 14, 0.56) 100%
+    );
 }
 
 .kiln-card-trigger {
@@ -5585,7 +5621,8 @@ dialog.showreel-dialog[open] {
     font-size: 1.15rem;
   }
 
-  .landscape-showcase-grid .landscape-centerpiece-card {
+  .landscape-showcase-grid .landscape-centerpiece-card,
+  .website-showcase-grid .website-showcase-hero-card {
     grid-column: auto;
     width: auto;
     justify-self: auto;
