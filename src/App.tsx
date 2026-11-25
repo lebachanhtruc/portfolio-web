@@ -173,7 +173,7 @@ function App() {
               onScrollToPortfolio={scrollToPortfolio}
             />
           )}
-          <HeroSection profileMode={profileMode} onNavigatePillar={navigateToPillar} />
+          <HeroSection onNavigatePillar={navigateToPillar} />
           <AboutSection
             profileMode={profileMode}
             onProfileModeChange={setProfileMode}

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useId, useRef, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { scrollToElementById } from '../utils/scroll';
 
@@ -139,10 +139,14 @@ export default function AboutSection({
   const [copiedPhone, setCopiedPhone] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [studioExpanded, setStudioExpanded] = useState(false);
+  const [isShowreelOpen, setIsShowreelOpen] = useState(false);
 
   const agencyTabRef = useRef<HTMLButtonElement>(null);
   const cvTabRef = useRef<HTMLButtonElement>(null);
   const studioPanelRef = useRef<HTMLDivElement>(null);
+  const showreelDialogRef = useRef<HTMLDialogElement>(null);
+  const showreelVideoRef = useRef<HTMLVideoElement>(null);
+  const showreelTitleId = useId();
 
   // Mirror browser Find-in-Page (`beforematch` on hidden="until-found") into React disclosure state
   useEffect(() => {
@@ -152,6 +156,53 @@ export default function AboutSection({
     panel.addEventListener('beforematch', handleBeforeMatch);
     return () => panel.removeEventListener('beforematch', handleBeforeMatch);
   }, [profileMode]);
+
+  // Light-dismiss fallback for browsers without native <dialog closedby="any"> support (e.g., Safari)
+  useEffect(() => {
+    const dialog = showreelDialogRef.current;
+    if (!dialog || 'closedBy' in HTMLDialogElement.prototype) return;
+
+    const handleBackdropClick = (event: MouseEvent) => {
+      if (event.target !== dialog) return;
+      const rect = dialog.getBoundingClientRect();
+      const isDialogContent =
+        rect.top <= event.clientY &&
+        event.clientY <= rect.top + rect.height &&
+        rect.left <= event.clientX &&
+        event.clientX <= rect.left + rect.width;
+      if (isDialogContent) return;
+      dialog.close();
+    };
+
+    dialog.addEventListener('click', handleBackdropClick);
+    return () => dialog.removeEventListener('click', handleBackdropClick);
+  }, []);
+
+  const openShowreel = () => {
+    setIsShowreelOpen(true);
+    showreelDialogRef.current?.showModal();
+  };
+
+  const chapterStartSeconds = [3.6, 11.0, 18.6, 26.4, 34.2];
+  const jumpToChapter = (chapterIndex: number) => {
+    const vid = showreelVideoRef.current;
+    const sec = chapterStartSeconds[chapterIndex];
+    if (!vid || sec === undefined) return;
+    vid.currentTime = sec;
+    void vid.play().catch(() => {});
+  };
+
+  const handleShowreelClose = () => {
+    const vid = showreelVideoRef.current;
+    if (vid) {
+      vid.pause();
+      vid.currentTime = 0;
+    }
+    if (showreelDialogRef.current) {
+      showreelDialogRef.current.returnValue = '';
+    }
+    setIsShowreelOpen(false);
+  };
 
   const handleCopyPhone = () => {
     navigator.clipboard.writeText('438-985-7846');
@@ -192,6 +243,7 @@ export default function AboutSection({
   const proofStats: { value: string; label: string }[] =
     (translations as any)?.about?.modes?.proofStats || [];
   const scopeTags: string[] = (translations as any)?.about?.modes?.scopeTags || [];
+  const showreelChapters: string[] = translations.hero.showreelChapters || [];
   const builder = translations.about.builder;
 
   const portraitSrc = '/Media/posters/studio-bts-food-closeup.jpg';
@@ -275,10 +327,11 @@ export default function AboutSection({
                   </button>
                   <button
                     type="button"
-                    className="studio-btn-ghost"
-                    onClick={() => onProfileModeChange('cv')}
+                    className="studio-btn-ghost studio-btn-showreel"
+                    onClick={openShowreel}
                   >
-                    {t('about.modes.ctaSwitchCv')}
+                    <span className="studio-btn-showreel-icon" aria-hidden="true">▶</span>
+                    <span>{t('hero.showreelCta')}</span>
                   </button>
                 </div>
               </div>
@@ -336,10 +389,11 @@ export default function AboutSection({
                     </button>
                     <button
                       type="button"
-                      className="studio-btn-ghost"
-                      onClick={() => onProfileModeChange('cv')}
+                      className="studio-btn-ghost studio-btn-showreel"
+                      onClick={openShowreel}
                     >
-                      {t('about.modes.ctaSwitchCv')}
+                      <span className="studio-btn-showreel-icon" aria-hidden="true">▶</span>
+                      <span>{t('hero.showreelCta')}</span>
                     </button>
                   </div>
                 </div>
@@ -712,6 +766,61 @@ export default function AboutSection({
           </div>
         )}
       </div>
+
+      {/* Native <dialog closedby="any"> Showreel Modal */}
+      <dialog
+        ref={showreelDialogRef}
+        {...({ closedby: 'any' } as any)}
+        onClose={handleShowreelClose}
+        aria-labelledby={showreelTitleId}
+        className="quote-native-dialog showreel-dialog"
+      >
+        <div className="dialog-inner-box showreel-dialog-box">
+          <div className="dialog-top-bar">
+            <div className="showreel-header-meta">
+              <h2 id={showreelTitleId} className="showreel-dialog-title">
+                {t('hero.showreelTitle')}
+              </h2>
+              <p className="showreel-dialog-sub">{t('hero.showreelSubtitle')}</p>
+            </div>
+            <form method="dialog">
+              <button type="submit" value="close" autoFocus className="dialog-close-btn">
+                ✕ {t('hero.showreelClose')}
+              </button>
+            </form>
+          </div>
+
+          <div className="dialog-media-stage showreel-video-stage">
+            {isShowreelOpen && (
+              <video
+                ref={showreelVideoRef}
+                src="/Media/showreel-60s.mp4"
+                poster="/Media/posters/showreel-poster.jpg"
+                controls
+                autoPlay
+                playsInline
+                preload="metadata"
+                className="showreel-video"
+              />
+            )}
+          </div>
+
+          {showreelChapters.length > 0 && (
+            <div className="showreel-chapters-bar" aria-label="Showreel chapters">
+              {showreelChapters.map((chapter, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  className="showreel-chapter-chip"
+                  onClick={() => jumpToChapter(idx)}
+                >
+                  {chapter}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      </dialog>
     </section>
   );
 }
