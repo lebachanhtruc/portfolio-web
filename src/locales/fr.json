@@ -129,6 +129,7 @@
         "summary": "Entonnoir digital local bâti de zéro : Fiche Google Business 4,9★ (119 avis, 93,3 % 5★) avec Menu Natif 15 plats & SEO Local, Instagram Business (@patisseriedzung), et site vitrine 4 langues (FR/EN/VI/ZH) avec QR emballage (/goi-bo), CRO & Loi 25.",
         "ctaLive": "Visiter patisseriedzung.ca ↗",
         "ctaMaps": "Google Maps 4,9★ (119) ↗",
+        "ctaIg": "Instagram @patisseriedzung ↗",
         "ctaQr": "Voir la page QR O2O (/goi-bo) ↗",
         "ctaRepo": "Code source GitHub ↗",
         "demoHint": "Instrumentation en direct : vérifiez la fiche Google 4,9★ (119 avis), acceptez la bannière Loi 25 pour GA4 Consent Mode v2 & Clarity, ou ajoutez ?ab=A / ?ab=B pour le test A/B Hero CTA.",
@@ -362,6 +363,7 @@
       ],
       "liveCta": "Visiter patisseriedzung.ca ↗",
       "mapsCta": "Google Maps 4,9★ (119) ↗",
+      "igCta": "Instagram @patisseriedzung ↗",
       "quoteCta": "Devis Site Web ↓",
       "cvSystemsCta": "Voir le SaaS Paie IA (CV) →",
       "cardCategory": "Web & Croissance Clé en Main"
@@ -429,6 +431,7 @@
         "patisserie-dzung-home": "Hero Vidéo & Changement de Langue",
         "patisserie-dzung-menu": "Menu Interactif 44+ Plats & Allergènes",
         "patisserie-dzung-catering": "Devis Traiteur & Contact Direct",
+        "patisserie-dzung-instagram": "Instagram Business (@patisseriedzung) — Direction Artistique & Reels",
         "print-taydo-trifold-mockup": "Menu Dépliant 6 Faces — Maquette 3D (Montréal)",
         "print-bilingual-packaging-prepress": "Emballage Bilingue FR/EN (NPN) & Coupon Vectoriel",
         "print-pure-marketing-workbook": "Cahier de Formation 21 Pages (InDesign CMJN)",

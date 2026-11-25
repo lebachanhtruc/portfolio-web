@@ -282,6 +282,16 @@ function ProjectGroup({
                 {showcaseData.mapsCta}
               </a>
             )}
+            {showcaseData.igCta && (
+              <a
+                href="https://www.instagram.com/patisseriedzung/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="website-showcase-quote-btn"
+              >
+                {showcaseData.igCta}
+              </a>
+            )}
             <button
               type="button"
               className="website-showcase-quote-btn"

@@ -129,6 +129,7 @@
         "summary": "Built the full local digital funnel from zero: 4.9★ Google Business Profile (119 reviews, 93.3% 5★) with 15-item Native GBP Menu & Local SEO, Instagram Business (@patisseriedzung), and a 4-language storefront (FR/EN/VI/ZH) with O2O packaging QR (/goi-bo), live CRO & Québec Law 25.",
         "ctaLive": "Visit patisseriedzung.ca ↗",
         "ctaMaps": "Google Maps 4.9★ (119) ↗",
+        "ctaIg": "Instagram @patisseriedzung ↗",
         "ctaQr": "Inspect O2O QR (/goi-bo) ↗",
         "ctaRepo": "GitHub Source Code ↗",
         "demoHint": "Live instrumentation: inspect the 4.9★ (119 reviews) Google profile, opt into the Law 25 banner for GA4 Consent Mode v2 & Clarity, or append ?ab=A / ?ab=B for the 50/50 Hero CTA test.",
@@ -362,6 +363,7 @@
       ],
       "liveCta": "Visit patisseriedzung.ca ↗",
       "mapsCta": "Google Maps 4.9★ (119) ↗",
+      "igCta": "Instagram @patisseriedzung ↗",
       "quoteCta": "Website Package Quote ↓",
       "cvSystemsCta": "Inspect AI Payroll SaaS (CV) →",
       "cardCategory": "Turnkey Web & Growth"
@@ -429,6 +431,7 @@
         "patisserie-dzung-home": "Hero Cinema Video & 4-Language Switcher",
         "patisserie-dzung-menu": "44+ Dish Interactive Menu & Allergens",
         "patisserie-dzung-catering": "Catering Inquiry & 1-Tap Order Flow",
+        "patisserie-dzung-instagram": "Instagram Business (@patisseriedzung) — Social Grid & Reels",
         "print-taydo-trifold-mockup": "6-Panel Tri-Fold Restaurant Menu Mockup (Montréal)",
         "print-bilingual-packaging-prepress": "Bilingual FR/EN OTC Packaging (NPN) & Vector Voucher",
         "print-pure-marketing-workbook": "21-Page Corporate Training Workbook (InDesign CMYK)",

@@ -129,6 +129,7 @@
         "summary": "Xây dựng toàn bộ phễu tăng trưởng địa phương từ 0: Google Business Profile đạt 4.9★ (119 đánh giá, 93.3% 5★) kèm Native Menu 15 món & Local SEO, Instagram Business (@patisseriedzung), và web 4 ngôn ngữ (FR/EN/VI/ZH) có QR bao bì (/goi-bo), CRO & Luật 25 Québec.",
         "ctaLive": "Xem web thực tế: patisseriedzung.ca ↗",
         "ctaMaps": "Google Maps 4.9★ (119) ↗",
+        "ctaIg": "Instagram @patisseriedzung ↗",
         "ctaQr": "Xem trang QR bao bì (/goi-bo) ↗",
         "ctaRepo": "Mã nguồn GitHub ↗",
         "demoHint": "Đo lường chạy thật: xem trực tiếp hồ sơ Google 4.9★ (119 đánh giá), đồng ý thanh Luật 25 để kích hoạt GA4 Consent Mode v2 & Clarity, hoặc thêm ?ab=A / ?ab=B để xem 2 phiên bản A/B Test.",
@@ -362,6 +363,7 @@
       ],
       "liveCta": "Xem patisseriedzung.ca ↗",
       "mapsCta": "Google Maps 4.9★ (119) ↗",
+      "igCta": "Instagram @patisseriedzung ↗",
       "quoteCta": "Báo Giá Gói Website ↓",
       "cvSystemsCta": "Xem SaaS Lương AI (CV) →",
       "cardCategory": "Website & Tăng Trưởng Trọn Gói"
@@ -429,6 +431,7 @@
         "patisserie-dzung-home": "Trang Chủ Hero Video & Đa Ngôn Ngữ",
         "patisserie-dzung-menu": "Thực Đơn 44+ Món & Bộ Lọc Dị Ứng",
         "patisserie-dzung-catering": "Trang Đặt Tiệc Catering & Liên Hệ",
+        "patisserie-dzung-instagram": "Instagram Business (@patisseriedzung) — Social Grid & Reels",
         "print-taydo-trifold-mockup": "Menu Gấp 3 / 6 Mặt — Mockup 3D In Ấn (Montréal)",
         "print-bilingual-packaging-prepress": "Bao Bì Song Ngữ FR/EN (NPN) & Voucher Vector",
         "print-pure-marketing-workbook": "Tài Liệu Đào Tạo 21 Trang (InDesign CMYK)",
