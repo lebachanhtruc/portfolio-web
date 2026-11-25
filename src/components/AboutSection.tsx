@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { scrollToElementById } from '../utils/scroll';
 
@@ -137,9 +137,20 @@ export default function AboutSection({
   const { t, translations } = useLanguage();
   const [copiedPhone, setCopiedPhone] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [studioExpanded, setStudioExpanded] = useState(false);
 
   const agencyTabRef = useRef<HTMLButtonElement>(null);
   const cvTabRef = useRef<HTMLButtonElement>(null);
+  const studioPanelRef = useRef<HTMLDivElement>(null);
+
+  // Mirror browser Find-in-Page (`beforematch` on hidden="until-found") into React disclosure state
+  useEffect(() => {
+    const panel = studioPanelRef.current;
+    if (!panel) return;
+    const handleBeforeMatch = () => setStudioExpanded(true);
+    panel.addEventListener('beforematch', handleBeforeMatch);
+    return () => panel.removeEventListener('beforematch', handleBeforeMatch);
+  }, [profileMode]);
 
   const handleCopyPhone = () => {
     navigator.clipboard.writeText('438-985-7846');
@@ -182,7 +193,7 @@ export default function AboutSection({
   const scopeTags: string[] = (translations as any)?.about?.modes?.scopeTags || [];
   const builder = translations.about.builder;
 
-  const portraitSrc = '/Media/posters/IMG_4950_web.jpg';
+  const portraitSrc = '/Media/posters/studio-bts-food-closeup.jpg';
 
   return (
     <section className="about-editorial-section relative" id="about-studio">
@@ -225,36 +236,41 @@ export default function AboutSection({
             role="tabpanel"
             aria-labelledby="profile-tab-agency"
           >
-            <div className="studio-editorial-grid" id="contact-section">
-              <div className="studio-editorial-copy">
-                <span className="studio-editorial-kicker">{t('about.modes.badgeAgency')}</span>
-                <h2 className="studio-editorial-headline">{t('about.modes.agencyHeadline')}</h2>
-                <p className="studio-editorial-lead">{t('about.modes.agencyLead')}</p>
-
-                {proofStats.length > 0 && (
-                  <dl className="studio-proof-strip">
-                    {proofStats.map((stat, idx) => (
-                      <div key={idx} className="studio-proof-cell">
-                        <dt className="studio-proof-value">{stat.value}</dt>
-                        <dd className="studio-proof-label">{stat.label}</dd>
-                      </div>
-                    ))}
-                  </dl>
-                )}
-
-                {scopeTags.length > 0 && (
-                  <ul className="studio-scope-tags" aria-label="Studio capabilities">
-                    {scopeTags.map((tag, idx) => (
-                      <li key={idx} className="studio-scope-tag">
-                        {tag}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-
-                <div className="agency-cta-row">
-                  <button type="button" className="studio-btn-primary" onClick={scrollToQuote}>
-                    {t('about.modes.ctaViewQuote')}
+            {/* Compact Obsidian Editorial Studio Teaser (matches Interactive Quotation disclosure) */}
+            {!studioExpanded && (
+              <div className="studio-teaser-card" id="contact-section">
+                <div className="studio-teaser-left">
+                  <button
+                    type="button"
+                    className="studio-teaser-thumb-btn"
+                    onClick={() => setStudioExpanded(true)}
+                    aria-label={t('about.modes.ctaExpandStudio')}
+                  >
+                    <img
+                      src={portraitSrc}
+                      alt="TYM Production Behind-the-Scenes Studio Food Shoot"
+                      className="studio-teaser-thumb"
+                      width={76}
+                      height={95}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <div className="studio-teaser-copy">
+                    <span className="studio-editorial-kicker">{t('about.modes.badgeAgency')}</span>
+                    <h2 className="studio-teaser-title">{t('about.modes.agencyHeadline')}</h2>
+                    <p className="studio-teaser-meta">{t('about.modes.teaserSummary')}</p>
+                  </div>
+                </div>
+                <div className="studio-teaser-actions">
+                  <button
+                    type="button"
+                    className="studio-btn-primary"
+                    aria-expanded={false}
+                    aria-controls="studio-expanded-panel"
+                    onClick={() => setStudioExpanded(true)}
+                  >
+                    {t('about.modes.ctaExpandStudio')}
                   </button>
                   <button
                     type="button"
@@ -265,49 +281,111 @@ export default function AboutSection({
                   </button>
                 </div>
               </div>
+            )}
 
-              <aside className="studio-editorial-aside">
-                <figure className="studio-bts-frame">
-                  <img
-                    src={portraitSrc}
-                    alt="TYM Production Behind-the-Scenes Studio Shoot"
-                    className="studio-bts-img"
-                    width={540}
-                    height={675}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div className="studio-bts-scrim" aria-hidden="true" />
-                  <figcaption className="studio-bts-caption">
-                    <span>{t('about.modes.btsCaption')}</span>
-                  </figcaption>
-                </figure>
-
-                <div className="studio-contact-strip">
-                  <div className="studio-contact-actions">
-                    <a
-                      href="sms:+14389857846"
-                      onClick={handleCopyPhone}
-                      className="studio-contact-chip"
+            <div
+              ref={studioPanelRef}
+              id="studio-expanded-panel"
+              {...(!studioExpanded ? ({ hidden: 'until-found' } as Record<string, unknown>) : {})}
+            >
+              <div
+                className="studio-editorial-grid studio-editorial-revealed"
+                id={studioExpanded ? 'contact-section' : undefined}
+              >
+                <div className="studio-editorial-copy">
+                  <div className="studio-editorial-toprow">
+                    <span className="studio-editorial-kicker">{t('about.modes.badgeAgency')}</span>
+                    <button
+                      type="button"
+                      className="studio-collapse-pill"
+                      aria-expanded={true}
+                      aria-controls="studio-expanded-panel"
+                      onClick={() => setStudioExpanded(false)}
                     >
-                      <PhoneIcon />
-                      <span>{copiedPhone ? t('about.copiedPhone') : t('about.sendSms')}</span>
-                    </a>
-                    <a
-                      href="mailto:lebachanhtruc@gmail.com"
-                      onClick={handleCopyEmail}
-                      className="studio-contact-chip"
-                    >
-                      <MailIcon />
-                      <span>{copiedEmail ? t('about.copiedEmail') : t('about.sendEmail')}</span>
-                    </a>
+                      {t('about.modes.ctaCollapseStudio')}
+                    </button>
                   </div>
-                  <p className="studio-contact-area">
-                    <LocationIcon />
-                    <span>{t('about.modes.agencyAreasValue')}</span>
-                  </p>
+                  <h2 className="studio-editorial-headline">{t('about.modes.agencyHeadline')}</h2>
+                  <p className="studio-editorial-lead">{t('about.modes.agencyLead')}</p>
+
+                  {proofStats.length > 0 && (
+                    <dl className="studio-proof-strip">
+                      {proofStats.map((stat, idx) => (
+                        <div key={idx} className="studio-proof-cell">
+                          <dt className="studio-proof-value">{stat.value}</dt>
+                          <dd className="studio-proof-label">{stat.label}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  )}
+
+                  {scopeTags.length > 0 && (
+                    <ul className="studio-scope-tags" aria-label="Studio capabilities">
+                      {scopeTags.map((tag, idx) => (
+                        <li key={idx} className="studio-scope-tag">
+                          {tag}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  <div className="agency-cta-row">
+                    <button type="button" className="studio-btn-primary" onClick={scrollToQuote}>
+                      {t('about.modes.ctaViewQuote')}
+                    </button>
+                    <button
+                      type="button"
+                      className="studio-btn-ghost"
+                      onClick={() => onProfileModeChange('cv')}
+                    >
+                      {t('about.modes.ctaSwitchCv')}
+                    </button>
+                  </div>
                 </div>
-              </aside>
+
+                <aside className="studio-editorial-aside">
+                  <figure className="studio-bts-frame">
+                    <img
+                      src={portraitSrc}
+                      alt="TYM Production Behind-the-Scenes Studio Shoot"
+                      className="studio-bts-img"
+                      width={540}
+                      height={675}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div className="studio-bts-scrim" aria-hidden="true" />
+                    <figcaption className="studio-bts-caption">
+                      <span>{t('about.modes.btsCaption')}</span>
+                    </figcaption>
+                  </figure>
+
+                  <div className="studio-contact-strip">
+                    <div className="studio-contact-actions">
+                      <a
+                        href="sms:+14389857846"
+                        onClick={handleCopyPhone}
+                        className="studio-contact-chip"
+                      >
+                        <PhoneIcon />
+                        <span>{copiedPhone ? t('about.copiedPhone') : t('about.sendSms')}</span>
+                      </a>
+                      <a
+                        href="mailto:lebachanhtruc@gmail.com"
+                        onClick={handleCopyEmail}
+                        className="studio-contact-chip"
+                      >
+                        <MailIcon />
+                        <span>{copiedEmail ? t('about.copiedEmail') : t('about.sendEmail')}</span>
+                      </a>
+                    </div>
+                    <p className="studio-contact-area">
+                      <LocationIcon />
+                      <span>{t('about.modes.agencyAreasValue')}</span>
+                    </p>
+                  </div>
+                </aside>
+              </div>
             </div>
           </div>
         ) : (
