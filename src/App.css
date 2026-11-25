@@ -5419,13 +5419,12 @@ dialog.showreel-dialog[open] {
   margin: -0.2rem 0 1.65rem;
 }
 
-/* Collapsed 03 / WEB mobile mockup: keep entire iPhone centered & uncropped across all laptop aspect ratios */
+/* Collapsed 03 / WEB mobile view: full-bleed edge-to-edge mobile UI filling 100% of card 3 */
 .kiln-card[data-pillar='web']:not(.is-active) .kiln-card-img--collapsed {
-  object-fit: contain;
-  object-position: center center;
-  background: #0b0d13;
+  object-fit: cover;
+  object-position: center top;
   transform: scale(1);
-  filter: brightness(0.92) saturate(1.04);
+  filter: brightness(0.86) saturate(1.04);
 }
 
 .kiln-card[data-pillar='web'].is-active .kiln-card-img {
